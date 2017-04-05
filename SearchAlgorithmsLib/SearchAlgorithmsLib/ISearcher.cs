@@ -9,11 +9,11 @@ namespace SearchAlgorithmsLib
     public interface ISearcher<T>
     {
         // the search method
-        Solution search(ISearchable<T> searchable);
+        Solution<T> search(ISearchable<T> searchable);
         void addToOpenList(State<T> state);
         // get how many nodes were evaluated by the algorithm
         int getNumberOfNodesEvaluated();
-        Solution backTrace();
+        Solution<T> backTrace(State<T> goal);
         bool openContaines(State<T> state);
     }
 }

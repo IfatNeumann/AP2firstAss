@@ -18,9 +18,13 @@ namespace SearchAlgorithmsLib
         {
             return state.Equals(s.state);
         } 
-        public double getCost()
+        public double GetCost()
         {
             return this.cost;
+        }
+        public State<T> GetParent()
+        {
+            return this.cameFrom;
         }
         // ...
     }

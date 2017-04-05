@@ -23,10 +23,10 @@ namespace SearchAlgorithmsLib
             return openList.Dequeue();
         }
         // the search method
-        public abstract Solution search(ISearchable<T> searchable);
+        public abstract Solution<T> search(ISearchable<T> searchable);
         // get how many nodes were evaluated by the algorithm
         public abstract int getNumberOfNodesEvaluated();
-        public abstract Solution backTrace();
+        public abstract Solution<T> backTrace(State<T> goal);
         public abstract bool openContaines(State<T> state);
     }
 }
