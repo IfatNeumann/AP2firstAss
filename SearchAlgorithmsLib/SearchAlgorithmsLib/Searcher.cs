@@ -11,10 +11,7 @@ namespace SearchAlgorithmsLib
     public abstract class Searcher<T> : ISearcher<T>
     {   public SimplePriorityQueue<State<T>> openList;
         private int evaluatedNodes;
-        public void addToOpenList(State<T> state)
-        {
-
-        }
+        public abstract void addToOpenList(State<T> state);
         public Searcher()
         {
             openList = new SimplePriorityQueue<State<T>>();
@@ -23,11 +20,12 @@ namespace SearchAlgorithmsLib
         protected State<T> popOpenList()
         {
             evaluatedNodes++;
-            return openList.pop();
+            return openList.Dequeue();
         }
         // the search method
         public abstract Solution search(ISearchable<T> searchable);
         // get how many nodes were evaluated by the algorithm
         public abstract int getNumberOfNodesEvaluated();
+        public abstract void backTrace();
     }
 }

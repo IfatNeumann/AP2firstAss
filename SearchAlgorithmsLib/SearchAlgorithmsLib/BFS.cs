@@ -21,14 +21,17 @@ namespace SearchAlgorithmsLib
         { // Searcher's abstract method overriding
             addToOpenList(searchable.getInitialState()); // inherited from Searcher
             HashSet<State<T>> closed = new HashSet<State<T>>();
-            while (OpenListSize> 0) {
+            int OpenListSize = openList.Count;
+            while (OpenListSize > 0)
+            {
                 State<T> n = popOpenList(); // inherited from Searcher, removes the best state
                 closed.Add(n);
-                if (n.Equals(searchable.getIGoallState()))
+                if (n.Equals(searchable.getGoalState()))
                     return backTrace(); // private method, back traces through the parents
                                         // calling the delegated method, returns a list of states with n as a parent
-                List<State<T>> succerssors= searchable.getAllPossibleStates(n);
-                foreach (State<T> s in succerssors){
+                List<State<T>> succerssors = searchable.getAllPossibleStates(n);
+                foreach (State<T> s in succerssors)
+                {
                     if (!closed.Contains(s) && !openContaines(s))
                     {
                         // s.setCameFrom(n);
@@ -39,5 +42,12 @@ namespace SearchAlgorithmsLib
                     {
                         //...
                     }
+                }
+            }
+
+        }
+        private void backTrace()
+        {
+
         }
 }
