@@ -8,10 +8,12 @@ namespace SearchAlgorithmsLib
 {
     class BFS<T> : Searcher<T>
     {
+
+        private HashSet<State<T>> closed = new HashSet<State<T>>();
         // get how many nodes were evaluated by the algorithm
         public override int getNumberOfNodesEvaluated()
         {
-            return 0;
+            return closed.Count;
         }
         public override void addToOpenList(State<T> state)
         {
@@ -20,7 +22,6 @@ namespace SearchAlgorithmsLib
         public override Solution search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
             addToOpenList(searchable.getInitialState()); // inherited from Searcher
-            HashSet<State<T>> closed = new HashSet<State<T>>();
             int OpenListSize = openList.Count;
             while (OpenListSize > 0)
             {
@@ -54,6 +55,6 @@ namespace SearchAlgorithmsLib
         }
         public override bool openContaines(State<T> state)
         {
-
+            return (openList.Count != 0);
         }
 }
