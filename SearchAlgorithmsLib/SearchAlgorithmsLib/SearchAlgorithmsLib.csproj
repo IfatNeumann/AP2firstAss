@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BFS.cs" />
     <Compile Include="ISearchable.cs" />
     <Compile Include="ISearcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
