@@ -9,9 +9,9 @@ namespace SearchAlgorithmsLib
     public abstract class Searcher : ISearcher
     {
         private MyPriorityQueue<State> openList;
-        private intevaluatedNodes;
+        private int evaluatedNodes;
         publicSearcher()
-        {
+        {//hi
             openList = new MyPriorityQueue<State>();
             evaluatedNodes = 0;
         }
