@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class BFS : Searcher
+    class BFS<T> : Searcher<T>
     {
-        public override Solution search(ISearchable searchable)
+        public override Solution search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
             addToOpenList(searchable.getInitialState()); // inherited from Searcher
             HashSet<State> closed = new HashSet<State>();

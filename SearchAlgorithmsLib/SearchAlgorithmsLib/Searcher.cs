@@ -6,19 +6,29 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    public abstract class Searcher : ISearcher
+    public abstract class Searcher<T> : ISearcher<T>
     {
-        private MyPriorityQueue<State> openList;
+        private MyPriorityQueue<State<T>> openList;
         private int evaluatedNodes;
-        publicSearcher()
-        {//hi
-            openList = new MyPriorityQueue<State>();
+        public Searcher()
+        {
+            openList = new MyPriorityQueue<State<T>>();
             evaluatedNodes = 0;
         }
-        protected State popOpenList()
+        protected State<T> popOpenList()
         {
             evaluatedNodes++;
             return openList.poll();
+        }
+        // the search method
+        Solution search(ISearchable<T> searchable){
+            Solution s = new Solution();
+            return s;
+        }
+        // get how many nodes were evaluated by the algorithm
+        int getNumberOfNodesEvaluated()
+        {
+            return 0;
         }
     }
 }
