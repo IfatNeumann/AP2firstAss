@@ -1,4 +1,5 @@
 ﻿using System;
+using Priority_Queue;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,28 +9,21 @@ using System.Threading.Tasks;
 namespace SearchAlgorithmsLib
 {
     public abstract class Searcher<T> : ISearcher<T>
-    {
-        private MyPriorityQueue<State<T>> openList;
+    {   public SimplePriorityQueue<State<T>> openList;
         private int evaluatedNodes;
         public Searcher()
         {
-            openList = new MyPriorityQueue<State<T>>();
+            openList = new SimplePriorityQueue<State<T>>();
             evaluatedNodes = 0;
         }
         protected State<T> popOpenList()
         {
             evaluatedNodes++;
-            return openList.poll();
+            return openList.pop();
         }
         // the search method
-        Solution search(ISearchable<T> searchable){
-            Solution s = new Solution();
-            return s;
-        }
+        public abstract Solution search(ISearchable<T> searchable);
         // get how many nodes were evaluated by the algorithm
-        int getNumberOfNodesEvaluated()
-        {
-            return 0;
-        }
+        public abstract int getNumberOfNodesEvaluated();
     }
 }

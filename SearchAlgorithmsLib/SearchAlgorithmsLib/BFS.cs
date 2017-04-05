@@ -8,6 +8,11 @@ namespace SearchAlgorithmsLib
 {
     class BFS<T> : Searcher<T>
     {
+        // get how many nodes were evaluated by the algorithm
+        public override int getNumberOfNodesEvaluated()
+        {
+            return 0;
+        }
         public override Solution search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
             int OpenListSize = 0;
