@@ -13,9 +13,12 @@ namespace SearchAlgorithmsLib
         {
             return 0;
         }
+        public override void addToOpenList(State<T> state)
+        {
+
+        }
         public override Solution search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
-            int OpenListSize = 0;
             addToOpenList(searchable.getInitialState()); // inherited from Searcher
             HashSet<State<T>> closed = new HashSet<State<T>>();
             while (OpenListSize> 0) {
@@ -26,13 +29,15 @@ namespace SearchAlgorithmsLib
                                         // calling the delegated method, returns a list of states with n as a parent
                 List<State<T>> succerssors= searchable.getAllPossibleStates(n);
                 foreach (State<T> s in succerssors){
-                    if (!closed.Contains(s) && !openContaines(s)){
+                    if (!closed.Contains(s) && !openContaines(s))
+                    {
                         // s.setCameFrom(n);
-                        // already done by getSuccessors
+                        // already done by getSuccess\ ors
                         addToOpenList(s);
                     }
                     else
                     {
                         //...
+                    }
         }
 }

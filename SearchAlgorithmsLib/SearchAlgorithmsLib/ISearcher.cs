@@ -10,6 +10,7 @@ namespace SearchAlgorithmsLib
     {
         // the search method
         Solution search(ISearchable<T> searchable);
+        void addToOpenList(State<T> state);
         // get how many nodes were evaluated by the algorithm
         int getNumberOfNodesEvaluated();
     }

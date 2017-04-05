@@ -11,6 +11,10 @@ namespace SearchAlgorithmsLib
     public abstract class Searcher<T> : ISearcher<T>
     {   public SimplePriorityQueue<State<T>> openList;
         private int evaluatedNodes;
+        public void addToOpenList(State<T> state)
+        {
+
+        }
         public Searcher()
         {
             openList = new SimplePriorityQueue<State<T>>();
