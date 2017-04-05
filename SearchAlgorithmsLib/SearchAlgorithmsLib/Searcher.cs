@@ -26,6 +26,7 @@ namespace SearchAlgorithmsLib
         public abstract Solution search(ISearchable<T> searchable);
         // get how many nodes were evaluated by the algorithm
         public abstract int getNumberOfNodesEvaluated();
-        public abstract void backTrace();
+        public abstract Solution backTrace();
+        public abstract bool openContaines(State<T> state);
     }
 }

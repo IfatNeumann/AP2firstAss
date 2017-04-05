@@ -13,5 +13,7 @@ namespace SearchAlgorithmsLib
         void addToOpenList(State<T> state);
         // get how many nodes were evaluated by the algorithm
         int getNumberOfNodesEvaluated();
+        Solution backTrace();
+        bool openContaines(State<T> state);
     }
 }

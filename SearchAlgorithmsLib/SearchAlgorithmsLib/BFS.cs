@@ -15,7 +15,7 @@ namespace SearchAlgorithmsLib
         }
         public override void addToOpenList(State<T> state)
         {
-
+            openList.Enqueue(state,(float)state.getCost());
         }
         public override Solution search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
@@ -43,10 +43,16 @@ namespace SearchAlgorithmsLib
                         //...
                     }
                 }
+
+                OpenListSize = openList.Count;
             }
 
         }
-        private void backTrace()
+        public override Solution backTrace()
+        {
+
+        }
+        public override bool openContaines(State<T> state)
         {
 
         }
