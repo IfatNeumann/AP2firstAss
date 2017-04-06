@@ -9,19 +9,14 @@ using System.Threading.Tasks;
 namespace SearchAlgorithmsLib
 {
     public abstract class Searcher<T> : ISearcher<T>
-    {   public SimplePriorityQueue<State<T>> openList;
-        private int evaluatedNodes;
-        public abstract void addToOpenList(State<T> state);
+    {   
+        public int evaluatedNodes;
+        public abstract void addToDataStructor(State<T> state);
         public Searcher()
         {
-            openList = new SimplePriorityQueue<State<T>>();
             evaluatedNodes = 0;
         }
-        protected State<T> popOpenList()
-        {
-            evaluatedNodes++;
-            return openList.Dequeue();
-        }
+        public abstract State<T> popDataStructor();
         // the search method
         public abstract Solution<T> search(ISearchable<T> searchable);
         // get how many nodes were evaluated by the algorithm

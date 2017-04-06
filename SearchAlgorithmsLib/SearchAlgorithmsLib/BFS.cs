@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Priority_Queue;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +9,21 @@ namespace SearchAlgorithmsLib
 {
     class BFS<T> : Searcher<T>
     {
-
+        private SimplePriorityQueue<State<T>> openList;
         private HashSet<State<T>> closed = new HashSet<State<T>>();
         // get how many nodes were evaluated by the algorithm
         public override int getNumberOfNodesEvaluated()
         {
             return closed.Count;
         }
-        public override void addToOpenList(State<T> state)
+        public override void addToDataStructor(State<T> state)
         {
             openList.Enqueue(state, (float)state.Cost);
+        }
+        public override State<T> popDataStructor()
+        {
+            evaluatedNodes++;
+            return openList.Dequeue();
         }
         public override Solution<T> search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
