@@ -26,6 +26,18 @@ namespace SearchAlgorithmsLib
         {
             return this.cameFrom;
         }
-        // ...
+        public Solution<T> backTrace()
+        {
+            Solution<T> s = new Solution<T>();
+            State<T> thisState = this;
+            while (thisState.GetParent() != null)
+            {
+                s.trace.Enqueue(thisState);
+                thisState = thisState.GetParent();
+            }
+            return s;
+
+        }
     }
+    
 }
