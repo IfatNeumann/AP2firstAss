@@ -32,10 +32,10 @@ namespace SearchAlgorithmsLib
         {
             Solution<T> s = new Solution<T>();
             State<T> thisState = this;
-            while (thisState.GetParent() != null)
+            while (thisState.Parent != null)
             {
                 s.trace.Enqueue(thisState);
-                thisState = thisState.GetParent();
+                thisState = thisState.Parent;
             }
             return s;
 

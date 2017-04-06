@@ -50,7 +50,6 @@ namespace SearchAlgorithmsLib
                 }
                 OpenListSize = openList.Count;
             }
-
         }
     }
 }
