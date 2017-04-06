@@ -9,30 +9,40 @@ namespace SearchAlgorithmsLib
 {
     class DFS<T> : Searcher<T>
     {
-        public Stack<State<T>> stack = new Stack<State<T>>();
+        public Stack<State<T>> visitedStack = new Stack<State<T>>();
 
         public override State<T> popDataStructor()
         {
-            return stack.Pop();
+            return visitedStack.Pop();
         }
         public override void addToDataStructor(State<T> state)
         {
-            stack.Push(state);
-        }
-
-        public override int getNumberOfNodesEvaluated()
-        {
-            //return 
+            visitedStack.Push(state);
         }
 
         public override Solution<T> search(ISearchable<T> searchable)
         {
-            stack.Push(searchable.getInitialState());
-            while (stack.Count != 0)
+            visitedStack.Push(searchable.getInitialState());
+            while (visitedStack.Count != 0)
             {
-                State<T> thisState = stack.Pop();
-                addToDataStructor(thisState);
+                State<T> thisState = visitedStack.Pop();
+                closed.Add(thisState);
+                if (thisState.Equals(searchable.getGoalState()))
+                    return thisState.backTrace();
+                List<State<T>> succerssors = searchable.getAllPossibleStates(thisState);
+                foreach (State<T> s in succerssors)
+                {
+                    if (!closed.Contains(s) && !visitedStack.Contains(s))
+                    {
+                        s.Parent = thisState;// already done by getSuccessors
+                        addToDataStructor(s);
+
+                    }
+
+                }
+                OpenListSize = openList.Count;
             }
+        }
         }
     }
 }
