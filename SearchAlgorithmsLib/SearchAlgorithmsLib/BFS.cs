@@ -17,7 +17,7 @@ namespace SearchAlgorithmsLib
         }
         public override void addToOpenList(State<T> state)
         {
-            openList.Enqueue(state, (float)state.GetCost());
+            openList.Enqueue(state, (float)state.Cost);
         }
         public override Solution<T> search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
@@ -29,30 +29,28 @@ namespace SearchAlgorithmsLib
                 closed.Add(n);
                 if (n.Equals(searchable.getGoalState()))
                     return n.backTrace(); // private method, back traces through the parents
-                                         // calling the delegated method, returns a list of states with n as a parent
+                // calling the delegated method, returns a list of states with n as a parent
                 List<State<T>> succerssors = searchable.getAllPossibleStates(n);
                 foreach (State<T> s in succerssors)
                 {
-                    if (!closed.Contains(s) && !openContaines(s))
+                    if (!closed.Contains(s) && !openList.Contains(s))
                     {
-                        // s.setCameFrom(n);
-                        // already done by getSuccess\ ors
+                        //s.setCameFrom(n);// already done by getSuccessors
                         addToOpenList(s);
                     }
-                    else
+                    else if (openList.Contains(s) || (n.Cost + 1 < s.Cost))//is inside the open list
                     {
-                        //...
+                        openList.Remove(s);
+                        s.Cost = n.Cost + 1;
+                        s.Parent = n;
+                        addToOpenList(s);
+
                     }
                 }
 
                 OpenListSize = openList.Count;
             }
 
-        }
-        
-        public override bool openContaines(State<T> state)
-        {
-            return (openList.Count != 0);
         }
     }
 }

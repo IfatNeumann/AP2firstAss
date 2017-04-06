@@ -17,15 +17,17 @@ namespace SearchAlgorithmsLib
         public bool Equals(State<T> s) // we overload Object's Equals method
         {
             return state.Equals(s.state);
-        } 
-        public double GetCost()
-        {
-            return this.cost;
         }
-        public State<T> GetParent()
+        public double Cost
         {
-            return this.cameFrom;
+            get { return this.cost; }
+            set { this.cost = value; }
         }
+        public State<T> Parent
+        {
+            get { return this.cameFrom; }
+            set { this.cameFrom = value; }
+        }       
         public Solution<T> backTrace()
         {
             Solution<T> s = new Solution<T>();
