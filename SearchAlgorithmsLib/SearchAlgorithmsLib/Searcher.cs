@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace SearchAlgorithmsLib
 {
     public abstract class Searcher<T> : ISearcher<T>
-    {   
+    {
+        public HashSet<State<T>> closed = new HashSet<State<T>>();
         public int evaluatedNodes;
         public abstract void addToDataStructor(State<T> state);
         public Searcher()
@@ -20,6 +21,9 @@ namespace SearchAlgorithmsLib
         // the search method
         public abstract Solution<T> search(ISearchable<T> searchable);
         // get how many nodes were evaluated by the algorithm
-        public abstract int getNumberOfNodesEvaluated();
+        public int getNumberOfNodesEvaluated()
+        {
+            return closed.Count;
+        }
     }
 }
