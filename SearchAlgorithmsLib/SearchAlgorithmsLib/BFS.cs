@@ -10,12 +10,7 @@ namespace SearchAlgorithmsLib
     class BFS<T> : Searcher<T>
     {
         private SimplePriorityQueue<State<T>> openList;
-        private HashSet<State<T>> closed = new HashSet<State<T>>();
         // get how many nodes were evaluated by the algorithm
-        public override int getNumberOfNodesEvaluated()
-        {
-            return closed.Count;
-        }
         public override void addToDataStructor(State<T> state)
         {
             openList.Enqueue(state, (float)state.Cost);
@@ -27,11 +22,11 @@ namespace SearchAlgorithmsLib
         }
         public override Solution<T> search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
-            addToOpenList(searchable.getInitialState()); // inherited from Searcher
+            addToDataStructor(searchable.getInitialState()); // inherited from Searcher
             int OpenListSize = openList.Count;
             while (OpenListSize > 0)
             {
-                State<T> n = popOpenList(); // inherited from Searcher, removes the best state
+                State<T> n = popDataStructor(); // inherited from Searcher, removes the best state
                 closed.Add(n);
                 if (n.Equals(searchable.getGoalState()))
                     return n.backTrace(); // private method, back traces through the parents
@@ -43,14 +38,14 @@ namespace SearchAlgorithmsLib
                     {
                         s.Parent = n;// already done by getSuccessors
                         s.Cost = n.Cost + 1;
-                        addToOpenList(s);
+                        addToDataStructor(s);
                     }
                     else if (openList.Contains(s) || (n.Cost + 1 < s.Cost))//is inside the open list
                     {
                         openList.Remove(s);
                         s.Cost = n.Cost + 1;
                         s.Parent = n;
-                        addToOpenList(s);
+                        addToDataStructor(s);
 
                     }
                 }
