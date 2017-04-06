@@ -35,7 +35,8 @@ namespace SearchAlgorithmsLib
                 {
                     if (!closed.Contains(s) && !openList.Contains(s))
                     {
-                        //s.setCameFrom(n);// already done by getSuccessors
+                        s.Parent = n;// already done by getSuccessors
+                        s.Cost = n.Cost + 1;
                         addToOpenList(s);
                     }
                     else if (openList.Contains(s) || (n.Cost + 1 < s.Cost))//is inside the open list
@@ -47,7 +48,6 @@ namespace SearchAlgorithmsLib
 
                     }
                 }
-
                 OpenListSize = openList.Count;
             }
 
