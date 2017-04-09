@@ -47,29 +47,42 @@ namespace SearchAlgorithmsLib
 
         public static State<T> getState(T state)
         {
-            return StatePool<T>.getState(state);
-
+            return StatePool<T>.Instance.getState(state);
         }
 
         //singleton
-        public class StatePool<T>
+        public sealed class StatePool<T>
         {
-            private static Dictionary<T,State<T>> pool;
+            private Dictionary<T,State<T>> pool;
 
-            public StatePool() {}
+            private StatePool()
+            {
+                this.pool = new Dictionary<T, State<T>>();
+            }
 
-            public static Dictionary<T, State<T>> Pool
+            private static volatile StatePool<T> instance;
+
+            private static object syncRoot = new object();
+
+            public static StatePool<T> Instance
             {
                 get
                 {
-                    if (pool == null)
+                    if (instance == null)
                     {
-                        pool = new Dictionary<T, State<T>>();
+                        lock (syncRoot)
+                        {
+                            if (instance == null)
+                            {
+                                instance = new StatePool<T>();
+                            }
+                        }
                     }
-                    return pool;
+                    return instance;
                 }
             }
-            public static State<T> getState(T state)
+
+            public State<T> getState(T state)
             {
                 if (!pool.ContainsKey(state))
                 {
@@ -77,7 +90,6 @@ namespace SearchAlgorithmsLib
                     pool.Add(state, newState);
                 } 
                 return pool[state];
-
             }
         }
     }
