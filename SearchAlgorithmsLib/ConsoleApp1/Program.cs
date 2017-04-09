@@ -28,7 +28,6 @@ namespace ConsoleApp1
             //BFS solution
             ISearcher<Position> sbfs = new BFS<Position>();
             sbfs.search(mazeAdapter);
-            //hi
             Console.WriteLine(sbfs.getNumberOfNodesEvaluated());
             //DFS solution
             ISearcher<Position> sdfs = new DFS<Position>();
