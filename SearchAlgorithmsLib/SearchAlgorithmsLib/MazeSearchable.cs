@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class MazeSearchable: ISearchable<Pos>
+    class MazeSearchable<T>: ISearchable<T>
     {
-    public State<Pos> getInitialState()
+        public State<T> getInitialState()
         {
-            return 
+
         }
-        public State<Pos> getGoalState()
+        public State<T> getGoalState()
         {
-            return
+
         }
-        public List<State<Pos>> getAllPossibleStates(State<Pos> s)
+        public List<State<T>> getAllPossibleStates(State<T> s)
         {
-            return
+
         }
     }
 }
