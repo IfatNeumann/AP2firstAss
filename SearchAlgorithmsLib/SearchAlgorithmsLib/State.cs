@@ -77,7 +77,7 @@ namespace SearchAlgorithmsLib
                     pool.Add(state, newState);
                 } 
                 return pool[state];
-                
+
             }
         }
     }
