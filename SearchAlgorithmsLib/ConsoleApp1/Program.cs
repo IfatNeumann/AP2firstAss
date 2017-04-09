@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MazeGeneratorLib;
+using MazeLib;
 
 namespace ConsoleApp1
 {
@@ -15,7 +16,8 @@ namespace ConsoleApp1
         void CompareSolvers()
         {
             //create maze
-            DFSMazeGenerator myMaze = new DFSMazeGenerator();
+            DFSMazeGenerator myMazeGen = new DFSMazeGenerator();
+            Maze myMaze = myMazeGen.Generate(5,5);
             ObjectAdapter mazeAdapter = new ObjectAdapter(myMaze);
             //print maze
             Console.WriteLine(myMaze.ToString());

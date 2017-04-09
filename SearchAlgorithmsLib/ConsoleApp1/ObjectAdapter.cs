@@ -12,14 +12,14 @@ namespace ConsoleApp1
     {
         private Maze myMaze;
         //Ctor
-        ObjectAdapter(Maze maze)
+        public ObjectAdapter(Maze maze)
         {
-            myMaze = maze;
+            this.myMaze = maze;
         }
 
         public List<State<Position>> getAllPossibleStates(State<Position> s)
         {
-            throw new NotImplementedException();
+            List<State<Position>> neighbors = new List<State<Position>>();
         }
 
         public State<Position> getGoalState()
