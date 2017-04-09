@@ -24,6 +24,7 @@ namespace ConsoleApp1
             List<State<Position>> neighbors = new List<State<Position>>();
             //12 o'clock
             if ((row - 1 > upperBound) && (myMaze[row - 1, col] == CellType.Free))
+
                 neighbors.Add(new State<Position>(new Position(row - 1, col)));
             //3 o'clock
             if ((col + 1 < rightBound) && (myMaze[row, col + 1] == CellType.Free))

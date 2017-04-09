@@ -28,6 +28,7 @@ namespace SearchAlgorithmsLib
             {
                 State<T> n = popDataStructor(); // inherited from Searcher, removes the best state
                 Console.WriteLine(n.myState.ToString());
+                poo
                 closed.Add(n);
                 if (n.Equals(searchable.getGoalState()))
                     return n.backTrace(); // private method, back traces through the parents
@@ -47,7 +48,6 @@ namespace SearchAlgorithmsLib
                         s.Cost = n.Cost + 1;
                         s.Parent = n;
                         addToDataStructor(s);
-
                     }
                 }
                 OpenListSize = openList.Count;
