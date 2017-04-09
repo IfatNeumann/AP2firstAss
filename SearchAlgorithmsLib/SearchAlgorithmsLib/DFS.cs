@@ -36,9 +36,7 @@ namespace SearchAlgorithmsLib
                     {
                         s.Parent = thisState;// already done by getSuccessors
                         addToDataStructor(s);
-
                     }
-
                 }
             }
         }
