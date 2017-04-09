@@ -20,6 +20,8 @@ namespace ConsoleApp1
         public List<State<Position>> getAllPossibleStates(State<Position> s)
         {
             List<State<Position>> neighbors = new List<State<Position>>();
+            //12 o'clock
+            if ()
         }
 
         public State<Position> getGoalState()

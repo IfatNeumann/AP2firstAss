@@ -16,8 +16,9 @@ namespace ConsoleApp1
         void CompareSolvers()
         {
             //create maze
+            int rows = 5, cols = 5;
             DFSMazeGenerator myMazeGen = new DFSMazeGenerator();
-            Maze myMaze = myMazeGen.Generate(5,5);
+            Maze myMaze = myMazeGen.Generate(rows,cols);
             ObjectAdapter mazeAdapter = new ObjectAdapter(myMaze);
             //print maze
             Console.WriteLine(myMaze.ToString());
