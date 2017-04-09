@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MazeGeneratorLib;
 using MazeLib;
+using SearchAlgorithmsLib;
 
 namespace ConsoleApp1
 {
@@ -23,6 +24,8 @@ namespace ConsoleApp1
             //print maze
             Console.WriteLine(myMaze.ToString());
             //BFS solution
+            
+
             //DFS solution
             //print num of stages
         }
