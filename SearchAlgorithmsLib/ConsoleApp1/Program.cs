@@ -14,7 +14,6 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             CompareSolvers(4, 4);
-            Console.Read();
         }
         public static void CompareSolvers(int row, int col)
         {
@@ -23,20 +22,18 @@ namespace ConsoleApp1
             DFSMazeGenerator myMazeGen = new DFSMazeGenerator();
             maze = myMazeGen.Generate(row, col);
             Console.WriteLine(maze);//print
-            Console.WriteLine("Starting point: "+maze.InitialPos.ToString());
-            Console.WriteLine("Goal point: " + maze.GoalPos.ToString());
             // Maze myMaze = myMazeGen.Generate(rows,cols);
             ObjectAdapter mazeAdapter = new ObjectAdapter(maze);
             //BFS solution
             ISearcher<Position> sbfs = new BFS<Position>();
             sbfs.search(mazeAdapter);
             //print num of stages
-            Console.WriteLine("BFS: " + sbfs.getNumberOfNodesEvaluated());
+            Console.WriteLine(sbfs.getNumberOfNodesEvaluated());
             //DFS solution
             ISearcher<Position> sdfs = new DFS<Position>();
-            //sdfs.search(mazeAdapter);
+            sdfs.search(mazeAdapter);
             //print num of stages
-            //Console.WriteLine("DFS: "+sdfs.getNumberOfNodesEvaluated()); 
+            Console.WriteLine(sdfs.getNumberOfNodesEvaluated()); 
         }
     }
 }
