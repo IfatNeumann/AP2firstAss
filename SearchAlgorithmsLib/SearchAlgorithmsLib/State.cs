@@ -27,7 +27,8 @@ namespace SearchAlgorithmsLib
         {
             get { return this.cameFrom; }
             set { this.cameFrom = value; }
-        }       
+        }
+       
         public Solution<T> backTrace()
         {
             Solution<T> s = new Solution<T>();
