@@ -22,7 +22,7 @@ namespace SearchAlgorithmsLib
         }
         public override Solution<T> search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
-            bool inClosed = false, inOpenList = false ;
+            
             addToDataStructor(searchable.getInitialState()); // inherited from Searcher
             int OpenListSize = openList.Count;
             while (OpenListSize > 0)
@@ -35,29 +35,13 @@ namespace SearchAlgorithmsLib
                 List<State<T>> succerssors = searchable.getAllPossibleStates(n);
                 foreach (State<T> s in succerssors)
                 {
-                    foreach (State<T> s1 in closed)
-                    {
-                        if (s.myState.Equals(s1.myState))
-                        {
-                            inClosed = true;
-                            break;
-                        }
-                    }
-                    foreach (State<T> s1 in openList)
-                    {
-                        if (s.myState.Equals(s1.myState))
-                        {
-                            inOpenList = true;
-                            break;
-                        }
-                    }
-                    if (!inClosed && !inOpenList)
+                    if (!closed.Contains(s) && !openList.Contains(s))
                     {
                         s.Parent = n;// already done by getSuccessors
                         s.Cost = n.Cost + 1;
                         addToDataStructor(s);
                     }
-                    else if (inOpenList || (n.Cost + 1 < s.Cost))//is inside the open list
+                    else if (openList.Contains(s) || (n.Cost + 1 < s.Cost))//is inside the open list
                     {
                         openList.Remove(s);
                         s.Cost = n.Cost + 1;
@@ -65,8 +49,6 @@ namespace SearchAlgorithmsLib
                         addToDataStructor(s);
 
                     }
-                    inOpenList = false;
-                    inClosed = false;
                 }
                 OpenListSize = openList.Count;
             }

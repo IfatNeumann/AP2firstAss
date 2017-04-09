@@ -43,10 +43,42 @@ namespace SearchAlgorithmsLib
                 thisState = thisState.Parent;
             }
             return s;
+        }
+
+        public static State<T> getState(T state)
+        {
+            return StatePool<T>.getState(state);
 
         }
-        //public static class StatePool<T>
 
+        //singleton
+        public class StatePool<T>
+        {
+            private static Dictionary<T,State<T>> pool;
+
+            public StatePool() {}
+
+            public static Dictionary<T, State<T>> Pool
+            {
+                get
+                {
+                    if (pool == null)
+                    {
+                        pool = new Dictionary<T, State<T>>();
+                    }
+                    return pool;
+                }
+            }
+            public static State<T> getState(T state)
+            {
+                if (!pool.ContainsKey(state))
+                {
+                    State<T> newState = new State<T>(state);
+                    pool.Add(state, newState);
+                } 
+                return pool[state];
+                
+            }
+        }
     }
-    
 }

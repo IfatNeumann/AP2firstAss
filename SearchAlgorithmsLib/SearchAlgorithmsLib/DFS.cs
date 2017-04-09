@@ -23,7 +23,6 @@ namespace SearchAlgorithmsLib
 
         public override Solution<T> search(ISearchable<T> searchable)
         {
-            bool inClosed = false, inVisitedStack = false;
             visitedStack.Push(searchable.getInitialState());
             while (visitedStack.Count != 0)
             {
@@ -34,29 +33,11 @@ namespace SearchAlgorithmsLib
                 List<State<T>> succerssors = searchable.getAllPossibleStates(thisState);
                 foreach (State<T> s in succerssors)
                 {
-                    foreach (State<T> s1 in closed)
-                    {
-                        if (s.myState.Equals(s1.myState))
-                        {
-                            inClosed = true;
-                            break;
-                        }
-                    }
-                    foreach (State<T> s1 in visitedStack)
-                    {
-                        if (s.myState.Equals(s1.myState))
-                        {
-                            inVisitedStack = true;
-                            break;
-                        }
-                    }
-                    if (!inClosed && !inVisitedStack)
+                    if (!closed.Contains(s) && !visitedStack.Contains(s))
                     {
                         s.Parent = thisState;// already done by getSuccessors
                         addToDataStructor(s);
                     }
-                    inVisitedStack = false;
-                    inClosed = false;
                 }
             }
             return null;

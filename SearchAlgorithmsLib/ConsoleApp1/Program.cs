@@ -34,9 +34,9 @@ namespace ConsoleApp1
             Console.WriteLine("BFS: " + sbfs.getNumberOfNodesEvaluated());
             //DFS solution
             ISearcher<Position> sdfs = new DFS<Position>();
-            //sdfs.search(mazeAdapter);
+            sdfs.search(mazeAdapter);
             //print num of stages
-            //Console.WriteLine("DFS: "+sdfs.getNumberOfNodesEvaluated()); 
+            Console.WriteLine("DFS: "+sdfs.getNumberOfNodesEvaluated()); 
         }
     }
 }
