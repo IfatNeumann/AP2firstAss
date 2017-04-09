@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    public class State<T> {
-        public HashSet<State<T>> pool = new HashSet<State<T>>();
+    public class State<T> {//
         private T state; // the state represented by a string
         private double cost; // cost to reach this state (set by a setter)
         private State<T> cameFrom; // the state we came from to this state (setter)
@@ -46,12 +45,8 @@ namespace SearchAlgorithmsLib
             return s;
 
         }
+        //public static class StatePool<T>
 
     }
     
-    public static class StatePool<T>
-    {
-        
-
-    }
 }
