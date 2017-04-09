@@ -27,6 +27,7 @@ namespace SearchAlgorithmsLib
             while (OpenListSize > 0)
             {
                 State<T> n = popDataStructor(); // inherited from Searcher, removes the best state
+                Console.WriteLine(n.myState.ToString());
                 closed.Add(n);
                 if (n.Equals(searchable.getGoalState()))
                     return n.backTrace(); // private method, back traces through the parents
