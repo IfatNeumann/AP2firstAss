@@ -13,7 +13,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            CompareSolvers(4, 4);
+            CompareSolvers(15, 15);
             Console.Read();
         }
         public static void CompareSolvers(int row, int col)
@@ -34,9 +34,9 @@ namespace ConsoleApp1
             Console.WriteLine("BFS: " + sbfs.getNumberOfNodesEvaluated());
             //DFS solution
             ISearcher<Position> sdfs = new DFS<Position>();
-            //sdfs.search(mazeAdapter);
+            sdfs.search(mazeAdapter);
             //print num of stages
-            //Console.WriteLine("DFS: "+sdfs.getNumberOfNodesEvaluated()); 
+            Console.WriteLine("DFS: "+sdfs.getNumberOfNodesEvaluated()); 
         }
     }
 }
