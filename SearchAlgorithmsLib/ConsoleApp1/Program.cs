@@ -13,7 +13,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            CompareSolvers(5, 5);
+            CompareSolvers(4, 4);
         }
         public static void CompareSolvers(int row, int col)
         {
