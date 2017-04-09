@@ -14,7 +14,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
         }
-        void CompareSolvers()
+        public void CompareSolvers()
         {
             //create maze
             int rows = 5, cols = 5;
