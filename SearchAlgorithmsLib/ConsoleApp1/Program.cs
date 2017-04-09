@@ -13,21 +13,26 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+           
         }
-        public void CompareSolvers()
+        public void CompareSolvers(int row, int col)
         {
             //create maze
-            int rows = 5, cols = 5;
+            Maze maze;
             DFSMazeGenerator myMazeGen = new DFSMazeGenerator();
-            Maze myMaze = myMazeGen.Generate(rows,cols);
-            ObjectAdapter mazeAdapter = new ObjectAdapter(myMaze);
-            //print maze
-            Console.WriteLine(myMaze.ToString());
+            maze = myMazeGen.Generate(row, col);
+            Console.WriteLine(maze);//print
+            // Maze myMaze = myMazeGen.Generate(rows,cols);
+            ObjectAdapter mazeAdapter = new ObjectAdapter(maze);
             //BFS solution
-            
-
+            ISearcher<Position> sbfs = new BFS<Position>();
+            sbfs.search(mazeAdapter);
+            Console.WriteLine(sbfs.getNumberOfNodesEvaluated());
             //DFS solution
+            ISearcher<Position> sdfs = new DFS<Position>();
+            sdfs.search(mazeAdapter);
             //print num of stages
+            Console.WriteLine(sdfs.getNumberOfNodesEvaluated()); 
         }
     }
 }

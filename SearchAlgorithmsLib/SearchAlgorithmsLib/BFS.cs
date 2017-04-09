@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class BFS<T> : Searcher<T>
+    public class BFS<T> : Searcher<T>
     {
         private SimplePriorityQueue<State<T>> openList;
         // get how many nodes were evaluated by the algorithm
