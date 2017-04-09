@@ -9,7 +9,7 @@ namespace SearchAlgorithmsLib
 {
     public class BFS<T> : Searcher<T>
     {
-        private SimplePriorityQueue<State<T>> openList =new SimplePriorityQueue<State<T>>();
+        private SimplePriorityQueue<State<T>> openList = new SimplePriorityQueue<State<T>>();
         // get how many nodes were evaluated by the algorithm
         public override void addToDataStructor(State<T> state)
         {
