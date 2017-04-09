@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MazeGeneratorLib;
 using MazeLib;
+using SearchAlgorithmsLib;
 
 namespace ConsoleApp1
 {

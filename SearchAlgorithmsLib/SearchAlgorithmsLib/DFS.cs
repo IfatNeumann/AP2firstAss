@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class DFS<T> : Searcher<T>
+    public class DFS<T> : Searcher<T>
     {
         public Stack<State<T>> visitedStack = new Stack<State<T>>();
 
