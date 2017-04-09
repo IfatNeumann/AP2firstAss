@@ -45,6 +45,8 @@ namespace SearchAlgorithmsLib
             return s;
 
         }
+        //public static class StatePool<T>
+
     }
     
 }

@@ -8,6 +8,6 @@ namespace SearchAlgorithmsLib
 {
     public class Solution<T>
     {
-        public Queue<State<T>> trace;
+        public Queue<State<T>> trace = new Queue<State<T>>();
     }
 }
