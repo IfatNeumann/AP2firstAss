@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MazeGeneratorLib;
 
 namespace ConsoleApp1
 {
@@ -14,7 +15,10 @@ namespace ConsoleApp1
         void CompareSolvers()
         {
             //create maze
+            DFSMazeGenerator myMaze = new DFSMazeGenerator();
+            ObjectAdapter mazeAdapter = new ObjectAdapter(myMaze);
             //print maze
+            Console.WriteLine(myMaze.ToString());
             //BFS solution
             //DFS solution
             //print num of stages
