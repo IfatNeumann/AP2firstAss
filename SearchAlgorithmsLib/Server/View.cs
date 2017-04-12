@@ -5,14 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
+using TcpClient;
 
 
 namespace Server
 {
-    public class View: IView
+    public class View : IView
     {
-        private int PORT_NUMBER;
+        private int portNum;
         private IController controller;
+        private IClientHandler ch;        private TcpListener listener;
 
         public IController Controller
         {
@@ -27,37 +29,42 @@ namespace Server
             }
         }
 
-        public int MY_PORT_NUMBER
+        public int PortNum
         {
             get
             {
-                return PORT_NUMBER;
+                return portNum;
             }
 
             set
             {
-                PORT_NUMBER = value;
+                portNum = value;
             }
         }
 
-        public View()
+        public View(int port, IClientHandler ch)
         {
+            this.PortNum = port;
+            this.ch = ch;
         }
+
 
         public void StartConnection()
         {
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, MY_PORT_NUMBER);
+            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, PortNum);
             Socket newsock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             newsock.Bind(ipep);
 
             newsock.Listen(10);
-
-            while (true)
-            {
-                Socket client = newsock.Accept();
-               //PresenterForView presenter = new PresenterForView(this.controller);
-               //Recive receiver = new Recive(client, controller);
-               // Task.Factory.StartNew(receiver.Handle);
+            Task task = new Task(() => {
+                while (true)
+                {
+                    Socket client = newsock.Accept();
+                    ch.HandleClient(client);
+                    //PresenterForView presenter = new PresenterForView(this.controller);
+                    //Recive receiver = new Recive(client, controller);
+                    // Task.Factory.StartNew(receiver.Handle);
+                }
             }
         }
     }

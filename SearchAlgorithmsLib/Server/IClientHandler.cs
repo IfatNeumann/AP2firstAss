@@ -5,16 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using TcpClient;
 
-
 namespace Server
 {
-    public class ClientHandler : IClientHandler
+    public interface IClientHandler
     {
-        public void HandleClient(Client client)
-        {
-
-
-        }
+        void HandleClient(Client client);
     }
-
 }
