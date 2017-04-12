@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace Server
 {
-    public interface ICommand
+    public interface ICommand//
     {
         string ExecuteCommand(string commandLine, TcpClient client);
        
