@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 
 
-namespace Client
+namespace TcpClient
 {
     public class Client
     {
@@ -37,8 +37,6 @@ namespace Client
                     int recv = server.Receive(data);
                     string stringData = Encoding.ASCII.GetString(data, 0, recv);
                     Console.WriteLine(stringData);
-
-
                 }
             }
             catch (SocketException e)
