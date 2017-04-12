@@ -9,7 +9,6 @@ namespace Server
 {
     public interface IModel
     {
-        string HandleRequest(string option, Socket client);
         IController Controller
         {
             get;

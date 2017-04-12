@@ -14,7 +14,9 @@ namespace Server
     {
         private int portNum;
         private IController controller;
-        private IClientHandler ch;        private TcpListener listener;
+        private IClientHandler ch;
+        private TcpListener listener;
+
 
         public IController Controller
         {
@@ -49,23 +51,34 @@ namespace Server
         }
 
 
-        public void StartConnection()
+        public void Start()
         {
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, PortNum);
-            Socket newsock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            newsock.Bind(ipep);
 
-            newsock.Listen(10);
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portNum);
+        listener = new TcpListener(ep);
+
+        listener.Start();
+ Console.WriteLine("Waiting for connections...");
             Task task = new Task(() => {
                 while (true)
                 {
-                    Socket client = newsock.Accept();
-                    ch.HandleClient(client);
-                    //PresenterForView presenter = new PresenterForView(this.controller);
-                    //Recive receiver = new Recive(client, controller);
-                    // Task.Factory.StartNew(receiver.Handle);
+                    try
+                    {
+                        TcpClient client = listener.AcceptTcpClient();
+                        Console.WriteLine("Got new connection");
+                        ch.HandleClient(client);
+                    }
+                    catch (SocketException)
+                    {
+                        break;
+                    }
                 }
-            }
-        }
+                Console.WriteLine("Server stopped");
+            });
+            task.Start();
+        }        public void Stop()
+        {
+            listener.Stop();
+        }
     }
 }

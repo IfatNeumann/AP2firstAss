@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Sockets;
 
 namespace Server
 {
     public class Start :ICommand
     {
-        public Start()
+        public Start(IModel model)
         {
 
         }
 
-        public string doMission(Params c)
+        public string ExecuteCommand(string commandLine, TcpClient client)
         {
 
         }

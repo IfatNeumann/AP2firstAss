@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{A4ED2E37-8B7B-4E51-8C72-78AA9C3B936A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpClient", "Client\TcpClient.csproj", "{D76096A9-EAF3-47B7-B43A-A18DB96ECB74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client1", "Client\Client1.csproj", "{D76096A9-EAF3-47B7-B43A-A18DB96ECB74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,6 +12,7 @@ namespace Server
     {
         private IView view;
         private IModel model;
+        private Dictionary<string, ICommand> commands;
 
         public IView View
         {
@@ -41,46 +42,28 @@ namespace Server
 
         public Controller()
         {
-
+            model = new Model();
+            commands = new Dictionary<string, ICommand>();
+            commands.Add("Generate", new Generate(model));
+            commands.Add("Solve", new Solve(model));
+            commands.Add("Start", new Start(model));
+            commands.Add("List", new List(model));
+            commands.Add("Play", new Play(model));
+            commands.Add("Close", new Close(model));
         }
 
-        public string HandleRequest(string option, Socket client)
+
+
+        public string ExecuteCommand(string commandLine, TcpClient client)
         {
-            Dictionary<string, ICommand> commandDic = new Dictionary<string, ICommand>()
-            {
-                {"Generate", new Generate()},
-                {"Solve", new Solve()},
-                {"Start", new Start()},
-                {"List", new List()},
-                {"Play", new Play()},
-                {"Close", new Close()}
-            };
 
-            char[] whitespace = new char[] { ' ', '\t' };
-            string[] split = option.Split(whitespace);
-            option = split[0];
-
-            ICommand value;
-            string output = "";
-            string param1 = "", param2 = "";
-            if (split.Length == 2)
-            {
-                param1 = split[1];
-            }
-            else if (split.Length == 3)
-            {
-                param1 = split[1];
-                param2 = split[2];
-            }
-
-            Params c = new Params(param1, param2, client);
-
-            if (commandDic.ContainsKey(option))
-            {
-                output = commandDic[option].doMission(c);
-            }
-
-            return output;
+            string[] arr = commandLine.Split(' ');
+            string commandKey = arr[0];
+            if (!commands.ContainsKey(commandKey))
+                return "Command not found";
+            string[] args = arr.Skip(1).ToArray();
+            ICommand command = commands[commandKey];
+            return command.Execute(args, client);
         }
     }
 }

@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Sockets;
 
 namespace Server
 {
     public class Play:ICommand
     {
-        public Play()
+        public Play(IModel model)
         {
 
         }
-        public string doMission(Params c)
+        public string ExecuteCommand(string commandLine, TcpClient client)
         {
             
         }

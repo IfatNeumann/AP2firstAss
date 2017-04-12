@@ -66,9 +66,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Client\TcpClient.csproj">
+    <ProjectReference Include="..\Client\Client1.csproj">
       <Project>{d76096a9-eaf3-47b7-b43a-a18db96ecb74}</Project>
-      <Name>TcpClient</Name>
+      <Name>Client1</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
