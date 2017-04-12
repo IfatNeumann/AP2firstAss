@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace Server
 {
-    public class Model
+    public class Model: IModel
     {
         private IController controller;
         public IController Controller
@@ -28,12 +28,6 @@ namespace Server
 
         }
 
- 
-        public string HandleRequest(string option, Socket client)
-        {
-           
 
-    
-        }
     }
 }

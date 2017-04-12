@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public interface IView
+    public class Solve: ICommand
     {
-        void StartConnection();
-        int MY_PORT_NUMBER
+        public Solve()
         {
-            get;
-            set;
+
         }
-        IController Controller
+
+        public string doMission(Params c)
         {
-            get;
-            set;
+
         }
     }
 }

@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public interface IView
+    public class Start :ICommand
     {
-        void StartConnection();
-        int MY_PORT_NUMBER
+        public Start()
         {
-            get;
-            set;
+
         }
-        IController Controller
+
+        public string doMission(Params c)
         {
-            get;
-            set;
+
         }
     }
 }

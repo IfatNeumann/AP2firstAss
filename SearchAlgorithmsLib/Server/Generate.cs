@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public interface IView
+    public class Generate:ICommand
     {
-        void StartConnection();
-        int MY_PORT_NUMBER
+        public Generate()
         {
-            get;
-            set;
         }
-        IController Controller
+
+        public string doMission(Params c)
         {
-            get;
-            set;
+            
         }
+
+
+
+
+
     }
 }

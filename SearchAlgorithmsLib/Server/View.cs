@@ -12,7 +12,20 @@ namespace Server
     public class View: IView
     {
         private int PORT_NUMBER;
-        private IView view;
+        private IController controller;
+
+        public IController Controller
+        {
+            get
+            {
+                return controller;
+            }
+
+            set
+            {
+                controller = value;
+            }
+        }
 
         public int MY_PORT_NUMBER
         {
@@ -42,8 +55,9 @@ namespace Server
             while (true)
             {
                 Socket client = newsock.Accept();
-
-                Task.Factory.StartNew(receiver.Handle);
+               //PresenterForView presenter = new PresenterForView(this.controller);
+               //Recive receiver = new Recive(client, controller);
+               // Task.Factory.StartNew(receiver.Handle);
             }
         }
     }

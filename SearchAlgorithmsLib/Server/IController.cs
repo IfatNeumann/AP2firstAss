@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace Server
 {
-    interface IController
+    public interface IController
     {
         string HandleRequest(string data, Socket client);
         IView View
