@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public class Solve: ICommand
+    public class StartMazeCommand :ICommand
     {
-        public Solve()
+        public StartMazeCommand()
         {
 
         }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 
-namespace TcpClient
+namespace Client1
 {
     public class Send
     {

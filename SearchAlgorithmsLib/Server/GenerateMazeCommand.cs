@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public class Start :ICommand
+    public class GenerateMazeCommand:ICommand
     {
-        public Start()
+        public GenerateMazeCommand()
         {
-
         }
 
         public string doMission(Params c)
         {
-
+            
         }
+
+
+
+
+
     }
 }

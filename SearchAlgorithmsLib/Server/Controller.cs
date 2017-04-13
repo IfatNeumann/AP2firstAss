@@ -8,43 +8,32 @@ using System.Net.Sockets;
 
 namespace Server
 {
-    public class Controller : IController
+    public class Controller : AbstractController
     {
-        private IView view;
-        private IModel model;
-
-        public IView View
-        {
-            get
-            {
-                return view;
-            }
-
-            set
-            {
-                view = value;
-            }
-        }
-        public IModel Model
-        {
-            get
-            {
-                return model;
-            }
-
-            set
-            {
-                model = value;
-            }
-        }
-
-
+        private Dictionary<string, ICommand> commands;
+        
         public Controller()
         {
-
+            this.model = new Model();
+            commands = new Dictionary<string, ICommand>();
+            commands.Add("generate", new GenerateMazeCommand(this.model));
+            commands.Add("solve", new SolveMazeCommand(this.model));
+            commands.Add("start", new StartMazeCommand(this.model));
+            commands.Add("list", new ListMazeCommand(this.model));
+            commands.Add("play", new PlayMazeCommand(this.model));
+            commands.Add("close", new CloseMazeCommand(this.model));
         }
-
-        public string HandleRequest(string option, Socket client)
+        public override string ExecuteCommand(string commandLine, TcpClient client)
+        {
+            string[] arr = commandLine.Split(' ');
+            string commandKey = arr[0];
+            if (!commands.ContainsKey(commandKey))
+                return "Command not found";
+            string[] args = arr.Skip(1).ToArray();
+            ICommand command = commands[commandKey];
+            return command.Execute(args, client);
+        }
+        /*public string HandleRequest(string option, Socket client)
         {
             Dictionary<string, ICommand> commandDic = new Dictionary<string, ICommand>()
             {
@@ -81,6 +70,6 @@ namespace Server
             }
 
             return output;
-        }
+        }*/
     }
 }

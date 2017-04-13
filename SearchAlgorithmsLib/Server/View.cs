@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
-using TcpClient;
 
 
 namespace Server
@@ -14,7 +13,9 @@ namespace Server
     {
         private int portNum;
         private IController controller;
-        private IClientHandler ch;        private TcpListener listener;
+        private IClientHandler ch;
+        private TcpListener listener;
+
 
         public IController Controller
         {
@@ -28,7 +29,6 @@ namespace Server
                 controller = value;
             }
         }
-
         public int PortNum
         {
             get
@@ -41,7 +41,6 @@ namespace Server
                 portNum = value;
             }
         }
-
         public View(int port, IClientHandler ch)
         {
             this.PortNum = port;
@@ -52,20 +51,47 @@ namespace Server
         public void StartConnection()
         {
             IPEndPoint ipep = new IPEndPoint(IPAddress.Any, PortNum);
-            Socket newsock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            newsock.Bind(ipep);
-
-            newsock.Listen(10);
+            TcpListener listener = new TcpListener(ipep);
+            listener.Start();
             Task task = new Task(() => {
                 while (true)
                 {
-                    Socket client = newsock.Accept();
-                    ch.HandleClient(client);
-                    //PresenterForView presenter = new PresenterForView(this.controller);
-                    //Recive receiver = new Recive(client, controller);
-                    // Task.Factory.StartNew(receiver.Handle);
+                    try
+                    {
+                        TcpClient client = listener.AcceptTcpClient();
+                        Console.WriteLine("Got new connection");
+                        ch.HandleClient(client);
+                    }
+                    catch (SocketException)
+                    {
+                        break;
+                    }
                 }
-            }
+                Console.WriteLine("Server stopped");
+            });
+            task.Start();
         }
+        public void Stop()
+        {
+            listener.Stop();
+        }
+    }
+
+    //Socket newsock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+    //newsock.Bind(ipep);
+
+    //newsock.Listen(10);
+    //Task task = new Task(() =>
+    //{
+    //while (true)
+    //{
+    //  Socket client = newsock.Accept();
+    //ch.HandleClient(client);
+    //PresenterForView presenter = new PresenterForView(this.controller);
+    //Recive receiver = new Recive(client, controller);
+    // Task.Factory.StartNew(receiver.Handle);
+    //}
+    //});
+}
     }
 }

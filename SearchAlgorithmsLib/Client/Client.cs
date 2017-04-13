@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 
 
-namespace TcpClient
+namespace Client1
 {
     public class Client
     {
@@ -22,27 +22,24 @@ namespace TcpClient
 
         public void Handle()
         {
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(ip), this.port);
-            Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8000);
+            TcpClient client = new TcpClient();
+            client.Connect(ep);
+            Console.WriteLine("You are connected");
+            using (NetworkStream stream = client.GetStream())
+            using (BinaryReader reader = new BinaryReader(stream))
+            using (BinaryWriter writer = new BinaryWriter(stream))
             {
-                server.Connect(ipep);
-
-                Send sender = new Send(server);
-                Task.Factory.StartNew(sender.Handle);
-
-                while (true)
-                {
-                    byte[] data = new byte[1024];
-                    int recv = server.Receive(data);
-                    string stringData = Encoding.ASCII.GetString(data, 0, recv);
-                    Console.WriteLine(stringData);
-                }
+                // Send data to server
+                Console.Write("Please enter a number: ");
+                int num = int.Parse(Console.ReadLine());
+                writer.Write(num);
+                // Get result from server
+                int result = reader.ReadInt32();
+                Console.WriteLine("Result = {0}", result);
             }
-            catch (SocketException e)
-            {
-                Console.WriteLine("Unable to connect to server." + e.ToString());
-            }
+            client.Close();
+        }
+
         }
     }
-}

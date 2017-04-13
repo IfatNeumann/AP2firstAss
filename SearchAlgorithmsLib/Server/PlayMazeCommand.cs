@@ -6,20 +6,15 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public class Generate:ICommand
+    public class PlayMazeCommand:ICommand
     {
-        public Generate()
+        public PlayMazeCommand()
         {
-        }
 
+        }
         public string doMission(Params c)
         {
             
         }
-
-
-
-
-
     }
 }

@@ -9,20 +9,7 @@ namespace Server
 {
     public class Model: IModel
     {
-        private IController controller;
-        public IController Controller
-        {
-            get
-            {
-                return controller;
-            }
-
-            set
-            {
-                controller = value;
-            }
-        }
-
+        private AbstractController controller;
         public Model()
         {
 

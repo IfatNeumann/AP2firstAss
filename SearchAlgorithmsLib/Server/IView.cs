@@ -9,7 +9,7 @@ namespace Server
     public interface IView
     {
         void StartConnection();
-        int MY_PORT_NUMBER
+        int PortNum
         {
             get;
             set;

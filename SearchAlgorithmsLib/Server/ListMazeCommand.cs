@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public class Close:ICommand
+    public class ListMazeCommand : ICommand
     {
-
-        public Close()
+        public ListMazeCommand()
         {
 
         }
+
         public string doMission(Params c)
         {
 
