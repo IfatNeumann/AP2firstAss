@@ -16,6 +16,7 @@ namespace Server
             IModel model = new Model(con);
             con.Model = model;
             con.Ch = ch;
+            con.setDic();
             MyServer server = new MyServer(555, ch);
             server.StartConnection();
             //Console.ReadLine();

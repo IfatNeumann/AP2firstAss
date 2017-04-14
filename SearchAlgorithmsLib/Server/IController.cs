@@ -11,6 +11,7 @@ namespace Server
     {
         IModel Model { get; set; }
         IClientHandler Ch { get; set; }
+        void setDic();
         string ExecuteCommand(string commandLine, TcpClient client);
     }
 }
