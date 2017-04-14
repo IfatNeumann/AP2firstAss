@@ -11,23 +11,10 @@ namespace Server
     {
         static void Main(string[] args)
         {
-            Singleton.GetGamesList();
-            Singleton.GetMazeLS();
-            Singleton.GetModel();
-            Singleton.GetSolutionLS();
+            IClientHandler ch = new View();
+            MyServer server = new MyServer(555, ch);
+            server.StartConnection();
 
-            // open all the classes of mvp model
-            IPresenter presenter = new Controller();
-            IModel model = Singleton.GetModel();
-            IView view = new View();
-            presenter.View = view;
-            presenter.Model = model;
-            model.Controller = presenter;
-            view.Controller = presenter;
-
-            // start conection
-            view.MY_PORT_NUMBER = Int32.Parse(ConfigurationManager.AppSettings["port"]);
-            view.StartConnection();
         }
     }
 }

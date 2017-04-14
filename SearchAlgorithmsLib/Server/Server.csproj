@@ -33,10 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MazeGeneratorLib">
-      <HintPath>..\..\..\..\..\Downloads\מטלה 1-20170330\MazeGeneratorLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\MazeGeneratorLib.dll</HintPath>
     </Reference>
     <Reference Include="MazeLib">
-      <HintPath>..\..\..\..\..\Downloads\מטלה 1-20170330\MazeLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\MazeLib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientHandler.cs" />
+    <Compile Include="View.cs" />
     <Compile Include="CloseMazeCommand.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="GenerateMazeCommand.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="Receive.cs" />
     <Compile Include="SolveMazeCommand.cs" />
     <Compile Include="StartMazeCommand.cs" />
-    <Compile Include="View.cs" />
+    <Compile Include="MyServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
