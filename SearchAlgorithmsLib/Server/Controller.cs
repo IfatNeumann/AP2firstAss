@@ -10,8 +10,8 @@ namespace Server
 {
     public class Controller : IController
     {
-        private IModel model = new Model();
-        private IClientHandler ch = new ClientHandler();
+        private IModel model;
+        private IClientHandler ch;
         private Dictionary<string, ICommand> commands;
         public IModel Model { get; set; }
         public IClientHandler Ch { get; set; }

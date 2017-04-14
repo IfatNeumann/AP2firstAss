@@ -10,10 +10,14 @@ namespace Server
 {
     public class ClientHandler : IClientHandler
     {
+        private IController con;
+        public ClientHandler(IController con)
+        {
+            this.con = con;
+        }
 
         public void HandleClient(TcpClient client)
         {
-            IController con = new Controller();
             new Task(() =>
             {
                 using (NetworkStream stream = client.GetStream())
