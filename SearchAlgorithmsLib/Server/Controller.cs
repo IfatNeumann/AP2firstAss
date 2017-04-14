@@ -10,11 +10,11 @@ namespace Server
 {
     public class Controller : IController
     {
-        private IModel model;
-        private IView view;
+        private IModel model = new Model();
+        private IClientHandler ch = new ClientHandler();
         private Dictionary<string, ICommand> commands;
         public IModel Model { get; set; }
-        public IView View { get; set; }
+        public IClientHandler Ch { get; set; }
         public Controller()
         {
             commands = new Dictionary<string, ICommand>();

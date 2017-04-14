@@ -14,7 +14,7 @@ namespace Server
             IClientHandler ch = new ClientHandler();
             MyServer server = new MyServer(555, ch);
             server.StartConnection();
-
+            //Console.ReadLine();
         }
     }
 }
