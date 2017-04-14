@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientHandler.cs" />
+    <Compile Include="View.cs" />
     <Compile Include="CloseMazeCommand.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="GenerateMazeCommand.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="Receive.cs" />
     <Compile Include="SolveMazeCommand.cs" />
     <Compile Include="StartMazeCommand.cs" />
-    <Compile Include="View.cs" />
+    <Compile Include="MyServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

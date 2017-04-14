@@ -9,7 +9,7 @@ namespace Server
 {
     public class Receive
     {
-        private Socket client;
+        /*private Socket client;
         private byte[] data;
         private PresenterForView c1;
 
@@ -64,6 +64,6 @@ namespace Server
 
             // send to client
             this.client.Send(d, d.Count(), SocketFlags.None);
-        }
+        }*/
     }
 }

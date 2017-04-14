@@ -11,6 +11,10 @@ namespace Server
     {
         static void Main(string[] args)
         {
+            IClientHandler ch = new View();
+            MyServer server = new MyServer(1,ch);
+            server.StartConnection();
+            /*
             Singleton.GetGamesList();
             Singleton.GetMazeLS();
             Singleton.GetModel();
@@ -28,6 +32,7 @@ namespace Server
             // start conection
             view.MY_PORT_NUMBER = Int32.Parse(ConfigurationManager.AppSettings["port"]);
             view.StartConnection();
+            */
         }
     }
 }

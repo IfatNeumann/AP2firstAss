@@ -14,13 +14,8 @@ namespace SearchAlgorithmsLib
         public string ToJSON()
         {
             JObject solObj = new JObject();
-            solObj["Trace"] = Trace;
-            JObject startObj = new JObject();
-            startObj["Row"] = InitialPos.Row;
-            startObj["Col"] = InitialPos.Col;
-            mazeObj["Start"] = startObj;
-            //...
-            return mazeObj.ToString();
+            solObj["Trace"] = Newtonsoft.Json.JsonConvert.SerializeObject(Trace);
+            return solObj.ToString();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Server
         }
         public string Execute(string[] args, TcpClient client)
         {
-
+            return "hi";
         }
     }
 }

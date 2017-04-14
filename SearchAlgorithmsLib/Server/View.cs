@@ -3,50 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net;
 using System.Net.Sockets;
-
+using System.IO;
 
 namespace Server
 {
-    public class View : IView
+    public class View : IClientHandler
     {
-        private int portNum;
-        private IClientHandler ch;
-        private TcpListener listener;
-        public View(int port, IClientHandler ch)
+        public void HandleClient(TcpClient client)
         {
-            this.portNum = port;
-            this.ch = ch;
-        }
-
-        public void StartConnection()
-        {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portNum);
-            listener = new TcpListener(ep);
-            listener.Start();
-            Console.WriteLine("Waiting for connections...");
-            Task task = new Task(() => {
-                while (true)
+            AbstractController con = new Controller(); 
+            new Task(() =>
+            {
+                using (NetworkStream stream = client.GetStream())
+                using (StreamReader reader = new StreamReader(stream))
+                using (StreamWriter writer = new StreamWriter(stream))
                 {
-                    try
-                    {
-                        TcpClient client = listener.AcceptTcpClient();
-                        Console.WriteLine("Got new connection");
-                        ch.HandleClient(client);
-                    }
-                    catch (SocketException)
-                    {
-                        break;
-                    }
+                    string commandLine = reader.ReadLine();
+                    Console.WriteLine("Got command: {0}", commandLine);
+                    string result = con.ExecuteCommand(commandLine, client);
+                    writer.Write(result);
                 }
-                Console.WriteLine("Server stopped");
-            });
-            task.Start();
-        }
-        public void Stop()
-        {
-            listener.Stop();
+                client.Close();
+            }).Start();
         }
     }
+
 }
