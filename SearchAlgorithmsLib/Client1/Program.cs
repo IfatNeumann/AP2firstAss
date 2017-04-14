@@ -5,17 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 
-namespace Server
+
+namespace Client1
 {
-    public class List : ICommand
+    public class Progrm
     {
-        public List(IModel model)
+        static void Main(string[] args)
         {
-
-        }
-
-        public string ExecuteCommand(string commandLine, TcpClient client)
-        {
+            Client client = new Client(555,"127.0.0.1");
+            client.Handle();
 
         }
     }

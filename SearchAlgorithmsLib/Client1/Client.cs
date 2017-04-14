@@ -42,28 +42,31 @@ namespace Client1
             }
             client.Close();
 
+      
 
-
-            //michal
-            Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
+            void connectToServer()
             {
-                server.Connect(ipep);
 
-                Send sender = new Send(server);
-                Task.Factory.StartNew(sender.Handle);
-
-                while (true)
+                Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                try
                 {
-                    byte[] data = new byte[1024];
-                    int recv = server.Receive(data);
-                    string stringData = Encoding.ASCII.GetString(data, 0, recv);
-                    Console.WriteLine(stringData);
+                    server.Connect(ipep);
+
+                    Send sender = new Send(server);
+                    Task.Factory.StartNew(sender.Handle);
+
+                    while (true)
+                    {
+                        byte[] data = new byte[1024];
+                        int recv = server.Receive(data);
+                        string stringData = Encoding.ASCII.GetString(data, 0, recv);
+                        Console.WriteLine(stringData);
+                    }
                 }
-            }
-            catch (SocketException e)
-            {
-                Console.WriteLine("Unable to connect to server." + e.ToString());
+                catch (SocketException e)
+                {
+                    Console.WriteLine("Unable to connect to server." + e.ToString());
+                }
             }
         }
     }

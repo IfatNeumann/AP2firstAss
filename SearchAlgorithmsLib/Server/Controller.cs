@@ -8,8 +8,10 @@ using System.Net.Sockets;
 
 namespace Server
 {
-    public class Controller : AbstractController
+    public class Controller : IController
     {
+        private IModel model;
+        private IView view;
         private Dictionary<string, ICommand> commands;
         public IModel Model { get; set; }
         public IView View { get; set; }
@@ -23,7 +25,7 @@ namespace Server
             commands.Add("play", new PlayMazeCommand(this.model));
             commands.Add("close", new CloseMazeCommand(this.model));
         }
-        public override string ExecuteCommand(string commandLine, TcpClient client)
+        public string ExecuteCommand(string commandLine, TcpClient client)
         {
             string[] arr = commandLine.Split(' ');
             string commandKey = arr[0];

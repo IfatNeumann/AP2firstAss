@@ -57,7 +57,7 @@
     <Compile Include="GenerateMazeCommand.cs" />
     <Compile Include="IClientHandler.cs" />
     <Compile Include="ICommand.cs" />
-    <Compile Include="AbstractController.cs" />
+    <Compile Include="IController.cs" />
     <Compile Include="IModel.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="ListMazeCommand.cs" />
