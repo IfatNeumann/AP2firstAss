@@ -18,7 +18,7 @@ namespace Server
         public string Execute(string[] args, TcpClient client)
         {
             List<string> mazes = model.NamesList();
-            return mazes.ToJSON();
+            return mazes.ToString();
         }
     }
 }
