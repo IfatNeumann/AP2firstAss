@@ -18,14 +18,14 @@ namespace Server
             new Task(() =>
             {
                 using (NetworkStream stream = client.GetStream())
-                using (StreamReader reader = new StreamReader(stream))
-                using (StreamWriter writer = new StreamWriter(stream))
+                using (BinaryReader reader = new BinaryReader(stream))
+                using (BinaryReader writer = new BinaryReader(stream))
                 {
-                    string commandLine = reader.ReadLine();
+                    string commandLine = reader.ReadString();
                     Console.WriteLine("Got command: {0}", commandLine);
                     string result = con.ExecuteCommand(commandLine, client);
-
-                    writer.Write(result);
+                   
+                    writer.ToString(result);
                 }
                 client.Close();
             }).Start();
