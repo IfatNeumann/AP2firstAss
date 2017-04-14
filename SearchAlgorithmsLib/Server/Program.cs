@@ -11,7 +11,7 @@ namespace Server
     {
         static void Main(string[] args)
         {
-            IClientHandler ch = new View();
+            IClientHandler ch = new ClientHandler();
             MyServer server = new MyServer(555, ch);
             server.StartConnection();
 
