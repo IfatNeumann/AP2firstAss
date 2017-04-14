@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Sockets;
 
-namespace Client1
+namespace Server
 {
-    class Program
+    public class List : ICommand
     {
-        static void Main(string[] args)
+        public List(IModel model)
         {
+
+        }
+
+        public string ExecuteCommand(string commandLine, TcpClient client)
+        {
+
         }
     }
 }
