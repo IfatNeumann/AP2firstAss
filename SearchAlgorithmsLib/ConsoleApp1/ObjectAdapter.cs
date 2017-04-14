@@ -8,7 +8,7 @@ using SearchAlgorithmsLib;
 
 namespace ConsoleApp1
 {
-    class ObjectAdapter : ISearchable<Position>
+    public class ObjectAdapter : ISearchable<Position>
     {
         private Maze myMaze;
         //Ctor

@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Sockets;
+using MazeLib;
 
 namespace Server
 {
     public class CloseMazeCommand:ICommand
     {
-
-        public CloseMazeCommand()
+        private IModel model;
+        public CloseMazeCommand(IModel model)
         {
-
+            this.model = model;
         }
-        public string doMission(Params c)
+        public string Execute(string[] args, TcpClient client)
         {
 
         }

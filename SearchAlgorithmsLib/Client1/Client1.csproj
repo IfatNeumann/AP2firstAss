@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A4ED2E37-8B7B-4E51-8C72-78AA9C3B936A}</ProjectGuid>
+    <ProjectGuid>{5DE88DDE-4063-43D4-994B-A80F9573C3A9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Server</RootNamespace>
-    <AssemblyName>Server</AssemblyName>
+    <RootNamespace>Client1</RootNamespace>
+    <AssemblyName>Client1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,12 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MazeGeneratorLib">
-      <HintPath>..\..\..\..\..\Downloads\מטלה 1-20170330\MazeGeneratorLib.dll</HintPath>
-    </Reference>
-    <Reference Include="MazeLib">
-      <HintPath>..\..\..\..\..\Downloads\מטלה 1-20170330\MazeLib.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -51,43 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientHandler.cs" />
-    <Compile Include="CloseMazeCommand.cs" />
-    <Compile Include="Controller.cs" />
-    <Compile Include="GenerateMazeCommand.cs" />
-    <Compile Include="IClientHandler.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="AbstractController.cs" />
-    <Compile Include="IModel.cs" />
-    <Compile Include="IView.cs" />
-    <Compile Include="ListMazeCommand.cs" />
-    <Compile Include="Model.cs" />
-    <Compile Include="Params.cs" />
-    <Compile Include="PlayMazeCommand.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Receive.cs" />
-    <Compile Include="SolveMazeCommand.cs" />
-    <Compile Include="StartMazeCommand.cs" />
-    <Compile Include="View.cs" />
+    <Compile Include="Send.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp1\ConsoleApp1.csproj">
-      <Project>{ec3fe1a0-75f4-4f2d-bdbc-1afd848f2a92}</Project>
-      <Name>ConsoleApp1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ex1\Ex1.csproj">
-      <Project>{50abca3b-d1dd-48ba-983c-61e86d5e959c}</Project>
-      <Name>Ex1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SearchAlgorithmsLib\SearchAlgorithmsLib.csproj">
-      <Project>{ddd92fdc-c6e4-4418-a8b4-6b1f6469b12d}</Project>
-      <Name>SearchAlgorithmsLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

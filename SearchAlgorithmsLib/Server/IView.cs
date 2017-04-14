@@ -9,15 +9,5 @@ namespace Server
     public interface IView
     {
         void StartConnection();
-        int PortNum
-        {
-            get;
-            set;
-        }
-        IController Controller
-        {
-            get;
-            set;
-        }
     }
 }

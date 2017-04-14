@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace Server
 {
-    public class Recive
+    public class Receive
     {
         private Socket client;
         private byte[] data;
@@ -25,7 +25,7 @@ namespace Server
             }
         }
 
-        public Recive(Socket client, PresenterForView p)
+        public Receive(Socket client, PresenterForView p)
         {
             this.client = client;
             this.data = new byte[1024];

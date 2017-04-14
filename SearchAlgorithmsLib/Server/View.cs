@@ -12,47 +12,20 @@ namespace Server
     public class View : IView
     {
         private int portNum;
-        private IController controller;
         private IClientHandler ch;
         private TcpListener listener;
-
-
-        public IController Controller
-        {
-            get
-            {
-                return controller;
-            }
-
-            set
-            {
-                controller = value;
-            }
-        }
-        public int PortNum
-        {
-            get
-            {
-                return portNum;
-            }
-
-            set
-            {
-                portNum = value;
-            }
-        }
         public View(int port, IClientHandler ch)
         {
-            this.PortNum = port;
+            this.portNum = port;
             this.ch = ch;
         }
 
-
         public void StartConnection()
         {
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, PortNum);
-            TcpListener listener = new TcpListener(ipep);
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portNum);
+            listener = new TcpListener(ep);
             listener.Start();
+            Console.WriteLine("Waiting for connections...");
             Task task = new Task(() => {
                 while (true)
                 {
@@ -75,23 +48,5 @@ namespace Server
         {
             listener.Stop();
         }
-    }
-
-    //Socket newsock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-    //newsock.Bind(ipep);
-
-    //newsock.Listen(10);
-    //Task task = new Task(() =>
-    //{
-    //while (true)
-    //{
-    //  Socket client = newsock.Accept();
-    //ch.HandleClient(client);
-    //PresenterForView presenter = new PresenterForView(this.controller);
-    //Recive receiver = new Recive(client, controller);
-    // Task.Factory.StartNew(receiver.Handle);
-    //}
-    //});
-}
     }
 }

@@ -10,7 +10,6 @@ namespace Server
 {
     public class ClientHandler : IClientHandler
     {
-        public AbstractController controller;
         public void HandleClient(TcpClient client)
         {
             new Task(() =>
@@ -21,7 +20,7 @@ namespace Server
                 {
                     string commandLine = reader.ReadLine();
                     Console.WriteLine("Got command: {0}", commandLine);
-                    string result = controller.ExecuteCommand(commandLine, client);
+                    string result = ExecuteCommand(commandLine, client);
                     writer.Write(result);
                 }
                 client.Close();
