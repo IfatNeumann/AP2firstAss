@@ -10,19 +10,21 @@ namespace Server
 {
     public class ClientHandler : IClientHandler
     {
+        IController con = new Controller();
 
         public void HandleClient(TcpClient client)
         {
-            IController con = new Controller();
+            
             new Task(() =>
             {
                 using (NetworkStream stream = client.GetStream())
-                using (BinaryReader reader = new BinaryReader(stream))
-                using (BinaryWriter writer = new BinaryWriter(stream))
+                using (StreamReader reader = new StreamReader(stream))
+                using (StreamWriter writer = new StreamWriter(stream))
                 {
-                    string commandLine = reader.ReadString();
+                    string commandLine = reader.ReadLine();
                     Console.WriteLine("Got command: {0}", commandLine);
                     string result = con.ExecuteCommand(commandLine, client);
+
                     writer.Write(result);
                 }
                 client.Close();

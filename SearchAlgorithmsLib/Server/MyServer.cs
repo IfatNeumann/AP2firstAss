@@ -43,6 +43,7 @@ namespace Server
                 Console.WriteLine("Server stopped");
             });
             task.Start();
+            task.Wait();
         }
         public void Stop()
         {
