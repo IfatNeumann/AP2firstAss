@@ -13,7 +13,11 @@ namespace Server
 {
     public class Model : IModel
     {
-        private IController controller;
+        private IController con;
+        public Model(IController con)
+        {
+            this.con = con;
+        }
         private Dictionary<string, Maze> mazes = new Dictionary<string, Maze>();
         public Dictionary<string, Maze> Mazes {get;set;}
         private Dictionary<Maze,Solution<Position>> solutions = new Dictionary<Maze , Solution<Position>>();
