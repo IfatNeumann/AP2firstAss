@@ -27,48 +27,39 @@ namespace Client1
             TcpClient client = new TcpClient();
             client.Connect(ipep);
             Console.WriteLine("You are connected");
-
             using (NetworkStream stream = client.GetStream())
-            using (BinaryReader reader = new BinaryReader(stream))
             using (BinaryWriter writer = new BinaryWriter(stream))
+            using (BinaryReader reader = new BinaryReader(stream))
             {
-                // Send data to server
-                Console.Write("Please enter an action: ");
-                string line = Console.ReadLine();
-                writer.Write(line);
-                // Get result from server
-                string result = reader.ReadString();
-                Console.WriteLine(result);
-                Console.ReadLine();
-            }
-            client.Close();
-
-      
-
-            void connectToServer()
-            {
-
-                Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                try
+                Task task = new Task(() =>
                 {
-                    server.Connect(ipep);
-
-                    Send sender = new Send(server);
-                    Task.Factory.StartNew(sender.Handle);
-
                     while (true)
                     {
-                        byte[] data = new byte[1024];
-                        int recv = server.Receive(data);
-                        string stringData = Encoding.ASCII.GetString(data, 0, recv);
-                        Console.WriteLine(stringData);
+                        try
+                        {
+                            // Send data to server
+                            Console.Write("Please enter an action: ");
+                            string line = Console.ReadLine();
+                            writer.Write(line);
+                            writer.Flush();
+                        }
+                        catch (SocketException)
+                        {
+                            break;
+                        }
                     }
-                }
-                catch (SocketException e)
+                    Console.WriteLine("Server stopped");
+                });
+                task.Start();
+                while (true)
                 {
-                    Console.WriteLine("Unable to connect to server." + e.ToString());
+                    // Get result from server
+                    string result = reader.ReadString();
+                    Console.WriteLine(result);
+                    Console.ReadLine();
                 }
             }
-        }
+            client.Close();
+        }   
     }
 }

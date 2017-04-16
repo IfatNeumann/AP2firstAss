@@ -17,9 +17,9 @@ namespace Server
         }
         public string Execute(string[] args, TcpClient client)
         {
-            //List<string> mazes = model.NamesList();
-            //return mazes.ToString();
-            return "in your face Ran";
+            string move = args[0];
+            model.PlayMaze(move, client);
+            return "hi";
         }
     }
 }

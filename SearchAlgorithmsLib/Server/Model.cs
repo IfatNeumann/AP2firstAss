@@ -103,5 +103,6 @@ namespace Server
             Games.Remove(name);            
             return gamesPlaying[name].MyMaze;
         }
+        public void PlayMaze(string move, TcpClient client) { }
     }
 }

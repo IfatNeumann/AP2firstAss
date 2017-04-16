@@ -19,6 +19,7 @@ namespace Server
         string SolveMaze(string name, ISearcher<Position> algorithm);
         void StartMaze(string name, int rows, int cols, TcpClient client);
         Maze JoinMaze(string name, TcpClient client);
+        void PlayMaze(string move, TcpClient client);
     }
     
 }
