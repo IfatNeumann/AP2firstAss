@@ -27,7 +27,10 @@ namespace Server
             if (args[1].Equals("1"))
                 algorithm = new DFS<Position>();
 
-            JObject mazeObj = new JObject();            mazeObj["Name"] = name;            mazeObj["Solution"] = model.SolveMaze(name, algorithm);            mazeObj["NodesEvaluated"] = algorithm.getNumberOfNodesEvaluated();
+            JObject mazeObj = new JObject();
+            mazeObj["Name"] = name;
+            mazeObj["Solution"] = model.SolveMaze(name, algorithm);
+            mazeObj["NodesEvaluated"] = algorithm.getNumberOfNodesEvaluated();
             return mazeObj.ToString();
         }
     }

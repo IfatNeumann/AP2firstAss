@@ -40,7 +40,7 @@ namespace Server
             ObjectAdapter mazeAdapter = new ObjectAdapter(mazes[name]);
             solutions.Add(mazes[name], algorithm.search(mazeAdapter));
             Solution<Position> sol = solutions[mazes[name]];
-            Queue<int> way = new Queue<int>();
+            StringBuilder way = new StringBuilder("");
             State<Position> first, second;
             for (int i=0;i<sol.Trace.Count()-1;++i)
             {
@@ -48,18 +48,19 @@ namespace Server
                 second = sol.Trace.ElementAt(i+1);
                 //left
                 if (first.myState.Col < second.myState.Col)
-                    way.Enqueue(0);
+                    way.Append(0);
                 //right
                 else if (first.myState.Col > second.myState.Col)
-                    way.Enqueue(1);
+                    way.Append(1);
                 //up
                 else if (first.myState.Row < second.myState.Row)
-                    way.Enqueue(2);
+                    way.Append(2);
                 //down
                 else if (first.myState.Row > second.myState.Row)
-                    way.Enqueue(3);
+                    way.Append(3);
             }
-            return Newtonsoft.Json.JsonConvert.SerializeObject(way);
+            string ret = way.ToString();
+            return ret;
         }
         //hi
         public List<string> NamesList()
