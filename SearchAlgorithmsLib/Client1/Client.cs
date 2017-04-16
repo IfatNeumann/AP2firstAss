@@ -40,7 +40,6 @@ namespace Client1
                             Console.Write("Please enter an action: ");
                             string line = Console.ReadLine();
                             writer.Write(line);
-                            //writer.Flush();
                         }
                         catch (SocketException)
                         {
@@ -55,7 +54,6 @@ namespace Client1
                     // Get result from server
                     string result = reader.ReadString();
                     Console.WriteLine(result);
-                    Console.ReadLine();
                 }
             }
             client.Close();
