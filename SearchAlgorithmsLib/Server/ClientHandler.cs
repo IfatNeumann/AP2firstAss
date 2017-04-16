@@ -24,10 +24,13 @@ namespace Server
                 using (BinaryReader reader = new BinaryReader(stream))
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 {
-                    string commandLine = reader.ReadString();
-                    Console.WriteLine("Got command: {0}", commandLine);
-                    string result = con.ExecuteCommand(commandLine, client);
-                    writer.Write(result);
+                    while (true)
+                    {
+                        string commandLine = reader.ReadString();
+                        Console.WriteLine("Got command: {0}", commandLine);
+                        string result = con.ExecuteCommand(commandLine, client);
+                        writer.Write(result);
+                    }
                 }
                 client.Close();
             }).Start();

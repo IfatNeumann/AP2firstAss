@@ -7,7 +7,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.IO;
 
-
 namespace Client1
 {
     public class Client
@@ -41,7 +40,7 @@ namespace Client1
                             Console.Write("Please enter an action: ");
                             string line = Console.ReadLine();
                             writer.Write(line);
-                            writer.Flush();
+                            //writer.Flush();
                         }
                         catch (SocketException)
                         {
