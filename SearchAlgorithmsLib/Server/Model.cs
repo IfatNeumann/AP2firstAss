@@ -32,7 +32,7 @@ namespace Server
             Maze myMaze = myMazeGen.Generate(rows, cols);
             myMaze.Name = name;
             mazes.Add(name,myMaze);
-            return mazes[name];
+            return mazes[name];//hi
         }
         public string SolveMaze (string name, ISearcher<Position> algorithm)
         {
