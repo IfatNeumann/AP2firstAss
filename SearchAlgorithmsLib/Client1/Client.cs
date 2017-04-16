@@ -37,8 +37,9 @@ namespace Client1
                 string line = Console.ReadLine();
                 writer.Write(line);
                 // Get result from server
-                int result = reader.ReadInt32();
+                string result = reader.ReadString();
                 Console.WriteLine("Result = {0}", result);
+                Console.ReadLine();
             }
             client.Close();
 

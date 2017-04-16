@@ -29,7 +29,9 @@ namespace Server
         {
             //create maze
             DFSMazeGenerator myMazeGen = new DFSMazeGenerator();
-            mazes.Add(name,myMazeGen.Generate(rows, cols));
+            Maze myMaze = myMazeGen.Generate(rows, cols);
+            myMaze.Name = name;
+            mazes.Add(name,myMaze);
             return mazes[name];
         }
         public string SolveMaze (string name, ISearcher<Position> algorithm)
