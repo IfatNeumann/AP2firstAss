@@ -12,9 +12,11 @@ namespace Server
 {
     public interface IModel
     {
-        Dictionary<string, Maze> Mazes { get; set; }
+        Dictionary<string, Maze> Mazes { get; }
+        Dictionary<string, Game> Games { get; }
         Maze GenerateMaze( string name, int rows, int cols);
         string SolveMaze(string name, ISearcher<Position> algorithm);
+        void StartMaze(string name, int rows, int cols, TcpClient client);
         List<string> NamesList();
     }
     

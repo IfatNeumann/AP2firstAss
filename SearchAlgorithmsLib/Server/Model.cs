@@ -20,7 +20,21 @@ namespace Server
             this.con = con;
         }
         private Dictionary<string, Maze> mazes = new Dictionary<string, Maze>();
-        public Dictionary<string, Maze> Mazes {get;set;}
+        private Dictionary<string, Game> games = new Dictionary<string, Game>();
+        public Dictionary<string, Maze> Mazes
+        {
+            get
+            {
+                return this.mazes;
+            }
+        }
+        public Dictionary<string, Game> Games
+        {
+            get
+            {
+                return this.games;
+            }
+        }
         private Dictionary<Maze,Solution<Position>> solutions = new Dictionary<Maze , Solution<Position>>();
         public Model()
         {
@@ -62,6 +76,16 @@ namespace Server
             return Newtonsoft.Json.JsonConvert.SerializeObject(way);
         }
         //hi
+        public void StartMaze(string name, int rows, int cols, TcpClient client)
+        {
+            //create maze
+            DFSMazeGenerator myMazeGen = new DFSMazeGenerator();
+            Maze myMaze = myMazeGen.Generate(rows, cols);
+            myMaze.Name = name;
+            //create game
+            Game myGame = new Game(myMaze, client);
+            games.Add(name, myGame);
+        }
         public List<string> NamesList()
         {
             return mazes.Keys.ToList();
