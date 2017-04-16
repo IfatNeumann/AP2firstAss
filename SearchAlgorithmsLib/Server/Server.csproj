@@ -61,6 +61,7 @@
     <Compile Include="IController.cs" />
     <Compile Include="IModel.cs" />
     <Compile Include="IView.cs" />
+    <Compile Include="JoinMazeCommand.cs" />
     <Compile Include="ListMazeCommand.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Params.cs" />

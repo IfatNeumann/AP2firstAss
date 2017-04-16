@@ -33,6 +33,7 @@ namespace Server
             commands.Add("solve", new SolveMazeCommand(Model));
             commands.Add("start", new StartMazeCommand(Model));
             commands.Add("list", new ListMazeCommand(Model));
+            commands.Add("join", new JoinMazeCommand(Model));
             commands.Add("play", new PlayMazeCommand(Model));
             commands.Add("close", new CloseMazeCommand(Model));
         }

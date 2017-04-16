@@ -21,6 +21,7 @@ namespace Server
         }
         private Dictionary<string, Maze> mazes = new Dictionary<string, Maze>();
         private Dictionary<string, Game> games = new Dictionary<string, Game>();
+        private Dictionary<string, Game> gamesPlaying = new Dictionary<string, Game>();
         public Dictionary<string, Maze> Mazes
         {
             get
@@ -33,6 +34,13 @@ namespace Server
             get
             {
                 return this.games;
+            }
+        }
+        public Dictionary<string, Game> GamesPlaying
+        {
+            get
+            {
+                return this.gamesPlaying;
             }
         }
         private Dictionary<Maze,Solution<Position>> solutions = new Dictionary<Maze , Solution<Position>>();
@@ -87,9 +95,13 @@ namespace Server
             Game myGame = new Game(myMaze, client);
             games.Add(name, myGame);
         }
-        public List<string> NamesList()
+        public Maze JoinMaze(string name,TcpClient client)
         {
-            return mazes.Keys.ToList();
+            Game game = games[name];
+            game.SecondPlayer = client;
+            gamesPlaying.Add(name, game);
+            Games.Remove(name);            
+            return gamesPlaying[name].MyMaze;
         }
     }
 }

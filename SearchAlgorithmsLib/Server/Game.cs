@@ -10,7 +10,7 @@ using MazeLib;
 
 namespace Server
 {
-    class Game
+    public class Game
     {
         private TcpClient firstPlayer, secondPlayer;
         private Maze maze;
@@ -21,6 +21,13 @@ namespace Server
             set
             {
                 this.secondPlayer = value;
+            }
+        }
+        public Maze MyMaze
+        {
+            get
+            {
+                return this.maze;
             }
         }
         public Game(Maze maze,TcpClient firstPlayer){

@@ -5,23 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using MazeLib;
-using System.Configuration;
-using SearchAlgorithmsLib;
 
 namespace Server
 {
-    public class ListMazeCommand : ICommand
+    class JoinMazeCommand : ICommand
     {
         private IModel model;
-        public ListMazeCommand(IModel model)
+        public JoinMazeCommand(IModel model)
         {
             this.model = model;
         }
         public string Execute(string[] args, TcpClient client)
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(model.Games.Keys);
+            string name = args[0];
+            Maze maze = model.JoinMaze(name,client);
+            return maze.ToJSON();
         }
-
-
-        }
+    }
 }
