@@ -8,6 +8,7 @@ using MazeLib;
 using SearchAlgorithmsLib;
 using MazeGeneratorLib;
 using ConsoleApp1;
+using Newtonsoft.Json.Linq;
 
 namespace Server
 {
@@ -58,7 +59,7 @@ namespace Server
                 else if (first.myState.Row > second.myState.Row)
                     way.Enqueue(3);
             }
-            return way.ToString();
+            return Newtonsoft.Json.JsonConvert.SerializeObject(way);
         }
         //hi
         public List<string> NamesList()

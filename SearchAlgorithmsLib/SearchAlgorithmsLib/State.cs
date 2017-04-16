@@ -39,7 +39,7 @@ namespace SearchAlgorithmsLib
             State<T> thisState = this;
             while (thisState.Parent != null)
             {
-                s.trace.Enqueue(thisState);
+                s.Trace.Enqueue(thisState);
                 thisState = thisState.Parent;
             }
             return s;

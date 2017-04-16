@@ -99,7 +99,6 @@ namespace Server
         public string Execute(string[] args, TcpClient client)
         {
             List<string> mazes = model.NamesList();
-            Random rand = new Random();
 
             int rows = int.Parse(args[1]);
             int cols = int.Parse(args[2]);
