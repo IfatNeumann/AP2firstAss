@@ -9,6 +9,7 @@ using SearchAlgorithmsLib;
 using MazeGeneratorLib;
 using ConsoleApp1;
 using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace Server
 {
@@ -22,6 +23,7 @@ namespace Server
         private Dictionary<string, Maze> mazes = new Dictionary<string, Maze>();
         private Dictionary<string, Game> games = new Dictionary<string, Game>();
         private Dictionary<string, Game> gamesPlaying = new Dictionary<string, Game>();
+        private Dictionary<TcpClient, string> playing = new Dictionary<TcpClient, string>();
         public Dictionary<string, Maze> Mazes
         {
             get
@@ -100,9 +102,33 @@ namespace Server
             Game game = games[name];
             game.SecondPlayer = client;
             gamesPlaying.Add(name, game);
+            playing.Add(client, name);
+            playing.Add(game.FirstPlayer, name);
             Games.Remove(name);            
             return gamesPlaying[name].MyMaze;
         }
-        public void PlayMaze(string move, TcpClient client) { }
+        public void PlayMaze(string move, TcpClient client) {
+            //find the game
+            Game game = GamesPlaying[playing[client]];
+            //send massage to server
+            ShowMove(move,game,client);
+            TcpClient secondClient;
+            if (game.SecondPlayer.Equals(client))
+                secondClient = game.FirstPlayer;
+            else
+                secondClient = game.SecondPlayer;
+            NetworkStream stream = secondClient.GetStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+            
+            JObject mazeObj = new JObject();
+            mazeObj["Name"] = playing[client];
+            mazeObj["Direction"] = move;
+            writer.Write(mazeObj.ToString());
+        }
+        public void ShowMove(string move,Game game,TcpClient madeMove)
+        {
+            
+            
+        }
     }
 }

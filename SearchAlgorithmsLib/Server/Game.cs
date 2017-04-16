@@ -23,6 +23,13 @@ namespace Server
                 this.secondPlayer = value;
             }
         }
+        public TcpClient FirstPlayer
+        {
+            get
+            {
+                return this.firstPlayer;
+            }
+        }
         public Maze MyMaze
         {
             get
