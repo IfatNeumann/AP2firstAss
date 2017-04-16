@@ -12,7 +12,7 @@ namespace Server
     {
         private Dictionary<string, ICommand> commands;
         public IModel Model { get; set; }
-        public IClientHandler Ch { get; set; }
+        public IClientHandler Ch { get; set; }//
         public Controller()
         {
             commands = new Dictionary<string, ICommand>();
@@ -37,4 +37,4 @@ namespace Server
             commands.Add("close", new CloseMazeCommand(Model));
         }
     }
-}
+}///////

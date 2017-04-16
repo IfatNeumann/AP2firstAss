@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using MazeLib;
+using System.Configuration;
+using SearchAlgorithmsLib;
 
 namespace Server
 {
@@ -17,8 +19,10 @@ namespace Server
         }
         public string Execute(string[] args, TcpClient client)
         {
-            List<string> mazes = model.NamesList();
-            return mazes.ToString();
+            string n = "hh";
+            return n;
         }
-    }
+
+
+        }
 }
