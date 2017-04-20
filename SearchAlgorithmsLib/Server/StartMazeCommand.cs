@@ -22,12 +22,7 @@ namespace Server
             int rows = int.Parse(args[1]);
             int cols = int.Parse(args[2]);
             model.StartMaze(name, rows, cols,client);
-            //only when there is another client
-            while (!model.GamesPlaying.ContainsKey(name))
-            {
-
-            }
-            return model.GamesPlaying[name].MyMaze.ToJSON();
+            return "";
         }
     }
 }

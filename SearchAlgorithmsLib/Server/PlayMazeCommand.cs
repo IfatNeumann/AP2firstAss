@@ -19,7 +19,7 @@ namespace Server
         {
             string move = args[0];
             model.PlayMaze(move, client);
-            return "hi";
+            return "";
         }
     }
 }

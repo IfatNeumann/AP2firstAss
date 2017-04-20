@@ -104,14 +104,21 @@ namespace Server
             gamesPlaying.Add(name, game);
             playing.Add(client, name);
             playing.Add(game.FirstPlayer, name);
-            Games.Remove(name);            
+            Games.Remove(name);
+
+            //print to the first player
+            //send massage to server
+            NetworkStream stream = game.FirstPlayer.GetStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+
+            JObject mazeObj = new JObject();
+            writer.Write(gamesPlaying[name].MyMaze.ToJSON());
             return gamesPlaying[name].MyMaze;
         }
         public void PlayMaze(string move, TcpClient client) {
             //find the game
             Game game = GamesPlaying[playing[client]];
             //send massage to server
-            ShowMove(move,game,client);
             TcpClient secondClient;
             if (game.SecondPlayer.Equals(client))
                 secondClient = game.FirstPlayer;
@@ -125,7 +132,7 @@ namespace Server
             mazeObj["Direction"] = move;
             writer.Write(mazeObj.ToString());
         }
-        public void ShowMove(string move,Game game,TcpClient madeMove)
+        public void Close(TcpClient madeMove)
         {
             
             
