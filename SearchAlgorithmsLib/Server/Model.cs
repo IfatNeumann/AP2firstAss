@@ -61,9 +61,15 @@ namespace Server
         }
         public string SolveMaze (string name, ISearcher<Position> algorithm)
         {
-            ObjectAdapter mazeAdapter = new ObjectAdapter(mazes[name]);
-            solutions.Add(mazes[name], algorithm.search(mazeAdapter));
-            Solution<Position> sol = solutions[mazes[name]];
+            Solution<Position> sol;
+            if (solutions.ContainsKey(mazes[name]))
+                sol = solutions[mazes[name]];
+            else
+            {
+                ObjectAdapter mazeAdapter = new ObjectAdapter(mazes[name]);
+                solutions.Add(mazes[name], algorithm.search(mazeAdapter));
+                sol = solutions[mazes[name]];
+            }
             StringBuilder way = new StringBuilder("");
             State<Position> first, second;
             for (int i=0;i<sol.Trace.Count()-1;++i)

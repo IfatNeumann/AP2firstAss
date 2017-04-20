@@ -29,8 +29,8 @@ namespace Server
 
             if (args.Length != 2)
                 Console.WriteLine("num of arguments not valid");
-            if (model.Mazes.Keys.Contains(name))
-                Console.WriteLine("Name already exists");
+            if (!model.Mazes.Keys.Contains(name))
+                Console.WriteLine("Name does not exist");
 
             JObject mazeObj = new JObject();
             mazeObj["Name"] = name;
