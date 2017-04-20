@@ -57,7 +57,7 @@ namespace Server
             Maze myMaze = myMazeGen.Generate(rows, cols);
             myMaze.Name = name;
             mazes.Add(name,myMaze);
-            return mazes[name];//hi
+            return mazes[name];
         }
         public string SolveMaze (string name, ISearcher<Position> algorithm)
         {
@@ -86,7 +86,7 @@ namespace Server
             string ret = way.ToString();
             return ret;
         }
-        //hi
+        
         public void StartMaze(string name, int rows, int cols, TcpClient client)
         {
             //create maze

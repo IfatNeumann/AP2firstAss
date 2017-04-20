@@ -13,7 +13,7 @@ namespace Client1
     {
         private int port;
         private string ip;
-
+        private bool closeClient = false;
         public Client(int p, string i)
         {
             this.port = p;
@@ -37,9 +37,12 @@ namespace Client1
                         try
                         {
                             // Send data to server
-                            //Console.WriteLine("Please enter an action: ");
                             string line = Console.ReadLine();
                             writer.Write(line);
+                            string commandKey = line.Split(' ').First();
+                            if (commandKey.Equals("generate") || commandKey.Equals("solve")
+                                                || commandKey.Equals("close"))
+                                closeClient = true;
                         }
                         catch (SocketException)
                         {
@@ -49,14 +52,10 @@ namespace Client1
                     Console.WriteLine("Server stopped");
                 });
                 task.Start();
-                while (true)
+                while (!closeClient)
                 {
                     // Get result from server
                     string result = reader.ReadString();
-                    if (result.Equals("Empty json"))
-                    {
-
-                    }
                     Console.WriteLine(result);
                 }
             }
