@@ -155,6 +155,7 @@ namespace Server
             BinaryWriter writer = new BinaryWriter(stream);
             JObject empty = new JObject();
             writer.Write(empty.ToString());
+            secondClient.Close();
         }
     }
 }
