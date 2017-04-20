@@ -18,6 +18,7 @@ namespace Server
         Maze GenerateMaze( string name, int rows, int cols);
         string SolveMaze(string name, ISearcher<Position> algorithm);
         void StartMaze(string name, int rows, int cols, TcpClient client);
+        string ListMaze();
         Maze JoinMaze(string name, TcpClient client);
         void PlayMaze(string move, TcpClient client);
         void CloseMaze(string name ,TcpClient client);

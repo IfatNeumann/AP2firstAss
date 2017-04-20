@@ -19,7 +19,8 @@ namespace Server
         }
         public string Execute(string[] args, TcpClient client)
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(model.Games.Keys);
+            return model.ListMaze();
+                //Newtonsoft.Json.JsonConvert.SerializeObject(model.Games.Keys);
         }
 
 

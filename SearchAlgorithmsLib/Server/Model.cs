@@ -97,6 +97,11 @@ namespace Server
             Game myGame = new Game(myMaze, client);
             games.Add(name, myGame);
         }
+        public string ListMaze()
+        {
+            JArray Jlist = new JArray(games.Keys);
+            return Jlist.ToString();
+        }
         public Maze JoinMaze(string name,TcpClient client)
         {
             Game game = games[name];
@@ -132,10 +137,25 @@ namespace Server
             mazeObj["Direction"] = move;
             writer.Write(mazeObj.ToString());
         }
-        public void CloseMaze(string name, TcpClient madeMove)
+        public void CloseMaze(string name, TcpClient client)
         {
-
-
+            //find the game
+            Game game = GamesPlaying[playing[client]];
+            //find the second client
+            TcpClient secondClient;
+            if (game.SecondPlayer.Equals(client))
+                secondClient = game.FirstPlayer;
+            else
+                secondClient = game.SecondPlayer;
+            //pull the game from all the dictionaries
+            gamesPlaying.Remove(name);
+            playing.Remove(client);
+            playing.Remove(secondClient);
+            //print massage to the second client
+            NetworkStream stream = secondClient.GetStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+            JObject empty = new JObject();
+            writer.Write(empty.ToString());
         }
     }
 }
