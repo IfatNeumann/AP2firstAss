@@ -17,7 +17,9 @@ namespace Server
         }
         public string Execute(string[] args, TcpClient client)
         {
-            return "hi";
+            string name = args[0];
+            model.CloseMaze(name, client);
+            return "";
         }
     }
 }

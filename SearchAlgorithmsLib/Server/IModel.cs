@@ -20,7 +20,7 @@ namespace Server
         void StartMaze(string name, int rows, int cols, TcpClient client);
         Maze JoinMaze(string name, TcpClient client);
         void PlayMaze(string move, TcpClient client);
-        void Close(TcpClient client);
+        void CloseMaze(string name ,TcpClient client);
     }
     
 }

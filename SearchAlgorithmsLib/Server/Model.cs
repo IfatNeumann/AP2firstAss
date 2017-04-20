@@ -132,10 +132,10 @@ namespace Server
             mazeObj["Direction"] = move;
             writer.Write(mazeObj.ToString());
         }
-        public void Close(TcpClient madeMove)
+        public void CloseMaze(string name, TcpClient madeMove)
         {
-            
-            
+
+
         }
     }
 }
