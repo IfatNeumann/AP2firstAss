@@ -41,8 +41,8 @@ namespace Client1
                             writer.Write(line);
                             string commandKey = line.Split(' ').First();
                             if (commandKey.Equals("generate") || commandKey.Equals("solve")
-                                               || commandKey.Equals("close"))
-                                closeClient = true;
+                                               || commandKey.Equals("close")) { }
+                                //closeClient = true;
                         }
                         catch (SocketException)
                         {

@@ -22,13 +22,14 @@ namespace Server
         public string Execute(string[] args, TcpClient client)
         {
             string name = args[0];
-            if (args[1].Equals("0"))
-                algorithm = new BFS<Position>();
-            if (args[1].Equals("1"))
-                algorithm = new DFS<Position>();
-
             if (args.Length != 2)
                 Console.WriteLine("num of arguments not valid");
+            if (args[1].Equals("0"))
+                algorithm = new BFS<Position>();
+            else if (args[1].Equals("1"))
+                algorithm = new DFS<Position>();
+            else
+                return "arguments not valid";
             if (!model.Mazes.Keys.Contains(name))
                 Console.WriteLine("Name does not exist");
 

@@ -33,8 +33,8 @@ namespace Server
                         writer.Write(result);
                         string commandKey = commandLine.Split(' ').First();
                         if (commandKey.Equals("generate") || commandKey.Equals("solve")
-                                            || commandKey.Equals("close"))
-                            closeClient = true;
+                                            || commandKey.Equals("close")) { }
+                            //closeClient = true;
                     }
                 }
                 //client.Close();
