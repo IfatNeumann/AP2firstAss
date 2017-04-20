@@ -53,6 +53,10 @@ namespace Client1
                 {
                     // Get result from server
                     string result = reader.ReadString();
+                    if (result.Equals("Empty json"))
+                    {
+
+                    }
                     Console.WriteLine(result);
                 }
             }
