@@ -27,6 +27,11 @@ namespace Server
             if (args[1].Equals("1"))
                 algorithm = new DFS<Position>();
 
+            if (args.Length != 2)
+                Console.WriteLine("num of arguments not valid");
+            if (model.Mazes.Keys.Contains(name))
+                Console.WriteLine("Name already exists");
+
             JObject mazeObj = new JObject();
             mazeObj["Name"] = name;
             mazeObj["Solution"] = model.SolveMaze(name, algorithm);
