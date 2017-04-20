@@ -20,6 +20,10 @@ namespace Server
             string name = args[0];
             int rows = int.Parse(args[1]);
             int cols = int.Parse(args[2]);
+            if (args.Length != 3)
+                return "num of arguments not valid";
+            if (model.Mazes.Keys.Contains(name))
+                return "Name already exists";
             Maze maze = model.GenerateMaze(name, rows, cols);
             return maze.ToJSON();
         }

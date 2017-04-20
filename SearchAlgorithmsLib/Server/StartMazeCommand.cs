@@ -21,6 +21,10 @@ namespace Server
             string name = args[0];
             int rows = int.Parse(args[1]);
             int cols = int.Parse(args[2]);
+            if (args.Length != 3)
+                Console.WriteLine("num of arguments not valid");
+            if (model.Games.Keys.Contains(name))
+                Console.WriteLine("Name already exists");
             model.StartMaze(name, rows, cols,client);
             return "";
         }
