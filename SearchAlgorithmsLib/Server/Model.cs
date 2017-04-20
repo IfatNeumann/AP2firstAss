@@ -115,8 +115,7 @@ namespace Server
             //send massage to server
             NetworkStream stream = game.FirstPlayer.GetStream();
             BinaryWriter writer = new BinaryWriter(stream);
-
-            JObject mazeObj = new JObject();
+            
             writer.Write(gamesPlaying[name].MyMaze.ToJSON());
             return gamesPlaying[name].MyMaze;
         }
