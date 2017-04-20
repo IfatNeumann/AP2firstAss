@@ -37,7 +37,7 @@ namespace Client1
                         try
                         {
                             // Send data to server
-                            Console.Write("Please enter an action: ");
+                            //Console.WriteLine("Please enter an action: ");
                             string line = Console.ReadLine();
                             writer.Write(line);
                         }
