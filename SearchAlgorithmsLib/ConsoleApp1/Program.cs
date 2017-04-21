@@ -9,13 +9,25 @@ using SearchAlgorithmsLib;
 
 namespace CompareMazeSolvers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class Program
     {
+        /// <summary>
+        /// the main function
+        /// </summary>
+        /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
             CompareSolvers(100, 100);
             Console.Read();
         }
+        /// <summary>
+        /// Compares the solvers.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <param name="col">The col.</param>
         public static void CompareSolvers(int row, int col)
         {
             //create maze

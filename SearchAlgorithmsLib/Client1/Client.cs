@@ -1,26 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-using System.Configuration;
+
 
 namespace Client1
 {
+    /// <summary>
+    /// handel the client flow
+    /// </summary>
     public class Client
     {
+        /// <summary>
+        /// The line
+        /// </summary>
         private string line;
+        /// <summary>
+        /// The port
+        /// </summary>
         private int port;
+        /// <summary>
+        /// The ip
+        /// </summary>
         private string ip;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Client"/> class.
+        /// </summary>
+        /// <param name="p">The string of the port number.</param>
+        /// <param name="i">The string of the ip .</param>
         public Client(string p, string i)
         {
             this.port = int.Parse(p);
             this.ip = i;
         }
 
+        /// <summary>
+        /// Handle the flow of the client 
+        /// </summary>
         public void Handle()
         {
             IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(ip), this.port);
@@ -40,9 +58,11 @@ namespace Client1
                         string result = reader.ReadString();
                         Console.WriteLine(result);
                         string commandKey = line.Split(' ').First();
+                        //check the commands 
                         if (commandKey.Equals("generate") || commandKey.Equals("solve") ||
                                         commandKey.Equals("close"))
                         {
+                            //close the connection 
                             writer.Dispose();
                             reader.Dispose();
                             client.Close();

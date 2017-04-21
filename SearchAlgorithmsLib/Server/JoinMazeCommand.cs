@@ -1,20 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Net.Sockets;
 using MazeLib;
 
 namespace Server
 {
+    /// <summary>
+    /// class of the join command 
+    /// </summary>
+    /// <seealso cref="Server.ICommand" />
     class JoinMazeCommand : ICommand
     {
+        /// <summary>
+        /// The model
+        /// </summary>
         private IModel model;
+  
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JoinMazeCommand"/> class.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public JoinMazeCommand(IModel model)
         {
             this.model = model;
         }
+     
+        /// <summary>
+        /// Executes the command.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="client">The client.</param>
+        /// <returns></returns>
         public string Execute(string[] args, TcpClient client)
         {
 

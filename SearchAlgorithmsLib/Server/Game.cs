@@ -1,19 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
+﻿
 using System.Net.Sockets;
-using System.IO;
 using MazeLib;
 
 namespace Server
 {
+    /// <summary>
+    /// A class for the multiplayer games 
+    /// contains the maze and two players 
+    /// </summary>
     public class Game
     {
+        /// <summary>
+        /// The first player
+        /// </summary>
         private TcpClient firstPlayer, secondPlayer;
+       
+        /// <summary>
+        /// The maze
+        /// </summary>
         private Maze maze;
+      
+        /// <summary>
+        /// Gets or sets the second player.
+        /// </summary>
+        /// <value>
+        /// The second player.
+        /// </value>
         public TcpClient SecondPlayer{
             get{
                 return this.secondPlayer;
@@ -23,6 +35,13 @@ namespace Server
                 this.secondPlayer = value;
             }
         }
+      
+        /// <summary>
+        /// Gets the first player.
+        /// </summary>
+        /// <value>
+        /// The first player.
+        /// </value>
         public TcpClient FirstPlayer
         {
             get
@@ -30,6 +49,13 @@ namespace Server
                 return this.firstPlayer;
             }
         }
+      
+        /// <summary>
+        /// Gets my maze.
+        /// </summary>
+        /// <value>
+        /// My maze.
+        /// </value>
         public Maze MyMaze
         {
             get
@@ -37,6 +63,12 @@ namespace Server
                 return this.maze;
             }
         }
+   
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Game"/> class.
+        /// </summary>
+        /// <param name="maze">The maze.</param>
+        /// <param name="firstPlayer">The first player.</param>
         public Game(Maze maze,TcpClient firstPlayer){
             this.maze = maze;
             this.firstPlayer = firstPlayer;

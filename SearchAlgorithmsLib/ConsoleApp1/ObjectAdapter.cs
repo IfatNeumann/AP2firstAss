@@ -8,15 +8,31 @@ using SearchAlgorithmsLib;
 
 namespace CompareMazeSolvers
 {
+    /// <summary>
+    /// adupt the maze to the program
+    /// </summary>
+    /// <seealso cref="SearchAlgorithmsLib.ISearchable{MazeLib.Position}" />
     public class ObjectAdapter : ISearchable<Position>
     {
+        /// <summary>
+        /// My maze
+        /// </summary>
         private Maze myMaze;
         //Ctor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectAdapter"/> class.
+        /// </summary>
+        /// <param name="maze">The maze.</param>
         public ObjectAdapter(Maze maze)
         {
             this.myMaze = maze;
         }
-        
+
+        /// <summary>
+        /// Gets all possible states.
+        /// </summary>
+        /// <param name="s">The s.</param>
+        /// <returns></returns>
         public List<State<Position>> getAllPossibleStates(State<Position> s)
         {
             int col = s.myState.Col, row = s.myState.Row;
@@ -37,11 +53,19 @@ namespace CompareMazeSolvers
             return neighbors;
         }
 
+        /// <summary>
+        /// Gets the state of the goal.
+        /// </summary>
+        /// <returns></returns>
         public State<Position> getGoalState()
         {
             return new State<Position>(myMaze.GoalPos);
         }
 
+        /// <summary>
+        /// Gets the initial state.
+        /// </summary>
+        /// <returns></returns>
         public State<Position> getInitialState()
         {
             return new State<Position>(myMaze.InitialPos);
