@@ -20,7 +20,7 @@ namespace Server
             string move = args[0];
             if (!((move.Equals("up")) || (move.Equals("down")) ||
                  (move.Equals("left")) || (move.Equals("right"))))
-                return "command dosen't valid";
+                return "command not valid";
             if (args.Length != 1)
                 return "num of arguments not valid";
             model.PlayMaze(move, client);

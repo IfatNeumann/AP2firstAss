@@ -39,6 +39,10 @@ namespace Server
                         {
                             break;
                         }
+                        catch (System.IO.EndOfStreamException)
+                        {
+                            break;
+                        }
                     }
                 }
                 //client.Close();

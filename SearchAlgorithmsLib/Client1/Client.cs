@@ -11,6 +11,7 @@ namespace Client1
 {
     public class Client
     {
+        private string line;
         private bool finish = false;
         private bool closeClient = false;
         private int port;
@@ -24,11 +25,13 @@ namespace Client1
         public void Handle()
         {
             IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(ip), this.port);
-            TcpClient client = new TcpClient();
+            TcpClient client = null;
             NetworkStream stream = null;
             BinaryWriter writer = null;
             BinaryReader reader = null;
-            Task task = new Task(() =>
+            Task task;
+
+            Action receiveThread = new Action(() =>
             {
                 while (true)
                 {
@@ -36,46 +39,46 @@ namespace Client1
                     {
                         // Get result from server
                         string result = reader.ReadString();
-                        if(result.Equals(null))
-                            Console.WriteLine("connection stopped");
                         Console.WriteLine(result);
-                        finish = true;
+                        string commandKey = line.Split(' ').First();
+                        if (commandKey.Equals("generate") || commandKey.Equals("solve") || commandKey.Equals("close"))
+                        {
+                            writer.Dispose();
+                            reader.Dispose();
+                            client.Close();
+                            finish = false;
+                            Console.WriteLine("connection stopped");
+                            client = null;
+                            break;
+                        }
                     }
                     catch (SocketException)
                     {
-                        Console.WriteLine("connection stopped2");
+                        Console.WriteLine("exception - connection stopped");
                         break;
                     }
-                    Console.Write("k");
                 }
-                Console.Write("t");
             });
             
             while (true)
             {
                 try
                 {
-                    if (finish.Equals(true))
-                    {
-                        writer.Dispose();
-                        reader.Dispose();
-                        client.Close();
-                        finish = false;
-                        Console.WriteLine("connection stopped3");
-                    }
+                   
                     // Send data to server
-                    string line = Console.ReadLine();
-                    if (!client.Connected)
+                    line = Console.ReadLine();
+                    if (client==null)
                     {
+                        client = new TcpClient(); 
                         client.Connect(ipep);
                         Console.WriteLine("You are connected");
                         stream = client.GetStream();
                         writer = new BinaryWriter(stream);
                         reader = new BinaryReader(stream);
+                        task = new Task(receiveThread);
                         task.Start();
                     }
                     writer.Write(line);
-                    string commandKey = line.Split(' ').First();
                     
                 }
                 catch (SocketException)
