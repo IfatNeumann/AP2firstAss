@@ -10,21 +10,60 @@ namespace SearchAlgorithmsLib
     public abstract class Searcher<T> : ISearcher<T>
     {
         /// <summary>
-        /// closed contain the nodes we visited
+        /// Closed contain the nodes we visited
         /// </summary>
-        public HashSet<State<T>> closed = new HashSet<State<T>>();
+        private HashSet<State<T>> closed;
 
         /// <summary>
         /// The evaluated nodes
         /// </summary>
-        public int evaluatedNodes;
+        private int evaluatedNodes;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Searcher"/> class.
+        /// Initializes a new instance of the <see cref="Searcher{T}"/> class.
         /// </summary>
-        public Searcher()
+        protected Searcher()
         {
-            this.evaluatedNodes = 0;
+            this.EvaluatedNodes = 0;
+            this.Closed = new HashSet<State<T>>();
+        }
+
+        /// <summary>
+        /// Gets or sets 'closed' hash-set
+        /// </summary>
+        /// <value>
+        /// closed - the hash-set.
+        /// </value>
+        protected HashSet<State<T>> Closed
+        {
+            get
+            {
+                return this.closed;
+            }
+
+            set
+            {
+                this.closed = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets 'evaluatedNodes'
+        /// </summary>
+        /// <value>
+        /// 'evaluatedNodes' - int.
+        /// </value>
+        protected int EvaluatedNodes
+        {
+            get
+            {
+                return this.evaluatedNodes;
+            }
+
+            set
+            {
+                this.evaluatedNodes = value;
+            }
         }
 
         /// <summary>
@@ -53,7 +92,7 @@ namespace SearchAlgorithmsLib
         /// <returns>the number of the evaluated nodes</returns>
         public int GetNumberOfNodesEvaluated()
         {
-            return this.closed.Count;
+            return this.Closed.Count;
         }
     }
 }

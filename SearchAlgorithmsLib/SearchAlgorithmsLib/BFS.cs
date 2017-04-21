@@ -13,7 +13,15 @@ namespace SearchAlgorithmsLib
         /// <summary>
         /// priority queue of the open list
         /// </summary>
-        private SimplePriorityQueue<State<T>> openList = new SimplePriorityQueue<State<T>>();
+        private SimplePriorityQueue<State<T>> openList;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BFS{T}"/> class.
+        /// </summary>
+        public BFS()
+        {
+            this.openList = new SimplePriorityQueue<State<T>>();
+        }
 
         /// <summary>
         /// Adds to data structure.
@@ -30,7 +38,7 @@ namespace SearchAlgorithmsLib
         /// <returns>the state at the top of the data structure</returns>
         public override State<T> PopDataStructure()
         {
-            this.evaluatedNodes++;
+            this.EvaluatedNodes++;
             return this.openList.Dequeue();
         }
 
@@ -48,7 +56,7 @@ namespace SearchAlgorithmsLib
             while (openListSize > 0)
             {
                 State<T> n = this.PopDataStructure(); // inherited from Searcher, removes the best state
-                this.closed.Add(n);
+                this.Closed.Add(n);
                 if (n.Equals(searchable.GetGoalState()))
                 {
                     return n.BackTrace(); // private method, back traces through the parents
@@ -58,7 +66,7 @@ namespace SearchAlgorithmsLib
                 List<State<T>> successors = searchable.GetAllPossibleStates(n);
                 foreach (State<T> s in successors)
                 {
-                    if (!this.closed.Contains(s) && !this.openList.Contains(s))
+                    if (!this.Closed.Contains(s) && !this.openList.Contains(s))
                     {
                         s.Parent = n; // already done by getSuccessors
                         s.Cost = n.Cost + 1;

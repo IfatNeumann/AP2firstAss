@@ -20,7 +20,7 @@ namespace SearchAlgorithmsLib
         private Queue<State<T>> trace = new Queue<State<T>>();
 
         /// <summary>
-        /// Gets or sets the evaluated nodes.
+        /// Gets and sets the evaluated nodes.
         /// </summary>
         /// <value>
         /// The evaluated nodes.

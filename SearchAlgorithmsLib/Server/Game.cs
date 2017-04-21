@@ -15,7 +15,7 @@ namespace Server
         private TcpClient firstPlayer;
 
         /// <summary>
-        /// The first player
+        /// The second player
         /// </summary>
         private TcpClient secondPlayer;
 

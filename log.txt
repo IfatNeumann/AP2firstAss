@@ -1,3 +1,28 @@
+commit 484c516e5b2df4c5866639cfbf5140b5c313c665
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 20:57:06 2017 +0300
+
+    final final
+
+commit d805f44be69c468d8cee588ee9a98e1bcc229d5a
+Merge: 097382a 0f99dc6
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 21 18:31:02 2017 +0300
+
+    commit to merge
+
+commit 097382a8dd359d6dfead0287429b3af84bc97f99
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 21 18:14:45 2017 +0300
+
+    commit with notes
+
+commit 0f99dc6056d7335d3ee7ce2caed0d01689872f3b
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 18:14:39 2017 +0300
+
+    half of notes
+
 commit 93066a19bcaa07479d33fb4a98882ff9980af8a2
 Author: ifat neumann <ineumann19@gmail.com>
 Date:   Fri Apr 21 16:07:15 2017 +0300

@@ -10,10 +10,36 @@ namespace SearchAlgorithmsLib
     public class DFS<T> : Searcher<T>
     {
         /// <summary>
-        /// The visited stack
-        /// contain all the nodes we already visited
+        /// The evaluated nodes
         /// </summary>
-        public Stack<State<T>> visitedStack = new Stack<State<T>>();
+        private Stack<State<T>> visitedStack;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DFS{T}"/> class.
+        /// </summary>
+        public DFS()
+        {
+            this.visitedStack = new Stack<State<T>>();
+        }
+
+        /// <summary>
+        /// Gets or sets the visitedStack.
+        /// </summary>
+        /// <value>
+        /// The visited stack.
+        /// </value>
+        public Stack<State<T>> VisitedStack
+        {
+            get
+            {
+                return this.visitedStack;
+            }
+
+            set
+            {
+                value = this.visitedStack;
+            }
+        }
 
         /// <summary>
         /// Pops the data structure.
@@ -21,8 +47,8 @@ namespace SearchAlgorithmsLib
         /// <returns>the state at the top of the data structure</returns>
         public override State<T> PopDataStructure()
         {
-            this.evaluatedNodes++;
-            return this.visitedStack.Pop();
+            this.EvaluatedNodes++;
+            return this.VisitedStack.Pop();
         }
 
         /// <summary>
@@ -31,7 +57,7 @@ namespace SearchAlgorithmsLib
         /// <param name="state">The state.</param>
         public override void AddToDataStructure(State<T> state)
         {
-            this.visitedStack.Push(state);
+            this.VisitedStack.Push(state);
         }
 
         /// <summary>
@@ -42,11 +68,11 @@ namespace SearchAlgorithmsLib
         /// <returns>the solution</returns>
         public override Solution<T> Search(ISearchable<T> searchable)
         {
-            this.visitedStack.Push(searchable.GetInitialState());
-            while (this.visitedStack.Count != 0)
+            this.VisitedStack.Push(searchable.GetInitialState());
+            while (this.VisitedStack.Count != 0)
             {
-                State<T> thisState = this.visitedStack.Pop();
-                this.closed.Add(thisState);
+                State<T> thisState = this.VisitedStack.Pop();
+                this.Closed.Add(thisState);
                 if (thisState.Equals(searchable.GetGoalState()))
                 {
                     return thisState.BackTrace();
@@ -55,7 +81,7 @@ namespace SearchAlgorithmsLib
                 List<State<T>> successors = searchable.GetAllPossibleStates(thisState);
                 foreach (State<T> s in successors)
                 {
-                    if (!this.closed.Contains(s) && !this.visitedStack.Contains(s))
+                    if (!this.Closed.Contains(s) && !this.VisitedStack.Contains(s))
                     {
                         s.Parent = thisState;
                         this.AddToDataStructure(s);
