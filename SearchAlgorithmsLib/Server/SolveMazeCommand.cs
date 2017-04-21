@@ -23,7 +23,7 @@ namespace Server
         {
             string name = args[0];
             if (args.Length != 2)
-                Console.WriteLine("num of arguments not valid");
+                return "num of arguments not valid";
             if (args[1].Equals("0"))
                 algorithm = new BFS<Position>();
             else if (args[1].Equals("1"))
@@ -31,12 +31,12 @@ namespace Server
             else
                 return "arguments not valid";
             if (!model.Mazes.Keys.Contains(name))
-                Console.WriteLine("Name does not exist");
+                return "Name does not exist";
 
             JObject mazeObj = new JObject();
             mazeObj["Name"] = name;
             mazeObj["Solution"] = model.SolveMaze(name, algorithm);
-            mazeObj["NodesEvaluated"] = algorithm.getNumberOfNodesEvaluated();
+            mazeObj["NodesEvaluated"] = model.Solutions[model.Mazes[name]].EvaluatedNodes;
             return mazeObj.ToString();
         }
     }

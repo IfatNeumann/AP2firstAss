@@ -46,9 +46,12 @@ namespace Server
             }
         }
         private Dictionary<Maze,Solution<Position>> solutions = new Dictionary<Maze , Solution<Position>>();
-        public Model()
+        public Dictionary<Maze, Solution<Position>> Solutions
         {
-
+            get
+            {
+                return this.solutions;
+            }
         }
         public Maze GenerateMaze( string name, int rows, int cols)
         {
@@ -62,14 +65,15 @@ namespace Server
         public string SolveMaze (string name, ISearcher<Position> algorithm)
         {
             Solution<Position> sol;
-            if (solutions.ContainsKey(mazes[name]))
-                sol = solutions[mazes[name]];
-            else
+            if (!solutions.ContainsKey(mazes[name]))
             {
                 ObjectAdapter mazeAdapter = new ObjectAdapter(mazes[name]);
-                solutions.Add(mazes[name], algorithm.search(mazeAdapter));
-                sol = solutions[mazes[name]];
+                sol = algorithm.search(mazeAdapter);
+                sol.EvaluatedNodes = algorithm.getNumberOfNodesEvaluated();
+                solutions.Add(mazes[name], sol);
+                
             }
+            sol = solutions[mazes[name]];
             StringBuilder way = new StringBuilder("");
             State<Position> first, second;
             for (int i=0;i<sol.Trace.Count()-1;++i)

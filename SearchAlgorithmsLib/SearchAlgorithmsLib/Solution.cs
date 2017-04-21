@@ -9,6 +9,18 @@ namespace SearchAlgorithmsLib
 {
     public class Solution<T>
     {
+        private int evaluatedNodes;
+        public int EvaluatedNodes
+        {
+            get
+            {
+                return this.evaluatedNodes;
+            }
+            set
+            {
+                this.evaluatedNodes = value;
+            }
+        }
         private Queue<State<T>> trace = new Queue<State<T>>();
         public Queue<State<T>> Trace {
             get {

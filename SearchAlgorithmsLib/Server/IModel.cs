@@ -15,6 +15,7 @@ namespace Server
         Dictionary<string, Maze> Mazes { get; }
         Dictionary<string, Game> Games { get; }
         Dictionary<string, Game> GamesPlaying { get; }
+        Dictionary<Maze, Solution<Position>> Solutions { get; }
         Maze GenerateMaze( string name, int rows, int cols);
         string SolveMaze(string name, ISearcher<Position> algorithm);
         void StartMaze(string name, int rows, int cols, TcpClient client);
