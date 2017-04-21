@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using MazeLib;
 using SearchAlgorithmsLib;
 using MazeGeneratorLib;
-using ConsoleApp1;
+using CompareMazeSolvers;
 using Newtonsoft.Json.Linq;
 using System.IO;
 

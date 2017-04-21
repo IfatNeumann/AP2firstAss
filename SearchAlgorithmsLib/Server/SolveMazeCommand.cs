@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using MazeLib;
 using SearchAlgorithmsLib;
-using ConsoleApp1;
+using CompareMazeSolvers;
 using Newtonsoft.Json.Linq;
 
 namespace Server

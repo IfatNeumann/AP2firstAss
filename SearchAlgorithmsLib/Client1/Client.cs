@@ -58,7 +58,7 @@ namespace Client1
                     }
                 }
             });
-            
+            Console.WriteLine("Welcome! please enter a command:");
             while (true)
             {
                 try
