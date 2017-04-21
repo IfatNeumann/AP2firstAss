@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
+using System.Configuration;
 
 
 namespace Server
@@ -22,7 +23,8 @@ namespace Server
 
         public void StartConnection()
         {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portNum);
+            string ip = ConfigurationManager.AppSettings["ip"].ToString();
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), portNum);
             listener = new TcpListener(ep);
             listener.Start();
             Console.WriteLine("Waiting for connections...");

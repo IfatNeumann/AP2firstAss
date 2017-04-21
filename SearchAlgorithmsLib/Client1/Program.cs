@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
+using System.Configuration;
 
 
 namespace Client1
@@ -12,7 +13,10 @@ namespace Client1
     {
         static void Main(string[] args)
         {
-            Client client = new Client(555,"127.0.0.1");
+
+            int port = Int32.Parse(ConfigurationManager.AppSettings["port"]);
+            string ip = ConfigurationManager.AppSettings["ip"].ToString();
+            Client client = new Client(port,ip);
             client.Handle();
 
         }
