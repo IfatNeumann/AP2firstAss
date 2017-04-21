@@ -1,26 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
+﻿using System.Configuration;
 
 namespace Server
 {
-    class Program
+    /// <summary>
+    /// contains the main function.
+    /// </summary>
+    public class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// the main function of the program.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        public static void Main(string[] args)
         {
-            string port = ConfigurationManager.AppSettings["port"];            
+            string port = ConfigurationManager.AppSettings["port"];
             IController con = new Controller();
-            IClientHandler ch = new ClientHandler(con);//view
+            IClientHandler ch = new ClientHandler(con); // view
             IModel model = new Model(con);
             con.Model = model;
             con.Ch = ch;
             con.setDic();
             MyServer server = new MyServer(port, ch);
             server.StartConnection();
-            //Console.ReadLine();
         }
     }
 }

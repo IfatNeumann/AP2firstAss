@@ -1,0 +1,821 @@
+commit 93066a19bcaa07479d33fb4a98882ff9980af8a2
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 16:07:15 2017 +0300
+
+    hi
+
+commit 16f4a315e627448d9b714d231494cb0e1bce8c30
+Merge: c7c959a 5a0a9d0
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 15:59:00 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit c7c959ad7d527c12f24771c483a745932c229a1d
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 15:58:11 2017 +0300
+
+    try git
+
+commit 5a0a9d024a683051d5ab145db69c511ef82ee251
+Merge: afa8c01 f9d7a9e
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 21 15:31:31 2017 +0300
+
+    j
+
+commit afa8c010924204bea17d858ca16e995c02f37787
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 21 15:18:12 2017 +0300
+
+    ll
+
+commit f9d7a9e1c4c2f930d44cc68e7f6891db8478727d
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 15:17:52 2017 +0300
+
+    no bugs!!
+
+commit ced7a5d0cbc9bfac9b6a255ed4b04286dea5e056
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 13:33:40 2017 +0300
+
+    final!!!D:
+
+commit a9464b15f35a2ab11cf22856f76c8d3944ec66f8
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 12:46:37 2017 +0300
+
+    hihi
+
+commit b673e3ebd691d3cdaea079d804a021df946d0881
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 03:17:39 2017 +0300
+
+    fixed more bugs
+
+commit b37e591e82cf15aa0a64b3f7275bcda8ed9408b1
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 02:41:34 2017 +0300
+
+    what ever i want
+
+commit 8256d64ad018cc43d0d76889edbe33732fb1ef62
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 02:10:55 2017 +0300
+
+    hi
+
+commit 481ab1d88901cf3cc96f17118f92042e3cdca153
+Merge: 492d9ad 3450e0f
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 01:56:19 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 492d9ad61c9c51b646f3869c01e87eb70239428f
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 01:56:09 2017 +0300
+
+    good night
+
+commit 3450e0f69dba34a5a630a231e685b98b276de1b5
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 21 01:52:28 2017 +0300
+
+    checks
+
+commit aa36f248109354fbecc13b0ea5d0d87547c4b0cb
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 00:52:23 2017 +0300
+
+    j
+
+commit 7c125611bd216dc0631fea29c6f881945b15d963
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 21 00:12:31 2017 +0300
+
+    closed the client!
+
+commit e2288876255dd90de4a54058f5c256a7f765fd6f
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 20 23:32:08 2017 +0300
+
+    k
+
+commit 7622cdacba2f3f220160a699ae0257e21d1e020c
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 20 23:03:41 2017 +0300
+
+    list fixed
+
+commit 8eaa2c81a2478f83de83fb9812e60fd4b6a3b531
+Merge: c24829f 4f802a7
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 20 22:27:11 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit c24829f8246e089c2e6b8908a8b8439eb3216fcc
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 20 22:26:36 2017 +0300
+
+    k
+
+commit 4f802a78b130738db9092620207af3bb6e3c4748
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 20 22:26:34 2017 +0300
+
+    start close
+
+commit cac042c80188602e972b14929a52e23d9439505d
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 20 21:39:27 2017 +0300
+
+    'start' fixed
+
+commit bb334e26001bbd2113698ea813ffde569a803998
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 19:05:05 2017 +0300
+
+    working!!!!
+
+commit 0647676a3efa704eb18d3d4bba234ddb0497e495
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 18:42:21 2017 +0300
+
+    yeaaa
+
+commit a635bee66ff08bb9b309674a857b25ac9e247a24
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 17:47:31 2017 +0300
+
+    d
+
+commit 50c615c2de4e4c8ff1eacbaef84fb273ca222100
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 15:54:01 2017 +0300
+
+    tamir
+
+commit 3af7c2e44b46c3495cbe55317cafd81c3842acbb
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 14:41:11 2017 +0300
+
+    eden
+
+commit ca17f72f559e52a6a7fdf7739f4b0dd59ce315fa
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 13:58:42 2017 +0300
+
+    in your face
+
+commit 18e2863a7e45aed2dae58525d7a17fbb7dfe990f
+Merge: de8fc8c 3ddf272
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 13:04:43 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit de8fc8cab4ec8c62007ddd357c0ee1e3144a5c1a
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 13:04:12 2017 +0300
+
+    k
+
+commit 3ddf2721397ae00543d58f55a6dc3f1ee7e685c7
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 16 12:56:42 2017 +0300
+
+    solve work
+
+commit 73ee3cbee0c3e3e5351c4e90545469803f1f3128
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 12:19:53 2017 +0300
+
+    hihi
+
+commit 4835a6d49de30d4979285828f57309f863574714
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 11:01:26 2017 +0300
+
+    k
+
+commit 743f5edac08f647b3816056f9380a4fe96692a73
+Merge: 1402ea4 245b4ea
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 11:00:17 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 1402ea4ac04c7024cc995672066b3ee202cd4106
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 16 10:59:42 2017 +0300
+
+    hi
+
+commit 245b4ea7cf2da6564e6724f364059fc6f33059fe
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 16 10:59:31 2017 +0300
+
+    ll
+
+commit 251c70b17e4bb364c4a6fd2c369016c98aa62fdb
+Merge: a4373f9 fce4045
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 16 02:50:15 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit a4373f9f130351b6840026b9ceb246685d64d14b
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 16 02:49:45 2017 +0300
+
+    kmlk
+
+commit 16644ff658ee1de8be2725c6d7c5288631f6f022
+Merge: ed3c51b beebdc7
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 16 02:48:19 2017 +0300
+
+    lk
+
+commit fce4045686ab87fcb38f38b0055302ae381aaa43
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 14 18:36:57 2017 +0300
+
+    working!!!
+
+commit 8af4fe42418be191f830265d99c581e2ef34f219
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 14 18:27:25 2017 +0300
+
+    hi
+
+commit ed3c51bcd3733041a2aa4ad77a6a8ce4431065aa
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 14 18:01:46 2017 +0300
+
+    comit
+
+commit beebdc71915ba7bb237c65b1f1765951a1461b8a
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 14 18:01:02 2017 +0300
+
+    hihi
+
+commit 4912fcae6cba75bf304de49405b87a294578771a
+Merge: 537202e d915dbc
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 14 18:00:11 2017 +0300
+
+    yeeeaaaa
+
+commit 537202e866a34bb8f85a2609b26fb815ae8616d5
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 14 15:24:37 2017 +0300
+
+    P
+
+commit d915dbc4d75fee5ac3354351ab3f80f4140ef09c
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 14 15:22:53 2017 +0300
+
+    more changes
+
+commit 2dabce365b747d1b0cbd6ef1e2d90e53c5f06f36
+Merge: a8c625d 15cc0e0
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 14 15:07:04 2017 +0300
+
+    connected yyaayyyyyyyyyyy
+
+commit 15cc0e0ef82f1c2ade58b9bc92d8565e01a2c331
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 14 14:29:53 2017 +0300
+
+    complied!
+
+commit a8c625d79e86b283411e8e7047343c2795f0247f
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 14 14:29:48 2017 +0300
+
+    bla
+
+commit 28593a2232e6d92607ff631ec3e7b8068ed143ee
+Merge: 92c3c06 5be6f82
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 14 12:34:15 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 92c3c0653d1bbdb992ec087ef46a72530751618d
+Merge: f04fd20 573cd1c
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 14 12:33:06 2017 +0300
+
+    kj
+
+commit f04fd205de138e326cbc149c97df820bd679d9f0
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Fri Apr 14 12:15:04 2017 +0300
+
+    m
+
+commit 5be6f82dd7534cbe9d88265fc87ede501f2ffb15
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Fri Apr 14 11:27:20 2017 +0300
+
+    COMMIT
+
+commit e05d0ed0c704f3b50c03d47c468fe2871d52d527
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 13 13:37:25 2017 +0300
+
+    change
+
+commit 573cd1ca64a30e5d1d30d825474aee3b5ae4eb3c
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 13 01:54:31 2017 +0300
+
+    bj
+
+commit d81b81164333da56af73255b7c78f38f067c6d7b
+Merge: 97f9b45 9f0c13c
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 13 01:54:02 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 97f9b4548d27ad327d32e08fa4472ec99c421d2c
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 13 01:53:52 2017 +0300
+
+    hgj
+
+commit 9f0c13c844697967e78624bc62926132aa345f65
+Merge: 3dd5249 f87e1d2
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 12 17:46:06 2017 +0300
+
+    k
+
+commit 3dd52492fa7efaa7d8c11d2097465fc0a93b8f31
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 12 17:43:31 2017 +0300
+
+    ,
+
+commit f87e1d2a391145d426e86a6125da00545ed8646c
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Wed Apr 12 17:36:10 2017 +0300
+
+    kksxkx
+
+commit a99a8c3d28c4950c22f25ec671b3a28a72f8d3cc
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Wed Apr 12 15:21:05 2017 +0300
+
+    start mvc
+
+commit f2c17c1da84fd1b5ceff433a5510cec17e080d31
+Merge: 1e5ecf9 2e30064
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 20:26:53 2017 +0300
+
+    comit after merge
+
+commit 1e5ecf9c59f4c0665c4692aba88caeadc3fb2f70
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 20:25:38 2017 +0300
+
+    start mvc
+
+commit 2e3006489ac9dfe939ce25b12693209c9adefcca
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 20:23:46 2017 +0300
+
+    with state pool
+
+commit e154e0eb658bf127a0901ca1f8e419ab58626839
+Merge: 4ec583b 235e120
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 19:40:21 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 4ec583b2ae8b9293c56a40a73509fc7c6051ebab
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 19:40:02 2017 +0300
+
+    hihihi
+
+commit 235e120a6ff2d919fb7d4a99c9c0b61ed46733c3
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 19:39:11 2017 +0300
+
+    comi
+
+commit 88371ffb21ff7ad07c695f0878a09258c3fb57d0
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 15:15:26 2017 +0300
+
+    k
+
+commit ad5b6e143500c5b94c579d2c34bd1ebd387e0a2c
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 15:06:49 2017 +0300
+
+    shtuyot
+
+commit 4f55e51bd4df039588dd8f483934492329cb73da
+Merge: 6133e1a 27e88e4
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 15:05:36 2017 +0300
+
+    mm
+
+commit 6133e1aa86514f8f1148d3c096856b9c6560afb2
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 15:03:28 2017 +0300
+
+    yay
+
+commit 27e88e4cdeff338fe2a4e313245f127867855643
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 15:03:17 2017 +0300
+
+    jk
+
+commit 9a4731dbed5e5b2a229f653c293aed0d15534ff1
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 13:56:00 2017 +0300
+
+    kn
+
+commit f18b6859d79f88e049374b4e7eba662969ccd856
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 13:53:55 2017 +0300
+
+    kj
+
+commit 8312d728d395dbbb3fa1002006460ed43a357c87
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 12:29:10 2017 +0300
+
+    bamba
+
+commit e8f70314644e4bcf5335b5149e909cc1d936b283
+Merge: 251a581 456d58d
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 12:28:44 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 251a5813795f5efd06ee7a252f6382ba109b0c73
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 12:27:48 2017 +0300
+
+    k
+
+commit 456d58d073891cbfb65d33e2a1f07d86f238bbfe
+Merge: 5883de8 0a5fe81
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 12:24:20 2017 +0300
+
+    comit after merge
+
+commit 5883de85a6ebf81d06f5e80e0cdbe096a2547aee
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 12:22:47 2017 +0300
+
+    bla
+
+commit 0a5fe81310cb5808a5c02af984f1a6b15bdf9af0
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 12:20:57 2017 +0300
+
+    hamburger
+
+commit a12dcc2f2391cf5534fd3b79bf31a3efcaf0efc4
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 12:03:51 2017 +0300
+
+    commit after run
+
+commit 4d63344ef4bd0e714f7d5bf3f1f6840a99536c1f
+Merge: 609db5a 76acf7c
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 11:51:11 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 609db5ab571c781dbea87e4ff8ec7359b6a908bc
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 11:50:32 2017 +0300
+
+    hihihihi
+
+commit 76acf7cdda1f903781832558e2c1534ac9ad0446
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 11:49:49 2017 +0300
+
+    commit
+
+commit 501835659e68907824a53ebd113699a5dacd5dee
+Merge: dc46ed5 3e04daf
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 11:16:30 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 3e04daf5712153c679be037fd0db6b760c16eaa9
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 11:16:03 2017 +0300
+
+    try
+
+commit dc46ed519365542d60673a34e00085701824d35b
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 11:10:38 2017 +0300
+
+    coomiit
+
+commit f89334943ec33366c6f8178099a225727ca88a42
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 11:05:35 2017 +0300
+
+    k
+
+commit 4df3266a5e74a68ba9d45552e7d349fab6800668
+Merge: c5aa33a ec0a62a
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 11:05:07 2017 +0300
+
+    j
+
+commit c5aa33a87bcfffd66fc4327426f070628adb6c24
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 11:02:08 2017 +0300
+
+    done with neighbors
+
+commit ec0a62a93cd2d1e5ca1cba304d2d15011b2c1fd0
+Merge: 90204d7 43b80ea
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 10:22:45 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 90204d7453ac4bf5ecdeaada145b56b70ba2cd2d
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Sun Apr 9 10:14:23 2017 +0300
+
+    commiit
+
+commit 43b80ea0f447a8a7c6f168265855aa994e18954e
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 10:11:46 2017 +0300
+
+    good
+
+commit 56a0895dd85e2b3ef087a4ce7239096ba072833a
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 09:56:30 2017 +0300
+
+    hi
+
+commit 74e534724d239f75e9c8bb65af0da2e754d51a73
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 09:45:57 2017 +0300
+
+    good morning
+
+commit 1c6514734f40aa1b34f1ff7a4cf51f5a0bf4ecb4
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 09:00:16 2017 +0300
+
+    started the second part of mission A
+
+commit 9f0fedf6555820777e10206dcf2b006da7f39d30
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Sun Apr 9 08:44:10 2017 +0300
+
+    i think we're done
+
+commit 5159313a0e4f1d2718925078d6074cf588624ee2
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 6 20:29:54 2017 +0300
+
+    done for today
+
+commit 01daf2f70922ff893d21479983cd8c55e03b5f7d
+Merge: 4de7a65 bd23b08
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 6 19:47:57 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 4de7a65c4793772239ff75f79890aca581f043f4
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 6 19:47:34 2017 +0300
+
+    start dfs
+
+commit bd23b08fca50941513e65c697155f44e7ad5f92b
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 6 19:46:20 2017 +0300
+
+    ohhh ok
+
+commit e0da68d5e59008da387da8e76be4f6dbfc59e929
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 6 19:21:16 2017 +0300
+
+    michal
+
+commit 0720dd2eeaa7d8a6363845790e70cf318197fec7
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 6 18:14:49 2017 +0300
+
+    done for sure
+
+commit d77673c08f89f32fc825deba7688240efecb513d
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 6 18:11:02 2017 +0300
+
+    done!
+
+commit 1ec146a6ca9b1f67285e9d62262bd283cbc724bc
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 6 17:58:13 2017 +0300
+
+    done with the BFS?
+
+commit 661b13b446f8e4eb4454b08094baf08f4de6118e
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 6 15:52:56 2017 +0300
+
+    kk
+
+commit a31683677168b10383fb67c1c391415e9a9ab9e9
+Merge: 672786c 329f2d0
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 6 15:49:48 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 672786cea6de0a8b717e4de6e111d99e44bbe0ee
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 6 15:47:56 2017 +0300
+
+    good afternoon!
+
+commit 329f2d0d9a2540a32ba644eabab66b34ff96a184
+Merge: 3aba546 d920688
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 6 14:42:05 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit 3aba5466f436451da7560bda67ddb329db9623ee
+Merge: 44d9d7e 6dacaf7
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 6 14:41:44 2017 +0300
+
+    hh
+
+commit d920688cb67e2cb84cf36570977640e252d6cb36
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Thu Apr 6 14:40:18 2017 +0300
+
+    try
+
+commit 44d9d7ec6d6b71659264c25f8e63c9decbd1cfa8
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Thu Apr 6 14:28:23 2017 +0300
+
+    vbvb
+
+commit 6dacaf7b5c66f6a339280825a2d1066155e36578
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 19:03:03 2017 +0300
+
+    done for today
+
+commit 2d94f751853d0b7d4417de257afab9ed536f6967
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 18:17:13 2017 +0300
+
+    18:17
+
+commit 9ad03d71fd1c6768cfec526c8bfdea568473fd0c
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 18:00:55 2017 +0300
+
+    yay
+
+commit 60a30fbed4fe8c8b3b69094cac0933694ff71e8e
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 17:24:44 2017 +0300
+
+    we've got something
+
+commit 9e0a74fd81b8aeebaccc44d9227cfc906a7b72b3
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 16:51:46 2017 +0300
+
+    starting write BFS
+
+commit 443baaaf2d14316b7d285b64bd9576509870b3d3
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 16:01:15 2017 +0300
+
+    one step
+
+commit 5f6286f0546d7e243192ea944945fa7a7d64804f
+Merge: a19507f 3e75313
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 12:47:39 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit a19507f56a47e09b0b3102268cbbf05e48bb96f2
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 12:47:10 2017 +0300
+
+    trying
+
+commit 3e75313ece468927814dc2d323801015c101cd54
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Wed Apr 5 12:44:08 2017 +0300
+
+    hihiihi
+
+commit 308dacf2af58fdd913c8e05c1ab1808d857cc1ed
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 12:43:31 2017 +0300
+
+    started!
+
+commit 1cc39f1fa37158e918b48e08e043b1829336f9ac
+Merge: bc074c9 b961402
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Wed Apr 5 12:27:25 2017 +0300
+
+    Merge branch 'master' of https://github.com/neumani1/AP2firstAss
+
+commit bc074c95798149dda3bf551926ff2cd5db1422ed
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Wed Apr 5 12:27:11 2017 +0300
+
+    nk
+
+commit b9614029bdfd359e7534fcfda641789330ea9474
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 12:26:40 2017 +0300
+
+    new copy
+
+commit 7b8bc9ec3d85831fc4cb607aec019f76973bedc5
+Merge: 459d6a8 00372ce
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 12:01:42 2017 +0300
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 459d6a80e894c45e788a274d13b202495faf85ca
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 12:00:43 2017 +0300
+
+    hihihihi
+
+commit 00372ce5fdcae087fc516fd83c43bdf50a7510e9
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Wed Apr 5 11:56:30 2017 +0300
+
+    hhhh
+
+commit 74e2394b65583e296676919a2635ec5ae2ba159e
+Author: m1245 <m1245@DESKTOP-VVLE821>
+Date:   Wed Apr 5 11:37:58 2017 +0300
+
+    bbb
+
+commit 90fbf972886a957b6230ce8eea60e4fe0cce8464
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 11:33:55 2017 +0300
+
+    hiiii
+
+commit 20954498c2f6a98298a11f73f3b89ba9ba437865
+Author: ifat neumann <ineumann19@gmail.com>
+Date:   Wed Apr 5 10:48:30 2017 +0300
+
+    hi
+
+commit c0338590957dfd769a546a69d70bb74a943556d7
+Author: neumani1 <ineumann19@gmail.com>
+Date:   Mon Apr 3 10:48:29 2017 +0300
+
+    Initial commit
