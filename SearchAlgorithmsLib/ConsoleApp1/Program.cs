@@ -7,25 +7,21 @@ using MazeGeneratorLib;
 using MazeLib;
 using SearchAlgorithmsLib;
 
-namespace ConsoleApp1
+namespace CompareMazeSolvers
 {
     class Program
     {
         static void Main(string[] args)
         {
-            CompareSolvers(40, 40);
+            CompareSolvers(100, 100);
             Console.Read();
         }
         public static void CompareSolvers(int row, int col)
         {
             //create maze
-            Maze maze;
             DFSMazeGenerator myMazeGen = new DFSMazeGenerator();
-            maze = myMazeGen.Generate(row, col);
-            Console.WriteLine(maze);//print
-            Console.WriteLine("Starting point: "+maze.InitialPos.ToString());
-            Console.WriteLine("Goal point: " + maze.GoalPos.ToString());
-            // Maze myMaze = myMazeGen.Generate(rows,cols);
+            Maze maze = myMazeGen.Generate(row, col);
+            Console.WriteLine(maze);
             ObjectAdapter mazeAdapter = new ObjectAdapter(maze);
             //BFS solution
             ISearcher<Position> sbfs = new BFS<Position>();

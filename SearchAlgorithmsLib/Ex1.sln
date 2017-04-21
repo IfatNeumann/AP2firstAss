@@ -5,9 +5,7 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchAlgorithmsLib", "SearchAlgorithmsLib\SearchAlgorithmsLib.csproj", "{DDD92FDC-C6E4-4418-A8B4-6B1F6469B12D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex1", "Ex1\Ex1.csproj", "{50ABCA3B-D1DD-48BA-983C-61E86D5E959C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{EC3FE1A0-75F4-4F2D-BDBC-1AFD848F2A92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompareMazeSolvers", "ConsoleApp1\CompareMazeSolvers.csproj", "{EC3FE1A0-75F4-4F2D-BDBC-1AFD848F2A92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{A4ED2E37-8B7B-4E51-8C72-78AA9C3B936A}"
 EndProject
@@ -25,10 +23,6 @@ Global
 		{DDD92FDC-C6E4-4418-A8B4-6B1F6469B12D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDD92FDC-C6E4-4418-A8B4-6B1F6469B12D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDD92FDC-C6E4-4418-A8B4-6B1F6469B12D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50ABCA3B-D1DD-48BA-983C-61E86D5E959C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50ABCA3B-D1DD-48BA-983C-61E86D5E959C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50ABCA3B-D1DD-48BA-983C-61E86D5E959C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50ABCA3B-D1DD-48BA-983C-61E86D5E959C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EC3FE1A0-75F4-4F2D-BDBC-1AFD848F2A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC3FE1A0-75F4-4F2D-BDBC-1AFD848F2A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC3FE1A0-75F4-4F2D-BDBC-1AFD848F2A92}.Release|Any CPU.ActiveCfg = Release|Any CPU

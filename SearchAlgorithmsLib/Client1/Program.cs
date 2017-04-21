@@ -17,7 +17,6 @@ namespace Client1
             string ip = ConfigurationManager.AppSettings["ip"];
             Client client = new Client(port,ip);
             client.Handle();
-
         }
     }
 }

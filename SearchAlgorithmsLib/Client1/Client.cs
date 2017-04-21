@@ -39,7 +39,8 @@ namespace Client1
                         string result = reader.ReadString();
                         Console.WriteLine(result);
                         string commandKey = line.Split(' ').First();
-                        if (commandKey.Equals("generate") || commandKey.Equals("solve") || commandKey.Equals("close"))
+                        if (commandKey.Equals("generate") || commandKey.Equals("solve") ||
+                                        commandKey.Equals("close"))
                         {
                             writer.Dispose();
                             reader.Dispose();
@@ -65,6 +66,7 @@ namespace Client1
                     line = Console.ReadLine();
                     if (client==null)
                     {
+                        //create new TcpClient
                         client = new TcpClient(); 
                         client.Connect(ipep);
                         Console.WriteLine("You are connected");
@@ -75,10 +77,10 @@ namespace Client1
                         task.Start();
                     }
                     writer.Write(line);
-                    
                 }
                 catch (SocketException)
                 {
+                    Console.WriteLine("exception - connection stopped");
                     break;
                 }              
             }
