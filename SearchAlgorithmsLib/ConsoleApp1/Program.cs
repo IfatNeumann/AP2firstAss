@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MazeGeneratorLib;
 using MazeLib;
 using SearchAlgorithmsLib;
@@ -10,19 +6,20 @@ using SearchAlgorithmsLib;
 namespace CompareMazeSolvers
 {
     /// <summary>
-    /// 
+    /// the class that holds the main function
     /// </summary>
-    class Program
+    public class Program
     {
         /// <summary>
         /// the main function
         /// </summary>
         /// <param name="args">The arguments.</param>
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             CompareSolvers(100, 100);
             Console.Read();
         }
+
         /// <summary>
         /// Compares the solvers.
         /// </summary>
@@ -30,21 +27,25 @@ namespace CompareMazeSolvers
         /// <param name="col">The col.</param>
         public static void CompareSolvers(int row, int col)
         {
-            //create maze
+            // create maze
             DFSMazeGenerator myMazeGen = new DFSMazeGenerator();
             Maze maze = myMazeGen.Generate(row, col);
             Console.WriteLine(maze);
             ObjectAdapter mazeAdapter = new ObjectAdapter(maze);
-            //BFS solution
+
+            // BFS solution
             ISearcher<Position> sbfs = new BFS<Position>();
-            sbfs.search(mazeAdapter);
-            //print num of stages
-            Console.WriteLine("BFS: " + sbfs.getNumberOfNodesEvaluated());
-            //DFS solution
+            sbfs.Search(mazeAdapter);
+
+            // print num of stages
+            Console.WriteLine("BFS: " + sbfs.GetNumberOfNodesEvaluated());
+
+            // DFS solution
             ISearcher<Position> sdfs = new DFS<Position>();
-            sdfs.search(mazeAdapter);
-            //print num of stages
-            Console.WriteLine("DFS: "+sdfs.getNumberOfNodesEvaluated()); 
+            sdfs.Search(mazeAdapter);
+
+            // print num of stages
+            Console.WriteLine("DFS: " + sdfs.GetNumberOfNodesEvaluated());
         }
     }
 }

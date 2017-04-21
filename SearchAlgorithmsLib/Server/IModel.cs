@@ -17,7 +17,7 @@ namespace Server
         /// The mazes.
         /// </value>
         Dictionary<string, Maze> Mazes { get; }
-     
+
         /// <summary>
         /// Gets the games dictionary.
         /// </summary>
@@ -41,24 +41,24 @@ namespace Server
         /// The solutions.
         /// </value>
         Dictionary<Maze, Solution<Position>> Solutions { get; }
-     
+
         /// <summary>
         /// Generates the maze.
         /// </summary>
         /// <param name="name">The name of the maze .</param>
         /// <param name="rows">The rows of the maze.</param>
         /// <param name="cols">The cols of the maze.</param>
-        /// <returns></returns>
-        Maze GenerateMaze( string name, int rows, int cols);
-    
+        /// <returns>the maze</returns>
+        Maze GenerateMaze(string name, int rows, int cols);
+
         /// <summary>
         /// Solves the maze.
         /// </summary>
         /// <param name="name">The name of the maze.</param>
         /// <param name="algorithm">The specified algorithm( bfs or dfs).</param>
-        /// <returns></returns>
+        /// <returns>the string of the solution</returns>
         string SolveMaze(string name, ISearcher<Position> algorithm);
-      
+
         /// <summary>
         /// Starts the maze.
         /// </summary>
@@ -67,35 +67,34 @@ namespace Server
         /// <param name="cols">The cols.</param>
         /// <param name="client">The client.</param>
         void StartMaze(string name, int rows, int cols, TcpClient client);
-     
+
         /// <summary>
         /// return a lists of the mazes.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the list of the games</returns>
         string ListMaze();
-    
+
         /// <summary>
         /// Joins the maze.
         /// </summary>
         /// <param name="name">The name of the maze we want to join.</param>
         /// <param name="client">The client.</param>
-        /// <returns></returns>
+        /// <returns>the joined maze</returns>
         Maze JoinMaze(string name, TcpClient client);
-   
+
         /// <summary>
         /// Play- move one step in the maze .
         /// </summary>
         /// <param name="move">The move.</param>
         /// <param name="client">The client.</param>
         void PlayMaze(string move, TcpClient client);
-     
+
         /// <summary>
         /// Closes the maze.
         /// </summary>
         /// <param name="name">The name of the maze we 
         /// want to close .</param>
         /// <param name="client">The client.</param>
-        void CloseMaze(string name ,TcpClient client);
+        void CloseMaze(string name, TcpClient client);
     }
-    
 }

@@ -5,7 +5,7 @@ namespace SearchAlgorithmsLib
     /// <summary>
     /// abstract class searcher 
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">the generic type</typeparam>
     /// <seealso cref="SearchAlgorithmsLib.ISearcher{T}" />
     public abstract class Searcher<T> : ISearcher<T>
     {
@@ -18,44 +18,42 @@ namespace SearchAlgorithmsLib
         /// The evaluated nodes
         /// </summary>
         public int evaluatedNodes;
-        
-        /// <summary>
-        /// Adds to data structor.
-        /// </summary>
-        /// <param name="state">The state of the player.</param>
-        public abstract void addToDataStructor(State<T> state);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Searcher"/> class.
         /// </summary>
         public Searcher()
         {
-            evaluatedNodes = 0;
+            this.evaluatedNodes = 0;
         }
-       
-        /// <summary>
-        /// Pops from data structor.
-        /// </summary>
-        /// <returns></returns>
-        public abstract State<T> popDataStructor();
-    
 
         /// <summary>
-        /// the search method
-        /// Searches the specified searchable.
+        /// Adds to data structure.
         /// </summary>
-        /// <param name="searchable">The searchable object.</param>
-        /// <returns></returns>
-        public abstract Solution<T> search(ISearchable<T> searchable);
-  
+        /// <param name="state">The state of the player.</param>
+        public abstract void AddToDataStructure(State<T> state);
+
+        /// <summary>
+        /// Pops from data structure.
+        /// </summary>
+        /// <returns>the state at the top of the data structure</returns>
+        public abstract State<T> PopDataStructure();
+
+        /// <summary>
+        /// the Search method
+        /// Searches the specified Search able.
+        /// </summary>
+        /// <param name="searchable">The search able object.</param>
+        /// <returns>the solution that the searcher found</returns>
+        public abstract Solution<T> Search(ISearchable<T> searchable);
 
         /// <summary>
         /// get how many nodes were evaluated by the algorithm
         /// </summary>
-        /// <returns></returns>
-        public int getNumberOfNodesEvaluated()
+        /// <returns>the number of the evaluated nodes</returns>
+        public int GetNumberOfNodesEvaluated()
         {
-            return closed.Count;
+            return this.closed.Count;
         }
     }
 }

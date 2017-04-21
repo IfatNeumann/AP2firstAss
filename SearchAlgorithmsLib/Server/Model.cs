@@ -141,8 +141,8 @@ namespace Server
             if (!this.solutions.ContainsKey(mazes[name]))
             {
                 ObjectAdapter mazeAdapter = new ObjectAdapter(mazes[name]);
-                sol = algorithm.search(mazeAdapter);
-                sol.EvaluatedNodes = algorithm.getNumberOfNodesEvaluated();
+                sol = algorithm.Search(mazeAdapter);
+                sol.EvaluatedNodes = algorithm.GetNumberOfNodesEvaluated();
                 this.solutions.Add(this.mazes[name], sol);
             }
 

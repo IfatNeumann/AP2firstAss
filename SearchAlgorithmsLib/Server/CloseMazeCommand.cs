@@ -4,16 +4,16 @@ using System.Net.Sockets;
 namespace Server
 {
     /// <summary>
-    /// class of the close comand 
+    /// class of the close command 
     /// </summary>
     /// <seealso cref="Server.ICommand" />
-    public class CloseMazeCommand:ICommand
+    public class CloseMazeCommand : ICommand
     {
         /// <summary>
         /// The model
         /// </summary>
         private IModel model;
-    
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CloseMazeCommand"/> class.
         /// </summary>
@@ -28,16 +28,21 @@ namespace Server
         /// </summary>
         /// <param name="args">The arguments.</param>
         /// <param name="client">The client.</param>
-        /// <returns></returns>
+        /// <returns>the output of the command</returns>
         public string Execute(string[] args, TcpClient client)
         {
             if (args.Length != 1)
+            {
                 return "num of arguments not valid";
+            }
+
             string name = args[0];
-            if (!model.GamesPlaying.Keys.Contains(name))
-                return "Name dosen't exists";
-            model.CloseMaze(name, client);
-            return "";
+            if (!this.model.GamesPlaying.Keys.Contains(name))
+            {
+                return "Name doesn't exists";
+            }
+            this.model.CloseMaze(name, client);
+            return string.Empty;
         }
     }
 }

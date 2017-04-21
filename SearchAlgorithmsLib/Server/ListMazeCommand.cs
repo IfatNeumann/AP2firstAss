@@ -12,7 +12,7 @@ namespace Server
         /// The model
         /// </summary>
         private IModel model;
-      
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ListMazeCommand"/> class.
         /// </summary>
@@ -21,16 +21,16 @@ namespace Server
         {
             this.model = model;
         }
-   
+
         /// <summary>
         /// Executes the specified arguments.
         /// </summary>
         /// <param name="args">The arguments.</param>
         /// <param name="client">The client.</param>
-        /// <returns></returns>
+        /// <returns>string of the list</returns>
         public string Execute(string[] args, TcpClient client)
         {
-            return model.ListMaze();
+            return this.model.ListMaze();
         }
-        }
+    }
 }

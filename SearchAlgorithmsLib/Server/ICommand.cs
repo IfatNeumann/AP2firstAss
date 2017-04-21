@@ -12,7 +12,7 @@ namespace Server
         /// </summary>
         /// <param name="args">The arguments.</param>
         /// <param name="client">The client.</param>
-        /// <returns></returns>
+        /// <returns>the output of the command</returns>
         string Execute(string[] args, TcpClient client = null);
     }
 }

@@ -1,10 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
-using System.IO;
-
+using System.Threading.Tasks;
 
 namespace Client1
 {
@@ -17,14 +16,17 @@ namespace Client1
         /// The line
         /// </summary>
         private string line;
+
         /// <summary>
         /// The port
         /// </summary>
         private int port;
+
         /// <summary>
         /// The ip
         /// </summary>
         private string ip;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Client"/> class.
         /// </summary>
@@ -41,54 +43,57 @@ namespace Client1
         /// </summary>
         public void Handle()
         {
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(ip), this.port);
+            IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(this.ip), this.port);
             TcpClient client = null;
             NetworkStream stream = null;
             BinaryWriter writer = null;
             BinaryReader reader = null;
             Task task;
 
-            Action receiveThread = new Action(() =>
-            {
-                while (true)
-                {
-                    try
+            Action receiveThread = new Action(
+                () =>
                     {
-                        // Get result from server
-                        string result = reader.ReadString();
-                        Console.WriteLine(result);
-                        string commandKey = line.Split(' ').First();
-                        //check the commands 
-                        if (commandKey.Equals("generate") || commandKey.Equals("solve") ||
-                                        commandKey.Equals("close"))
+                        while (true)
                         {
-                            //close the connection 
-                            writer.Dispose();
-                            reader.Dispose();
-                            client.Close();
-                            Console.WriteLine("connection stopped");
-                            client = null;
-                            break;
+                            try
+                            {
+                                // Get result from server
+                                string result = reader.ReadString();
+                                Console.WriteLine(result);
+                                string commandKey = this.line.Split(' ').First();
+
+                                // check the commands require  closing the connection 
+                                if (commandKey.Equals("generate") || commandKey.Equals("solve")
+                                    || (commandKey.Equals("close") && (!this.line.Equals(commandKey))))
+                                    /* edge case - if the input is "close" and not "close <name>" - 
+                                                                        we don't want to close the connection*/
+                                {
+                                    writer.Dispose();
+                                    reader.Dispose();
+                                    client.Close();
+                                    Console.WriteLine("connection stopped");
+                                    client = null;
+                                    break;
+                                }
+                            }
+                            catch (SocketException)
+                            {
+                                Console.WriteLine("exception - connection stopped");
+                                break;
+                            }
                         }
-                    }
-                    catch (SocketException)
-                    {
-                        Console.WriteLine("exception - connection stopped");
-                        break;
-                    }
-                }
-            });
+                    });
             Console.WriteLine("Welcome! please enter a command:");
             while (true)
             {
                 try
-                {                  
+                {
                     // Send data to server
-                    line = Console.ReadLine();
-                    if (client==null)
+                    this.line = Console.ReadLine();
+                    if (client == null)
                     {
-                        //create new TcpClient
-                        client = new TcpClient(); 
+                        // create new TcpClient
+                        client = new TcpClient();
                         client.Connect(ipep);
                         Console.WriteLine("You are connected");
                         stream = client.GetStream();
@@ -97,13 +102,14 @@ namespace Client1
                         task = new Task(receiveThread);
                         task.Start();
                     }
-                    writer.Write(line);
+
+                    writer.Write(this.line);
                 }
                 catch (SocketException)
                 {
                     Console.WriteLine("exception - connection stopped");
                     break;
-                }              
+                }
             }
         }
     }

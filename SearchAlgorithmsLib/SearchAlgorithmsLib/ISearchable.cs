@@ -3,28 +3,28 @@
 namespace SearchAlgorithmsLib
 {
     /// <summary>
-    /// an interface of sercable object
+    /// an interface of search able object
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface ISearchable<T>{
-        
+    /// <typeparam name="T">the generic type</typeparam>
+    public interface ISearchable<T>
+    {
         /// <summary>
         /// Gets the initial state.
         /// </summary>
-        /// <returns></returns>
-        State<T> getInitialState();
-        
+        /// <returns>the initial state</returns>
+        State<T> GetInitialState();
+
         /// <summary>
         /// Gets the state of the goal.
         /// </summary>
-        /// <returns></returns>
-        State<T> getGoalState();
-        
+        /// <returns>the goal state</returns>
+        State<T> GetGoalState();
+
         /// <summary>
         /// Gets all possible states.
         /// </summary>
-        /// <param name="s">The s.</param>
-        /// <returns></returns>
-        List<State<T>> getAllPossibleStates(State<T> s);
+        /// <param name="s">The given state</param>
+        /// <returns>a list of all the possible states</returns>
+        List<State<T>> GetAllPossibleStates(State<T> s);
     }
 }

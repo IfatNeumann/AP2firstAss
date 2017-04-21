@@ -3,9 +3,9 @@
 namespace SearchAlgorithmsLib
 {
     /// <summary>
-    /// class of the dfs algoritm
+    /// class of the dfs algorithm
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">the generic type</typeparam>
     /// <seealso cref="SearchAlgorithmsLib.Searcher{T}" />
     public class DFS<T> : Searcher<T>
     {
@@ -16,48 +16,53 @@ namespace SearchAlgorithmsLib
         public Stack<State<T>> visitedStack = new Stack<State<T>>();
 
         /// <summary>
-        /// Pops the data structor.
+        /// Pops the data structure.
         /// </summary>
-        /// <returns></returns>
-        public override State<T> popDataStructor()
+        /// <returns>the state at the top of the data structure</returns>
+        public override State<T> PopDataStructure()
         {
-            evaluatedNodes++;
-            return visitedStack.Pop();
-        }
-        /// <summary>
-        /// Adds to data structor.
-        /// </summary>
-        /// <param name="state">The state.</param>
-        public override void addToDataStructor(State<T> state)
-        {
-            visitedStack.Push(state);
+            this.evaluatedNodes++;
+            return this.visitedStack.Pop();
         }
 
         /// <summary>
-        /// Searches the specified searchable.
-        /// acording to dfs algoritm
+        /// Adds to data structure.
         /// </summary>
-        /// <param name="searchable">The searchable.</param>
-        /// <returns></returns>
-        public override Solution<T> search(ISearchable<T> searchable)
+        /// <param name="state">The state.</param>
+        public override void AddToDataStructure(State<T> state)
         {
-            visitedStack.Push(searchable.getInitialState());
-            while (visitedStack.Count != 0)
+            this.visitedStack.Push(state);
+        }
+
+        /// <summary>
+        /// Searches the specified search able.
+        /// according to dfs algorithm
+        /// </summary>
+        /// <param name="searchable">The search able.</param>
+        /// <returns>the solution</returns>
+        public override Solution<T> Search(ISearchable<T> searchable)
+        {
+            this.visitedStack.Push(searchable.GetInitialState());
+            while (this.visitedStack.Count != 0)
             {
-                State<T> thisState = visitedStack.Pop();
-                closed.Add(thisState);
-                if (thisState.Equals(searchable.getGoalState()))
-                    return thisState.backTrace();
-                List<State<T>> succerssors = searchable.getAllPossibleStates(thisState);
-                foreach (State<T> s in succerssors)
+                State<T> thisState = this.visitedStack.Pop();
+                this.closed.Add(thisState);
+                if (thisState.Equals(searchable.GetGoalState()))
                 {
-                    if (!closed.Contains(s) && !visitedStack.Contains(s))
+                    return thisState.BackTrace();
+                }
+
+                List<State<T>> successors = searchable.GetAllPossibleStates(thisState);
+                foreach (State<T> s in successors)
+                {
+                    if (!this.closed.Contains(s) && !this.visitedStack.Contains(s))
                     {
-                        s.Parent = thisState;// already done by getSuccessors
-                        addToDataStructor(s);
+                        s.Parent = thisState;
+                        this.AddToDataStructure(s);
                     }
                 }
             }
+
             return null;
         }
     }

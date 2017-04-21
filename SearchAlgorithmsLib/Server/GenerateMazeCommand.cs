@@ -8,13 +8,13 @@ namespace Server
     /// class of the generate command 
     /// </summary>
     /// <seealso cref="Server.ICommand" />
-    class GenerateMazeCommand : ICommand
+    public class GenerateMazeCommand : ICommand
     {
         /// <summary>
         /// The model
         /// </summary>
         private IModel model;
-      
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateMazeCommand"/> class.
         /// </summary>
@@ -23,23 +23,28 @@ namespace Server
         {
             this.model = model;
         }
-      
+
         /// <summary>
         /// Executes the specified arguments.
         /// </summary>
         /// <param name="args">The arguments.</param>
         /// <param name="client">The client.</param>
-        /// <returns></returns>
+        /// <returns>JSON format of the maze</returns>
         public string Execute(string[] args, TcpClient client)
         {
             string name = args[0];
             int rows = int.Parse(args[1]);
             int cols = int.Parse(args[2]);
-            if (args.Length != 3||rows<=0||cols<=0)
+            if (args.Length != 3 || rows <= 0 || cols <= 0)
+            {
                 return "num of arguments not valid";
-            if (model.Mazes.Keys.Contains(name))
+            }
+
+            if (this.model.Mazes.Keys.Contains(name))
+            {
                 return "Name already exists";
-            Maze maze = model.GenerateMaze(name, rows, cols);
+            }
+            Maze maze = this.model.GenerateMaze(name, rows, cols);
             return maze.ToJSON();
         }
     }
