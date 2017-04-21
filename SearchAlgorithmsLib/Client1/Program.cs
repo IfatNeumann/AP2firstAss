@@ -13,9 +13,8 @@ namespace Client1
     {
         static void Main(string[] args)
         {
-
-            int port = Int32.Parse(ConfigurationManager.AppSettings["port"]);
-            string ip = ConfigurationManager.AppSettings["ip"].ToString();
+            string port = ConfigurationManager.AppSettings["port"];
+            string ip = ConfigurationManager.AppSettings["ip"];
             Client client = new Client(port,ip);
             client.Handle();
 

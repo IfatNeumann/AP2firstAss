@@ -15,9 +15,9 @@ namespace Server
         private int portNum;
         private IClientHandler ch;
         private TcpListener listener;
-        public MyServer(int port, IClientHandler ch)
+        public MyServer(string port, IClientHandler ch)
         {
-            this.portNum = port;
+            this.portNum = int.Parse(port);
             this.ch = ch;
         }
 

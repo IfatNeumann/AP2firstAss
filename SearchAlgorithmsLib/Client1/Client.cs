@@ -13,13 +13,11 @@ namespace Client1
     public class Client
     {
         private string line;
-        private bool finish = false;
-        private bool closeClient = false;
         private int port;
         private string ip;
-        public Client(int p, string i)
+        public Client(string p, string i)
         {
-            this.port = p;
+            this.port = int.Parse(p);
             this.ip = i;
         }
 
@@ -47,7 +45,6 @@ namespace Client1
                             writer.Dispose();
                             reader.Dispose();
                             client.Close();
-                            finish = false;
                             Console.WriteLine("connection stopped");
                             client = null;
                             break;
@@ -64,8 +61,7 @@ namespace Client1
             while (true)
             {
                 try
-                {
-                   
+                {                  
                     // Send data to server
                     line = Console.ReadLine();
                     if (client==null)

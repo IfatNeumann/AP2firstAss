@@ -11,13 +11,14 @@ namespace Server
     {
         static void Main(string[] args)
         {
+            string port = ConfigurationManager.AppSettings["port"];            
             IController con = new Controller();
             IClientHandler ch = new ClientHandler(con);//view
             IModel model = new Model(con);
             con.Model = model;
             con.Ch = ch;
             con.setDic();
-            MyServer server = new MyServer(555, ch);
+            MyServer server = new MyServer(port, ch);
             server.StartConnection();
             //Console.ReadLine();
         }
