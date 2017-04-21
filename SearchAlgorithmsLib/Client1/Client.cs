@@ -15,6 +15,7 @@ namespace Client1
         private string line;
         private int port;
         private string ip;
+
         public Client(string p, string i)
         {
             this.port = int.Parse(p);
@@ -41,7 +42,7 @@ namespace Client1
                         Console.WriteLine(result);
                         string commandKey = line.Split(' ').First();
                         if (commandKey.Equals("generate") || commandKey.Equals("solve") ||
-                                        commandKey.Equals("close"))
+                            commandKey.Equals("close"))
                         {
                             writer.Dispose();
                             reader.Dispose();
@@ -62,13 +63,13 @@ namespace Client1
             while (true)
             {
                 try
-                {                  
+                {
                     // Send data to server
                     line = Console.ReadLine();
-                    if (client==null)
+                    if (client == null)
                     {
                         //create new TcpClient
-                        client = new TcpClient(); 
+                        client = new TcpClient();
                         client.Connect(ipep);
                         Console.WriteLine("You are connected");
                         stream = client.GetStream();
@@ -83,7 +84,7 @@ namespace Client1
                 {
                     Console.WriteLine("exception - connection stopped");
                     break;
-                }              
+                }
             }
         }
     }

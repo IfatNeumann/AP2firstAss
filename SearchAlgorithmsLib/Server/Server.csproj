@@ -65,7 +65,6 @@
     <Compile Include="JoinMazeCommand.cs" />
     <Compile Include="ListMazeCommand.cs" />
     <Compile Include="Model.cs" />
-    <Compile Include="Params.cs" />
     <Compile Include="PlayMazeCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
