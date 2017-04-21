@@ -17,9 +17,9 @@ namespace Server
         }
         public string Execute(string[] args, TcpClient client)
         {
-            string name = args[0];
             if (args.Length != 1)
-               return "num of arguments not valid";
+                return "num of arguments not valid";
+            string name = args[0];
             if (!model.GamesPlaying.Keys.Contains(name))
                 return "Name dosen't exists";
             model.CloseMaze(name, client);

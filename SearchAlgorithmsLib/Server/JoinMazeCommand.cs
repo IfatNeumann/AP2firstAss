@@ -17,12 +17,15 @@ namespace Server
         }
         public string Execute(string[] args, TcpClient client)
         {
-            string name = args[0];
-            if (args.Length != 1)
-                Console.WriteLine("num of arguments not valid");
 
+            if (args.Length != 1)
+                return "num of arguments not valid";
+            string name = args[0];
             if (!model.Games.Keys.Contains(name))
-                Console.WriteLine("Name dosen't exists");
+                return "Name dosen't exists";
+            //in case the client who started tries to join
+            if (model.Games[name].FirstPlayer.Equals(client))
+                return "same player!";
             Maze maze = model.JoinMaze(name,client);
             return maze.ToJSON();
         }

@@ -10,7 +10,6 @@ namespace Server
 {
     public class ClientHandler : IClientHandler
     {
-        private bool closeClient = false;
         private IController con;
         public ClientHandler(IController con)
         {
@@ -25,16 +24,21 @@ namespace Server
                 using (BinaryReader reader = new BinaryReader(stream))
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 {
-                    while (!closeClient)
+                    while (true)
                     {
-                        string commandLine = reader.ReadString();
-                        Console.WriteLine("Got command: {0}", commandLine);
-                        string result = con.ExecuteCommand(commandLine, client);
-                        writer.Write(result);
-                        string commandKey = commandLine.Split(' ').First();
-                        if (commandKey.Equals("generate") || commandKey.Equals("solve")
-                                            || commandKey.Equals("close")) { }
-                            //closeClient = true;
+                        try
+                        {
+                            string commandLine = reader.ReadString();
+                            Console.WriteLine("Got command: {0}", commandLine);
+                            string result = con.ExecuteCommand(commandLine, client);
+                            writer.Write(result);
+                            string commandKey = commandLine.Split(' ').First();
+                        }
+
+                        catch (SocketException)
+                        {
+                            break;
+                        }
                     }
                 }
                 //client.Close();

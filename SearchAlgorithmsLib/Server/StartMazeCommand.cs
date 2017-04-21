@@ -22,9 +22,9 @@ namespace Server
             int rows = int.Parse(args[1]);
             int cols = int.Parse(args[2]);
             if (args.Length != 3 || rows <= 0 || cols <= 0)
-                Console.WriteLine("num of arguments not valid");
+                return "num of arguments not valid";
             if (model.Games.Keys.Contains(name))
-                Console.WriteLine("Name already exists");
+                return "Name already exists";
             model.StartMaze(name, rows, cols,client);
             return "";
         }
