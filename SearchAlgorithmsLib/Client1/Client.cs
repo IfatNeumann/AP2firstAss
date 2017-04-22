@@ -25,11 +25,6 @@ namespace Client1
         /// The ip
         /// </summary>
         private string ip;
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Client"/> class.
-        /// </summary>
-        /// <param name="p">The string of the port number.</param>
-        /// <param name="i">The string of the ip .</param>
         public Client(string p, string i)
         {
             this.port = int.Parse(p);
@@ -60,7 +55,7 @@ namespace Client1
                         string commandKey = line.Split(' ').First();
                         //check the commands 
                         if (commandKey.Equals("generate") || commandKey.Equals("solve") ||
-                                        commandKey.Equals("close"))
+                            commandKey.Equals("close"))
                         {
                             //close the connection 
                             writer.Dispose();
@@ -82,13 +77,13 @@ namespace Client1
             while (true)
             {
                 try
-                {                  
+                {
                     // Send data to server
                     line = Console.ReadLine();
-                    if (client==null)
+                    if (client == null)
                     {
                         //create new TcpClient
-                        client = new TcpClient(); 
+                        client = new TcpClient();
                         client.Connect(ipep);
                         Console.WriteLine("You are connected");
                         stream = client.GetStream();
@@ -103,7 +98,7 @@ namespace Client1
                 {
                     Console.WriteLine("exception - connection stopped");
                     break;
-                }              
+                }
             }
         }
     }
