@@ -13,18 +13,12 @@ namespace SearchAlgorithmsLib
         /// Closed contain the nodes we visited
         /// </summary>
         private HashSet<State<T>> closed;
-
-        /// <summary>
-        /// The evaluated nodes
-        /// </summary>
-        private int evaluatedNodes;
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="Searcher{T}"/> class.
         /// </summary>
         protected Searcher()
         {
-            this.EvaluatedNodes = 0;
             this.Closed = new HashSet<State<T>>();
         }
 
@@ -44,25 +38,6 @@ namespace SearchAlgorithmsLib
             set
             {
                 this.closed = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets 'evaluatedNodes'
-        /// </summary>
-        /// <value>
-        /// 'evaluatedNodes' - int.
-        /// </value>
-        protected int EvaluatedNodes
-        {
-            get
-            {
-                return this.evaluatedNodes;
-            }
-
-            set
-            {
-                this.evaluatedNodes = value;
             }
         }
 

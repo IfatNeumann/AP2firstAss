@@ -38,7 +38,6 @@ namespace SearchAlgorithmsLib
         /// <returns>the state at the top of the data structure</returns>
         public override State<T> PopDataStructure()
         {
-            this.EvaluatedNodes++;
             return this.openList.Dequeue();
         }
 

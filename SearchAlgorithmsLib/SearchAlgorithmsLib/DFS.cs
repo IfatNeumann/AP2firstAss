@@ -47,7 +47,6 @@ namespace SearchAlgorithmsLib
         /// <returns>the state at the top of the data structure</returns>
         public override State<T> PopDataStructure()
         {
-            this.EvaluatedNodes++;
             return this.VisitedStack.Pop();
         }
 
@@ -71,7 +70,7 @@ namespace SearchAlgorithmsLib
             this.VisitedStack.Push(searchable.GetInitialState());
             while (this.VisitedStack.Count != 0)
             {
-                State<T> thisState = this.VisitedStack.Pop();
+                State<T> thisState = this.PopDataStructure();
                 this.Closed.Add(thisState);
                 if (thisState.Equals(searchable.GetGoalState()))
                 {

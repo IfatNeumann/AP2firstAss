@@ -64,9 +64,9 @@ namespace Client1
 
                                 // check the commands require  closing the connection 
                                 if (commandKey.Equals("generate") || commandKey.Equals("solve")
-                                    || (commandKey.Equals("close") && (!this.line.Equals(commandKey))))
-                                    /* edge case - if the input is "close" and not "close <name>" - 
-                                                                        we don't want to close the connection*/
+                                    || (commandKey.Equals("close") && result.Equals(string.Empty)))
+                                    /* if there was an invalid input for the close
+                                     * command we want to stay connected */
                                 {
                                     writer.Dispose();
                                     reader.Dispose();
