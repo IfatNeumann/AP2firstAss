@@ -34,7 +34,8 @@ namespace Server
             string name = args[0];
             int rows = int.Parse(args[1]);
             int cols = int.Parse(args[2]);
-            //tests to check if the input is valid
+
+            // tests to check if the input is valid
             if (args.Length != 3 || rows <= 0 || cols <= 0)
             {
                 return "num of arguments not valid";
@@ -46,7 +47,8 @@ namespace Server
             }
 
             this.model.StartMaze(name, rows, cols, client);
-            //don't need to return any string for this command
+
+            // don't need to return any string for this command
             return string.Empty;
         }
     }

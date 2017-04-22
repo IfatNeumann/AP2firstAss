@@ -3,61 +3,91 @@
 namespace SearchAlgorithmsLib
 {
     /// <summary>
-    /// class of the dfs algoritm
+    /// class of the dfs algorithm
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">the generic type</typeparam>
     /// <seealso cref="SearchAlgorithmsLib.Searcher{T}" />
     public class DFS<T> : Searcher<T>
     {
         /// <summary>
-        /// The visited stack
-        /// contain all the nodes we already visited
+        /// The evaluated nodes
         /// </summary>
-        public Stack<State<T>> visitedStack = new Stack<State<T>>();
+        private Stack<State<T>> visitedStack;
 
         /// <summary>
-        /// Pops the data structor.
+        /// Initializes a new instance of the <see cref="DFS{T}"/> class.
         /// </summary>
-        /// <returns></returns>
-        public override State<T> popDataStructor()
+        public DFS()
         {
-            evaluatedNodes++;
-            return visitedStack.Pop();
+            this.visitedStack = new Stack<State<T>>();
         }
+
         /// <summary>
-        /// Adds to data structor.
+        /// Gets or sets the visitedStack.
+        /// </summary>
+        /// <value>
+        /// The visited stack.
+        /// </value>
+        public Stack<State<T>> VisitedStack
+        {
+            get
+            {
+                return this.visitedStack;
+            }
+
+            set
+            {
+                value = this.visitedStack;
+            }
+        }
+
+        /// <summary>
+        /// Pops the data structure.
+        /// </summary>
+        /// <returns>the state at the top of the data structure</returns>
+        public override State<T> PopDataStructure()
+        {
+            return this.VisitedStack.Pop();
+        }
+
+        /// <summary>
+        /// Adds to data structure.
         /// </summary>
         /// <param name="state">The state.</param>
-        public override void addToDataStructor(State<T> state)
+        public override void AddToDataStructure(State<T> state)
         {
-            visitedStack.Push(state);
+            this.VisitedStack.Push(state);
         }
 
         /// <summary>
-        /// Searches the specified searchable.
-        /// acording to dfs algoritm
+        /// Searches the specified search able.
+        /// according to dfs algorithm
         /// </summary>
-        /// <param name="searchable">The searchable.</param>
-        /// <returns></returns>
-        public override Solution<T> search(ISearchable<T> searchable)
+        /// <param name="searchable">The search able.</param>
+        /// <returns>the solution</returns>
+        public override Solution<T> Search(ISearchable<T> searchable)
         {
-            visitedStack.Push(searchable.getInitialState());
-            while (visitedStack.Count != 0)
+            this.VisitedStack.Push(searchable.GetInitialState());
+            while (this.VisitedStack.Count != 0)
             {
-                State<T> thisState = visitedStack.Pop();
-                closed.Add(thisState);
-                if (thisState.Equals(searchable.getGoalState()))
-                    return thisState.backTrace();
-                List<State<T>> succerssors = searchable.getAllPossibleStates(thisState);
-                foreach (State<T> s in succerssors)
+                State<T> thisState = this.PopDataStructure();
+                this.Closed.Add(thisState);
+                if (thisState.Equals(searchable.GetGoalState()))
                 {
-                    if (!closed.Contains(s) && !visitedStack.Contains(s))
+                    return thisState.BackTrace();
+                }
+
+                List<State<T>> successors = searchable.GetAllPossibleStates(thisState);
+                foreach (State<T> s in successors)
+                {
+                    if (!this.Closed.Contains(s) && !this.VisitedStack.Contains(s))
                     {
-                        s.Parent = thisState;// already done by getSuccessors
-                        addToDataStructor(s);
+                        s.Parent = thisState;
+                        this.AddToDataStructure(s);
                     }
                 }
             }
+
             return null;
         }
     }

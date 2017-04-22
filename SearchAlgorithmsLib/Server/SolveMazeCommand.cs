@@ -39,7 +39,7 @@ namespace Server
         /// <returns>empty string</returns>
         public string Execute(string[] args, TcpClient client)
         {
-            //tests to check if the input is valid
+            // tests to check if the input is valid
             if (args.Length != 2)
             {
                 return "num of arguments not valid";

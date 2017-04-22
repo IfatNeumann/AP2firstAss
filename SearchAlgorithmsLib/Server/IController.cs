@@ -22,18 +22,18 @@ namespace Server
         /// The ClientHandler.
         /// </value>
         IClientHandler Ch { get; set; }
-   
+
         /// <summary>
         /// Sets the dictionary.
         /// </summary>
-        void setDic();
-    
+        void SetDic();
+
         /// <summary>
         /// Executes the command.
         /// </summary>
         /// <param name="commandLine">The command line.</param>
         /// <param name="client">The client.</param>
-        /// <returns></returns>
+        /// <returns>the string returning from the command</returns>
         string ExecuteCommand(string commandLine, TcpClient client);
     }
 }
