@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client1", "Client1\Client1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dummy", "Dummy\Dummy.csproj", "{A711D50C-853F-41CF-A6FF-E335A45E8732}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFGame", "WPFGame\WPFGame.csproj", "{61A4C27A-6BDA-4FC8-81C4-30B5B15BA49B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A711D50C-853F-41CF-A6FF-E335A45E8732}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A711D50C-853F-41CF-A6FF-E335A45E8732}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A711D50C-853F-41CF-A6FF-E335A45E8732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A4C27A-6BDA-4FC8-81C4-30B5B15BA49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A4C27A-6BDA-4FC8-81C4-30B5B15BA49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A4C27A-6BDA-4FC8-81C4-30B5B15BA49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A4C27A-6BDA-4FC8-81C4-30B5B15BA49B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
