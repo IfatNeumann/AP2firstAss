@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFGame"
-        Title="MultiPlayer" Height="300" Width="300">
+        mc:Ignorable="d"
+        Title="Multi Player" Height="300" Width="300">
     <StackPanel TextBlock.FontSize="14">
         <StackPanel Margin="0,20,0,0">
             <StackPanel.Orientation>Horizontal</StackPanel.Orientation>

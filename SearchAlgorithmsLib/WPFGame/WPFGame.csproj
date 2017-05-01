@@ -89,10 +89,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Resource Include="SinglePlayer.xaml">
+    <Page Include="SinglePlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Resource>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MazeUserControl.xaml.cs">
