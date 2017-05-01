@@ -7,11 +7,10 @@
         mc:Ignorable="d"
         Title="MultiPlayer" Height="300" Width="300">
     <Grid TextBlock.FontSize="14">
-        <Label x:Name="GLLabel" Content="List Of Games: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,25,0,0"/>
+        <Label x:Name="GlLabel" Content="List Of Games: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,25,0,0"/>
         <ComboBox Width="120" Height="23" Margin="140,-180,0,0"/>
-        <Button x:Name="JGbutton" Content="Join Game" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Margin="0,-100,0,0"/>
-        <local:MenuUserControl x:Name="mazeBoard" Loaded="mazeBoard_Loaded" Margin="0,101,0.333,9.667"></local:MenuUserControl>
-        
-    </Grid>
+        <Button x:Name="JbButton" Content="Join Game" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5" Margin="0,-100,0,0"/>
+        <local:MenuUserControl x:Name="MazeBoard" Loaded="mazeBoard_Loaded" Margin="0,101,0.333,9.667"></local:MenuUserControl>
 
+    </Grid>
 </Window>
