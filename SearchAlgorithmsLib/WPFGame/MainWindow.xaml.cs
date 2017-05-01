@@ -25,16 +25,34 @@ namespace WPFGame
         public MainWindow()
         {
             InitializeComponent();
-            this.vm = new MainWindowVM();
-            this.DataContext = this.vm;
+            //this.vm = new MainWindowVM();
+            //this.DataContext = this.vm;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Single_Player_Button_Click(object sender, RoutedEventArgs e)
         {
             
-            SinglePlayer myWin = new SinglePlayer();
-            myWin.Show();
+            SinglePlayer singleWin = new SinglePlayer();
+            singleWin.Show();
             this.Close();
         }
+
+        private void Multi_Player_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            MultiPlayer multiWin = new MultiPlayer();
+            multiWin.Show();
+            
+            this.Close();
+        }
+
+        private void Settings_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            SettingsWindow settingsWin = new SettingsWindow();
+            settingsWin.Show();
+            this.Hide();
+        }
+
     }
 }

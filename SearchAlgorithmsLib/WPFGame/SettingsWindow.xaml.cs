@@ -20,24 +20,29 @@ namespace WPFGame
     public partial class SettingsWindow : Window
     {
         private SettingsViewModel vm;
+
+        private ISettingsModel model;
         public SettingsWindow()
         {
+            this.model = new ApplicationSettingsModel();
             InitializeComponent();
-            vm = new SettingsViewModel();
-            this.DataContext = vm;
+            this.vm = new SettingsViewModel(this.model);
+            this.DataContext = this.vm;
         }
+
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            vm.SaveSettings();
+            this.vm.SaveSettings();
             MainWindow win = (MainWindow)Application.Current.MainWindow;
             win.Show();
             this.Close();
         }
+
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             MainWindow win = (MainWindow)Application.Current.MainWindow;
             win.Show();
             this.Close();
         }
-    }}
+    }
 }

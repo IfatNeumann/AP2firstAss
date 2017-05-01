@@ -6,34 +6,46 @@ using System.Threading.Tasks;
 
 namespace WPFGame
 {
-    class SettingsViewModel : ViewModel
+    public class SettingsViewModel : ViewModel
     {
         private ISettingsModel model;
+
         public SettingsViewModel(ISettingsModel model)
         {
             this.model = model;
         }
+
         public string ServerIP
         {
-            get { return model.ServerIP; }
+            get
+            {
+                return this.model.ServerIP;
+            }
+
             set
             {
-                model.ServerIP = value;
-                NotifyPropertyChanged("ServerIP");
+                this.model.ServerIP = value;
+                this.NotifyPropertyChanged("ServerIP");
             }
         }
+
         public int ServerPort
         {
-            get { return model.ServerPort; }
+            get
+            {
+                return this.model.ServerPort;
+            }
+
             set
             {
-                model.ServerPort = value;
-                NotifyPropertyChanged("ServerPort");
+                this.model.ServerPort = value;
+                this.NotifyPropertyChanged("ServerPort");
             }
         }
+
         public void SaveSettings()
         {
-            model.SaveSettings();
+            this.model.SaveSettings();
         }
     }
 }
