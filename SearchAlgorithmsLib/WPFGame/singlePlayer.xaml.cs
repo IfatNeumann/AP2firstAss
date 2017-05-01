@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace WPFGame
 {
     /// <summary>
-    /// Interaction logic for singlePlayer.xaml
+    /// Interaction logic for SinglePlayer.xaml
     /// </summary>
-    public partial class singlePlayer : Window
+    public partial class SinglePlayer : Window
     {
-        public singlePlayer()
+        public SinglePlayer()
         {
             InitializeComponent();
+        }
+
+        private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

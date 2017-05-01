@@ -20,13 +20,18 @@ namespace WPFGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowVM vm;
+
         public MainWindow()
         {
             InitializeComponent();
+            this.vm = new MainWindowVM();
+            this.DataContext = this.vm;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             SinglePlayer myWin = new SinglePlayer();
             myWin.Show();
             this.Close();
