@@ -1,0 +1,17 @@
+﻿<Window x:Class="WPFGame.MultiPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFGame"
+        mc:Ignorable="d"
+        Title="MultiPlayer" Height="300" Width="300">
+    <Grid TextBlock.FontSize="14">
+        <Label x:Name="GLLabel" Content="List Of Games: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,25,0,0"/>
+        <ComboBox Width="120" Height="23" Margin="140,-180,0,0"/>
+        <Button x:Name="JGbutton" Content="Join Game" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Margin="0,-100,0,0"/>
+        <local:MenuUserControl x:Name="mazeBoard" Loaded="mazeBoard_Loaded" Margin="0,101,0.333,9.667"></local:MenuUserControl>
+        
+    </Grid>
+
+</Window>
