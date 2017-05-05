@@ -10,8 +10,8 @@
     <Grid>
         <local:MazeUserControl x:Name="mazeBoard" Rows="5" Cols="5"
         Maze="1,0,1,0,0,0,1,0,1,1,1,1,1,0,0,1,0,0,0,1,1,0,1,1,0" InitialPos="0,1"
-        GoalPos="2,3" PlayerImageFile="puppy.png" ExitImageFile="puppy.png" Grid.Row="1"
-        Margin="10" ></local:MazeUserControl>
+        GoalPos="2,3" Grid.Row="1" Margin="10">
+        </local:MazeUserControl>
 
     </Grid>
 </Window>

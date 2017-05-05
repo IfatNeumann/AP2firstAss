@@ -27,24 +27,61 @@ namespace WPFGame
             InitializeComponent();
         }
 
-        public int Rows
+        public string Rows
         {
-            get { return (int)GetValue(RowsProperty); }
+            get { return RowsProperty.ToString(); }
             set { SetValue(RowsProperty, value); }
         }
-        public int Cols
+
+        public string Cols
         {
-            get { return (int)GetValue(ColsProperty); }
+            get { return ColsProperty.ToString(); }
             set { SetValue(ColsProperty, value); }
         }
+
+        public string Maze
+        {
+            get { return MazeProperty.ToString(); }
+            set { SetValue(MazeProperty, value); }
+        }
+
+        public string InitialPos
+        {
+            get { return InitialPosProperty.ToString(); }
+            set { SetValue(InitialPosProperty, value); }
+        }
+
+        public string GoalPos
+        {
+            get { return GoalPosProperty.ToString(); }
+            set { SetValue(GoalPosProperty, value); }
+        }
+
+        //public int Cols
+        //{
+        //    get { return (int)GetValue(ColsProperty); }
+        //    set { SetValue(ColsProperty, value); }
+        //}
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
 
         public static readonly DependencyProperty RowsProperty =
-    DependencyProperty.Register("Rows", typeof(int), typeof(MazeUserControl), new
-        PropertyMetadata(0));
+        DependencyProperty.Register("Rows", typeof(string), typeof(MazeUserControl), new
+        PropertyMetadata("0"));
 
         public static readonly DependencyProperty ColsProperty =
-    DependencyProperty.Register("Cols", typeof(int), typeof(MazeUserControl), new
-    PropertyMetadata(0));
+        DependencyProperty.Register("Cols", typeof(string), typeof(MazeUserControl), new
+        PropertyMetadata("0"));
+
+        public static readonly DependencyProperty MazeProperty =
+        DependencyProperty.Register("Maze", typeof(string), typeof(MazeUserControl), new
+        PropertyMetadata("0"));
+
+        public static readonly DependencyProperty InitialPosProperty =
+        DependencyProperty.Register("InitialPos", typeof(string), typeof(MazeUserControl), new
+        PropertyMetadata("0"));
+
+        public static readonly DependencyProperty GoalPosProperty =
+        DependencyProperty.Register("GoalPos", typeof(string), typeof(MazeUserControl), new
+        PropertyMetadata("0"));
     }
 }
