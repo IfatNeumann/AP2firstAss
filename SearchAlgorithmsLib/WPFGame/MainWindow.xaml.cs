@@ -20,11 +20,11 @@ namespace WPFGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowVM vm;
+        //private MainWindowVM vm;
 
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             //this.vm = new MainWindowVM();
             //this.DataContext = this.vm;
         }

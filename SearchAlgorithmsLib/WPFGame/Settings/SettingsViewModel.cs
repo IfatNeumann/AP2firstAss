@@ -43,6 +43,48 @@ namespace WPFGame
             }
         }
 
+        public int MazeRows
+        {
+            get
+            {
+                return this.model.MazeRows;
+            }
+
+            set
+            {
+                this.model.MazeRows = value;
+                this.NotifyPropertyChanged("MazeRows");
+            }
+        }
+
+        public int MazeCols
+        {
+            get
+            {
+                return this.model.MazeCols;
+            }
+
+            set
+            {
+                this.model.MazeCols = value;
+                this.NotifyPropertyChanged("MazeCols");
+            }
+        }
+
+        public int SearchAlgorithm
+        {
+            get
+            {
+                return this.model.SearchAlgorithm;
+            }
+
+            set
+            {
+                this.model.SearchAlgorithm = value;
+                this.NotifyPropertyChanged("SearchAlgorithm");
+            }
+        }
+
         public void SaveSettings()
         {
             this.model.SaveSettings();

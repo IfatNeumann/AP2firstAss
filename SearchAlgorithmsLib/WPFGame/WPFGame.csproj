@@ -57,9 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApplicationMainWindowModel.cs" />
-    <Compile Include="ApplicationSettingsModel.cs" />
+    <Compile Include="Settings\ApplicationSettingsModel.cs" />
     <Compile Include="IMainWindowModel.cs" />
-    <Compile Include="ISettingsModel.cs" />
+    <Compile Include="Settings\ISettingsModel.cs" />
     <Compile Include="MainWindowVM.cs" />
     <Compile Include="MenuUserControl.xaml.cs">
       <DependentUpon>MenuUserControl.xaml</DependentUpon>
@@ -67,8 +67,8 @@
     <Compile Include="MultiPlayer.xaml.cs">
       <DependentUpon>MultiPlayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SettingsViewModel.cs" />
-    <Compile Include="SettingsWindow.xaml.cs">
+    <Compile Include="Settings\SettingsViewModel.cs" />
+    <Compile Include="Settings\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SinglePlayer.xaml.cs">
@@ -102,7 +102,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SettingsWindow.xaml">
+    <Page Include="Settings\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,7 +145,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ifat\" />
+    <Folder Include="SinglePlayer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\puppy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

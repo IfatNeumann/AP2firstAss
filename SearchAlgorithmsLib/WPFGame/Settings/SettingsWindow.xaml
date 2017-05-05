@@ -19,7 +19,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Margin="3" Padding="3">Server IP:</TextBlock>
-        <TextBox x:Name="TxtIp" Grid.Row="0" Grid.Column="1" Margin="3" Padding="3" Text="{Binding ServerIP}"></TextBox>
+        <TextBox x:Name="TxtIp" Grid.Row="0" Grid.Column="1" Margin="3" Padding="3" Text="{Binding ServerIP, UpdateSourceTrigger=LostFocus}"></TextBox>
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" Padding="3" >Server Port:</TextBlock>
         <TextBox x:Name="TxtPort" Grid.Row="1" Grid.Column="1" Margin="3" Padding="3" Text="{Binding ServerPort}"></TextBox>
         <TextBlock Grid.Row="2"  Grid.Column="0" Margin="3" Padding="3" >Maze rows:</TextBlock>
@@ -29,8 +29,8 @@
         <TextBlock Grid.Row="4" Grid.Column="0" Margin="3" Padding="3">Search algorithm:</TextBlock>
         <ComboBox x:Name="CboSearchAlgorithm" Grid.Row="4" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Left"
                   SelectedIndex="{Binding SearchAlgorithm}" IsEditable="False" Width="56">
-            <ComboBoxItem>BFS</ComboBoxItem>
-            <ComboBoxItem>DFS</ComboBoxItem>
+            <ComboBoxItem >BFS</ComboBoxItem>
+            <ComboBoxItem >DFS</ComboBoxItem>
         </ComboBox>
         <Button x:Name="OkButton" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Margin="15" Padding="5" Width="50" Click="btnOK_Click">OK
         </Button>

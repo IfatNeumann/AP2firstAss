@@ -49,7 +49,7 @@ namespace WPFGame.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
         public int MazeRows {
             get {
                 return ((int)(this["MazeRows"]));
@@ -68,6 +68,18 @@ namespace WPFGame.Properties {
             }
             set {
                 this["MazeCols"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SearchAlgorithm {
+            get {
+                return ((int)(this["SearchAlgorithm"]));
+            }
+            set {
+                this["SearchAlgorithm"] = value;
             }
         }
     }
