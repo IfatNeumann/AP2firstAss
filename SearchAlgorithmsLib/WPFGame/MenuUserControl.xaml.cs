@@ -24,5 +24,34 @@ namespace WPFGame
         {
             InitializeComponent();
         }
+        //public int Rows
+        //{
+        //    get { return (int)this.GetValue(RowsProperty); }
+        //    set { this.SetValue(RowsProperty, value); }
+        //}
+        //public int Cols
+        //{
+        //    get { return (int)GetValue(ColsProperty); }
+        //    set { SetValue(ColsProperty, value); }
+        //}
+
+        //public string Name
+        //{
+        //    get { return (string)GetValue(NameProperty); }
+        //    set { SetValue(ColsProperty, value); }
+        //}
+
+        //// Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
+
+        //public static readonly DependencyProperty RowsProperty = DependencyProperty.Register("Rows", typeof(int), typeof(MenuUserControl), new PropertyMetadata(0));
+
+        //public static readonly DependencyProperty ColsProperty =
+        //    DependencyProperty.Register("Cols", typeof(int), typeof(MenuUserControl), new
+        //        PropertyMetadata(0));
+
+        //public static readonly DependencyProperty NameProperty =
+        //    DependencyProperty.Register("Name", typeof(string), typeof(MenuUserControl), new
+        //        PropertyMetadata(0));
     }
 }
+

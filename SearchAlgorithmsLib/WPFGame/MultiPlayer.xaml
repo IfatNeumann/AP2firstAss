@@ -15,5 +15,6 @@
         <Button x:Name="JbButton" Content="Join Game" Padding="5" Width="80" Margin="15"/>
         <local:MenuUserControl x:Name="MazeBoard" Loaded="mazeBoard_Loaded" ></local:MenuUserControl>
 
+        <Button x:Name="BtnStart" HorizontalAlignment="Center" Margin="15" Padding="5">Start Game</Button>
     </StackPanel>
 </Window>

@@ -4,11 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="300">
+             d:DesignHeight="120" d:DesignWidth="300">
     <StackPanel>
         <Grid TextBlock.FontSize="14">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -26,6 +25,5 @@
             <TextBox x:Name="TxtCols" Grid.Row="2" Grid.Column="1" Padding="3"
                  Margin="3"></TextBox>
         </Grid>
-        <Button x:Name="BtnStart" HorizontalAlignment="Center" Margin="15" Padding="5">Start Game</Button>
     </StackPanel>
 </UserControl>
