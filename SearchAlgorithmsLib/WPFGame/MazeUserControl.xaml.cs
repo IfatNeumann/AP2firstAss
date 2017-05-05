@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace WPFGame
 {
     /// <summary>
@@ -20,9 +21,30 @@ namespace WPFGame
     /// </summary>
     public partial class MazeUserControl : UserControl
     {
+        
         public MazeUserControl()
         {
             InitializeComponent();
         }
+
+        public int Rows
+        {
+            get { return (int)GetValue(RowsProperty); }
+            set { SetValue(RowsProperty, value); }
+        }
+        public int Cols
+        {
+            get { return (int)GetValue(ColsProperty); }
+            set { SetValue(ColsProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
+
+        public static readonly DependencyProperty RowsProperty =
+    DependencyProperty.Register("Rows", typeof(int), typeof(MazeUserControl), new
+        PropertyMetadata(0));
+
+        public static readonly DependencyProperty ColsProperty =
+    DependencyProperty.Register("Rows", typeof(int), typeof(MazeUserControl), new
+    PropertyMetadata(0));
     }
 }

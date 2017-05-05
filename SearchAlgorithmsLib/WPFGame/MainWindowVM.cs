@@ -10,6 +10,7 @@ namespace WPFGame
     {
         private IMainWindowModel model;
 
+
         public MainWindowVM(IMainWindowModel model)
         {
             this.model = model;
