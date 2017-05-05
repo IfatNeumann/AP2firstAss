@@ -44,7 +44,7 @@ namespace WPFGame
         PropertyMetadata(0));
 
         public static readonly DependencyProperty ColsProperty =
-    DependencyProperty.Register("Rows", typeof(int), typeof(MazeUserControl), new
+    DependencyProperty.Register("Cols", typeof(int), typeof(MazeUserControl), new
     PropertyMetadata(0));
     }
 }
