@@ -82,5 +82,17 @@ namespace WPFGame.Properties {
                 this["SearchAlgorithm"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("myMaze")]
+        public string MazeName {
+            get {
+                return ((string)(this["MazeName"]));
+            }
+            set {
+                this["MazeName"] = value;
+            }
+        }
     }
 }
