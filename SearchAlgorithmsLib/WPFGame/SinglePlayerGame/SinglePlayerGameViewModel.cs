@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace WPFGame
 {
-    class SinglePlayerGameViewModel: ViewModel
+    public class SinglePlayerGameViewModel: ViewModel
     {
-        //private ISinglePlayerGameModel model;
+        private ISinglePlayerGameModel model;
 
-        //public SinglePlayerGameViewModel(ISinglePlayerGameModel model)
-        //{
-        //    this.model = model;
-        //}
+        public SinglePlayerGameViewModel(ISinglePlayerGameModel model)
+        {
+            this.model = model;
+        }
 
         //public int MazeRows
         //{
@@ -42,6 +42,11 @@ namespace WPFGame
         //        this.NotifyPropertyChanged("MazeCols");
         //    }
         //}
+
+        public void SaveSettings()
+        {
+          //  this.model.SaveSettings();
+        }
 
 
     }

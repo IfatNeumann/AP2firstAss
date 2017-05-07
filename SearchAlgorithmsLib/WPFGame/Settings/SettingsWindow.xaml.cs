@@ -20,8 +20,8 @@ namespace WPFGame
     public partial class SettingsWindow : Window
     {
         private SettingsViewModel vm;
-
         private ISettingsModel model;
+
         public SettingsWindow()
         {
             this.model = new ApplicationSettingsModel();
