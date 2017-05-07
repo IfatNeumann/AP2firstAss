@@ -19,19 +19,22 @@ namespace WPFGame
     /// </summary>
     public partial class SinglePlayer : Window
     {
-        private SettingsViewModel vm;
-        private ISettingsModel model;
+        private SinglePlayerViewModel vm;
+        private ISinglePlayerModel model;
+
         public SinglePlayer()
         {
-            this.model = new ApplicationSettingsModel();
-            InitializeComponent();
-            this.vm = new SettingsViewModel(this.model);
+            this.model = new ApplicationSinglePlayerModel();
+            this.InitializeComponent();
+            this.vm = new SinglePlayerViewModel(this.model);
             this.DataContext = this.vm;
         }
 
-            private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
+        private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
         {
-
+            this.vm.MazeRows = this.MazeBoard.Rows;
+            this.vm.MazeCols = this.MazeBoard.Cols;
+            this.vm.MazeName = this.MazeBoard.Name;
         }
 
         private void BtnOk_OnClick(object sender, RoutedEventArgs e)

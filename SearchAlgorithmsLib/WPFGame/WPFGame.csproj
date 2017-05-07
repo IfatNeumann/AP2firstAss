@@ -73,6 +73,8 @@
     <Compile Include="Settings\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SinglePlayer\ApplicationSinglePlayerModel.cs" />
+    <Compile Include="SinglePlayer\ISinglePlayerModel.cs" />
     <Compile Include="SinglePlayer\SinglePlayer.xaml.cs">
       <DependentUpon>SinglePlayer.xaml</DependentUpon>
     </Compile>
@@ -80,6 +82,7 @@
       <DependentUpon>SinglePlayerGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="SinglePlayerGame\SinglePlayerGameViewModel.cs" />
+    <Compile Include="SinglePlayer\SinglePlayerViewModel.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
