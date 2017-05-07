@@ -42,5 +42,7 @@ namespace WPFGame
         //        this.NotifyPropertyChanged("MazeCols");
         //    }
         //}
+
+
     }
 }
