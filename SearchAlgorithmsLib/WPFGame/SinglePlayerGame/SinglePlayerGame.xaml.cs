@@ -19,9 +19,40 @@ namespace WPFGame
     /// </summary>
     public partial class SinglePlayerGame : Window
     {
+        private SinglePlayerGameViewModel vm;
+        private ISinglePlayerGameModel model;
+
         public SinglePlayerGame()
         {
-            InitializeComponent();
+            {
+                this.model = new ApplicationSinglePlayerGame();
+                InitializeComponent();
+                this.vm = new SinglePlayerGameViewModel(this.model);
+                this.DataContext = this.vm;
+            }
+        }
+
+        private void Restart_Game_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.vm.SaveSettings();
+            SinglePlayerGame win = new SinglePlayerGame();
+            win.Show();
+            this.Close();
+        }
+
+        private void Solve_Game_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //this.vm.SaveSettings();
+            //MainWindow win = (MainWindow)Application.Current.MainWindow;
+            //win.Show();
+            //this.Close();
+        }
+
+        private void Back_To_Main_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow win = new MainWindow();
+            win.Show();
+            this.Close();
         }
 
     }
