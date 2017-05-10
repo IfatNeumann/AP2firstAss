@@ -30,12 +30,12 @@ namespace WPFGame
             this.DataContext = this.vm;
         }
 
-        private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.vm.MazeRows = this.MazeBoard.Rows;
-            this.vm.MazeCols = this.MazeBoard.Cols;
-            this.vm.MazeName = this.MazeBoard.Name;
-        }
+        //private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    this.vm.MazeRows = this.MazeBoard.Rows;
+        //    this.vm.MazeCols = this.MazeBoard.Cols;
+        //    this.vm.MazeName = this.MazeBoard.Name;
+        //}
 
         private void BtnOk_OnClick(object sender, RoutedEventArgs e)
         {
