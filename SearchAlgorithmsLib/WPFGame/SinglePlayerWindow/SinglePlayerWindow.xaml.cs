@@ -15,19 +15,19 @@ using System.Windows.Shapes;
 namespace WPFGame
 {
     /// <summary>
-    /// Interaction logic for SinglePlayerGame.xaml
+    /// Interaction logic for SinglePlayerWindow.xaml
     /// </summary>
-    public partial class SinglePlayerGame : Window
+    public partial class SinglePlayerWindow : Window
     {
-        private SinglePlayerGameViewModel vm;
-        private ISinglePlayerGameModel model;
+        private SinglePlayerWindowViewModel vm;
+        private ISinglePlayerWindowModel model;
 
-        public SinglePlayerGame()
+        public SinglePlayerWindow()
         {
             {
-                this.model = new ApplicationSinglePlayerGame();
-                InitializeComponent();
-                this.vm = new SinglePlayerGameViewModel(this.model);
+                this.model = new ApplicationSinglePlayerWindow();
+                //InitializeComponent();
+                this.vm = new SinglePlayerWindowViewModel(this.model);
                 this.DataContext = this.vm;
             }
         }
@@ -35,7 +35,7 @@ namespace WPFGame
         private void Restart_Game_Button_Click(object sender, RoutedEventArgs e)
         {
             this.vm.SaveSettings();
-            SinglePlayerGame win = new SinglePlayerGame();
+            SinglePlayerWindow win = new SinglePlayerWindow();
             win.Show();
             this.Close();
         }

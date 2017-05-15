@@ -25,21 +25,19 @@ namespace WPFGame
         public MainWindow()
         {
             this.InitializeComponent();
-            //this.vm = new MainWindowVM();
+           // this.vm = new MainWindowVM();
             //this.DataContext = this.vm;
         }
 
         private void Single_Player_Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            SinglePlayer singleWin = new SinglePlayer();
+            single singleWin = new single();
             singleWin.Show();
             this.Close();
         }
 
         private void Multi_Player_Button_Click(object sender, RoutedEventArgs e)
         {
-
             MultiPlayer multiWin = new MultiPlayer();
             multiWin.Show();
             
@@ -48,7 +46,6 @@ namespace WPFGame
 
         private void Settings_Button_Click(object sender, RoutedEventArgs e)
         {
-
             SettingsWindow settingsWin = new SettingsWindow();
             settingsWin.Show();
             this.Hide();

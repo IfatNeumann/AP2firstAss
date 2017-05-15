@@ -1,6 +1,6 @@
 ﻿namespace WPFGame
 {
-    public class ISinglePlayerGameModel
+    public class ISinglePlayerWindowModel
     {
         string Name { get; set; }
         int MazeRows { get; set; }

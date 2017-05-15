@@ -24,7 +24,7 @@ namespace WPFGame
             InitializeComponent();
         }
 
-        private void mazeBoard_Loaded(object sender, RoutedEventArgs e)
+        private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

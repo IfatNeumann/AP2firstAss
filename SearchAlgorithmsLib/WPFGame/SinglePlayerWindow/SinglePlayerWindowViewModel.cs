@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WPFGame
 {
-    public class SinglePlayerGameViewModel: ViewModel
+    public class SinglePlayerWindowViewModel : ViewModel
     {
-        private ISinglePlayerGameModel model;
+        private ISinglePlayerWindowModel model;
 
-        public SinglePlayerGameViewModel(ISinglePlayerGameModel model)
+        public SinglePlayerWindowViewModel(ISinglePlayerWindowModel model)
         {
             this.model = model;
         }

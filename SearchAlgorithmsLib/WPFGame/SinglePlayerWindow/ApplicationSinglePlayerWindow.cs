@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WPFGame
 {
-    public class ApplicationSinglePlayerGame : ISinglePlayerGameModel
+    public class ApplicationSinglePlayerWindow : ISinglePlayerWindowModel
     {
+
         public int MazeRows
         {
             get

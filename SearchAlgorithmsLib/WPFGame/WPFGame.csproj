@@ -57,8 +57,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApplicationMainWindowModel.cs" />
-    <Compile Include="SinglePlayerGame\ApplicationSinglePlayerGame.cs" />
-    <Compile Include="SinglePlayerGame\ISinglePlayerGameModel.cs" />
+    <Compile Include="DrawMaze.cs" />
+    <Compile Include="MazeLogic.cs" />
+    <Compile Include="MenuUserControlVM.cs" />
+    <Compile Include="single.xaml.cs">
+      <DependentUpon>single.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SinglePlayerWindow\ApplicationSinglePlayerWindow.cs" />
+    <Compile Include="SinglePlayerWindow\ISinglePlayerWindowModel.cs" />
     <Compile Include="Settings\ApplicationSettingsModel.cs" />
     <Compile Include="IMainWindowModel.cs" />
     <Compile Include="Settings\ISettingsModel.cs" />
@@ -78,10 +84,10 @@
     <Compile Include="SinglePlayer\SinglePlayer.xaml.cs">
       <DependentUpon>SinglePlayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SinglePlayerGame\SinglePlayerGame.xaml.cs">
-      <DependentUpon>SinglePlayerGame.xaml</DependentUpon>
+    <Compile Include="SinglePlayerWindow\SinglePlayerWindow.xaml.cs">
+      <DependentUpon>SinglePlayerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SinglePlayerGame\SinglePlayerGameViewModel.cs" />
+    <Compile Include="SinglePlayerWindow\SinglePlayerWindowViewModel.cs" />
     <Compile Include="SinglePlayer\SinglePlayerViewModel.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -112,11 +118,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="single.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SinglePlayer\SinglePlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SinglePlayerGame\SinglePlayerGame.xaml">
+    <Page Include="SinglePlayerWindow\SinglePlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
