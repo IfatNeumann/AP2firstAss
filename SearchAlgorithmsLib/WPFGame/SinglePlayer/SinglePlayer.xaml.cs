@@ -40,7 +40,7 @@ namespace WPFGame
         private void BtnOk_OnClick(object sender, RoutedEventArgs e)
         {
            // this.vm.SaveSettings();
-            SinglePlayerGame win = new SinglePlayerGame();
+            SinglePlayerWindow win = new SinglePlayerWindow();
             win.Show();
             this.Close();
         }
