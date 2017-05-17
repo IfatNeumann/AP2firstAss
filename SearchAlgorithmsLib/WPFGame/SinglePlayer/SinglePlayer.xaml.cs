@@ -19,30 +19,39 @@ namespace WPFGame
     /// </summary>
     public partial class SinglePlayer : Window
     {
-       // private SinglePlayerViewModel vm;
-        //private ISinglePlayerModel model;
+        //private SinglePlayerViewModel vm;
+        //private DrawMaze md;
 
         public SinglePlayer()
         {
-            //this.model = new ApplicationSinglePlayerModel();
             InitializeComponent();
-          // this.vm = new SinglePlayerViewModel(this.model);
-            //this.DataContext = this.vm;
+
+            //this.vm = VM;
+            //DataContext = this.vm;
+
         }
+
+        //get params from vm
 
         private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
         {
-            //vm.MazeRows = this.MazeBoard.Rows;
-            //vm.MazeCols = this.MazeBoard.Cols;
-            //vm.MazeName = this.MazeBoard.Name;
+
         }
 
-        private void BtnOk_OnClick(object sender, RoutedEventArgs e)
+        private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
-           // this.vm.SaveSettings();
-            SinglePlayerGame win = new SinglePlayerGame();
+            SinglePlayerWindow win = new SinglePlayerWindow();
             win.Show();
             this.Close();
         }
+
+        //public void Initialize()
+        //{
+        //    this.md.CreatePoints();
+
+        //    md.Draw();
+        //    this.md.M = new MazeLogic(this.md.MazeMatrix, md.SolMatrix , this.md.Start, this.md.End);
+
+        //}
     }
 }
