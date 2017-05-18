@@ -1,10 +1,11 @@
 ﻿namespace WPFGame
 {
-    public interface ISinglePlayerModel
+    using System.ComponentModel;
+
+    public interface ISinglePlayerModel: INotifyPropertyChanged
     {
         string MazeName { get; set; }
         int MazeRows { get; set; }
         int MazeCols { get; set; }
-     
     }
 }

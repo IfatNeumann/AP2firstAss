@@ -19,24 +19,20 @@ namespace WPFGame
     /// </summary>
     public partial class SinglePlayer : Window
     {
-        //private SinglePlayerViewModel vm;
-        //private DrawMaze md;
+        private SinglePlayerViewModel vm;
+        private ISinglePlayerModel model;
 
         public SinglePlayer()
         {
+            this.model = new ApplicationSinglePlayerModel();
             InitializeComponent();
-
-            //this.vm = VM;
-            //DataContext = this.vm;
+            this.vm = new SinglePlayerViewModel(this.model);
+            this.DataContext = this.vm;
 
         }
 
         //get params from vm
-
-        private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {

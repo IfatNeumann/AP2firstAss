@@ -1,16 +1,28 @@
 ﻿namespace WPFGame
 {
+    using System.ComponentModel;
+
     public class ApplicationSinglePlayerModel : ISinglePlayerModel
     {
+        private string name;
+        private int rows;
+        private int cols;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string MazeName
         {
             get
             {
-                return Properties.Settings.Default.MazeName;
+                return this.name;
             }
             set
             {
-                Properties.Settings.Default.MazeName = value;
+                if (this.name != value)
+                {
+                    this.name = value;
+                    this.OnPropertyChanged("MazeName");
+                }
             }
         }
 
@@ -18,11 +30,15 @@
         {
             get
             {
-                return Properties.Settings.Default.MazeRows;
+                return this.rows;
             }
             set
             {
-                Properties.Settings.Default.MazeRows = value;
+                if (this.rows != value)
+                {
+                    this.rows = value;
+                    this.OnPropertyChanged("MazeRows");
+                }
             }
         }
 
@@ -30,12 +46,22 @@
         {
             get
             {
-                return Properties.Settings.Default.MazeCols;
+                return this.cols;
             }
             set
             {
-                Properties.Settings.Default.MazeCols = value;
+                if (this.cols != value)
+                {
+                    this.cols = value;
+                    this.OnPropertyChanged("MazeCols");
+                }
             }
+        }
+        
+        protected void OnPropertyChanged(string name)
+        {
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
     }
 }

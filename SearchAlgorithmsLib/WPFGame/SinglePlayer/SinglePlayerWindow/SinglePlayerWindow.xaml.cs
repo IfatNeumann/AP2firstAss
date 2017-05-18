@@ -20,13 +20,13 @@ namespace WPFGame
     public partial class SinglePlayerWindow : Window
     {
         private SinglePlayerWindowViewModel vm;
-        private ISinglePlayerWindowModel model;
+        private ISinglePlayerModel model;
 
         public SinglePlayerWindow()
         {
             {
-                this.model = new ApplicationSinglePlayerWindow();
-                //InitializeComponent();
+                this.model = new ApplicationSinglePlayerModel();
+                InitializeComponent();
                 this.vm = new SinglePlayerWindowViewModel(this.model);
                 this.DataContext = this.vm;
             }

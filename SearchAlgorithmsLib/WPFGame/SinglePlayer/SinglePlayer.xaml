@@ -9,7 +9,7 @@
     <StackPanel TextBlock.FontSize="14">
 
 
-        <local:MenuUserControl x:Name="MazeBoard" Loaded="MazeBoard_Loaded" ></local:MenuUserControl>
+        <local:MenuUserControl x:Name="MenuUserControl"></local:MenuUserControl>
 
         <Button x:Name="BtnStart" HorizontalAlignment="Center" Margin="15" Padding="5" Click="Start_Button_Click">Start Game</Button>
     </StackPanel>

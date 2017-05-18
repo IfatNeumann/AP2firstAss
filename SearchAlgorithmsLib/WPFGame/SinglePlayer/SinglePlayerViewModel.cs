@@ -9,7 +9,7 @@
             this.model = model;
         }
 
-        public string MazeName
+        public string VmName
         {
             get
             {
@@ -19,11 +19,10 @@
             set
             {
                 this.model.MazeName = value;
-                this.NotifyPropertyChanged("MazeName");
             }
         }
 
-        public int MazeRows
+        public int VmRows
         {
             get
             {
@@ -33,11 +32,10 @@
             set
             {
                 this.model.MazeRows = value;
-                this.NotifyPropertyChanged("MazeRows");
             }
         }
 
-        public int MazeCols
+        public int VmCols
         {
             get
             {
@@ -47,13 +45,8 @@
             set
             {
                 this.model.MazeCols = value;
-                this.NotifyPropertyChanged("MazeCols");
             }
         }
-
-        public void SaveSettings()
-        {
-            //this.model.SaveSettings();
-        }
+        
     }
 }
