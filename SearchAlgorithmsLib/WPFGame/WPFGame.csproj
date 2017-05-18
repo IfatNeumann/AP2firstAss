@@ -60,9 +60,6 @@
     <Compile Include="DrawMaze.cs" />
     <Compile Include="MazeLogic.cs" />
     <Compile Include="MenuUserControlVM.cs" />
-    <Compile Include="single.xaml.cs">
-      <DependentUpon>single.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Settings\ApplicationSettingsModel.cs" />
     <Compile Include="IMainWindowModel.cs" />
     <Compile Include="Settings\ISettingsModel.cs" />
@@ -113,10 +110,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Settings\SettingsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="single.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
