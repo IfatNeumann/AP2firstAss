@@ -8,9 +8,9 @@ namespace WPFGame
 {
     public class SinglePlayerWindowViewModel : ViewModel
     {
-        private ISinglePlayerWindowModel model;
+        private ISinglePlayerModel model;
 
-        public SinglePlayerWindowViewModel(ISinglePlayerWindowModel model)
+        public SinglePlayerWindowViewModel(ISinglePlayerModel model)
         {
             this.model = model;
         }

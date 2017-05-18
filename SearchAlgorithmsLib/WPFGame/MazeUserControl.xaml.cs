@@ -65,27 +65,18 @@ namespace WPFGame
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
 
         public static readonly DependencyProperty RowsProperty =
-        DependencyProperty.Register("Rows", typeof(string), typeof(MazeUserControl), new
-        PropertyMetadata("0"));
+        DependencyProperty.Register("Rows", typeof(string), typeof(MazeUserControl), null);
 
         public static readonly DependencyProperty ColsProperty =
-        DependencyProperty.Register("Cols", typeof(string), typeof(MazeUserControl), new
-        PropertyMetadata("0"));
+        DependencyProperty.Register("Cols", typeof(string), typeof(MazeUserControl), null);
 
         public static readonly DependencyProperty MazeProperty =
-        DependencyProperty.Register("Maze", typeof(string), typeof(MazeUserControl), new
-        PropertyMetadata("0"));
+        DependencyProperty.Register("Maze", typeof(string), typeof(MazeUserControl), null);
 
         public static readonly DependencyProperty InitialPosProperty =
-        DependencyProperty.Register("InitialPos", typeof(string), typeof(MazeUserControl), new
-        PropertyMetadata("0"));
+        DependencyProperty.Register("InitialPos", typeof(string), typeof(MazeUserControl), null);
 
         public static readonly DependencyProperty GoalPosProperty =
-        DependencyProperty.Register("GoalPos", typeof(string), typeof(MazeUserControl), new
-        PropertyMetadata("0"));
-
-
-
-
+        DependencyProperty.Register("GoalPos", typeof(string), typeof(MazeUserControl), null);
     }
 }
