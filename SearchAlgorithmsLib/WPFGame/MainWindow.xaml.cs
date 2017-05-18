@@ -31,7 +31,7 @@ namespace WPFGame
 
         private void Single_Player_Button_Click(object sender, RoutedEventArgs e)
         {
-            single singleWin = new single();
+            SinglePlayer singleWin = new SinglePlayer();
             singleWin.Show();
             this.Close();
         }
