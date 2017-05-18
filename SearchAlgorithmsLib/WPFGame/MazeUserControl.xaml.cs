@@ -83,5 +83,9 @@ namespace WPFGame
         public static readonly DependencyProperty GoalPosProperty =
         DependencyProperty.Register("GoalPos", typeof(string), typeof(MazeUserControl), new
         PropertyMetadata("0"));
+
+
+
+
     }
 }

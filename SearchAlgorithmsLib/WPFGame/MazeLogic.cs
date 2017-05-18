@@ -19,18 +19,18 @@ namespace WPFGame
         private Point prev;
 
 
-        public MazeLogic(int[] otherMaze, int[] otherSol, Point otherStart, Point otherEnd)
+        public MazeLogic(int[] Maze, int[] Sol, Point Start, Point End)
         {
             this.col = 8;
             this.row = 8;
-            this.maze = ConvertTo2D(otherMaze);
-            this.sol = ConvertTo2D(otherSol);
-            this.start = otherStart;
-            this.end = otherEnd;
-            this.prev = otherStart;
+            this.maze = ConvertToMatrix(Maze);
+            this.sol = ConvertToMatrix(Sol);
+            this.start = Start;
+            this.end = End;
+            this.prev = Start;
         }
 
-        public int[,] ConvertTo2D(int[] arr)
+        public int[,] ConvertToMatrix(int[] arr)
         {
             int[,] output = new int[this.row * 2 - 1, this.col * 2 - 1];
             int i, j, m = 0;

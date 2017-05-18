@@ -19,8 +19,7 @@ namespace WPFGame
     /// </summary>
     public partial class SinglePlayer : Window
     {
-        //private SinglePlayerViewModel vm;
-        //private DrawMaze md;
+  
 
         public SinglePlayer()
         {
