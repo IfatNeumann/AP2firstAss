@@ -14,10 +14,7 @@
                 Click="Solve_Game_Button_Click" />
         <Button x:Name="BackToMain" Content="Main menu" HorizontalAlignment="Right" VerticalAlignment="Top" Width="95" Margin="0,2,100,0"
                  Click="Back_To_Main_Button_Click" />
-        <local:MazeUserControl x:Name="mazeBoard" Rows="5" Cols="5"
-            Maze="1,0,1,0,0,0,1,0,1,1,1,1,1,0,0,1,0,0,0,1,1,0,1,1,0" InitialPos="0,1"
-            GoalPos="2,3"  Grid.Row="1"
-            Margin="10" ></local:MazeUserControl>
+        <local:MazeUserControl x:Name="MazeBoard" Margin="10" ></local:MazeUserControl>
 
     </Grid>
 </Window>

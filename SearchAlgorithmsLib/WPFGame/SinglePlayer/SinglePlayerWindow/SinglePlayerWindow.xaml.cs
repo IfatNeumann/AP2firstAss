@@ -54,6 +54,5 @@ namespace WPFGame
             win.Show();
             this.Close();
         }
-
     }
 }

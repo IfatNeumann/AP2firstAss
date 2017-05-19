@@ -15,7 +15,7 @@ namespace WPFGame
             this.model = model;
         }
 
-        //public int MazeRows
+        //public int VmMazeRows
         //{
         //    get
         //    {
@@ -24,12 +24,15 @@ namespace WPFGame
 
         //    set
         //    {
-        //        this.model.MazeRows = value;
-        //        this.NotifyPropertyChanged("MazeRows");
+        //        if (this.model.MazeRows != value)
+        //        {
+        //            this.model.MazeRows = value;
+        //            this.NotifyPropertyChanged("VmMazeRows");
+        //        }
         //    }
         //}
 
-        //public int MazeCols
+        //public int VmMazeCols
         //{
         //    get
         //    {
@@ -38,8 +41,11 @@ namespace WPFGame
 
         //    set
         //    {
-        //        this.model.MazeCols = value;
-        //        this.NotifyPropertyChanged("MazeCols");
+        //        if (this.model.MazeCols != value)
+        //        {
+        //            this.model.MazeCols = value;
+        //            this.NotifyPropertyChanged("VmMazeCols");
+        //        }
         //    }
         //}
 

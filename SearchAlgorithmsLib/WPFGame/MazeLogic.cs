@@ -24,7 +24,7 @@ namespace WPFGame
             this.col = 8;
             this.row = 8;
             this.maze = ConvertTo2D(otherMaze);
-            this.sol = ConvertTo2D(otherSol);
+           // this.sol = ConvertTo2D(otherSol);
             this.start = otherStart;
             this.end = otherEnd;
             this.prev = otherStart;
