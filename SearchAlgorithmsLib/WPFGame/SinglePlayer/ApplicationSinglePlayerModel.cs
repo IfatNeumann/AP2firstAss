@@ -7,16 +7,18 @@
     using System.IO;
     using System.Linq;
     using System.Net;
-    using System.Net.Sockets;
     using System.Threading.Tasks;
+
+    using MazeLib;
+
+    using Newtonsoft.Json;
 
     public class ApplicationSinglePlayerModel : ISinglePlayerModel
     {
         private string name;
         private int rows;
         private int cols;
-
-        private int mazeString;
+        private string stringMaze;
         
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -68,16 +70,16 @@
             }
         }
 
-        public int MazeString
+        public string StringMaze
         {
             get
             {
-                return this.mazeString;
+                return this.stringMaze;
             }
 
             set
             {
-                this.mazeString = value;
+                this.stringMaze = value;
             }
         }
 
@@ -96,7 +98,8 @@
             writer.Write("generate " + this.name + " " + this.MazeRows.ToString() + " " + this.MazeCols.ToString());
             BinaryReader reader = new BinaryReader(stream);
             // Get result from server
-            string result = reader.ReadString();
+            this.StringMaze = reader.ReadString();
+            
         }
 
         protected void OnPropertyChanged(string name)

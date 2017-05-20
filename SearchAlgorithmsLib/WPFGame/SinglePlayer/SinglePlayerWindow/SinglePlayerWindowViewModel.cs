@@ -17,22 +17,18 @@ namespace WPFGame
             this.model = model;
         }
 
-        //public string VmMazeName
-        //{
-        //    get
-        //    {
-        //        return this.model.MazeName;
-        //    }
+        public string VmMazeName
+        {
+            get
+            {
+                return this.model.MazeName;
+            }
 
-        //    set
-        //    {
-        //        if (this.model.MazeRows.ToString() != value)
-        //        {
-        //            this.model.MazeRows = int.Parse(value);
-        //            this.NotifyPropertyChanged("VmMazeRows");
-        //        }
-        //    }
-        //}
+            set
+            {
+                this.model.MazeName = value;
+            }
+        }
         // public event PropertyChangedEventHandler PropertyChanged;
         public string VmMazeRows
         {
@@ -68,6 +64,18 @@ namespace WPFGame
             }
         }
 
+        public string VmStringMaze
+        {
+            get
+            {
+                return this.model.StringMaze;
+            }
+
+            set
+            {
+                this.model.StringMaze = value;
+            }
+        }
         //protected void NotifyPropertyChanged(string name)
         //{
         //    if (this.PropertyChanged != null)

@@ -14,7 +14,8 @@
                 Click="Solve_Game_Button_Click" />
         <Button x:Name="BackToMain" Content="Main menu" HorizontalAlignment="Right" VerticalAlignment="Top" Width="95" Margin="0,2,100,0"
                  Click="Back_To_Main_Button_Click" />
-        <local:MazeUserControl x:Name="MazeBoard" Rows="{Binding Path=VmMazeRows}" Cols="{Binding Path=VmMazeCols}" Margin="10" ></local:MazeUserControl>
+        <local:MazeUserControl x:Name="MazeBoard" MazeName="{Binding Path=VmMazeName}" Rows="{Binding Path=VmMazeRows}" Cols="{Binding Path=VmMazeCols}"
+                               StringMaze="{Binding Path=VmStringMaze}" Margin="10" ></local:MazeUserControl>
 
     </Grid>
 </Window>
