@@ -24,7 +24,6 @@ namespace WPFGame
     /// </summary>
     public partial class MazeUserControl : UserControl
     {
-        private int rows, cols;
         private List<Rectangle> rectList;
         private int index = 0;
 
@@ -38,33 +37,23 @@ namespace WPFGame
             this.InitializeComponent();
         }
 
-        //public string Rows
-        //{
-        //    get
-        //    {
-        //        return RowsProperty.ToString();
-        //    }
+        public string Rows
+        {
+            get { return (string)GetValue(RowsProperty); }
+            set { SetValue(RowsProperty, value); }
+        }
 
-        //    set
-        //    {
-        //        this.SetValue(RowsProperty, value);
-        //        this.rows = int.Parse(RowsProperty.ToString());
-        //    }
-        //}
+        public string Cols
+        {
+            get { return (string)GetValue(ColsProperty); }
+            set { SetValue(ColsProperty, value); }
+        }
 
-        //public string Cols
-        //{
-        //    get
-        //    {
-        //        return RowsProperty.ToString();
-        //    }
+        public static readonly DependencyProperty ColsProperty =
+            DependencyProperty.Register("Cols", typeof(string), typeof(MazeUserControl), null);
 
-        //    set
-        //    {
-        //        this.SetValue(ColsProperty, value);
-        //        this.cols = int.Parse(ColsProperty.ToString());
-        //    }
-        //}
+        public static readonly DependencyProperty RowsProperty =
+            DependencyProperty.Register("Rows", typeof(string), typeof(MazeUserControl), null);
 
         //public string Maze
         //{
@@ -84,18 +73,9 @@ namespace WPFGame
         //    set { SetValue(GoalPosProperty, value); }
         //}
 
-        //public int Cols
-        //{
-        //    get { return (int)GetValue(ColsProperty); }
-        //    set { SetValue(ColsProperty, value); }
-        //}
         //Using a DependencyProperty as the backing store for Rows.This enables animation, styling,
 
-        //public static readonly DependencyProperty RowsProperty =
-        //DependencyProperty.Register("Rows", typeof(string), typeof(MazeUserControl), null);
 
-        //public static readonly DependencyProperty ColsProperty =
-        //DependencyProperty.Register("Cols", typeof(string), typeof(MazeUserControl), null);
 
         //public static readonly DependencyProperty MazeProperty =
         //DependencyProperty.Register("Maze", typeof(string), typeof(MazeUserControl), null);
@@ -116,36 +96,29 @@ namespace WPFGame
 
         public void Draw()
         {
-            // Rows="5" Cols="5"
-            //Maze = "1,0,1,0,0,0,1,0,1,1,1,1,1,0,0,1,0,0,0,1,1,0,1,1,0" InitialPos = "0,1"
-            //GoalPos = "2,3"
-            int i, j;
-
-            //putting labels to colors inside
+            int i, j, xLocation, yLocation;
+            int rows, cols;
             int index0 = 0;
-            
-            this.rows = 5;
-            this.cols = 5;
-            string maze = "1,0,1,0,0,0,1,0,1,1,1,1,1,0,0,1,0,0,0,1,1,0,1,1,0";
-            int rectWidth = (int)this.MyCanvas.Width / this.cols;
-            int rectHeight = (int)this.MyCanvas.Height / this.rows;
+            rows = int.Parse(this.Rows);
+            cols = int.Parse(this.Cols);
+            string maze = "1,0,0,0,0,0,1,0,1,1,1,1,0,0,0,1,0,0,0,1,1,0,1,1,0";
+            int rectWidth = (int)this.MyCanvas.Width / cols;
+            int rectHeight = (int)this.MyCanvas.Height / rows;
             string InitialPos = "0,1";
             string GoalPos = "2,3";
             this.rectList = new List<Rectangle>();
-            for (i = 0; i < this.rows; i++)
+            for (i = 0; i < rows; i++)
             {
-                for (j = 0; j < this.cols; j++)
+                for (j = 0; j < cols; j++)
                 {
 
                     Rectangle rect = new Rectangle();
                     rect.Width = rectWidth;
                     rect.Height = rectHeight;
-                    rect.Stroke = new SolidColorBrush(Colors.Black);
-                    rect.Fill = new SolidColorBrush(Colors.White);
-                    int w = j * rectWidth;
-                    int h = i * rectHeight;
-                    Canvas.SetLeft(rect, w);
-                    Canvas.SetTop(rect, h);
+                    xLocation = j * rectWidth;
+                    yLocation = i * rectHeight;
+                    Canvas.SetLeft(rect, xLocation);
+                    Canvas.SetTop(rect, yLocation);
                     // if is not a wall
                     if (maze[index0] == '0')
                     {
@@ -159,12 +132,14 @@ namespace WPFGame
                         rect.Fill = new SolidColorBrush(Colors.Black);
                     }
 
-                    if (i == (int)(InitialPos[0]-'0') && j == (int)(InitialPos[2] - '0')) // the current place of the player
+                    if (i == (int)(InitialPos[0] - '0')
+                        && j == (int)(InitialPos[2] - '0')) // the current place of the player
                     {
                         rect.Stroke = new SolidColorBrush(Colors.Red);
                         rect.Fill = new SolidColorBrush(Colors.Red);
                     }
-                    else if (i == (int)(GoalPos[0]-'0') && j == (int)(GoalPos[2]-'0')) // the current place of the player
+                    else if (i == (int)(GoalPos[0] - '0')
+                             && j == (int)(GoalPos[2] - '0')) // the current place of the player
                     {
                         rect.Stroke = new SolidColorBrush(Colors.BlueViolet);
                         rect.Fill = new SolidColorBrush(Colors.BlueViolet);
@@ -177,9 +152,8 @@ namespace WPFGame
             }
         }
 
-        private void MazeUserControl_OnInitialized(object sender, EventArgs e)
+        private void MazeBoard_OnLoaded(object sender, RoutedEventArgs e)
         {
-            //this.CreatePoints();
             this.Draw();
         }
     }
