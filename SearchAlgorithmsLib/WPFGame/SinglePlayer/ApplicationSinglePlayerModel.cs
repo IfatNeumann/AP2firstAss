@@ -97,9 +97,15 @@
             BinaryWriter writer = new BinaryWriter(stream);
             writer.Write("generate " + this.name + " " + this.MazeRows.ToString() + " " + this.MazeCols.ToString());
             BinaryReader reader = new BinaryReader(stream);
+
             // Get result from server
             this.StringMaze = reader.ReadString();
-            
+
+            // close connection
+            writer.Dispose();
+            reader.Dispose();
+            client.Close();
+
         }
 
         protected void OnPropertyChanged(string name)

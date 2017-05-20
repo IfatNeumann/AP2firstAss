@@ -49,49 +49,29 @@ namespace WPFGame
             set { SetValue(ColsProperty, value); }
         }
 
-        public static readonly DependencyProperty ColsProperty =
-            DependencyProperty.Register("Cols", typeof(string), typeof(MazeUserControl), null);
-
-        public static readonly DependencyProperty RowsProperty =
-            DependencyProperty.Register("Rows", typeof(string), typeof(MazeUserControl), null);
-
         public string StringMaze
         {
             get { return (string)GetValue(StringMazeProperty); }
             set { SetValue(StringMazeProperty, value); }
         }
 
-        public string MazeName
-        {
-            get { return (string)GetValue(MazeNameProperty); }
-            set { SetValue(MazeNameProperty, value); }
-        }
+        public static readonly DependencyProperty ColsProperty =
+            DependencyProperty.Register("Cols", typeof(string), typeof(MazeUserControl), null);
 
-        //public string InitialPos
-        //{
-        //    get { return InitialPosProperty.ToString(); }
-        //    set { SetValue(InitialPosProperty, value); }
-        //}
-
-        //public string GoalPos
-        //{
-        //    get { return GoalPosProperty.ToString(); }
-        //    set { SetValue(GoalPosProperty, value); }
-        //}
-
-        //Using a DependencyProperty as the backing store for Rows.This enables animation, styling,
-
-        public static readonly DependencyProperty MazeNameProperty =
-            DependencyProperty.Register("MazeName", typeof(string), typeof(MazeUserControl), null);
+        public static readonly DependencyProperty RowsProperty =
+            DependencyProperty.Register("Rows", typeof(string), typeof(MazeUserControl), null);
 
         public static readonly DependencyProperty StringMazeProperty =
-        DependencyProperty.Register("StringMaze", typeof(string), typeof(MazeUserControl), null);
+            DependencyProperty.Register("StringMaze", typeof(string), typeof(MazeUserControl), null);
 
-        //public static readonly DependencyProperty InitialPosProperty =
-        //DependencyProperty.Register("InitialPos", typeof(string), typeof(MazeUserControl), null);
+        //public string MazeName
+        //{
+        //    get { return (string)GetValue(MazeNameProperty); }
+        //    set { SetValue(MazeNameProperty, value); }
+        //}
 
-        //public static readonly DependencyProperty GoalPosProperty =
-        //DependencyProperty.Register("GoalPos", typeof(string), typeof(MazeUserControl), null);
+        //public static readonly DependencyProperty MazeNameProperty =
+        //    DependencyProperty.Register("MazeName", typeof(string), typeof(MazeUserControl), null);
 
 
         public void Draw()
@@ -108,6 +88,22 @@ namespace WPFGame
             int rectWidth = (int)this.MyCanvas.Width / cols;
             int rectHeight = (int)this.MyCanvas.Height / rows;
             this.rectList = new List<Rectangle>();
+            // Create ImageBrushes
+            ImageBrush marco = new ImageBrush();
+            marco.ImageSource =
+                new BitmapImage(new Uri(@"images/marco.jpg", UriKind.Relative));
+
+            ImageBrush grass = new ImageBrush();
+            grass.ImageSource =
+                new BitmapImage(new Uri(@"images/grass.jpg", UriKind.Relative));
+
+            ImageBrush wall = new ImageBrush();
+            wall.ImageSource =
+                new BitmapImage(new Uri(@"images/wall.jpg", UriKind.Relative));
+
+            ImageBrush mother = new ImageBrush();
+            mother.ImageSource =
+                new BitmapImage(new Uri(@"images/mother.jpg", UriKind.Relative));
             for (i = 0; i < rows; i++)
             {
                 for (j = 0; j < cols; j++)
@@ -123,26 +119,25 @@ namespace WPFGame
                     // if is not a wall
                     if (myMaze[i, j] == CellType.Free)
                     {
-                        rect.Stroke = new SolidColorBrush(Colors.White);
-                        rect.Fill = new SolidColorBrush(Colors.White);
+                        rect.Fill = grass;
+                        //    rect.Stroke = new SolidColorBrush(Colors.White);
+                        //    rect.Fill = new SolidColorBrush(Colors.White);
                     }
 
                     // if is wall
                     else if (myMaze[i,j] == CellType.Wall)
                     {
                         rect.Stroke = new SolidColorBrush(Colors.Black);
-                        rect.Fill = new SolidColorBrush(Colors.Black);
+                        rect.Fill = wall;
                     }
                     curr = new Point(i, j);
                     if (curr.Equals(start)) // the current place of the player
                     {
-                        rect.Stroke = new SolidColorBrush(Colors.Red);
-                        rect.Fill = new SolidColorBrush(Colors.Red);
+                        rect.Fill = marco;
                     }
                     else if (curr.Equals(end)) // the current place of the player
                     {
-                        rect.Stroke = new SolidColorBrush(Colors.BlueViolet);
-                        rect.Fill = new SolidColorBrush(Colors.BlueViolet);
+                        rect.Fill = mother;
                     }
 
                     this.MyCanvas.Children.Add(rect);
