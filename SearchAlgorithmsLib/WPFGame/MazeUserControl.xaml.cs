@@ -85,14 +85,7 @@ namespace WPFGame
 
         //public static readonly DependencyProperty GoalPosProperty =
         //DependencyProperty.Register("GoalPos", typeof(string), typeof(MazeUserControl), null);
-
-        //public void CreatePoints()
-        //{
-        //    this.start = new Point(this.xStart, this.yStart);
-        //    this.end = new Point(this.xEnd, this.yEnd);
-        //    this.prev = new Point(this.xStart, this.yStart);
-        //    this.current = new Point(this.xStart, this.yStart);
-        //}
+        
 
         public void Draw()
         {

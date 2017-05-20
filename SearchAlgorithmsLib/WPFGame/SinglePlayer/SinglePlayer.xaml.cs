@@ -36,6 +36,7 @@ namespace WPFGame
 
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
+            this.model.StartGame();
             SinglePlayerWindow win = new SinglePlayerWindow(this.model);
             win.Show();
             this.Close();

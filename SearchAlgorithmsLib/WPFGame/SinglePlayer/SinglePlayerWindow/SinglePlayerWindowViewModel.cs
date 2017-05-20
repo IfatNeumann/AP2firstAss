@@ -17,6 +17,22 @@ namespace WPFGame
             this.model = model;
         }
 
+        //public string VmMazeName
+        //{
+        //    get
+        //    {
+        //        return this.model.MazeName;
+        //    }
+
+        //    set
+        //    {
+        //        if (this.model.MazeRows.ToString() != value)
+        //        {
+        //            this.model.MazeRows = int.Parse(value);
+        //            this.NotifyPropertyChanged("VmMazeRows");
+        //        }
+        //    }
+        //}
         // public event PropertyChangedEventHandler PropertyChanged;
         public string VmMazeRows
         {
