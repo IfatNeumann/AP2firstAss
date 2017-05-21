@@ -78,7 +78,6 @@ namespace WPFGame
         {
             int i, j, xLocation, yLocation;
             int rows, cols;
-            int index0 = 0;
             Maze myMaze = Maze.FromJSON(this.StringMaze);
             Point start = new Point(myMaze.InitialPos.Row, myMaze.InitialPos.Col);
             Point end = new Point(myMaze.GoalPos.Row, myMaze.GoalPos.Col);
@@ -142,7 +141,6 @@ namespace WPFGame
 
                     this.MyCanvas.Children.Add(rect);
                     this.rectList.Add(rect);
-                    index0 = index0 + 2;
                 }
             }
         }
