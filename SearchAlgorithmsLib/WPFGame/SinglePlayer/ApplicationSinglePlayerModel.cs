@@ -31,7 +31,8 @@
         public delegate void test(Point x);
 
         public event test hip;
-        
+
+
         public string MazeName
         {
             get

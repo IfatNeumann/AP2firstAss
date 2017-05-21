@@ -191,27 +191,30 @@ namespace WPFGame
                 {
                     case '0':
                         {
-                            Canvas.SetLeft(this.playerRec, (x-1) * this.rectWidth);
-                            System.Threading.Thread.Sleep(5000);
+                            x -= 1;
+                            Canvas.SetLeft(this.playerRec, x * this.rectWidth);
+                            System.Threading.Thread.Sleep(1000);
                             break; 
                         }
                     case '1':
                         {
-
-                            Canvas.SetLeft(this.playerRec, (x+1) * this.rectWidth);
-                            System.Threading.Thread.Sleep(5000);
+                            x += 1;
+                            Canvas.SetLeft(this.playerRec, x * this.rectWidth);
+                            System.Threading.Thread.Sleep(1000);
                             break;
                         }
                     case '2':
                         {
-                            Canvas.SetTop(this.playerRec, (y-1) * this.rectHeight);
-                            System.Threading.Thread.Sleep(5000);
+                            y -= 1;
+                            Canvas.SetTop(this.playerRec, y * this.rectHeight);
+                            System.Threading.Thread.Sleep(1000);
                             break;
                         }
                     case '3':
                         {
-                            Canvas.SetTop(this.playerRec, (y+1) * this.rectHeight);
-                            System.Threading.Thread.Sleep(5000);
+                            y += 1;
+                            Canvas.SetTop(this.playerRec, y * this.rectHeight);
+                            System.Threading.Thread.Sleep(1000);
                             break;
                         }
                 }
