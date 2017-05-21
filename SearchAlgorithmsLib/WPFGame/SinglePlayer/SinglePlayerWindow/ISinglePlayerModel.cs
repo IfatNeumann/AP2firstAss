@@ -1,11 +1,17 @@
-﻿namespace WPFGame
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WPFGame
 {
     using System.ComponentModel;
     using System.Windows;
 
     using MazeLib;
 
-    public interface ISinglePlayerModel: INotifyPropertyChanged
+    public interface ISinglePlayerModel : INotifyPropertyChanged
     {
         string MazeName { get; set; }
 
