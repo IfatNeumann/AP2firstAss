@@ -154,8 +154,8 @@ namespace WPFGame
             this.playerRec = new Rectangle();
             this.playerRec.Width = this.rectWidth;
             this.playerRec.Height = this.rectHeight;
-            Canvas.SetLeft(this.playerRec, start.X * this.rectWidth);
-            Canvas.SetTop(this.playerRec, start.Y * this.rectHeight);
+            Canvas.SetLeft(this.playerRec, start.Y * this.rectWidth);
+            Canvas.SetTop(this.playerRec, start.X * this.rectHeight);
             this.playerRec.Fill = marco;
             this.MyCanvas.Children.Add(this.playerRec);
             this.rectList.Add(this.playerRec);
