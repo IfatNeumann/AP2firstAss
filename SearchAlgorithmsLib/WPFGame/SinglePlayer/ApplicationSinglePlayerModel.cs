@@ -19,7 +19,7 @@
         private int rows;
         private int cols;
         private string stringMaze;
-        
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string MazeName
