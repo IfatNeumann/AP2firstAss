@@ -33,7 +33,7 @@ namespace WPFGame
         private List<Rectangle> rectList;
         private int index = 0;
         private Rectangle playerRec;
-        private Maze ma;
+        private Maze myMaze;
         private DFSMazeGenerator mg;
 
         private DependencyObject window;
@@ -93,7 +93,7 @@ namespace WPFGame
         {
             int i, j, xLocation, yLocation;
             int rows, cols;
-            Maze myMaze = Maze.FromJSON(this.StringMaze);
+            myMaze = Maze.FromJSON(this.StringMaze);
             Point start = new Point(myMaze.InitialPos.Row, myMaze.InitialPos.Col);
             Point end = new Point(myMaze.GoalPos.Row, myMaze.GoalPos.Col);
             Point curr;
@@ -182,32 +182,36 @@ namespace WPFGame
         public void SolveMaze(string solution)
         {
             //0 - left, 1- right, 2- up, 3- down
-            int i = 0,length = solution.Length;
+            int i = 0 , length = solution.Length;
+            int x = this.myMaze.InitialPos.Col;
+            int y = this.myMaze.InitialPos.Row;
             while (i < length)
             {
                 switch (solution[i])
                 {
                     case '0':
                         {
-                            
+                            Canvas.SetLeft(this.playerRec, (x-1) * this.rectWidth);
+                            break; 
                         }
                     case '1':
                         {
 
+                            Canvas.SetLeft(this.playerRec, (x+1) * this.rectWidth);
+                            break;
                         }
                     case '2':
                         {
-
+                            Canvas.SetTop(this.playerRec, (y-1) * this.rectHeight);
+                            break;
                         }
                     case '3':
                         {
-
+                            Canvas.SetTop(this.playerRec, (y+1) * this.rectHeight);
+                            break;
                         }
                 }
-                int x = int.Parse(args[0]);
-                int y = int.Parse(args[1]);
-                Canvas.SetLeft(this.playerRec, x * this.rectWidth);
-                Canvas.SetTop(this.playerRec, y * this.rectHeight);
+                
                 i++;
             }
         }
