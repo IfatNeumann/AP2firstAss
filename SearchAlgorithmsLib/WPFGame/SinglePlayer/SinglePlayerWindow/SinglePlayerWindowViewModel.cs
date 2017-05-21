@@ -12,15 +12,16 @@ namespace WPFGame
     public class SinglePlayerWindowViewModel : ViewModel
     {
         private ISinglePlayerModel model;
-
         //public event PropertyChangedEventHandler PropertyChanged;
+        
         public SinglePlayerWindowViewModel(ISinglePlayerModel model)
         {
             this.model = model;
+            model.hip += b;
             model.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e)
-                {
-                    this.NotifyPropertyChanged("Vm"+e.PropertyName);
-                };
+                 {
+                     this.NotifyPropertyChanged("Vm"+e.PropertyName);
+                 };
         }
 
         public string VmMazeName
@@ -64,7 +65,6 @@ namespace WPFGame
                 if (this.model.MazeCols.ToString() != value)
                 {
                     this.model.MazeCols = int.Parse(value);
-                    this.NotifyPropertyChanged("VmMazeCols");
                 }
             }
         }
@@ -82,16 +82,16 @@ namespace WPFGame
             }
         }
 
-        public Point VmCurrPoint
+        public string VmCurrPoint
         {
             get
             {
-                return this.model.CurrPoint;
+                return this.model.CurrPoint.ToString();
             }
+
             set
             {
-                this.model.CurrPoint = value;
-                this.NotifyPropertyChanged("VmCurrPoint");
+                this.model.CurrPoint = Point.Parse(value);
             }
         }
         public void SaveSettings()
@@ -104,6 +104,10 @@ namespace WPFGame
             this.model.KeyPressed(direction);
         }
 
+        public void b(Point p)
+        {
+            this.VmCurrPoint = p.ToString();
+        }
         //protected void NotifyPropertyChanged(string name)
             //{
             //    if (this.PropertyChanged != null)

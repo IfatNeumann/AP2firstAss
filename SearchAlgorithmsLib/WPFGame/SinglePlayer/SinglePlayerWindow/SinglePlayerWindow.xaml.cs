@@ -29,12 +29,11 @@ namespace WPFGame
 
         public SinglePlayerWindow(ISinglePlayerModel model)
         {
-            {
+        
                 this.model = model;
                 this.InitializeComponent();
                 this.vm = new SinglePlayerWindowViewModel(model);
                 this.DataContext = this.vm;
-            }
         }
 
         private void Restart_Game_Button_Click(object sender, RoutedEventArgs e)

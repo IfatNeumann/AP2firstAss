@@ -26,6 +26,10 @@
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public delegate void test(Point x);
+
+        public event test hip;
+        
         public string MazeName
         {
             get
@@ -92,29 +96,49 @@
             }
             set
             {
-                    this.currPoint = value;
-                    this.NotifyPropertyChanged("CurrPoint");
+                this.currPoint = value;
+                this.NotifyPropertyChanged("CurrPoint");
+
             }
         }
 
         public void KeyPressed(char direction)
         {
             int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;
-            if (direction == 'l' && xLocation - 1 >= 0)
+            switch (direction)
             {
-                this.CurrPoint = new Point(xLocation - 1, yLocation);
-            }
-            if (direction == 'r' && xLocation + 1 < this.MazeCols)
-            {
-                this.CurrPoint = new Point(xLocation + 1, yLocation);
-            }
-            if (direction == 'u' && yLocation - 1 >= 0)
-            {
-                this.CurrPoint = new Point(xLocation, yLocation - 1);
-            }
-            if (direction == 'd' && yLocation + 1 < this.MazeRows)
-            {
-                this.CurrPoint = new Point(xLocation, yLocation + 1);
+                case 'l':
+                    {
+                        if (xLocation - 1 >= 0 && this.maze[xLocation - 1, yLocation] == CellType.Free)
+                        {
+                            this.CurrPoint = new Point(xLocation - 1, yLocation);
+                        }
+                        break;
+                    }
+                case 'r':
+                    {
+                        if (xLocation + 1 < this.MazeCols && this.maze[xLocation + 1, yLocation] == CellType.Free)
+                        {
+                            this.CurrPoint = new Point(xLocation + 1, yLocation);
+                        }
+                        break;
+                    }
+                case 'u':
+                    {
+                        if (yLocation - 1 >= 0 && this.maze[xLocation, yLocation - 1] == CellType.Free)
+                        {
+                            this.CurrPoint = new Point(xLocation, yLocation - 1);
+                        }
+                        break;
+                    }
+                case 'd':
+                    {
+                        if (yLocation + 1 < this.MazeRows && this.maze[xLocation, yLocation + 1] == CellType.Free)
+                        {
+                            this.CurrPoint = new Point(xLocation, yLocation + 1);
+                        }
+                        break;
+                    }
             }
             return;
         }
@@ -136,6 +160,10 @@
             // Get result from server
             this.StringMaze = reader.ReadString();
             this.maze = Maze.FromJSON(this.StringMaze);
+            int x = this.maze.InitialPos.Col;
+            int y = this.maze.InitialPos.Row;
+            Point curr = new Point(x , y);
+            this.CurrPoint = curr;
             // close connection
             writer.Dispose();
             reader.Dispose();
