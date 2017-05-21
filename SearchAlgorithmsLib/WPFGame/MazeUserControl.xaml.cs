@@ -94,7 +94,7 @@ namespace WPFGame
             int i, j, xLocation, yLocation;
             int rows, cols;
             Maze myMaze = Maze.FromJSON(this.StringMaze);
-            Point start = new Point(myMaze.InitialPos.Row, myMaze.InitialPos.Col);
+            Point start = new Point(myMaze.InitialPos.Col, myMaze.InitialPos.Row);
             Point end = new Point(myMaze.GoalPos.Row, myMaze.GoalPos.Col);
             Point curr;
             rows = int.Parse(this.Rows);

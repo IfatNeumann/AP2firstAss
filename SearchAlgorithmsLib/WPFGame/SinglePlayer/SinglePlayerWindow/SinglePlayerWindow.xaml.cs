@@ -59,8 +59,6 @@ namespace WPFGame
             this.Close();
         }
 
-        //EventManager.RegisterClassHandler(typeof(MainWindow), UIElement.KeyDownEvent, new KeyEventHandler(KeyDownHandler));
-
         private void KeyDownHandler(object sender, KeyEventArgs e)
         {
             switch (e.Key)
