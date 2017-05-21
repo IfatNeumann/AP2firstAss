@@ -154,8 +154,8 @@ namespace WPFGame
             this.playerRec = new Rectangle();
             this.playerRec.Width = this.rectWidth;
             this.playerRec.Height = this.rectHeight;
-            Canvas.SetLeft(this.playerRec, start.X * this.rectWidth);
-            Canvas.SetTop(this.playerRec, start.Y * this.rectHeight);
+            Canvas.SetLeft(this.playerRec, start.Y * this.rectWidth);
+            Canvas.SetTop(this.playerRec, start.X * this.rectHeight);
             this.playerRec.Fill = marco;
             this.MyCanvas.Children.Add(this.playerRec);
             this.rectList.Add(this.playerRec);
@@ -177,6 +177,39 @@ namespace WPFGame
             int y = int.Parse(args[1]);
             Canvas.SetLeft(this.playerRec, x * this.rectWidth);
             Canvas.SetTop(this.playerRec, y * this.rectHeight);
+        }
+
+        public void SolveMaze(string solution)
+        {
+            //0 - left, 1- right, 2- up, 3- down
+            int i = 0,length = solution.Length;
+            while (i < length)
+            {
+                switch (solution[i])
+                {
+                    case '0':
+                        {
+                            
+                        }
+                    case '1':
+                        {
+
+                        }
+                    case '2':
+                        {
+
+                        }
+                    case '3':
+                        {
+
+                        }
+                }
+                int x = int.Parse(args[0]);
+                int y = int.Parse(args[1]);
+                Canvas.SetLeft(this.playerRec, x * this.rectWidth);
+                Canvas.SetTop(this.playerRec, y * this.rectHeight);
+                i++;
+            }
         }
     }
 
