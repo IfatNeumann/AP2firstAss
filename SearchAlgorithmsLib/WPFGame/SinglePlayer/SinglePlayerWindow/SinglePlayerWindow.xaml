@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFGame"
         mc:Ignorable="d"
-        Title="{Binding Path=VmMazeName}" Height="650" Width="600">
-
+        Title="{Binding Path=VmMazeName}" Height="650" Width="600" KeyDown="KeyDownHandler">
     <Grid>
         <Button x:Name="RestartGame" Content="Restart game" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="100,2,0,0"
                  Click="Restart_Game_Button_Click" />
@@ -16,6 +15,7 @@
                  Click="Back_To_Main_Button_Click" />
         <local:MazeUserControl x:Name="MazeBoard" Rows="{Binding Path=VmMazeRows}" Cols="{Binding Path=VmMazeCols}"
                                StringMaze="{Binding Path=VmStringMaze}" Margin="10" ></local:MazeUserControl>
+        
 
     </Grid>
 </Window>

@@ -63,17 +63,7 @@ namespace WPFGame
 
         public static readonly DependencyProperty StringMazeProperty =
             DependencyProperty.Register("StringMaze", typeof(string), typeof(MazeUserControl), null);
-
-        //public string MazeName
-        //{
-        //    get { return (string)GetValue(MazeNameProperty); }
-        //    set { SetValue(MazeNameProperty, value); }
-        //}
-
-        //public static readonly DependencyProperty MazeNameProperty =
-        //    DependencyProperty.Register("MazeName", typeof(string), typeof(MazeUserControl), null);
-
-
+        
         public void Draw()
         {
             int i, j, xLocation, yLocation;
@@ -149,5 +139,13 @@ namespace WPFGame
         {
             this.Draw();
         }
+
+        //EventManager.RegisterClassHandler(typeof(MainWindow), UIElement.KeyDownEvent, new KeyEventHandler(KeyDownHandler));
+        
+        private void KeyDownHandler(object sender, KeyEventArgs e)
+        {
+        }
     }
+
 }
+

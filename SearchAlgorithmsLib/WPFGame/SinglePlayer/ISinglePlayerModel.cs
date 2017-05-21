@@ -1,6 +1,7 @@
 ﻿namespace WPFGame
 {
     using System.ComponentModel;
+    using System.Windows;
 
     using MazeLib;
 
@@ -14,6 +15,9 @@
 
         string StringMaze { get; set; }
 
+        Point CurrPoint { get; set; }
+
+        void KeyPressed(char direction);
         void StartGame();
     }
 }

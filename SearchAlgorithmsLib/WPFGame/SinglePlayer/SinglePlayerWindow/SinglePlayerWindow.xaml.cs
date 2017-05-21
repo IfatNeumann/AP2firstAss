@@ -15,13 +15,17 @@ using MazeLib;
 
 namespace WPFGame
 {
+    using System.ComponentModel;
+
     /// <summary>
     /// Interaction logic for SinglePlayerWindow.xaml
     /// </summary>
     public partial class SinglePlayerWindow : Window
     {
         private SinglePlayerWindowViewModel vm;
+
         private ISinglePlayerModel model;
+
 
         public SinglePlayerWindow(ISinglePlayerModel model)
         {
@@ -54,6 +58,35 @@ namespace WPFGame
             MainWindow win = new MainWindow();
             win.Show();
             this.Close();
+        }
+
+        //EventManager.RegisterClassHandler(typeof(MainWindow), UIElement.KeyDownEvent, new KeyEventHandler(KeyDownHandler));
+
+        private void KeyDownHandler(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Left:
+                    {
+                        this.vm.KeyPressed('l');
+                        break;
+                    }
+                case Key.Right:
+                    {
+                        this.vm.KeyPressed('r');
+                        break;
+                    }
+                case Key.Up:
+                    {
+                        this.vm.KeyPressed('u');
+                        break;
+                    }
+                case Key.Down:
+                    {
+                        this.vm.KeyPressed('d');
+                        break;
+                    }
+            }
         }
     }
 }

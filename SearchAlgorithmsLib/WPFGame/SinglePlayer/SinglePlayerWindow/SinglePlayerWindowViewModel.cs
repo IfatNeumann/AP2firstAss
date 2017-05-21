@@ -7,14 +7,20 @@ using System.Threading.Tasks;
 namespace WPFGame
 {
     using System.ComponentModel;
+    using System.Windows;
 
     public class SinglePlayerWindowViewModel : ViewModel
     {
         private ISinglePlayerModel model;
 
+        //public event PropertyChangedEventHandler PropertyChanged;
         public SinglePlayerWindowViewModel(ISinglePlayerModel model)
         {
             this.model = model;
+            model.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e)
+                {
+                    this.NotifyPropertyChanged("Vm"+e.PropertyName);
+                };
         }
 
         public string VmMazeName
@@ -42,7 +48,6 @@ namespace WPFGame
                 if (this.model.MazeRows.ToString() != value)
                 {
                     this.model.MazeRows = int.Parse(value);
-                    this.NotifyPropertyChanged("VmMazeRows");
                 }
             }
         }
@@ -76,19 +81,35 @@ namespace WPFGame
                 this.model.StringMaze = value;
             }
         }
-        //protected void NotifyPropertyChanged(string name)
-        //{
-        //    if (this.PropertyChanged != null)
-        //    {
-        //        this.PropertyChanged(this, new PropertyChangedEventArgs(name));
-        //    }
-        //}
 
+        public Point VmCurrPoint
+        {
+            get
+            {
+                return this.model.CurrPoint;
+            }
+            set
+            {
+                this.model.CurrPoint = value;
+                this.NotifyPropertyChanged("VmCurrPoint");
+            }
+        }
         public void SaveSettings()
         {
           //  this.model.SaveSettings();
         }
 
+        public void KeyPressed(char direction)
+        {
+            this.model.KeyPressed(direction);
+        }
 
-    }
+        //protected void NotifyPropertyChanged(string name)
+            //{
+            //    if (this.PropertyChanged != null)
+            //    {
+            //        this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+            //    }
+            //}
+        }
 }

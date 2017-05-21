@@ -8,6 +8,7 @@
     using System.Linq;
     using System.Net;
     using System.Threading.Tasks;
+    using System.Windows;
 
     using MazeLib;
 
@@ -19,7 +20,10 @@
         private int rows;
         private int cols;
         private string stringMaze;
-        
+
+        private Maze maze;
+        private Point currPoint;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string MazeName
@@ -33,7 +37,6 @@
                 if (this.name != value)
                 {
                     this.name = value;
-                    this.OnPropertyChanged("MazeName");
                 }
             }
         }
@@ -49,7 +52,6 @@
                 if (this.rows != value)
                 {
                     this.rows = value;
-                    this.OnPropertyChanged("MazeRows");
                 }
             }
         }
@@ -65,7 +67,6 @@
                 if (this.cols != value)
                 {
                     this.cols = value;
-                    this.OnPropertyChanged("MazeCols");
                 }
             }
         }
@@ -81,6 +82,41 @@
             {
                 this.stringMaze = value;
             }
+        }
+
+        public Point CurrPoint
+        {
+            get
+            {
+                return this.currPoint;
+            }
+            set
+            {
+                    this.currPoint = value;
+                    this.NotifyPropertyChanged("CurrPoint");
+            }
+        }
+
+        public void KeyPressed(char direction)
+        {
+            int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;
+            if (direction == 'l' && xLocation - 1 >= 0)
+            {
+                this.CurrPoint = new Point(xLocation - 1, yLocation);
+            }
+            if (direction == 'r' && xLocation + 1 < this.MazeCols)
+            {
+                this.CurrPoint = new Point(xLocation + 1, yLocation);
+            }
+            if (direction == 'u' && yLocation - 1 >= 0)
+            {
+                this.CurrPoint = new Point(xLocation, yLocation - 1);
+            }
+            if (direction == 'd' && yLocation + 1 < this.MazeRows)
+            {
+                this.CurrPoint = new Point(xLocation, yLocation + 1);
+            }
+            return;
         }
 
         public void StartGame()
@@ -99,7 +135,7 @@
 
             // Get result from server
             this.StringMaze = reader.ReadString();
-
+            this.maze = Maze.FromJSON(this.StringMaze);
             // close connection
             writer.Dispose();
             reader.Dispose();
@@ -107,11 +143,12 @@
 
         }
 
-        protected void OnPropertyChanged(string name)
+        protected void NotifyPropertyChanged(string name)
         {
             if (this.PropertyChanged != null)
+            {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
-
     }
 }
