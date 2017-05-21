@@ -85,9 +85,8 @@
 
         public void StartGame()
         {
-            string port = ConfigurationManager.AppSettings["port"];
-            string ip = ConfigurationManager.AppSettings["ip"];
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(ip), int.Parse(port));
+            IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(Properties.Settings.Default.ServerIP),
+                Properties.Settings.Default.ServerPort);
             // create new TcpClient
             TcpClient client = new TcpClient();
             client.Connect(ipep);
