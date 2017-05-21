@@ -22,9 +22,9 @@
         <TextBox x:Name="TxtIp" Grid.Row="0" Grid.Column="1" Margin="3" Padding="3" Text="{Binding ServerIP, UpdateSourceTrigger=LostFocus}"></TextBox>
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" Padding="3" >Server Port:</TextBlock>
         <TextBox x:Name="TxtPort" Grid.Row="1" Grid.Column="1" Margin="3" Padding="3" Text="{Binding ServerPort}"></TextBox>
-        <TextBlock Grid.Row="2"  Grid.Column="0" Margin="3" Padding="3" >Maze rows:</TextBlock>
+        <TextBlock Grid.Row="2"  Grid.Column="0" Margin="3" Padding="3" >StringMaze rows:</TextBlock>
         <TextBox x:Name="TxtRows" Grid.Row="2" Grid.Column="1" Margin="3" Padding="3" Text="{Binding MazeRows}"></TextBox>
-        <TextBlock Grid.Row="3" Grid.Column="0" Margin="3" Padding="3" >Maze columns:</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="3" Padding="3" >StringMaze columns:</TextBlock>
         <TextBox x:Name="TxtCols" Grid.Row="3" Grid.Column="1" Margin="3" Padding="3" Text="{Binding MazeCols}"></TextBox>
         <TextBlock Grid.Row="4" Grid.Column="0" Margin="3" Padding="3">Search algorithm:</TextBlock>
         <ComboBox x:Name="CboSearchAlgorithm" Grid.Row="4" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Left"

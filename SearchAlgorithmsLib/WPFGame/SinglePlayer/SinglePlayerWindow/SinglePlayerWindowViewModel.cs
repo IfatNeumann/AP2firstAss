@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace WPFGame
 {
+    using System.ComponentModel;
+
     public class SinglePlayerWindowViewModel : ViewModel
     {
         private ISinglePlayerModel model;
@@ -15,31 +17,70 @@ namespace WPFGame
             this.model = model;
         }
 
-        //public int MazeRows
+        public string VmMazeName
+        {
+            get
+            {
+                return this.model.MazeName;
+            }
+
+            set
+            {
+                this.model.MazeName = value;
+            }
+        }
+        // public event PropertyChangedEventHandler PropertyChanged;
+        public string VmMazeRows
+        {
+            get
+            {
+                return this.model.MazeRows.ToString();
+            }
+
+            set
+            {
+                if (this.model.MazeRows.ToString() != value)
+                {
+                    this.model.MazeRows = int.Parse(value);
+                    this.NotifyPropertyChanged("VmMazeRows");
+                }
+            }
+        }
+
+        public string VmMazeCols
+        {
+            get
+            {
+                return this.model.MazeCols.ToString();
+            }
+
+            set
+            {
+                if (this.model.MazeCols.ToString() != value)
+                {
+                    this.model.MazeCols = int.Parse(value);
+                    this.NotifyPropertyChanged("VmMazeCols");
+                }
+            }
+        }
+
+        public string VmStringMaze
+        {
+            get
+            {
+                return this.model.StringMaze;
+            }
+
+            set
+            {
+                this.model.StringMaze = value;
+            }
+        }
+        //protected void NotifyPropertyChanged(string name)
         //{
-        //    get
+        //    if (this.PropertyChanged != null)
         //    {
-        //        return this.model.MazeRows;
-        //    }
-
-        //    set
-        //    {
-        //        this.model.MazeRows = value;
-        //        this.NotifyPropertyChanged("MazeRows");
-        //    }
-        //}
-
-        //public int MazeCols
-        //{
-        //    get
-        //    {
-        //        return this.model.MazeCols;
-        //    }
-
-        //    set
-        //    {
-        //        this.model.MazeCols = value;
-        //        this.NotifyPropertyChanged("MazeCols");
+        //        this.PropertyChanged(this, new PropertyChangedEventArgs(name));
         //    }
         //}
 

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MazeLib;
 
 namespace WPFGame
 {
@@ -22,12 +23,12 @@ namespace WPFGame
         private SinglePlayerWindowViewModel vm;
         private ISinglePlayerModel model;
 
-        public SinglePlayerWindow()
+        public SinglePlayerWindow(ISinglePlayerModel model)
         {
             {
-                this.model = new ApplicationSinglePlayerModel();
-                InitializeComponent();
-                this.vm = new SinglePlayerWindowViewModel(this.model);
+                this.model = model;
+                this.InitializeComponent();
+                this.vm = new SinglePlayerWindowViewModel(model);
                 this.DataContext = this.vm;
             }
         }
@@ -35,7 +36,7 @@ namespace WPFGame
         private void Restart_Game_Button_Click(object sender, RoutedEventArgs e)
         {
             this.vm.SaveSettings();
-            SinglePlayerWindow win = new SinglePlayerWindow();
+            SinglePlayerWindow win = new SinglePlayerWindow(this.model);
             win.Show();
             this.Close();
         }
@@ -54,6 +55,5 @@ namespace WPFGame
             win.Show();
             this.Close();
         }
-
     }
 }

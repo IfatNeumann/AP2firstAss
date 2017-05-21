@@ -16,12 +16,12 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Padding="3" Margin="3">Maze name:</TextBlock>
+            <TextBlock Padding="3" Margin="3">StringMaze name:</TextBlock>
             <TextBox x:Name="TxtMazeName" Grid.Row="0" Grid.Column="1" Padding="3" Margin="3" Text ="{Binding VmName}"></TextBox>
-            <TextBlock Grid.Row="1"  Grid.Column="0" Padding="3" Margin="3">Maze rows:</TextBlock>
+            <TextBlock Grid.Row="1"  Grid.Column="0" Padding="3" Margin="3">StringMaze rows:</TextBlock>
             <TextBox x:Name="TxtRows" Grid.Row="1" Grid.Column="1" Padding="3"
                  Margin="3" Text ="{Binding VmRows}"></TextBox>
-            <TextBlock Grid.Row="2"  Grid.Column="0" Padding="3" Margin="3">Maze columns:</TextBlock>
+            <TextBlock Grid.Row="2"  Grid.Column="0" Padding="3" Margin="3">StringMaze columns:</TextBlock>
             <TextBox x:Name="TxtCols" Grid.Row="2" Grid.Column="1" Padding="3"
                  Margin="3" Text ="{Binding VmCols}"></TextBox>
         </Grid>
