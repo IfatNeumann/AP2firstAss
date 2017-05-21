@@ -17,16 +17,22 @@ using MazeLib;
 
 namespace WPFGame
 {
+    using System.ComponentModel;
+    using System.Windows.Forms;
+
     using MazeGeneratorLib;
+
+    using UserControl = System.Windows.Controls.UserControl;
 
     /// <summary>
     /// Interaction logic for MazeUserControl.xaml
     /// </summary>
     public partial class MazeUserControl : UserControl
     {
+        private int rectWidth, rectHeight;
         private List<Rectangle> rectList;
         private int index = 0;
-
+        private Rectangle playerRec;
         private Maze ma;
         private DFSMazeGenerator mg;
 
@@ -55,6 +61,16 @@ namespace WPFGame
             set { SetValue(StringMazeProperty, value); }
         }
 
+        public string CurrPoint
+        {
+            get { return (string)GetValue(CurrPointProperty); }
+            set
+            {
+                SetValue(CurrPointProperty, value);
+                //this.UpdateMaze();
+            }
+        }
+
         public static readonly DependencyProperty ColsProperty =
             DependencyProperty.Register("Cols", typeof(string), typeof(MazeUserControl), null);
 
@@ -64,15 +80,14 @@ namespace WPFGame
         public static readonly DependencyProperty StringMazeProperty =
             DependencyProperty.Register("StringMaze", typeof(string), typeof(MazeUserControl), null);
 
-        //public string MazeName
-        //{
-        //    get { return (string)GetValue(MazeNameProperty); }
-        //    set { SetValue(MazeNameProperty, value); }
-        //}
+        public static readonly DependencyProperty CurrPointProperty =
+            DependencyProperty.Register("CurrPoint", typeof(string), typeof(MazeUserControl), new UIPropertyMetadata(ChangePos));
 
-        //public static readonly DependencyProperty MazeNameProperty =
-        //    DependencyProperty.Register("MazeName", typeof(string), typeof(MazeUserControl), null);
-
+        public static void ChangePos(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            MazeUserControl allahWakbar = d as MazeUserControl;
+            allahWakbar.UpdateMaze("", e.NewValue.ToString());
+        }
 
         public void Draw()
         {
@@ -84,57 +99,48 @@ namespace WPFGame
             Point curr;
             rows = int.Parse(this.Rows);
             cols = int.Parse(this.Cols);
-            int rectWidth = (int)this.MyCanvas.Width / cols;
-            int rectHeight = (int)this.MyCanvas.Height / rows;
+            rectWidth = (int)this.MyCanvas.Width / cols;
+            rectHeight = (int)this.MyCanvas.Height / rows;
             this.rectList = new List<Rectangle>();
             // Create ImageBrushes
             ImageBrush marco = new ImageBrush();
-            marco.ImageSource =
-                new BitmapImage(new Uri(@"images/marco.jpg", UriKind.Relative));
+            marco.ImageSource = new BitmapImage(new Uri(@"images/marco.jpg", UriKind.Relative));
 
             ImageBrush grass = new ImageBrush();
-            grass.ImageSource =
-                new BitmapImage(new Uri(@"images/grass.jpg", UriKind.Relative));
+            grass.ImageSource = new BitmapImage(new Uri(@"images/grass.jpg", UriKind.Relative));
 
             ImageBrush wall = new ImageBrush();
-            wall.ImageSource =
-                new BitmapImage(new Uri(@"images/wall.jpg", UriKind.Relative));
+            wall.ImageSource = new BitmapImage(new Uri(@"images/wall.jpg", UriKind.Relative));
 
             ImageBrush mother = new ImageBrush();
-            mother.ImageSource =
-                new BitmapImage(new Uri(@"images/mother.jpg", UriKind.Relative));
+            mother.ImageSource = new BitmapImage(new Uri(@"images/mother.jpg", UriKind.Relative));
+
             for (i = 0; i < rows; i++)
             {
                 for (j = 0; j < cols; j++)
                 {
 
                     Rectangle rect = new Rectangle();
-                    rect.Width = rectWidth;
-                    rect.Height = rectHeight;
-                    xLocation = j * rectWidth;
-                    yLocation = i * rectHeight;
+                    rect.Width = this.rectWidth;
+                    rect.Height = this.rectHeight;
+                    xLocation = i * this.rectWidth;
+                    yLocation = j * this.rectHeight;
                     Canvas.SetLeft(rect, xLocation);
                     Canvas.SetTop(rect, yLocation);
                     // if is not a wall
                     if (myMaze[i, j] == CellType.Free)
                     {
                         rect.Fill = grass;
-                        //    rect.Stroke = new SolidColorBrush(Colors.White);
-                        //    rect.Fill = new SolidColorBrush(Colors.White);
                     }
 
                     // if is wall
-                    else if (myMaze[i,j] == CellType.Wall)
+                    else if (myMaze[i, j] == CellType.Wall)
                     {
                         rect.Stroke = new SolidColorBrush(Colors.Black);
                         rect.Fill = wall;
                     }
                     curr = new Point(i, j);
-                    if (curr.Equals(start)) // the current place of the player
-                    {
-                        rect.Fill = marco;
-                    }
-                    else if (curr.Equals(end)) // the current place of the player
+                    if (curr.Equals(end)) // the current place of the player
                     {
                         rect.Fill = mother;
                     }
@@ -143,11 +149,36 @@ namespace WPFGame
                     this.rectList.Add(rect);
                 }
             }
+
+            // add the player
+            this.playerRec = new Rectangle();
+            this.playerRec.Width = this.rectWidth;
+            this.playerRec.Height = this.rectHeight;
+            Canvas.SetLeft(this.playerRec, start.X * this.rectWidth);
+            Canvas.SetTop(this.playerRec, start.Y * this.rectHeight);
+            this.playerRec.Fill = marco;
+            this.MyCanvas.Children.Add(this.playerRec);
+            this.rectList.Add(this.playerRec);
         }
 
         private void MazeBoard_OnLoaded(object sender, RoutedEventArgs e)
         {
             this.Draw();
         }
+        
+        public void UpdateMaze(string old, string newW)
+        {
+            if (this.playerRec == null)
+            {
+                return;
+            }
+            string[] args = newW.Split(',');
+            int x  = int.Parse(args[0]);
+            int y = int.Parse(args[1]);
+            Canvas.SetLeft(this.playerRec, x * this.rectWidth);
+            Canvas.SetTop(this.playerRec, y * this.rectHeight);
+        }
     }
+
 }
+

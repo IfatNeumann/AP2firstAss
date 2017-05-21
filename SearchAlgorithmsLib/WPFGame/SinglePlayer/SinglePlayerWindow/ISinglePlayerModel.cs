@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace WPFGame
 {
     using System.ComponentModel;
+    using System.Windows;
 
     using MazeLib;
 
@@ -18,8 +19,13 @@ namespace WPFGame
 
         int MazeCols { get; set; }
 
+        event ApplicationSinglePlayerModel.test hip ;
+
         string StringMaze { get; set; }
 
+        Point CurrPoint { get; set; }
+
+        void KeyPressed(char direction);
         void StartGame();
     }
 }

@@ -7,14 +7,21 @@ using System.Threading.Tasks;
 namespace WPFGame
 {
     using System.ComponentModel;
+    using System.Windows;
 
     public class SinglePlayerWindowViewModel : ViewModel
     {
         private ISinglePlayerModel model;
-
+        //public event PropertyChangedEventHandler PropertyChanged;
+        
         public SinglePlayerWindowViewModel(ISinglePlayerModel model)
         {
             this.model = model;
+            model.hip += b;
+            model.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e)
+                 {
+                     this.NotifyPropertyChanged("Vm"+e.PropertyName);
+                 };
         }
 
         public string VmMazeName
@@ -42,7 +49,6 @@ namespace WPFGame
                 if (this.model.MazeRows.ToString() != value)
                 {
                     this.model.MazeRows = int.Parse(value);
-                    this.NotifyPropertyChanged("VmMazeRows");
                 }
             }
         }
@@ -59,7 +65,6 @@ namespace WPFGame
                 if (this.model.MazeCols.ToString() != value)
                 {
                     this.model.MazeCols = int.Parse(value);
-                    this.NotifyPropertyChanged("VmMazeCols");
                 }
             }
         }
@@ -76,19 +81,39 @@ namespace WPFGame
                 this.model.StringMaze = value;
             }
         }
-        //protected void NotifyPropertyChanged(string name)
-        //{
-        //    if (this.PropertyChanged != null)
-        //    {
-        //        this.PropertyChanged(this, new PropertyChangedEventArgs(name));
-        //    }
-        //}
 
+        public string VmCurrPoint
+        {
+            get
+            {
+                return this.model.CurrPoint.ToString();
+            }
+
+            set
+            {
+                this.model.CurrPoint = Point.Parse(value);
+            }
+        }
         public void SaveSettings()
         {
           //  this.model.SaveSettings();
         }
 
+        public void KeyPressed(char direction)
+        {
+            this.model.KeyPressed(direction);
+        }
 
-    }
+        public void b(Point p)
+        {
+            this.VmCurrPoint = p.ToString();
+        }
+        //protected void NotifyPropertyChanged(string name)
+            //{
+            //    if (this.PropertyChanged != null)
+            //    {
+            //        this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+            //    }
+            //}
+        }
 }
