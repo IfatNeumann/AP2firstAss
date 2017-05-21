@@ -19,6 +19,8 @@
 
         Point CurrPoint { get; set; }
 
+        string Solution { get; set; }
+
         void KeyPressed(char direction);
         void StartGame();
     }

@@ -13,6 +13,7 @@
     using MazeLib;
 
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
 
     public class ApplicationSinglePlayerModel : ISinglePlayerModel
     {
@@ -21,6 +22,7 @@
         private int cols;
         private string stringMaze;
 
+        private string solution;
         private Maze maze;
         private Point currPoint;
 
@@ -102,6 +104,22 @@
             }
         }
 
+        public string Solution
+        {
+            get
+            {
+                return this.solution;
+            }
+
+            set
+            {
+                if (this.solution != value)
+                {
+                    this.solution = value;
+                }
+            }
+        }
+
         public void KeyPressed(char direction)
         {
             int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;
@@ -159,18 +177,26 @@
 
             // Get result from server
             this.StringMaze = reader.ReadString();
+
             this.maze = Maze.FromJSON(this.StringMaze);
             int x = this.maze.InitialPos.Col;
             int y = this.maze.InitialPos.Row;
             Point curr = new Point(x , y);
             this.CurrPoint = curr;
+
+            //solution
+            writer.Write("solve " + this.name + " 0");
+            JObject jSolution = JObject.Parse(reader.ReadString());
+            this.Solution = jSolution["Solution"].ToString();
+            
             // close connection
             writer.Dispose();
             reader.Dispose();
             client.Close();
-
         }
 
+        
+            
         protected void NotifyPropertyChanged(string name)
         {
             if (this.PropertyChanged != null)

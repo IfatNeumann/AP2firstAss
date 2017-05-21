@@ -94,6 +94,23 @@ namespace WPFGame
                 this.model.CurrPoint = Point.Parse(value);
             }
         }
+
+        public string VmSolution
+        {
+            get
+            {
+                return this.model.Solution;
+            }
+
+            set
+            {
+                if (this.model.Solution != value)
+                {
+                    this.model.Solution = value;
+                }
+            }
+        }
+
         public void SaveSettings()
         {
           //  this.model.SaveSettings();
