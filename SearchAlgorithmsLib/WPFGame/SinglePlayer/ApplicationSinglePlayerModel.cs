@@ -118,9 +118,9 @@
         {
             get
             {
-                int endX = this.maze.GoalPos.Col;
-                int endY = this.maze.GoalPos.Row;
-                this.endPoint = new Point(endX, endY);
+                int iEnd = this.maze.GoalPos.Row;
+                int jEnd = this.maze.GoalPos.Col;
+                this.endPoint = new Point(iEnd, jEnd);
                 return this.endPoint;
             }
         }
@@ -143,8 +143,8 @@
 
         public int KeyPressed(char direction)
         {
-            int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;
-            if ((this.EndPoint.X == xLocation) && (this.EndPoint.Y == yLocation))
+            int iLocation = (int)this.CurrPoint.X, jLocation = (int)this.CurrPoint.Y;
+            if ((this.EndPoint.X == iLocation) && (this.EndPoint.Y == jLocation))
             {
                 return 1;
             }
@@ -154,33 +154,34 @@
                 {
                     case 'l':
                         {
-                            if (xLocation - 1 >= 0 && this.maze[xLocation - 1, yLocation] == CellType.Free)
+                            if (jLocation - 1 >= 0 && this.maze[iLocation, jLocation - 1] == CellType.Free)
                             {
-                                this.CurrPoint = new Point(xLocation - 1, yLocation);
+                                this.CurrPoint = new Point(iLocation, jLocation - 1);
                             }
                             break;
                         }
                     case 'r':
                         {
-                            if (xLocation + 1 < this.MazeCols && this.maze[xLocation + 1, yLocation] == CellType.Free)
+                            if (jLocation + 1 < this.MazeRows && this.maze[iLocation, jLocation + 1] == CellType.Free)
                             {
-                                this.CurrPoint = new Point(xLocation + 1, yLocation);
+                                this.CurrPoint = new Point(iLocation, jLocation + 1);
                             }
                             break;
                         }
                     case 'u':
                         {
-                            if (yLocation - 1 >= 0 && this.maze[xLocation, yLocation - 1] == CellType.Free)
+                            
+                            if (iLocation - 1 >= 0 && this.maze[iLocation - 1, jLocation] == CellType.Free)
                             {
-                                this.CurrPoint = new Point(xLocation, yLocation - 1);
+                                this.CurrPoint = new Point(iLocation - 1, jLocation);
                             }
                             break;
                         }
                     case 'd':
                         {
-                            if (yLocation + 1 < this.MazeRows && this.maze[xLocation, yLocation + 1] == CellType.Free)
+                            if (iLocation + 1 < this.MazeCols && this.maze[iLocation + 1, jLocation] == CellType.Free)
                             {
-                                this.CurrPoint = new Point(xLocation, yLocation + 1);
+                                this.CurrPoint = new Point(iLocation + 1, jLocation);
                             }
                             break;
                         }

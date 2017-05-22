@@ -91,16 +91,16 @@ namespace WPFGame
 
         public void Draw()
         {
-            int i, j, xLocation, yLocation;
-            int rows, cols;
-            myMaze = Maze.FromJSON(this.StringMaze);
-            Point start = new Point(myMaze.InitialPos.Col, myMaze.InitialPos.Row);
-            Point end = new Point(myMaze.GoalPos.Col, myMaze.GoalPos.Row);
-            Point curr;
-            rows = int.Parse(this.Rows);
-            cols = int.Parse(this.Cols);
-            rectWidth = (int)this.MyCanvas.Width / cols;
-            rectHeight = (int)this.MyCanvas.Height / rows;
+            int i, j, iLocation, jLocation;
+            int rows = int.Parse(this.Rows), cols = int.Parse(this.Cols);
+            this.myMaze = Maze.FromJSON(this.StringMaze);
+
+            int iStart = this.myMaze.InitialPos.Row;
+            int jStart = this.myMaze.InitialPos.Col;
+            int iEnd = this.myMaze.GoalPos.Row;
+            int jEnd = this.myMaze.GoalPos.Col;
+            this.rectWidth = (int)this.MyCanvas.Width / cols;
+            this.rectHeight = (int)this.MyCanvas.Height / rows;
             this.rectList = new List<Rectangle>();
             // Create ImageBrushes
             ImageBrush marco = new ImageBrush();
@@ -115,32 +115,33 @@ namespace WPFGame
             ImageBrush mother = new ImageBrush();
             mother.ImageSource = new BitmapImage(new Uri(@"images/mother.jpg", UriKind.Relative));
 
-            for (i = 0; i < cols; i++)
+            for (i = 0; i < rows; i++)
             {
-                for (j = 0; j < rows; j++)
+                for (j = 0; j < cols; j++)
                 {
 
                     Rectangle rect = new Rectangle();
                     rect.Width = this.rectWidth;
                     rect.Height = this.rectHeight;
-                    xLocation = i * this.rectWidth;
-                    yLocation = j * this.rectHeight;
-                    Canvas.SetLeft(rect, xLocation);
-                    Canvas.SetTop(rect, yLocation);
+                    iLocation = i * this.rectHeight;
+                    jLocation = j * this.rectWidth;
+                    Canvas.SetLeft(rect, jLocation);
+                    Canvas.SetTop(rect, iLocation);
+
                     // if is not a wall
-                    if (myMaze[i, j] == CellType.Free)
+                    if (this.myMaze[i, j] == CellType.Free)
                     {
                         rect.Fill = grass;
                     }
 
                     // if is wall
-                    else if (myMaze[i, j] == CellType.Wall)
+                    else if (this.myMaze[i, j] == CellType.Wall)
                     {
                         rect.Stroke = new SolidColorBrush(Colors.Black);
                         rect.Fill = wall;
                     }
-                    curr = new Point(i, j);
-                    if (curr.Equals(end)) // the current place of the player
+                    
+                    if (i == iEnd && j == jEnd)
                     {
                         rect.Fill = mother;
                     }
@@ -154,8 +155,8 @@ namespace WPFGame
             this.playerRec = new Rectangle();
             this.playerRec.Width = this.rectWidth;
             this.playerRec.Height = this.rectHeight;
-            Canvas.SetLeft(this.playerRec, start.Y * this.rectWidth);
-            Canvas.SetTop(this.playerRec, start.X * this.rectHeight);
+            Canvas.SetTop(this.playerRec, iStart * this.rectHeight);
+            Canvas.SetLeft(this.playerRec, jStart * this.rectWidth);
             this.playerRec.Fill = marco;
             this.MyCanvas.Children.Add(this.playerRec);
             this.rectList.Add(this.playerRec);
@@ -173,53 +174,53 @@ namespace WPFGame
                 return;
             }
             string[] args = newW.Split(',');
-            int x  = int.Parse(args[0]);
-            int y = int.Parse(args[1]);
-            Canvas.SetLeft(this.playerRec, x * this.rectWidth);
-            Canvas.SetTop(this.playerRec, y * this.rectHeight);
+            int i  = int.Parse(args[0]);
+            int j = int.Parse(args[1]);
+            Canvas.SetTop(this.playerRec, i * this.rectHeight);
+            Canvas.SetLeft(this.playerRec, j * this.rectWidth);
         }
 
         public void SolveMaze(string solution)
         {
-            //0 - left, 1- right, 2- up, 3- down
-            int i = 0 , length = solution.Length;
-            int x = this.myMaze.InitialPos.Col;
-            int y = this.myMaze.InitialPos.Row;
-            Canvas.SetLeft(this.playerRec, x * this.rectWidth);
-            Canvas.SetTop(this.playerRec, y * this.rectHeight);
-            while (i < length)
+            // 0 - left, 1- right, 2- up, 3- down
+            int index = 0 , length = solution.Length;
+            int j = this.myMaze.InitialPos.Col;
+            int i = this.myMaze.InitialPos.Row;
+            Canvas.SetTop(this.playerRec, i * this.rectHeight);
+            Canvas.SetLeft(this.playerRec, j * this.rectWidth);
+            while (index < length)
             {
-                switch (solution[i])
+                switch (solution[index])
                 {
                     case '0':
                         {
-                            x -= 1;
+                            j -= 1;
                             break; 
                         }
                     case '1':
                         {
-                            x += 1;
+                            j += 1;
                             break;
                         }
                     case '2':
                         {
-                            y -= 1;
+                            i -= 1;
                             break;
                         }
                     case '3':
                         {
-                            y += 1;
+                            i += 1;
                             
                             break;
                         }
 
                 }
                 this.MyCanvas.Children.Remove(this.playerRec);
-                Canvas.SetLeft(this.playerRec, x * this.rectWidth);
-                Canvas.SetTop(this.playerRec, y * this.rectHeight);
+                Canvas.SetLeft(this.playerRec, j * this.rectWidth);
+                Canvas.SetTop(this.playerRec, i * this.rectHeight);
                 this.MyCanvas.Children.Add(this.playerRec);
                 System.Threading.Thread.Sleep(100);
-                i++;
+                index++;
             }
         }
     }
