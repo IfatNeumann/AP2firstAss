@@ -185,33 +185,36 @@ namespace WPFGame
             int i = 0 , length = solution.Length;
             int x = this.myMaze.InitialPos.Col;
             int y = this.myMaze.InitialPos.Row;
+            Canvas.SetLeft(this.playerRec, x * this.rectWidth);
+            Canvas.SetTop(this.playerRec, y * this.rectHeight);
             while (i < length)
             {
                 switch (solution[i])
                 {
                     case '0':
                         {
-                            Canvas.SetLeft(this.playerRec, (x-1) * this.rectWidth);
+                            x -= 1;
                             break; 
                         }
                     case '1':
                         {
-
-                            Canvas.SetLeft(this.playerRec, (x+1) * this.rectWidth);
+                            x += 1;
                             break;
                         }
                     case '2':
                         {
-                            Canvas.SetTop(this.playerRec, (y-1) * this.rectHeight);
+                            y -= 1;
                             break;
                         }
                     case '3':
                         {
-                            Canvas.SetTop(this.playerRec, (y+1) * this.rectHeight);
+                            y += 1;
                             break;
                         }
                 }
-                
+                Canvas.SetLeft(this.playerRec, x * this.rectWidth);
+                Canvas.SetTop(this.playerRec, y * this.rectHeight);
+                System.Threading.Thread.Sleep(100);
                 i++;
             }
         }

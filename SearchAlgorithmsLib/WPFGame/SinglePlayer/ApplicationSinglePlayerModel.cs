@@ -15,6 +15,8 @@
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
+    using WPFGame.Properties;
+
     public class ApplicationSinglePlayerModel : ISinglePlayerModel
     {
         private string name;
@@ -31,7 +33,13 @@
         public delegate void test(Point x);
 
         public event test hip;
-        
+
+        public ApplicationSinglePlayerModel()
+        {
+            this.rows = Settings.Default.MazeRows;
+            this.cols = Settings.Default.MazeCols;
+        }
+
         public string MazeName
         {
             get
@@ -185,7 +193,7 @@
             this.CurrPoint = curr;
 
             //solution
-            writer.Write("solve " + this.name + " 0");
+            writer.Write("solve " + this.name + " " + Settings.Default.SearchAlgorithm.ToString());
             JObject jSolution = JObject.Parse(reader.ReadString());
             this.Solution = jSolution["Solution"].ToString();
             
