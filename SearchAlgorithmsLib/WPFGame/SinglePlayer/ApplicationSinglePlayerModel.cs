@@ -15,6 +15,8 @@
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
+    using WPFGame.Properties;
+
     public class ApplicationSinglePlayerModel : ISinglePlayerModel
     {
         private string name;
@@ -33,6 +35,12 @@
         public delegate void test(Point x);
 
         public event test hip;
+
+        public ApplicationSinglePlayerModel()
+        {
+            this.rows = Settings.Default.MazeRows;
+            this.cols = Settings.Default.MazeCols;
+        }
 
         public string MazeName
         {
