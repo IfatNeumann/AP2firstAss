@@ -31,5 +31,7 @@ namespace WPFGame
 
         int KeyPressed(char direction);
         void StartGame();
+
+        void SolveMaze();
     }
 }

@@ -180,51 +180,6 @@ namespace WPFGame
             Canvas.SetTop(this.playerRec, i * this.rectHeight);
             Canvas.SetLeft(this.playerRec, j * this.rectWidth);
         }
-
-        public void SolveMaze(string solution)
-        {
-            // 0 - left, 1- right, 2- up, 3- down
-            int length = solution.Length, index = length-1;
-            int j = this.myMaze.InitialPos.Col;
-            int i = this.myMaze.InitialPos.Row;
-            Canvas.SetTop(this.playerRec, i * this.rectHeight);
-            Canvas.SetLeft(this.playerRec, j * this.rectWidth);
-            while (index >= 0)
-            {
-                switch (solution[index])
-                {
-                    case '0':
-                        {
-                            j -= 1;
-                            break; 
-                        }
-                    case '1':
-                        {
-                            j += 1;
-                            break;
-                        }
-                    case '2':
-                        {
-                            i -= 1;
-                            break;
-                        }
-                    case '3':
-                        {
-                            i += 1;
-                            break;
-                        }
-
-                }
-                this.MyCanvas.Children.Remove(this.playerRec);
-                Canvas.SetTop(this.playerRec, i * this.rectHeight);
-                Canvas.SetLeft(this.playerRec, j * this.rectWidth);
-                this.MyCanvas.Children.Add(this.playerRec);
-                System.Threading.Thread.Sleep(500);
-                index--;
-                
-            }
-        }
     }
-
 }
 

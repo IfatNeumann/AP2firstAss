@@ -7,6 +7,7 @@
     using System.IO;
     using System.Linq;
     using System.Net;
+    using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
 
@@ -237,6 +238,44 @@
             if (this.PropertyChanged != null)
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public void SolveMaze()
+        {
+            // 0 - left, 1- right, 2- up, 3- down
+            int length = this.Solution.Length, index = length - 1;
+            while (index >= 0)
+            {
+                Task t = new Task(() => {
+                switch (this.Solution[index])
+                {
+                    case '0':
+                        {
+                            this.KeyPressed('l');
+                            break;
+                        }
+                    case '1':
+                        {
+                            this.KeyPressed('r');
+                            break;
+                        }
+                    case '2':
+                        {
+                            this.KeyPressed('u');
+                            break;
+                        }
+                    case '3':
+                        {
+                            this.KeyPressed('d');
+                            break;
+                        }
+
+                }
+                    });
+                t.Start();
+                System.Threading.Thread.Sleep(500);
+                index--;
             }
         }
     }
