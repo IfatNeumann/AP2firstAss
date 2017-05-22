@@ -1,12 +1,12 @@
 ﻿namespace WPFGame
 {
-    using System.ComponentModel;
-    using System.Net.Sockets;
-    using System.Configuration;
     using System;
+    using System.ComponentModel;
+    using System.Configuration;
     using System.IO;
     using System.Linq;
     using System.Net;
+    using System.Net.Sockets;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
@@ -21,15 +21,20 @@
     public class ApplicationSinglePlayerModel : ISinglePlayerModel
     {
         private string name;
+
         private int rows;
+
         private int cols;
+
         private string stringMaze;
 
         private string solution;
+
         private Maze maze;
+
         private Point currPoint;
+
         private Point endPoint;
-       
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -49,6 +54,7 @@
             {
                 return this.name;
             }
+
             set
             {
                 if (this.name != value)
@@ -64,6 +70,7 @@
             {
                 return this.rows;
             }
+
             set
             {
                 if (this.rows != value)
@@ -79,6 +86,7 @@
             {
                 return this.cols;
             }
+
             set
             {
                 if (this.cols != value)
@@ -107,11 +115,11 @@
             {
                 return this.currPoint;
             }
+
             set
             {
                 this.currPoint = value;
                 this.NotifyPropertyChanged("CurrPoint");
-
             }
         }
 
@@ -159,31 +167,37 @@
                             {
                                 this.CurrPoint = new Point(iLocation, jLocation - 1);
                             }
+
                             break;
                         }
+
                     case 'r':
                         {
                             if (jLocation + 1 < this.MazeCols && this.maze[iLocation, jLocation + 1] == CellType.Free)
                             {
                                 this.CurrPoint = new Point(iLocation, jLocation + 1);
                             }
+
                             break;
                         }
+
                     case 'u':
                         {
-                            
                             if (iLocation - 1 >= 0 && this.maze[iLocation - 1, jLocation] == CellType.Free)
                             {
                                 this.CurrPoint = new Point(iLocation - 1, jLocation);
                             }
+
                             break;
                         }
+
                     case 'd':
                         {
                             if (iLocation + 1 < this.MazeRows && this.maze[iLocation + 1, jLocation] == CellType.Free)
                             {
                                 this.CurrPoint = new Point(iLocation + 1, jLocation);
                             }
+
                             break;
                         }
                 }
@@ -193,8 +207,10 @@
 
         public void StartGame()
         {
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(Properties.Settings.Default.ServerIP),
+            IPEndPoint ipep = new IPEndPoint(
+                IPAddress.Parse(Properties.Settings.Default.ServerIP),
                 Properties.Settings.Default.ServerPort);
+
             // create new TcpClient
             TcpClient client = new TcpClient();
             client.Connect(ipep);
@@ -211,28 +227,26 @@
             this.maze = Maze.FromJSON(this.StringMaze);
             int x = this.maze.InitialPos.Col;
             int y = this.maze.InitialPos.Row;
-            Point curr = new Point(x , y);
+            Point curr = new Point(x, y);
             this.CurrPoint = curr;
 
-            //int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;
-            //if ((this.EndPoint.X == xLocation) && (this.EndPoint.Y == yLocation))
-            //{
-            
-            //}
+            // int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;
+            // if ((this.EndPoint.X == xLocation) && (this.EndPoint.Y == yLocation))
+            // {
 
-            //solution
+            // }
+
+            // solution
             writer.Write("solve " + this.name + " 1");
             JObject jSolution = JObject.Parse(reader.ReadString());
             this.Solution = jSolution["Solution"].ToString();
-            
+
             // close connection
             writer.Dispose();
             reader.Dispose();
             client.Close();
         }
 
-        
-            
         protected void NotifyPropertyChanged(string name)
         {
             if (this.PropertyChanged != null)
@@ -243,40 +257,45 @@
 
         public void SolveMaze()
         {
-            // 0 - left, 1- right, 2- up, 3- down
-            int length = this.Solution.Length, index = length - 1;
-            while (index >= 0)
-            {
-                Task t = new Task(() => {
-                switch (this.Solution[index])
-                {
-                    case '0':
+            Task t = new Task(
+                () =>
+                    {
+                        // 0 - left, 1- right, 2- up, 3- down
+                        int length = this.Solution.Length, index = length - 1;
+                        while (index >= 0)
                         {
-                            this.KeyPressed('l');
-                            break;
-                        }
-                    case '1':
-                        {
-                            this.KeyPressed('r');
-                            break;
-                        }
-                    case '2':
-                        {
-                            this.KeyPressed('u');
-                            break;
-                        }
-                    case '3':
-                        {
-                            this.KeyPressed('d');
-                            break;
-                        }
+                            switch (this.Solution[index])
+                            {
+                                case '0':
+                                    {
+                                        this.KeyPressed('l');
+                                        break;
+                                    }
 
-                }
+                                case '1':
+                                    {
+                                        this.KeyPressed('r');
+                                        break;
+                                    }
+
+                                case '2':
+                                    {
+                                        this.KeyPressed('u');
+                                        break;
+                                    }
+
+                                case '3':
+                                    {
+                                        this.KeyPressed('d');
+                                        break;
+                                    }
+                            }
+
+                            System.Threading.Thread.Sleep(500);
+                            index--;
+                        }
                     });
-                t.Start();
-                System.Threading.Thread.Sleep(500);
-                index--;
-            }
+            t.Start();
         }
     }
 }
