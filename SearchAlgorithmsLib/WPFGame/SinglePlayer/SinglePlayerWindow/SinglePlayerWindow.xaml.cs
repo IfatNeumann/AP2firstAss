@@ -60,31 +60,58 @@ namespace WPFGame
             this.Close();
         }
 
+        public void winScreen()
+        {
+            WinWindow win = new WinWindow();
+            win.Show();
+            this.Close();
+        }
+
         private void KeyDownHandler(object sender, KeyEventArgs e)
         {
+            int result;
             switch (e.Key)
             {
+                
                 case Key.Left:
                     {
-                        this.vm.KeyPressed('l');
+                        result = this.vm.KeyPressed('l');
+                        if (result == 1)
+                        {
+                            winScreen();
+                        }
                         break;
                     }
                 case Key.Right:
                     {
-                        this.vm.KeyPressed('r');
+                        result = this.vm.KeyPressed('r');
+                        if (result == 1)
+                        {
+                            winScreen();
+                        }
                         break;
                     }
                 case Key.Up:
                     {
-                        this.vm.KeyPressed('u');
+                        result = this.vm.KeyPressed('u');
+                        if (result == 1)
+                        {
+                            winScreen();
+                        }
                         break;
                     }
                 case Key.Down:
                     {
-                        this.vm.KeyPressed('d');
+                        result = this.vm.KeyPressed('d');
+                        if (result == 1)
+                        {
+                            winScreen();
+                        }
                         break;
                     }
+
             }
+            
         }
     }
 }

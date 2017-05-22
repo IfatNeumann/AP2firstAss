@@ -25,9 +25,11 @@ namespace WPFGame
 
         Point CurrPoint { get; set; }
 
+        Point EndPoint { get; }
+
         string Solution { get; set; }
 
-        void KeyPressed(char direction);
+        int KeyPressed(char direction);
         void StartGame();
     }
 }

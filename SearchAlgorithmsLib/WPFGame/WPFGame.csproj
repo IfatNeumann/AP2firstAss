@@ -94,6 +94,9 @@
     <Compile Include="SinglePlayer\SinglePlayerWindow\SinglePlayerWindowViewModel.cs" />
     <Compile Include="SinglePlayer\SinglePlayerViewModel.cs" />
     <Compile Include="ViewModel.cs" />
+    <Compile Include="WinWindow.xaml.cs">
+      <DependentUpon>WinWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SinglePlayer\SinglePlayerWindow\SinglePlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,6 +190,15 @@
       <Project>{ddd92fdc-c6e4-4418-a8b4-6b1f6469b12d}</Project>
       <Name>SearchAlgorithmsLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\winPic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
