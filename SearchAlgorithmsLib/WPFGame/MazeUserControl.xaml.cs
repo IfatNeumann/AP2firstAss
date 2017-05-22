@@ -94,8 +94,8 @@ namespace WPFGame
             int i, j, xLocation, yLocation;
             int rows, cols;
             myMaze = Maze.FromJSON(this.StringMaze);
-            Point start = new Point(myMaze.InitialPos.Row, myMaze.InitialPos.Col);
-            Point end = new Point(myMaze.GoalPos.Row, myMaze.GoalPos.Col);
+            Point start = new Point(myMaze.InitialPos.Col, myMaze.InitialPos.Row);
+            Point end = new Point(myMaze.GoalPos.Col, myMaze.GoalPos.Row);
             Point curr;
             rows = int.Parse(this.Rows);
             cols = int.Parse(this.Cols);
@@ -115,16 +115,16 @@ namespace WPFGame
             ImageBrush mother = new ImageBrush();
             mother.ImageSource = new BitmapImage(new Uri(@"images/mother.jpg", UriKind.Relative));
 
-            for (i = 0; i < rows; i++)
+            for (i = 0; i < cols; i++)
             {
-                for (j = 0; j < cols; j++)
+                for (j = 0; j < rows; j++)
                 {
 
                     Rectangle rect = new Rectangle();
                     rect.Width = this.rectWidth;
                     rect.Height = this.rectHeight;
-                    xLocation = i * this.rectWidth;
-                    yLocation = j * this.rectHeight;
+                    xLocation = j * this.rectWidth;
+                    yLocation = i * this.rectHeight;
                     Canvas.SetLeft(rect, xLocation);
                     Canvas.SetTop(rect, yLocation);
                     // if is not a wall

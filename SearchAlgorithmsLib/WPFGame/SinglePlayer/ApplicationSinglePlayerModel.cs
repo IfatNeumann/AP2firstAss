@@ -25,13 +25,14 @@
         private string solution;
         private Maze maze;
         private Point currPoint;
+        private Point endPoint;
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public delegate void test(Point x);
 
         public event test hip;
-
 
         public string MazeName
         {
@@ -105,6 +106,17 @@
             }
         }
 
+        public Point EndPoint
+        {
+            get
+            {
+                int endX = this.maze.GoalPos.Col;
+                int endY = this.maze.GoalPos.Row;
+                this.endPoint = new Point(endX, endY);
+                return this.endPoint;
+            }
+        }
+
         public string Solution
         {
             get
@@ -121,45 +133,52 @@
             }
         }
 
-        public void KeyPressed(char direction)
+        public int KeyPressed(char direction)
         {
             int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;
-            switch (direction)
+            if ((this.EndPoint.X == xLocation) && (this.EndPoint.Y == yLocation))
             {
-                case 'l':
-                    {
-                        if (xLocation - 1 >= 0 && this.maze[xLocation - 1, yLocation] == CellType.Free)
-                        {
-                            this.CurrPoint = new Point(xLocation - 1, yLocation);
-                        }
-                        break;
-                    }
-                case 'r':
-                    {
-                        if (xLocation + 1 < this.MazeCols && this.maze[xLocation + 1, yLocation] == CellType.Free)
-                        {
-                            this.CurrPoint = new Point(xLocation + 1, yLocation);
-                        }
-                        break;
-                    }
-                case 'u':
-                    {
-                        if (yLocation - 1 >= 0 && this.maze[xLocation, yLocation - 1] == CellType.Free)
-                        {
-                            this.CurrPoint = new Point(xLocation, yLocation - 1);
-                        }
-                        break;
-                    }
-                case 'd':
-                    {
-                        if (yLocation + 1 < this.MazeRows && this.maze[xLocation, yLocation + 1] == CellType.Free)
-                        {
-                            this.CurrPoint = new Point(xLocation, yLocation + 1);
-                        }
-                        break;
-                    }
+                return 1;
             }
-            return;
+            else
+            {
+                switch (direction)
+                {
+                    case 'l':
+                        {
+                            if (xLocation - 1 >= 0 && this.maze[xLocation - 1, yLocation] == CellType.Free)
+                            {
+                                this.CurrPoint = new Point(xLocation - 1, yLocation);
+                            }
+                            break;
+                        }
+                    case 'r':
+                        {
+                            if (xLocation + 1 < this.MazeCols && this.maze[xLocation + 1, yLocation] == CellType.Free)
+                            {
+                                this.CurrPoint = new Point(xLocation + 1, yLocation);
+                            }
+                            break;
+                        }
+                    case 'u':
+                        {
+                            if (yLocation - 1 >= 0 && this.maze[xLocation, yLocation - 1] == CellType.Free)
+                            {
+                                this.CurrPoint = new Point(xLocation, yLocation - 1);
+                            }
+                            break;
+                        }
+                    case 'd':
+                        {
+                            if (yLocation + 1 < this.MazeRows && this.maze[xLocation, yLocation + 1] == CellType.Free)
+                            {
+                                this.CurrPoint = new Point(xLocation, yLocation + 1);
+                            }
+                            break;
+                        }
+                }
+                return 0;
+            }
         }
 
         public void StartGame()
@@ -185,8 +204,14 @@
             Point curr = new Point(x , y);
             this.CurrPoint = curr;
 
+            //int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;
+            //if ((this.EndPoint.X == xLocation) && (this.EndPoint.Y == yLocation))
+            //{
+            
+            //}
+
             //solution
-            writer.Write("solve " + this.name + " 0");
+            writer.Write("solve " + this.name + " 1");
             JObject jSolution = JObject.Parse(reader.ReadString());
             this.Solution = jSolution["Solution"].ToString();
             

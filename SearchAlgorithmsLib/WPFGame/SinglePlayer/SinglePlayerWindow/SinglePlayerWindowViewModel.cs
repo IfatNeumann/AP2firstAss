@@ -95,6 +95,14 @@ namespace WPFGame
             }
         }
 
+        public string VmEndPoint
+        {
+            get
+            {
+                return this.model.EndPoint.ToString();
+            }
+        }
+
         public string VmSolution
         {
             get
@@ -116,9 +124,9 @@ namespace WPFGame
           //  this.model.SaveSettings();
         }
 
-        public void KeyPressed(char direction)
+        public int KeyPressed(char direction)
         {
-            this.model.KeyPressed(direction);
+            return this.model.KeyPressed(direction);
         }
 
         public void b(Point p)
