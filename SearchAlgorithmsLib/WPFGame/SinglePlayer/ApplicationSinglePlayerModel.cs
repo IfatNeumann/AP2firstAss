@@ -162,7 +162,7 @@
                         }
                     case 'r':
                         {
-                            if (jLocation + 1 < this.MazeRows && this.maze[iLocation, jLocation + 1] == CellType.Free)
+                            if (jLocation + 1 < this.MazeCols && this.maze[iLocation, jLocation + 1] == CellType.Free)
                             {
                                 this.CurrPoint = new Point(iLocation, jLocation + 1);
                             }
@@ -179,7 +179,7 @@
                         }
                     case 'd':
                         {
-                            if (iLocation + 1 < this.MazeCols && this.maze[iLocation + 1, jLocation] == CellType.Free)
+                            if (iLocation + 1 < this.MazeRows && this.maze[iLocation + 1, jLocation] == CellType.Free)
                             {
                                 this.CurrPoint = new Point(iLocation + 1, jLocation);
                             }

@@ -19,6 +19,7 @@ namespace WPFGame
 {
     using System.ComponentModel;
     using System.Windows.Forms;
+    using System.Windows.Threading;
 
     using MazeGeneratorLib;
 
@@ -183,12 +184,12 @@ namespace WPFGame
         public void SolveMaze(string solution)
         {
             // 0 - left, 1- right, 2- up, 3- down
-            int index = 0 , length = solution.Length;
+            int length = solution.Length, index = length-1;
             int j = this.myMaze.InitialPos.Col;
             int i = this.myMaze.InitialPos.Row;
             Canvas.SetTop(this.playerRec, i * this.rectHeight);
             Canvas.SetLeft(this.playerRec, j * this.rectWidth);
-            while (index < length)
+            while (index >= 0)
             {
                 switch (solution[index])
                 {
@@ -210,17 +211,17 @@ namespace WPFGame
                     case '3':
                         {
                             i += 1;
-                            
                             break;
                         }
 
                 }
                 this.MyCanvas.Children.Remove(this.playerRec);
-                Canvas.SetLeft(this.playerRec, j * this.rectWidth);
                 Canvas.SetTop(this.playerRec, i * this.rectHeight);
+                Canvas.SetLeft(this.playerRec, j * this.rectWidth);
                 this.MyCanvas.Children.Add(this.playerRec);
-                System.Threading.Thread.Sleep(100);
-                index++;
+                System.Threading.Thread.Sleep(500);
+                index--;
+                
             }
         }
     }

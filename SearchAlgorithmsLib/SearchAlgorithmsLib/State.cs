@@ -114,7 +114,7 @@ namespace SearchAlgorithmsLib
                 s.Trace.Enqueue(thisState);
                 thisState = thisState.Parent;
             }
-
+            s.Trace.Enqueue(thisState);
             return s;
         }
 
