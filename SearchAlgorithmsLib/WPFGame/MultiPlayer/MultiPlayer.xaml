@@ -10,7 +10,7 @@
         <StackPanel Margin="0,20,0,0">
             <StackPanel.Orientation>Horizontal</StackPanel.Orientation>
             <Label x:Name="GlLabel" Content="List Of Games: "/>
-            <ComboBox Width="188" Height="23" />
+            <ComboBox ItemsSource="{Binding Property}" SelectedItem="{Binding SimpleStringProperty, Mode=TwoWay}" Width="188" Height="23" />
         </StackPanel>
         <Button x:Name="JbButton" Content="Join Game" Click="Join_Button_Click" Padding="5" Width="80" Margin="15"/>
         <local:MenuUserControl x:Name="MazeBoard" Loaded="MazeBoard_Loaded" ></local:MenuUserControl>
