@@ -40,7 +40,6 @@ namespace WPFGame
         {
             MultiPlayer multiWin = new MultiPlayer();
             multiWin.Show();
-            
             this.Close();
         }
 

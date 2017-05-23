@@ -231,12 +231,6 @@
 
             this.CurrPoint = curr;
 
-            // int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;
-            // if ((this.EndPoint.X == xLocation) && (this.EndPoint.Y == yLocation))
-            // {
-
-            // }
-
             // solution
             writer.Write("solve " + this.name + " 1");
             JObject jSolution = JObject.Parse(reader.ReadString());
