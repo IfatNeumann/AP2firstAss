@@ -209,7 +209,7 @@
 
             // create new TcpClient
             TcpClient client = new TcpClient();
-            client.Connect(ipep);
+             client.Connect(ipep);
             NetworkStream stream = client.GetStream();
 
             // Write to server
