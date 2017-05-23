@@ -37,6 +37,7 @@ namespace WPFGame
         private Maze maze;
 
         private Point currPoint;
+        private Point secondCurrPoint;
 
         private Point endPoint;
 
@@ -124,6 +125,20 @@ namespace WPFGame
             {
                 this.currPoint = value;
                 this.NotifyPropertyChanged("CurrPoint");
+            }
+        }
+
+        public Point SecondCurrPoint
+        {
+            get
+            {
+                return this.secondCurrPoint;
+            }
+
+            set
+            {
+                this.secondCurrPoint = value;
+                this.NotifyPropertyChanged("SecondCurrPoint");
             }
         }
 
