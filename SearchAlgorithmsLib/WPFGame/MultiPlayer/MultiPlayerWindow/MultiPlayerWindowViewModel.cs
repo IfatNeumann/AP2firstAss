@@ -96,6 +96,19 @@ namespace WPFGame
             }
         }
 
+        public string VmSecondCurrPoint
+        {
+            get
+            {
+                return this.model.SecondCurrPoint.ToString();
+            }
+
+            set
+            {
+                this.model.SecondCurrPoint = Point.Parse(value);
+            }
+        }
+
         public string VmEndPoint
         {
             get

@@ -24,6 +24,8 @@ namespace WPFGame
 
         Point CurrPoint { get; set; }
 
+        Point SecondCurrPoint { get; set; }
+
         Point EndPoint { get; }
 
         string Solution { get; set; }
