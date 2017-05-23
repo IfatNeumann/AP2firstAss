@@ -288,5 +288,13 @@
                     });
             t.Start();
         }
+
+        public void InitStartPos()
+        {
+            this.maze = Maze.FromJSON(this.StringMaze);
+            int x = this.maze.InitialPos.Row;
+            int y = this.maze.InitialPos.Col;
+            this.CurrPoint = new Point(x, y);
+        }
     }
 }
