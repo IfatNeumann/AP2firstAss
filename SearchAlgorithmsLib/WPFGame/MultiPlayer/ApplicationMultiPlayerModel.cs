@@ -192,7 +192,6 @@ namespace WPFGame
                                     writer.Dispose();
                                     reader.Dispose();
                                     client.Close();
-                                    Console.WriteLine("connection stopped");
                                     client = null;
                                     break;
                                 }
@@ -210,7 +209,6 @@ namespace WPFGame
                 {
                     // Send data to server
                     this.line = this.SendMassage();
-                    this.command = 'N';
                     if (client == null)
                     {
                         // create new TcpClient
@@ -241,12 +239,6 @@ namespace WPFGame
             {
                 case "start":
                     {
-                        this.maze = Maze.FromJSON(this.StringMaze);
-                        int x = this.maze.InitialPos.Row;
-                        int y = this.maze.InitialPos.Col;
-                        Point curr = new Point(x, y);
-
-                        this.CurrPoint = curr;
                         break;
                     }
                 case "list":
@@ -255,6 +247,14 @@ namespace WPFGame
                     }
                 case "join":
                     {
+
+                        this.maze = Maze.FromJSON(result);
+                        int x = this.maze.InitialPos.Row;
+                        int y = this.maze.InitialPos.Col;
+                        Point curr = new Point(x, y);
+
+                        this.CurrPoint = curr;
+
                         break;
                     }
                 default:
@@ -292,23 +292,26 @@ namespace WPFGame
         {
             string massage;
             while (this.command == 'N')
-            {
-                
+            { 
             }
+
             switch (this.command)
             {
                 case 's':
                     {
+                        this.command = 'N';
                         massage = "start " + this.MazeName + " " + this.MazeRows + " " + this.MazeCols;
                         break;
                     }
                 case 'l':
                     {
+                        this.command = 'N';
                         massage = "list";
                         break;
                     }
                 case 'j':
                     {
+                        this.command = 'N';
                         massage = "join ifat";
                         break;
                     }

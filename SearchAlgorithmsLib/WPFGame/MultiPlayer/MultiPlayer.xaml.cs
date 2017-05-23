@@ -36,11 +36,12 @@ namespace WPFGame
 
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
-           // WaitWindow win = new WaitWindow();
+            WaitWindow win = new WaitWindow();
+            win.Show();
             //this.vm.StartConnection();
-            this.vm.StartGame();
-            MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
-            mulWin.Show();
+            //this.vm.StartGame();
+            //MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
+            //mulWin.Show();
             this.Close();
         }
 
@@ -54,9 +55,10 @@ namespace WPFGame
         }
         
 
-        private void MyComboBox_OnDropDownClosed(object sender, EventArgs e)
+        private void On_Loaded(object sender, EventArgs e)
         {
-            this.vm.StartConnection();
+            Task task = new Task(() => { this.vm.StartConnection(); });
+            task.Start();
         }
     }
 }
