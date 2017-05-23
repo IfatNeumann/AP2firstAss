@@ -86,8 +86,8 @@ namespace WPFGame
 
         public static void ChangePos(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            MazeUserControl allahWakbar = d as MazeUserControl;
-            allahWakbar.UpdateMaze("", e.NewValue.ToString());
+            MazeUserControl userControl = d as MazeUserControl;
+            userControl.UpdateMaze(e.NewValue.ToString());
         }
 
         public void Draw()
@@ -168,7 +168,7 @@ namespace WPFGame
             this.Draw();
         }
         
-        public void UpdateMaze(string old, string newW)
+        public void UpdateMaze(string newW)
         {
             if (this.playerRec == null)
             {

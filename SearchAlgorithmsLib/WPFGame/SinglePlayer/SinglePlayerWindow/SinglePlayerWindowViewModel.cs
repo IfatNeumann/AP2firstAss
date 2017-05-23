@@ -17,7 +17,6 @@ namespace WPFGame
         public SinglePlayerWindowViewModel(ISinglePlayerModel model)
         {
             this.model = model;
-            model.hip += b;
             model.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e)
                  {
                      this.NotifyPropertyChanged("Vm"+e.PropertyName);

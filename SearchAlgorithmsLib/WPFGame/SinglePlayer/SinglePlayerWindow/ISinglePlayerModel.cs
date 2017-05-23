@@ -19,8 +19,6 @@ namespace WPFGame
 
         int MazeCols { get; set; }
 
-        event ApplicationSinglePlayerModel.test hip ;
-
         string StringMaze { get; set; }
 
         Point CurrPoint { get; set; }

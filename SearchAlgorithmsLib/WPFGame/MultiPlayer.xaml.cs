@@ -25,7 +25,7 @@ namespace WPFGame
 
         public MultiPlayer()
         {
-          //  InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
