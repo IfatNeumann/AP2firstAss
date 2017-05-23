@@ -48,9 +48,14 @@ namespace WPFGame
         private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
             //this.vm.StartConnection();
+            if(this.model.StringMaze != null)
+            {
+
+            }
+            
             this.vm.JoinGame();
-            //MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
-            //mulWin.Show();
+            MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
+            mulWin.Show();
             //this.Close();
         }
         
