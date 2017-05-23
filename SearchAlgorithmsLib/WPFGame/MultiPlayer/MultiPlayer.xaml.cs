@@ -26,7 +26,7 @@ namespace WPFGame
         public MultiPlayer()
         {
             this.model = new ApplicationMultiPlayerModel();
-            InitializeComponent();
+            this.InitializeComponent();
             this.vm = new MultiPlayerViewModel(this.model);
             this.DataContext = this.vm;
         }
@@ -39,13 +39,19 @@ namespace WPFGame
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
             WaitWindow win = new WaitWindow();
-            win.Show();
+
+            this.model.StartGame();
+            MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
+            mulWin.Show();
             this.Close();
         }
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.model.StartGame();
+            MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
+            mulWin.Show();
+            this.Close();
         }
     }
 }

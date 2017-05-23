@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPFGame"
         mc:Ignorable="d"
         Title="{Binding Path=VmMazeName}" Height="650" Width="600" KeyDown="KeyDownHandler">
-    <Canvas>
+    <Grid>
         <Button x:Name="RestartGame" Content="Restart game" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="100,2,0,0"
                  Click="Restart_Game_Button_Click" />
         <Button x:Name="SolveGame" Content="Solve maze" HorizontalAlignment="center" VerticalAlignment="Top" Width="95" Margin="0,2,0,0"
@@ -17,5 +17,5 @@
                                StringMaze="{Binding Path=VmStringMaze}" CurrPoint="{Binding Path=VmCurrPoint,Mode=TwoWay}" Margin="10" ></local:MazeUserControl>
         
 
-    </Canvas>
+    </Grid>
 </Window>
