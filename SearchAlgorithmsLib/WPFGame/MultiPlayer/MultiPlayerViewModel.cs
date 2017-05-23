@@ -54,5 +54,19 @@ namespace WPFGame
             }
         }
 
+        public void StartConnection()
+        {
+            this.model.StartConnection();
+        }
+
+        public void StartGame()
+        {
+            this.model.StartGame();
+        }
+
+        public void JoinGame()
+        {
+            this.model.JoinGame();
+        }
     }
 }

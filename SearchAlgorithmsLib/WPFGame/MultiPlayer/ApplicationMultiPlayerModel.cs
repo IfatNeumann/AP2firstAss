@@ -35,6 +35,8 @@ namespace WPFGame
         private Point endPoint;
 
         private string line;
+
+        private char command ='N';
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ApplicationMultiPlayerModel()
@@ -145,25 +147,7 @@ namespace WPFGame
             }
         }
 
-        public void StartGame()
-        {
-
-        }
-
-        public int KeyPressed(char direction)
-        {
-            return 1;
-        }
-
-        protected void NotifyPropertyChanged(string name)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-        public void Game()
+        public void StartConnection()
         {
             IPEndPoint ipep = new IPEndPoint(
                 IPAddress.Parse(Properties.Settings.Default.ServerIP),
@@ -183,7 +167,7 @@ namespace WPFGame
                             {
                                 // Get result from server
                                 string result = reader.ReadString();
-                                Console.WriteLine(result);
+                                //Console.WriteLine(result);
                                 string commandKey = this.line.Split(' ').First();
 
                                 // check the commands require  closing the connection 
@@ -207,19 +191,18 @@ namespace WPFGame
                             }
                         }
                     });
-            Console.WriteLine("Welcome! please enter a command:");
             while (true)
             {
                 try
                 {
                     // Send data to server
-                    this.line = Console.ReadLine();
+                    this.line = this.SendMassage();
+                    this.command = 'N';
                     if (client == null)
                     {
                         // create new TcpClient
                         client = new TcpClient();
                         client.Connect(ipep);
-                        Console.WriteLine("You are connected");
                         stream = client.GetStream();
                         writer = new BinaryWriter(stream);
                         reader = new BinaryReader(stream);
@@ -235,6 +218,65 @@ namespace WPFGame
                     break;
                 }
             }
+
+
+        }
+
+        public void StartGame()
+        {
+            this.command = 's';
+        }
+
+        public void JoinGame()
+        {
+            //MazeName = find the maze we want to join
+            this.command = 'j';
+        }
+
+        public int KeyPressed(char direction)
+        {
+            return 1;
+        }
+
+        protected void NotifyPropertyChanged(string name)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public string SendMassage()
+        {
+            string massage;
+            while (this.command == 'N')
+            {
+                
+            }
+            switch (this.command)
+            {
+                case 's':
+                    {
+                        massage = "start " + this.MazeName + " " + this.MazeRows + " " + this.MazeCols;
+                        break;
+                    }
+                case 'l':
+                    {
+                        massage = "list";
+                        break;
+                    }
+                case 'j':
+                    {
+                        massage = "join " + this.MazeName;
+                        break;
+                    }
+                default:
+                    {
+                        massage = string.Empty;
+                        break;
+                    }
+            }
+            return massage;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace WPFGame
     {
         public WaitWindow()
         {
-            InitializeComponent();
+           // InitializeComponent();
         }
 
         private void Back_To_Main_Button_Click(object sender, RoutedEventArgs e)

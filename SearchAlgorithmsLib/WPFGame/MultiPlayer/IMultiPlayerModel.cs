@@ -27,6 +27,10 @@ namespace WPFGame
 
         int KeyPressed(char direction);
 
+        void StartConnection();
+
         void StartGame();
+
+        void JoinGame();
     }
 }
