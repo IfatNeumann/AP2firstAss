@@ -66,9 +66,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApplicationMultiPlayerModel.cs" />
     <Compile Include="DrawMaze.cs" />
+    <Compile Include="IMultiPlayerModel.cs" />
     <Compile Include="MazeLogic.cs" />
     <Compile Include="MenuUserControlVM.cs" />
+    <Compile Include="MultiPlayerViewModel.cs" />
+    <Compile Include="MultiPlayerWindow.xaml.cs">
+      <DependentUpon>MultiPlayerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings\ApplicationSettingsModel.cs" />
     <Compile Include="IMainWindowModel.cs" />
     <Compile Include="Settings\ISettingsModel.cs" />
@@ -94,6 +100,9 @@
     <Compile Include="SinglePlayer\SinglePlayerWindow\SinglePlayerWindowViewModel.cs" />
     <Compile Include="SinglePlayer\SinglePlayerViewModel.cs" />
     <Compile Include="ViewModel.cs" />
+    <Compile Include="WaitWindow.xaml.cs">
+      <DependentUpon>WaitWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinWindow.xaml.cs">
       <DependentUpon>WinWindow.xaml</DependentUpon>
     </Compile>
@@ -121,6 +130,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MultiPlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Settings\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SinglePlayer\SinglePlayerWindow\SinglePlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WaitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

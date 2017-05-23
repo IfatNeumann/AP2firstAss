@@ -228,6 +228,7 @@
             int x = this.maze.InitialPos.Row;
             int y = this.maze.InitialPos.Col;
             Point curr = new Point(x, y);
+
             this.CurrPoint = curr;
 
             // int xLocation = (int)this.CurrPoint.X, yLocation = (int)this.CurrPoint.Y;

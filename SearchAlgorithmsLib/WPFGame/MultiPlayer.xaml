@@ -12,9 +12,9 @@
             <Label x:Name="GlLabel" Content="List Of Games: "/>
             <ComboBox Width="188" Height="23" />
         </StackPanel>
-        <Button x:Name="JbButton" Content="Join Game" Padding="5" Width="80" Margin="15"/>
+        <Button x:Name="JbButton" Content="Join Game" Click="Join_Button_Click" Padding="5" Width="80" Margin="15"/>
         <local:MenuUserControl x:Name="MazeBoard" Loaded="MazeBoard_Loaded" ></local:MenuUserControl>
 
-        <Button x:Name="BtnStart" HorizontalAlignment="Center" Margin="15" Padding="5">Start Game</Button>
+        <Button x:Name="BtnStart" HorizontalAlignment="Center" Click="Start_Button_Click" Margin="15" Padding="5">Start Game</Button>
     </StackPanel>
 </Window>

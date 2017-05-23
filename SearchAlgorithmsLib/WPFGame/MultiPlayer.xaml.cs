@@ -19,12 +19,28 @@ namespace WPFGame
     /// </summary>
     public partial class MultiPlayer : Window
     {
+
+        private MultiPlayerViewModel vm;
+        private IMultiPlayerModel model;
+
         public MultiPlayer()
         {
-            InitializeComponent();
+          //  InitializeComponent();
         }
 
         private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Start_Button_Click(object sender, RoutedEventArgs e)
+        {
+            WaitWindow win = new WaitWindow();
+            win.Show();
+            this.Close();
+        }
+
+        private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

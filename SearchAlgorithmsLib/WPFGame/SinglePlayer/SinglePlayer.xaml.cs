@@ -30,10 +30,7 @@ namespace WPFGame
             this.DataContext = this.vm;
 
         }
-
-        //get params from vm
         
-
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
             this.model.StartGame();
@@ -41,14 +38,5 @@ namespace WPFGame
             win.Show();
             this.Close();
         }
-
-        //public void Initialize()
-        //{
-        //    this.md.CreatePoints();
-
-        //    md.Draw();
-        //    this.md.M = new MazeLogic(this.md.MazeMatrix, md.SolMatrix , this.md.Start, this.md.End);
-
-        //}
     }
 }
