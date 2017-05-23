@@ -36,7 +36,7 @@ namespace WPFGame
 
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
-            WaitWindow win = new WaitWindow();
+           // WaitWindow win = new WaitWindow();
             //this.vm.StartConnection();
             this.vm.StartGame();
             MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
