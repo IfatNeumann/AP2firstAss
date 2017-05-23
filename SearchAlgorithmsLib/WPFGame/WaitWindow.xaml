@@ -10,6 +10,7 @@
         <ImageBrush ImageSource="images/wait.png"></ImageBrush>
     </Window.Background>
     <Grid>
-        
+        <Button x:Name="BackToMain" Content="Main menu" HorizontalAlignment="Right" VerticalAlignment="Center" Width="95" Margin="0,250,100,0"
+                 Click="Back_To_Main_Button_Click" />
     </Grid>
 </Window>
