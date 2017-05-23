@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFGame"
         mc:Ignorable="d"
-        Title="MultiPlayerWindow" Height="650" Width="1200">
+        Title="MultiPlayerWindow" Height="650" Width="1200" KeyDown="KeyDownHandler">
     <Canvas>
         <local:MazeUserControl x:Name="MazeBoard" Rows="{Binding Path=VmMazeRows}" Cols="{Binding Path=VmMazeCols}"
                                StringMaze="{Binding Path=VmStringMaze}" CurrPoint="{Binding Path=VmCurrPoint,Mode=TwoWay}" Margin="10" ></local:MazeUserControl>

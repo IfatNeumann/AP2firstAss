@@ -32,6 +32,7 @@ namespace WPFGame
         void StartGame();
 
         void SolveMaze();
+
         void InitStartPos();
     }
 }

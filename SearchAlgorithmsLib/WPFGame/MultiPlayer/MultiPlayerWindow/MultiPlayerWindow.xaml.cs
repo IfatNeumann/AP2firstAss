@@ -19,7 +19,7 @@ namespace WPFGame
     /// </summary>
     public partial class MultiPlayerWindow : Window
     {
-        private MultiPlayerViewModel vm;
+        private MultiPlayerWindowViewModel vm;
 
         private IMultiPlayerModel model;
 
@@ -28,10 +28,69 @@ namespace WPFGame
 
             this.model = model;
             this.InitializeComponent();
-            this.vm = new MultiPlayerViewModel(model);
+            this.vm = new MultiPlayerWindowViewModel(model);
             this.DataContext = this.vm;
         }
+        
+        private void Back_To_Main_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow win = new MainWindow();
+            win.Show();
+            this.Close();
+        }
 
+        public void winScreen()
+        {
+            WinWindow win = new WinWindow();
+            win.Show();
+            this.Close();
+        }
 
+        private void KeyDownHandler(object sender, KeyEventArgs e)
+        {
+            int result;
+            switch (e.Key)
+            {
+
+                case Key.Left:
+                    {
+                        result = this.vm.KeyPressed('l');
+                        if (result == 1)
+                        {
+                            winScreen();
+                        }
+                        break;
+                    }
+                case Key.Right:
+                    {
+                        result = this.vm.KeyPressed('r');
+                        if (result == 1)
+                        {
+                            winScreen();
+                        }
+                        break;
+                    }
+                case Key.Up:
+                    {
+                        result = this.vm.KeyPressed('u');
+                        if (result == 1)
+                        {
+                            winScreen();
+                        }
+                        break;
+                    }
+                case Key.Down:
+                    {
+                        result = this.vm.KeyPressed('d');
+                        if (result == 1)
+                        {
+                            winScreen();
+                        }
+                        break;
+                    }
+
+            }
+
+        }
     }
 }
