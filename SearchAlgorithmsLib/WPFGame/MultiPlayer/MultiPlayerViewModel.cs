@@ -54,6 +54,14 @@ namespace WPFGame
             }
         }
 
+        public List<string> VmList
+        {
+            get
+            {
+                return this.model.List;
+            }
+        }
+
         public void StartConnection()
         {
             this.model.StartConnection();
@@ -63,6 +71,8 @@ namespace WPFGame
         {
             this.model.StartGame();
         }
+
+
 
         public void JoinGame()
         {

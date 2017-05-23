@@ -14,6 +14,10 @@ namespace WPFGame
 
     using MazeLib;
 
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using Newtonsoft.Json.Serialization;
+
     using WPFGame.Properties;
 
     class ApplicationMultiPlayerModel : IMultiPlayerModel
@@ -147,6 +151,14 @@ namespace WPFGame
             }
         }
 
+        public List<string> List
+        {
+            get
+            {
+                return this.GetList();
+            }
+        }
+
         public void StartConnection()
         {
             IPEndPoint ipep = new IPEndPoint(
@@ -169,14 +181,7 @@ namespace WPFGame
                                 string result = reader.ReadString();
                                 //Console.WriteLine(result);
                                 string commandKey = this.line.Split(' ').First();
-
-
-                                this.maze = Maze.FromJSON(this.StringMaze);
-                                int x = this.maze.InitialPos.Row;
-                                int y = this.maze.InitialPos.Col;
-                                Point curr = new Point(x, y);
-
-                                this.CurrPoint = curr;
+                                this.EvaluateAnswer(commandKey,result);
 
                                 // check the commands require  closing the connection 
                                 if (commandKey.Equals("generate") || commandKey.Equals("solve")
@@ -230,6 +235,35 @@ namespace WPFGame
 
         }
 
+        private void EvaluateAnswer(string commandKey, string result)
+        {
+            switch (commandKey)
+            {
+                case "start":
+                    {
+                        this.maze = Maze.FromJSON(this.StringMaze);
+                        int x = this.maze.InitialPos.Row;
+                        int y = this.maze.InitialPos.Col;
+                        Point curr = new Point(x, y);
+
+                        this.CurrPoint = curr;
+                        break;
+                    }
+                case "list":
+                    {
+                        break;
+                    }
+                case "join":
+                    {
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+        }
+
         public void StartGame()
         {
             this.command = 's';
@@ -275,7 +309,7 @@ namespace WPFGame
                     }
                 case 'j':
                     {
-                        massage = "join " + this.MazeName;
+                        massage = "join ifat";
                         break;
                     }
                 default:
@@ -285,6 +319,13 @@ namespace WPFGame
                     }
             }
             return massage;
+        }
+        
+
+        public List<string> GetList()
+        {
+            //this.command = 'l';
+            return new List<string>();
         }
     }
 }
