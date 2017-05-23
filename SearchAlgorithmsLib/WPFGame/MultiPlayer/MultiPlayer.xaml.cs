@@ -38,25 +38,20 @@ namespace WPFGame
         {
             WaitWindow win = new WaitWindow();
             win.Show();
-            //this.vm.StartConnection();
-            this.vm.StartGame();
-            //MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
-            //mulWin.Show();
             this.Close();
+            this.vm.StartGame();
+            while (this.vm.NotReady) { }
+            MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
+            mulWin.Show();
         }
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
-            //this.vm.StartConnection();
-            if(this.model.StringMaze != null)
-            {
-
-            }
-            
             this.vm.JoinGame();
+            while (this.vm.NotReady) { }
             MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
             mulWin.Show();
-            //this.Close();
+            this.Close();
         }
         
 

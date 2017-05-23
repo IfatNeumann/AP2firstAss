@@ -11,6 +11,7 @@ namespace WPFGame
 
     public interface IMultiPlayerModel : INotifyPropertyChanged
     {
+        bool NotReady { get; set; }
         string MazeName { get; set; }
 
         int MazeRows { get; set; }

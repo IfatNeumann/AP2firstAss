@@ -9,7 +9,6 @@ namespace WPFGame
     public class MultiPlayerViewModel : ViewModel
     {
         private IMultiPlayerModel model;
-
         public MultiPlayerViewModel(IMultiPlayerModel model)
         {
             this.model = model;
@@ -62,6 +61,18 @@ namespace WPFGame
             }
         }
 
+        public bool NotReady
+        {
+            get
+            {
+                return this.model.NotReady;
+            }
+            set
+            {
+                this.model.NotReady = value;
+            }
+        }
+
         public void StartConnection()
         {
             this.model.StartConnection();
@@ -71,8 +82,6 @@ namespace WPFGame
         {
             this.model.StartGame();
         }
-
-
 
         public void JoinGame()
         {
