@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace WPFGame
 {
     using System.ComponentModel;
+    using System.IO;
+    using System.Net;
+    using System.Net.Sockets;
     using System.Windows;
 
     using MazeLib;
@@ -31,6 +34,7 @@ namespace WPFGame
 
         private Point endPoint;
 
+        private string line;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ApplicationMultiPlayerModel()
@@ -156,6 +160,80 @@ namespace WPFGame
             if (this.PropertyChanged != null)
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public void Game()
+        {
+            IPEndPoint ipep = new IPEndPoint(
+                IPAddress.Parse(Properties.Settings.Default.ServerIP),
+                Properties.Settings.Default.ServerPort);
+            TcpClient client = null;
+            NetworkStream stream = null;
+            BinaryWriter writer = null;
+            BinaryReader reader = null;
+            Task task;
+
+            Action receiveThread = new Action(
+                () =>
+                    {
+                        while (true)
+                        {
+                            try
+                            {
+                                // Get result from server
+                                string result = reader.ReadString();
+                                Console.WriteLine(result);
+                                string commandKey = this.line.Split(' ').First();
+
+                                // check the commands require  closing the connection 
+                                if (commandKey.Equals("generate") || commandKey.Equals("solve")
+                                    || (commandKey.Equals("close") && result.Equals(string.Empty)))
+                                    /* if there was an invalid input for the close
+                                     * command we want to stay connected */
+                                {
+                                    writer.Dispose();
+                                    reader.Dispose();
+                                    client.Close();
+                                    Console.WriteLine("connection stopped");
+                                    client = null;
+                                    break;
+                                }
+                            }
+                            catch (SocketException)
+                            {
+                                Console.WriteLine("exception - connection stopped");
+                                break;
+                            }
+                        }
+                    });
+            Console.WriteLine("Welcome! please enter a command:");
+            while (true)
+            {
+                try
+                {
+                    // Send data to server
+                    this.line = Console.ReadLine();
+                    if (client == null)
+                    {
+                        // create new TcpClient
+                        client = new TcpClient();
+                        client.Connect(ipep);
+                        Console.WriteLine("You are connected");
+                        stream = client.GetStream();
+                        writer = new BinaryWriter(stream);
+                        reader = new BinaryReader(stream);
+                        task = new Task(receiveThread);
+                        task.Start();
+                    }
+
+                    writer.Write(this.line);
+                }
+                catch (SocketException)
+                {
+                    Console.WriteLine("exception - connection stopped");
+                    break;
+                }
             }
         }
     }
