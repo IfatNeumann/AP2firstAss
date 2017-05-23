@@ -21,6 +21,7 @@ namespace WPFGame
     {
 
         private MultiPlayerViewModel vm;
+
         private IMultiPlayerModel model;
 
         public MultiPlayer()
@@ -31,15 +32,12 @@ namespace WPFGame
             this.DataContext = this.vm;
         }
 
-        private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
             WaitWindow win = new WaitWindow();
-            this.vm.StartConnection();
+            //this.vm.StartConnection();
             this.vm.StartGame();
             MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
             mulWin.Show();
@@ -48,11 +46,17 @@ namespace WPFGame
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.vm.StartConnection();
+            //this.vm.StartConnection();
             this.vm.JoinGame();
             MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
             mulWin.Show();
             this.Close();
+        }
+        
+
+        private void MyComboBox_OnDropDownClosed(object sender, EventArgs e)
+        {
+            this.vm.StartConnection();
         }
     }
 }

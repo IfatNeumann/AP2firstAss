@@ -19,6 +19,8 @@ namespace WPFGame
 
         string StringMaze { get; set; }
 
+        List<string> List { get; }
+
         Point CurrPoint { get; set; }
 
         Point EndPoint { get; }
@@ -32,5 +34,7 @@ namespace WPFGame
         void StartGame();
 
         void JoinGame();
+
+        List<string> GetList();
     }
 }
