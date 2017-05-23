@@ -38,7 +38,7 @@ namespace WPFGame
 
         private void Restart_Game_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.vm.SaveSettings();
+            this.vm.InitStartPos();
             SinglePlayerWindow win = new SinglePlayerWindow(this.model);
             win.Show();
             this.Close();

@@ -72,6 +72,7 @@
     <Compile Include="MultiPlayer\MultiPlayerWindow\MultiPlayerWindow.xaml.cs">
       <DependentUpon>MultiPlayerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MultiPlayer\MultiPlayerWindow\MultiPlayerWindowViewModel.cs" />
     <Compile Include="Settings\ApplicationSettingsModel.cs" />
     <Compile Include="MainWindow\IMainWindowModel.cs" />
     <Compile Include="Settings\ISettingsModel.cs" />
@@ -90,7 +91,7 @@
     <Compile Include="SinglePlayer\SinglePlayer.xaml.cs">
       <DependentUpon>SinglePlayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SinglePlayer\SinglePlayerWindow\ISinglePlayerModel.cs" />
+    <Compile Include="SinglePlayer\ISinglePlayerModel.cs" />
     <Compile Include="SinglePlayer\SinglePlayerWindow\SinglePlayerWindow.xaml.cs">
       <DependentUpon>SinglePlayerWindow.xaml</DependentUpon>
     </Compile>
