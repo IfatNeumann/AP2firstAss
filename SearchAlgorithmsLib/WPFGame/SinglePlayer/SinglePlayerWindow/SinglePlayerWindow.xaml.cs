@@ -47,8 +47,6 @@ namespace WPFGame
         private void Solve_Game_Button_Click(object sender, RoutedEventArgs e)
         {
             this.model.SolveMaze();
-            //this.MazeBoard.SolveMaze(this.vm.VmSolution);
-            //this.vm.SaveSettings();
             //MainWindow win = (MainWindow)Application.Current.MainWindow;
             //win.Show();
             //this.Close();

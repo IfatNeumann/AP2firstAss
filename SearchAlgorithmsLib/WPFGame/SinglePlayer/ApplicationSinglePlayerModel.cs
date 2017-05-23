@@ -38,10 +38,6 @@
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public delegate void test(Point x);
-
-        public event test hip;
-
         public ApplicationSinglePlayerModel()
         {
             this.rows = Settings.Default.MazeRows;
