@@ -22,6 +22,8 @@ namespace WPFGame
 
     class ApplicationMultiPlayerModel : IMultiPlayerModel
     {
+        private bool notReady;
+
         private string name;
 
         private int rows;
@@ -47,6 +49,7 @@ namespace WPFGame
         {
             this.rows = Settings.Default.MazeRows;
             this.cols = Settings.Default.MazeCols;
+            this.notReady = true;
         }
 
         public string MazeName
@@ -159,6 +162,18 @@ namespace WPFGame
             }
         }
 
+        public bool NotReady
+        {
+            get
+            {
+                return this.notReady;
+            }
+            set
+            {
+                this.notReady = value;
+            }
+        }
+
         public void StartConnection()
         {
             IPEndPoint ipep = new IPEndPoint(
@@ -247,14 +262,14 @@ namespace WPFGame
                     }
                 case "join":
                     {
-
-                        this.maze = Maze.FromJSON(result);
+                        this.StringMaze = result;
+                        this.maze = Maze.FromJSON(this.StringMaze);
                         int x = this.maze.InitialPos.Row;
                         int y = this.maze.InitialPos.Col;
                         Point curr = new Point(x, y);
 
                         this.CurrPoint = curr;
-
+                        this.notReady = false;
                         break;
                     }
                 default:
