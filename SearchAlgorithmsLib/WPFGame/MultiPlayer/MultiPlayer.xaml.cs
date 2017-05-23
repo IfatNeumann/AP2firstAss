@@ -39,7 +39,7 @@ namespace WPFGame
             WaitWindow win = new WaitWindow();
             win.Show();
             //this.vm.StartConnection();
-            //this.vm.StartGame();
+            this.vm.StartGame();
             //MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
             //mulWin.Show();
             this.Close();
