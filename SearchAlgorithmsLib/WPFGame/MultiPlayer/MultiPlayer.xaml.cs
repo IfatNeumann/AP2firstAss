@@ -49,9 +49,9 @@ namespace WPFGame
         {
             //this.vm.StartConnection();
             this.vm.JoinGame();
-            MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
-            mulWin.Show();
-            this.Close();
+            //MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
+            //mulWin.Show();
+            //this.Close();
         }
         
 
