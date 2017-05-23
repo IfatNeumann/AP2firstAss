@@ -186,6 +186,14 @@ namespace WPFGame
                                 Console.WriteLine(result);
                                 string commandKey = this.line.Split(' ').First();
 
+
+                                this.maze = Maze.FromJSON(this.StringMaze);
+                                int x = this.maze.InitialPos.Row;
+                                int y = this.maze.InitialPos.Col;
+                                Point curr = new Point(x, y);
+
+                                this.CurrPoint = curr;
+
                                 // check the commands require  closing the connection 
                                 if (commandKey.Equals("generate") || commandKey.Equals("solve")
                                     || (commandKey.Equals("close") && result.Equals(string.Empty)))
