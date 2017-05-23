@@ -23,5 +23,12 @@ namespace WPFGame
         {
             InitializeComponent();
         }
+
+        private void Back_To_Main_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow win = new MainWindow();
+            win.Show();
+            this.Close();
+        }
     }
 }
