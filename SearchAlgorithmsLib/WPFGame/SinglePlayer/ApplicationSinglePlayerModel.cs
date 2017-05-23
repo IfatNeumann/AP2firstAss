@@ -225,8 +225,8 @@
             this.StringMaze = reader.ReadString();
 
             this.maze = Maze.FromJSON(this.StringMaze);
-            int x = this.maze.InitialPos.Col;
-            int y = this.maze.InitialPos.Row;
+            int x = this.maze.InitialPos.Row;
+            int y = this.maze.InitialPos.Col;
             Point curr = new Point(x, y);
             this.CurrPoint = curr;
 
