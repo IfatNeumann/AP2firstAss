@@ -269,6 +269,17 @@ namespace WPFGame
             {
                 case "start":
                     {
+                        if (result.Length != 0)
+                        {
+                            this.StringMaze = result;
+                            this.maze = Maze.FromJSON(this.StringMaze);
+                            int x = this.maze.InitialPos.Row;
+                            int y = this.maze.InitialPos.Col;
+                            Point curr = new Point(x, y);
+
+                            this.CurrPoint = curr;
+                            this.notReady = false;
+                        }
                         break;
                     }
                 case "list":

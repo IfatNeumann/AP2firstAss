@@ -43,6 +43,7 @@ namespace WPFGame
             while (this.vm.NotReady) { }
             MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
             mulWin.Show();
+            win.Close();
         }
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
