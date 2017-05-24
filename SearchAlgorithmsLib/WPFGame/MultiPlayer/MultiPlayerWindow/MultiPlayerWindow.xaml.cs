@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 
 namespace WPFGame
 {
+    using System.Runtime.CompilerServices;
+
     /// <summary>
     /// Interaction logic for MultiPlayerWindow.xaml
     /// </summary>
@@ -31,7 +33,36 @@ namespace WPFGame
             this.vm = new MultiPlayerWindowViewModel(model);
             this.DataContext = this.vm;
         }
-        
+
+        public string CloseReason
+        {
+            get { return (string)GetValue(CloseReasonProperty); }
+            set
+            {
+                SetValue(CloseReasonProperty, value);
+                
+            }
+        }
+
+        public static readonly DependencyProperty CloseReasonProperty =
+            DependencyProperty.Register("CloseReason", typeof(string), typeof(MultiPlayerWindow), new UIPropertyMetadata(CloseGame));
+
+        public static void CLoseGame(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.CloseReason.Equals("lose"))
+                {
+                    this.winScreen();
+                }
+                else if (this.CloseReason.Equals("technicalWin"))
+                {
+
+                }
+                else
+                {
+                    //hellooooo
+                }
+        }
+
         private void Back_To_Main_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow win = new MainWindow();
@@ -96,6 +127,11 @@ namespace WPFGame
         private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void MultiPlayerWindow_OnClosed(object sender, EventArgs e)
+        {
+            this.vm.CloseGame();
         }
     }
 }

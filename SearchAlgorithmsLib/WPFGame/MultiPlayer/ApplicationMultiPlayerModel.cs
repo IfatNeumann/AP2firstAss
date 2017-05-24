@@ -45,6 +45,8 @@ namespace WPFGame
         private string line;
 
         private char command ='N';
+        private string closeReason;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ApplicationMultiPlayerModel()
@@ -170,6 +172,20 @@ namespace WPFGame
             }
         }
 
+        public string CloseReason
+        {
+            get
+            {
+                return this.closeReason;
+            }
+
+            set
+            {
+                this.closeReason = value;
+                this.NotifyPropertyChanged("CloseReason");
+            }
+        }
+
         public List<string> List
         {
             get
@@ -214,7 +230,12 @@ namespace WPFGame
                                 if (result != string.Empty)
                                 {
                                     JObject dir = JObject.Parse(result);
-                                    if (dir.Last.Path.Equals("Direction"))
+
+                                    if (result.Equals("{}"))
+                                    {
+                                        commandKey = "close";
+                                    }
+                                    else if (dir.Last.Path.Equals("Direction"))
                                     {
                                         commandKey = "play";
                                         result = dir.GetValue("Direction").ToString();
@@ -313,7 +334,21 @@ namespace WPFGame
                 case "play":
                     {
                         if(result != string.Empty)
-                        this.SecPlayerKeyPressed(result[0]);
+                            this.SecPlayerKeyPressed(result[0]);
+                        break;
+                    }
+                case "close":
+                    {
+                        if (this.SecondCurrPoint.Equals(this.EndPoint))
+                        {
+                            this.CloseReason = "lose";
+
+                        }
+                        else
+                        {
+                            this.CloseReason = "technicalWin";
+                        }
+
                         break;
                     }
                 default:
@@ -495,6 +530,12 @@ namespace WPFGame
 
                         break;
                     }
+                case 'c':
+                    {
+                        this.command = 'N';
+                        massage = "close ifat";
+                        break;
+                    }
                 default:
                     {
                         massage = string.Empty;
@@ -503,7 +544,11 @@ namespace WPFGame
             }
             return massage;
         }
-        
+
+        public void CloseGame()
+        {
+            this.command = 'c';
+        }
 
         public List<string> GetList()
         {

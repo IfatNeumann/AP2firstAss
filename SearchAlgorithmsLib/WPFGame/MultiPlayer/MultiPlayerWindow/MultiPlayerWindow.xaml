@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFGame"
         mc:Ignorable="d"
-        Title="MultiPlayerWindow" Height="370" Width="700" KeyDown="KeyDownHandler">
+        Title="MultiPlayerWindow" Height="370" Width="700" KeyDown="KeyDownHandler" Closed="MultiPlayerWindow_OnClosed">
     <Canvas>
         <local:MazeUserControl x:Name="MazeBoard" Rows="{Binding Path=VmMazeRows}" Cols="{Binding Path=VmMazeCols}"
                                StringMaze="{Binding Path=VmStringMaze}" CurrPoint="{Binding Path=VmCurrPoint,Mode=TwoWay}" Canvas.Left="350" Canvas.Top="20" Height="300" Width="300" Loaded="MazeBoard_Loaded"/>
         <local:MazeUserControl x:Name="AnotherMazeBoard" Rows="{Binding Path=VmMazeRows}" Cols="{Binding Path=VmMazeCols}"
-                               StringMaze="{Binding Path=VmStringMaze}" CurrPoint="{Binding Path=VmCurrPoint,Mode=TwoWay}" Height="300" Canvas.Left="33" Canvas.Top="20" Width="300" />
+                               StringMaze="{Binding Path=VmStringMaze}" SecondCurrPoint="{Binding Path=VmSecondCurrPoint,Mode=TwoWay}" Height="300" Canvas.Left="33" Canvas.Top="20" Width="300" />
     </Canvas>
 </Window>

@@ -133,10 +133,27 @@ namespace WPFGame
             }
         }
 
+        public string VmCloseReason
+        {
+            get
+            {
+                return this.model.CloseReason;
+            }
+
+            set
+            {
+                this.model.CloseReason = value;
+            }
+        }
+
         public int KeyPressed(char direction)
         {
             return this.model.KeyPressed(direction);
         }
-        
+
+        public void CloseGame()
+        {
+            this.model.CloseGame();
+        }
     }
 }

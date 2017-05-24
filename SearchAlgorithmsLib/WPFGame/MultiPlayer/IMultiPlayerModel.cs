@@ -29,6 +29,7 @@ namespace WPFGame
         Point EndPoint { get; }
 
         string Solution { get; set; }
+        string CloseReason { get; set; }
 
         int KeyPressed(char direction);
 
@@ -39,6 +40,8 @@ namespace WPFGame
         void StartGame();
 
         void JoinGame();
+
+        void CloseGame();
 
         List<string> GetList();
     }
