@@ -235,7 +235,7 @@ namespace WPFGame
 
                                     if (result.Equals("{}"))
                                     {
-                                        commandKey = "close";
+                                        commandKey = "gotClosed";
                                     }
                                     else if (dir.Last.Path.Equals("Direction"))
                                     {
@@ -339,7 +339,7 @@ namespace WPFGame
                             this.SecPlayerKeyPressed(result[0]);
                         break;
                     }
-                case "close":
+                case "gotClosed":
                     {
                         if (this.SecondCurrPoint.Equals(this.EndPoint))
                         {
@@ -549,7 +549,8 @@ namespace WPFGame
 
         public void CloseGame()
         {
-            this.command = 'c';
+            if(this.CloseReason==null)
+                this.command = 'c';
         }
 
         public List<string> GetList()

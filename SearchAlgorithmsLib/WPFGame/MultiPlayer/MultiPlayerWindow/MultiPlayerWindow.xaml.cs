@@ -41,7 +41,7 @@ namespace WPFGame
             if (reason.Equals("lose"))
             {
                 this.Dispatcher.BeginInvoke((Action)(() => {
-                        WinWindow win = new WinWindow();
+                        LoseWindow win = new LoseWindow();
                         win.Show();
                         this.Close();
                     }));
