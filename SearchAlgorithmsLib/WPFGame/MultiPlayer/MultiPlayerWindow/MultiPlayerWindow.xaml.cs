@@ -20,12 +20,24 @@ namespace WPFGame
     /// <summary>
     /// Interaction logic for MultiPlayerWindow.xaml
     /// </summary>
+    /// <seealso cref="System.Windows.Window" />
+    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
     public partial class MultiPlayerWindow : Window
     {
+        /// <summary>
+        /// The vm
+        /// </summary>
         private MultiPlayerWindowViewModel vm;
 
+        /// <summary>
+        /// The model
+        /// </summary>
         private IMultiPlayerModel model;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MultiPlayerWindow"/> class.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public MultiPlayerWindow(IMultiPlayerModel model)
         {
 
@@ -36,6 +48,10 @@ namespace WPFGame
             this.vm.ClosingHappend += this.CloseGame;
         }
 
+        /// <summary>
+        /// Closes the game.
+        /// </summary>
+        /// <param name="reason">The reason.</param>
         private void CloseGame(string reason)
         {
             if (reason.Equals("lose"))
@@ -60,22 +76,15 @@ namespace WPFGame
             }
         }
 
-        //public string CloseReason
-        //{
-        //    get
-        //    {
-        //        return (string)GetValue(CloseReasonProperty);
-        //    }
 
-        //    set
-        //    {
-        //        SetValue(CloseReasonProperty, value);
-        //    }
-        //}
 
-        //public static readonly DependencyProperty CloseReasonProperty =
-        //    DependencyProperty.Register("CloseReason", typeof(string), typeof(MultiPlayerWindow), null);
 
+
+        /// <summary>
+        /// Handles the Click event of the Back_To_Main_Button control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Back_To_Main_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow win = new MainWindow();
@@ -83,6 +92,9 @@ namespace WPFGame
             this.Close();
         }
 
+        /// <summary>
+        /// Wins the screen.
+        /// </summary>
         public void winScreen()
         {
             WinWindow win = new WinWindow();
@@ -90,6 +102,11 @@ namespace WPFGame
             this.Close();
         }
 
+        /// <summary>
+        /// Keys down handler.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
         private void KeyDownHandler(object sender, KeyEventArgs e)
         {
             int result;
@@ -137,11 +154,21 @@ namespace WPFGame
 
         }
 
+        /// <summary>
+        /// Handles the Loaded event of the MazeBoard control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void MazeBoard_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Handles the OnClosed event of the MultiPlayerWindow control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void MultiPlayerWindow_OnClosed(object sender, EventArgs e)
         {
             this.vm.CloseGame();
