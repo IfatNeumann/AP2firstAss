@@ -34,34 +34,34 @@ namespace WPFGame
             this.DataContext = this.vm;
         }
 
-        public string CloseReason
-        {
-            get { return (string)GetValue(CloseReasonProperty); }
-            set
-            {
-                SetValue(CloseReasonProperty, value);
+        //public string CloseReason
+        //{
+        //    get { return (string)GetValue(CloseReasonProperty); }
+        //    set
+        //    {
+        //        SetValue(CloseReasonProperty, value);
                 
-            }
-        }
+        //    }
+        //}
 
-        public static readonly DependencyProperty CloseReasonProperty =
-            DependencyProperty.Register("CloseReason", typeof(string), typeof(MultiPlayerWindow), new UIPropertyMetadata(CloseGame));
+        //public static readonly DependencyProperty CloseReasonProperty =
+        //    DependencyProperty.Register("CloseReason", typeof(string), typeof(MultiPlayerWindow), new UIPropertyMetadata(CloseGame));
 
-        public static void CLoseGame(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (this.CloseReason.Equals("lose"))
-                {
-                    this.winScreen();
-                }
-                else if (this.CloseReason.Equals("technicalWin"))
-                {
+        //public static void CLoseGame(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (this.CloseReason.Equals("lose"))
+        //        {
+        //            this.winScreen();
+        //        }
+        //        else if (this.CloseReason.Equals("technicalWin"))
+        //        {
 
-                }
-                else
-                {
-                    //hellooooo
-                }
-        }
+        //        }
+        //        else
+        //        {
+        //            //hellooooo
+        //        }
+        //}
 
         private void Back_To_Main_Button_Click(object sender, RoutedEventArgs e)
         {

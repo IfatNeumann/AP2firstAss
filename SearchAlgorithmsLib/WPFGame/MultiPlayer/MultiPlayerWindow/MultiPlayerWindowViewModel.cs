@@ -133,7 +133,7 @@ namespace WPFGame
             }
         }
 
-        public string VmCloseReason
+        public string Vm
         {
             get
             {
