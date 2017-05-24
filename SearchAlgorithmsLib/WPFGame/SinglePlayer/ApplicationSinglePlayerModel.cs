@@ -148,7 +148,10 @@
 
         public int KeyPressed(char direction)
         {
+
             int iLocation = (int)this.CurrPoint.X, jLocation = (int)this.CurrPoint.Y;
+
+            // for the case where the mother nad marco are in the same place at initialization
             if ((this.EndPoint.X == iLocation) && (this.EndPoint.Y == jLocation))
             {
                 return 1;
@@ -196,6 +199,10 @@
 
                             break;
                         }
+                }
+                if ((this.EndPoint.X == this.CurrPoint.X) && (this.EndPoint.Y == this.CurrPoint.Y))
+                {
+                    return 1;
                 }
                 return 0;
             }
