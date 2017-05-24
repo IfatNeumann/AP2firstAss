@@ -69,7 +69,7 @@ namespace WPFGame
 
         public ApplicationMultiPlayerModel()
         {
-            this.name = "ifat";
+            this.name = Settings.Default.MazeName;
             this.rows = Settings.Default.MazeRows;
             this.cols = Settings.Default.MazeCols;
             this.notReady = true;
@@ -582,7 +582,7 @@ namespace WPFGame
 
         public void GetList()
         {
-            //this.command = 'l';
+            this.command = 'l';
             return;
         }
     }

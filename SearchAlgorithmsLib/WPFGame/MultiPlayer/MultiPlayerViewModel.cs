@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace WPFGame
 {
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
 
     public class MultiPlayerViewModel : ViewModel
     {
@@ -14,6 +15,12 @@ namespace WPFGame
         public MultiPlayerViewModel(IMultiPlayerModel model)
         {
             this.model = model;
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+                {
+                    
+                        this.NotifyPropertyChanged("Vm" + e.PropertyName);
+                    
+                };
         }
 
         public string VmName
