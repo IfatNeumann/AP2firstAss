@@ -52,6 +52,7 @@ namespace WPFGame
 
         public ApplicationMultiPlayerModel()
         {
+            this.name = "ifat";
             this.rows = Settings.Default.MazeRows;
             this.cols = Settings.Default.MazeCols;
             this.notReady = true;
