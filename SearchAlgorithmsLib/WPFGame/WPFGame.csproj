@@ -66,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoseWindow.xaml.cs">
+      <DependentUpon>LoseWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MultiPlayer\ApplicationMultiPlayerModel.cs" />
     <Compile Include="MultiPlayer\IMultiPlayerModel.cs" />
     <Compile Include="MultiPlayer\MultiPlayerViewModel.cs" />
@@ -104,6 +107,10 @@
     <Compile Include="WinWindow.xaml.cs">
       <DependentUpon>WinWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -214,6 +221,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\winPic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\settingsPic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

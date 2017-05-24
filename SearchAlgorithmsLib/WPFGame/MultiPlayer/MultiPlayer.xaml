@@ -6,11 +6,14 @@
         xmlns:local="clr-namespace:WPFGame"
         mc:Ignorable="d"
         Title="Multi Player" Height="300" Width="300" Loaded="On_Loaded">
+    <Window.Background>
+        <ImageBrush ImageSource="/images/settingsPic.png"></ImageBrush>
+    </Window.Background>
     <StackPanel TextBlock.FontSize="14">
         <StackPanel Margin="0,20,0,0">
             <StackPanel.Orientation>Horizontal</StackPanel.Orientation>
-            <Label x:Name="GlLabel" Content="List Of Games: "/>
-            <ComboBox x:Name="MyComboBox" ItemsSource="{Binding Path=VmList}" Width="188" Height="23"></ComboBox>
+            <Label x:Name="GlLabel" FontWeight="Bold" Foreground="Black" Content="List Of Games: "/>
+            <ComboBox x:Name="MyComboBox" ItemsSource="{Binding Path=VmList}" Width="180" Height="23"></ComboBox>
         </StackPanel>
         <Button x:Name="JbButton" Content="Join Game" Click="Join_Button_Click" Padding="5" Width="80" Margin="15"/>
         <local:MenuUserControl x:Name="MazeBoard"></local:MenuUserControl>

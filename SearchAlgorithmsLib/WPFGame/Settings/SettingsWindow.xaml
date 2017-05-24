@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Settings" Height="300" Width="300">
-    <Grid TextBlock.FontSize="14">
+
+    <Window.Background>
+        <ImageBrush ImageSource="/images/settingsPic.png"></ImageBrush>
+    </Window.Background>
+
+    <Grid TextBlock.FontSize="14" Margin="-2,29,2,-29">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -15,26 +20,28 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="24.333"/>
+            <ColumnDefinition Width="62.667"/>
+            <ColumnDefinition Width="41.333"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Margin="3" Padding="3">Server IP:</TextBlock>
-        <TextBox x:Name="TxtIp" Grid.Row="0" Grid.Column="1" Margin="3" Padding="3" Text="{Binding ServerIP, UpdateSourceTrigger=LostFocus}"></TextBox>
-        <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" Padding="3" >Server Port:</TextBlock>
-        <TextBox x:Name="TxtPort" Grid.Row="1" Grid.Column="1" Margin="3" Padding="3" Text="{Binding ServerPort}"></TextBox>
-        <TextBlock Grid.Row="2"  Grid.Column="0" Margin="3" Padding="3" >StringMaze rows:</TextBlock>
-        <TextBox x:Name="TxtRows" Grid.Row="2" Grid.Column="1" Margin="3" Padding="3" Text="{Binding MazeRows}"></TextBox>
-        <TextBlock Grid.Row="3" Grid.Column="0" Margin="3" Padding="3" >StringMaze columns:</TextBlock>
-        <TextBox x:Name="TxtCols" Grid.Row="3" Grid.Column="1" Margin="3" Padding="3" Text="{Binding MazeCols}"></TextBox>
-        <TextBlock Grid.Row="4" Grid.Column="0" Margin="3" Padding="3">Search algorithm:</TextBlock>
-        <ComboBox x:Name="CboSearchAlgorithm" Grid.Row="4" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Left"
+        <TextBlock Margin="3" FontWeight="Bold" Foreground="Black" Padding="3" Grid.ColumnSpan="3">Server IP:</TextBlock>
+        <TextBox x:Name="TxtIp" Background="Transparent" Grid.Row="0" Grid.Column="3" Margin="3" Padding="3" Text="{Binding ServerIP, UpdateSourceTrigger=LostFocus}"></TextBox>
+        <TextBlock Grid.Row="1" Grid.Column="0" FontWeight="Bold" Foreground="Black" Margin="3" Padding="3" Grid.ColumnSpan="3" >Server Port:</TextBlock>
+        <TextBox x:Name="TxtPort" Background="Transparent" Grid.Row="1" Grid.Column="3" Margin="3" Padding="3" Text="{Binding ServerPort}"></TextBox>
+        <TextBlock Grid.Row="2"  Grid.Column="0" Margin="3" FontWeight="Bold" Foreground="Black" Padding="3" Grid.ColumnSpan="3" >Maze rows:</TextBlock>
+        <TextBox x:Name="TxtRows" Background="Transparent" Grid.Row="2" Grid.Column="3" Margin="3" Padding="3" Text="{Binding MazeRows}"></TextBox>
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="3" FontWeight="Bold" Foreground="Black" Padding="3" Grid.ColumnSpan="3" >Maze columns:</TextBlock>
+        <TextBox x:Name="TxtCols" Background="Transparent" Grid.Row="3" Grid.Column="3" Margin="3" Padding="3" Text="{Binding MazeCols}"></TextBox>
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="3" FontWeight="Bold" Foreground="Black" Padding="3" Grid.ColumnSpan="3">Search algorithm:</TextBlock>
+        <ComboBox x:Name="CboSearchAlgorithm" Grid.Row="4" Grid.Column="3" Margin="3,3,0,3" Padding="3" HorizontalAlignment="Left"
                   SelectedIndex="{Binding SearchAlgorithm}" IsEditable="False" Width="56">
             <ComboBoxItem >BFS</ComboBoxItem>
             <ComboBoxItem >DFS</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="OkButton" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Margin="15" Padding="5" Width="50" Click="btnOK_Click">OK
+        <Button x:Name="OkButton" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Margin="0,25,15,5" Padding="5" Width="50" Click="btnOK_Click" Grid.ColumnSpan="2">OK
         </Button>
-        <Button x:Name="CancelButton" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Margin="15" Padding="5" Click="btnCancel_Click">Cancel
+        <Button x:Name="CancelButton" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" Margin="56,24,56,6" Padding="5" Click="btnCancel_Click">Cancel
         </Button>
     </Grid>
 </Window>
