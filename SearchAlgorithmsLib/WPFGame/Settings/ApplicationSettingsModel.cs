@@ -1,7 +1,17 @@
 ﻿namespace WPFGame
 {
+    /// <summary>
+    /// an application of the settings' model
+    /// </summary>
+    /// <seealso cref="WPFGame.ISettingsModel" />
     public class ApplicationSettingsModel : ISettingsModel
     {
+        /// <summary>
+        /// Gets or sets the server ip.
+        /// </summary>
+        /// <value>
+        /// The server ip.
+        /// </value>
         public string ServerIP
         {
             get
@@ -14,6 +24,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the server port.
+        /// </summary>
+        /// <value>
+        /// The server port.
+        /// </value>
         public int ServerPort
         {
             get
@@ -26,6 +42,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the maze rows.
+        /// </summary>
+        /// <value>
+        /// The maze rows.
+        /// </value>
         public int MazeRows
         {
             get
@@ -38,6 +60,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the maze cols.
+        /// </summary>
+        /// <value>
+        /// The maze cols.
+        /// </value>
         public int MazeCols
         {
             get
@@ -50,6 +78,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the search algorithm.
+        /// </summary>
+        /// <value>
+        /// The search algorithm.
+        /// </value>
         public int SearchAlgorithm
         {
             get
@@ -62,6 +96,9 @@
             }
         }
 
+        /// <summary>
+        /// Saves the settings.
+        /// </summary>
         public void SaveSettings()
         {
             Properties.Settings.Default.Save();

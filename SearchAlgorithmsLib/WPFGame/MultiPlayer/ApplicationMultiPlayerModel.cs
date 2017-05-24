@@ -748,7 +748,7 @@ namespace WPFGame
         /// </summary>
         public void GetList()
         {
-            //this.command = 'l'
+            this.command = 'l';
             return;
         }
     }
