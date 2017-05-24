@@ -48,7 +48,9 @@ namespace WPFGame
             }
             else if (reason.Equals("technicalWin"))
             {
-
+                TechnicalWinWindow win = new TechnicalWinWindow();
+                win.Show();
+                this.Close();
             }
             else
             {
