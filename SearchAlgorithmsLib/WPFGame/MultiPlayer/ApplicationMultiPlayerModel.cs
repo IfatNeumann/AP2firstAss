@@ -21,36 +21,93 @@ namespace WPFGame
 
     using WPFGame.Properties;
 
+    /// <summary>
+    /// the application multi player model
+    /// </summary>
+    /// <seealso cref="WPFGame.IMultiPlayerModel" />
     class ApplicationMultiPlayerModel : IMultiPlayerModel
     {
+        /// <summary>
+        /// not ready to show the screen
+        /// </summary>
         private bool notReady;
 
+        /// <summary>
+        /// The direction
+        /// </summary>
         private char direction;
+        
+        /// <summary>
+        /// The name
+        /// </summary>
         private string name;
 
+        /// <summary>
+        /// The rows
+        /// </summary>
         private int rows;
 
+        /// <summary>
+        /// The cols
+        /// </summary>
         private int cols;
 
+        /// <summary>
+        /// The string maze
+        /// </summary>
         private string stringMaze;
 
+        /// <summary>
+        /// The solution
+        /// </summary>
         private string solution;
 
+        /// <summary>
+        /// The maze
+        /// </summary>
         private Maze maze;
 
+        /// <summary>
+        /// The current point
+        /// </summary>
         private Point currPoint;
+       
+        /// <summary>
+        /// The second curr point
+        /// </summary>
         private Point secondCurrPoint;
 
+        /// <summary>
+        /// The end point
+        /// </summary>
         private Point endPoint;
 
+        /// <summary>
+        /// The line
+        /// </summary>
         private string line;
 
+        /// <summary>
+        /// The command
+        /// </summary>
         private char command;
 
+        /// <summary>
+        /// The close reason
+        /// </summary>
         private string closeReason;
 
+        /// <summary>
+        /// The games list
+        /// </summary>
         private ObservableCollection<string> gamesList;
 
+        /// <summary>
+        /// Gets or sets the games list.
+        /// </summary>
+        /// <value>
+        /// The games list.
+        /// </value>
         public ObservableCollection<string> GamesList
         {
             get
@@ -65,17 +122,29 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApplicationMultiPlayerModel"/> class.
+        /// </summary>
         public ApplicationMultiPlayerModel()
         {
-            this.name = "ifat";
+            this.name = Settings.Default.MazeName;
             this.rows = Settings.Default.MazeRows;
             this.cols = Settings.Default.MazeCols;
             this.notReady = true;
             this.command = 'N';
         }
 
+        /// <summary>
+        /// Gets or sets the name of the maze.
+        /// </summary>
+        /// <value>
+        /// The name of the maze.
+        /// </value>
         public string MazeName
         {
             get
@@ -92,6 +161,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the maze rows.
+        /// </summary>
+        /// <value>
+        /// The maze rows.
+        /// </value>
         public int MazeRows
         {
             get
@@ -108,6 +183,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the maze cols.
+        /// </summary>
+        /// <value>
+        /// The maze cols.
+        /// </value>
         public int MazeCols
         {
             get
@@ -124,6 +205,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the string maze.
+        /// </summary>
+        /// <value>
+        /// The string maze.
+        /// </value>
         public string StringMaze
         {
             get
@@ -137,6 +224,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the current point.
+        /// </summary>
+        /// <value>
+        /// The curr point.
+        /// </value>
         public Point CurrPoint
         {
             get
@@ -151,6 +244,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the second curr point.
+        /// </summary>
+        /// <value>
+        /// The second curr point.
+        /// </value>
         public Point SecondCurrPoint
         {
             get
@@ -165,6 +264,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets the end point.
+        /// </summary>
+        /// <value>
+        /// The end point.
+        /// </value>
         public Point EndPoint
         {
             get
@@ -176,6 +281,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the solution.
+        /// </summary>
+        /// <value>
+        /// The solution.
+        /// </value>
         public string Solution
         {
             get
@@ -192,6 +303,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the close reason.
+        /// </summary>
+        /// <value>
+        /// The close reason.
+        /// </value>
         public string CloseReason
         {
             get
@@ -205,7 +322,13 @@ namespace WPFGame
                 this.NotifyPropertyChanged("CloseReason");
             }
         }
-        
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [not ready].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [not ready]; otherwise, <c>false</c>.
+        /// </value>
         public bool NotReady
         {
             get
@@ -218,6 +341,9 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Starts the connection.
+        /// </summary>
         public void StartConnection()
         {
             IPEndPoint ipep = new IPEndPoint(
@@ -307,14 +433,20 @@ namespace WPFGame
 
         }
 
+        /// <summary>
+        /// Evaluates the answer.
+        /// </summary>
+        /// <param name="commandKey">The command key.</param>
+        /// <param name="result">The result.</param>
         private void EvaluateAnswer(string commandKey, string result)
-        {
+        {//check the command and make her work
             switch (commandKey)
             {
                 case "start":
                     {
                         if (result.Length != 0)
                         {
+                            //start the game
                             this.StringMaze = result;
                             this.maze = Maze.FromJSON(this.StringMaze);
                             int x = this.maze.InitialPos.Row;
@@ -329,6 +461,7 @@ namespace WPFGame
                     }
                 case "list":
                     {
+                        //show the list
                         string[] list = JsonConvert.DeserializeObject<string[]>(result);
                         int i,length = list.Count();
                         ObservableCollection<string> someList= new ObservableCollection<string>();
@@ -341,6 +474,7 @@ namespace WPFGame
                     }
                 case "join":
                     {
+                        //join to anothe game
                         this.StringMaze = result;
                         this.maze = Maze.FromJSON(this.StringMaze);
                         int x = this.maze.InitialPos.Row;
@@ -354,12 +488,14 @@ namespace WPFGame
                     }
                 case "play":
                     {
+                        //make a move
                         if(result != string.Empty)
                             this.SecPlayerKeyPressed(result[0]);
                         break;
                     }
                 case "gotClosed":
                     {
+                        //close the game
                         if (this.SecondCurrPoint.Equals(this.EndPoint))
                         {
                             this.CloseReason = "lose";
@@ -379,17 +515,28 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Starts the game.
+        /// </summary>
         public void StartGame()
         {
             this.command = 's';
         }
 
+        /// <summary>
+        /// Joins the game.
+        /// </summary>
         public void JoinGame()
         {
             //MazeName = find the maze we want to join
             this.command = 'j';
         }
 
+        /// <summary>
+        /// Keys the pressed.
+        /// </summary>
+        /// <param name="direction">The direction.</param>
+        /// <returns></returns>
         public int KeyPressed(char direction)
         {
             int iLocation = (int)this.CurrPoint.X, jLocation = (int)this.CurrPoint.Y;
@@ -453,6 +600,11 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Secs the player key pressed.
+        /// </summary>
+        /// <param name="direction">The direction.</param>
+        /// <returns></returns>
         public int SecPlayerKeyPressed(char direction)
         {
             int iLocation = (int)this.SecondCurrPoint.X, jLocation = (int)this.SecondCurrPoint.Y;
@@ -496,6 +648,10 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Notifies the property changed.
+        /// </summary>
+        /// <param name="name">The name.</param>
         protected void NotifyPropertyChanged(string name)
         {
             if (this.PropertyChanged != null)
@@ -504,13 +660,17 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Sends the massage.
+        /// </summary>
+        /// <returns></returns>
         public string SendMassage()
         {
             string massage;
             while (this.command == 'N')
             { 
             }
-
+            //set a massege to terminal
             switch (this.command)
             {
                 case 's':
@@ -574,15 +734,21 @@ namespace WPFGame
             return massage;
         }
 
+        /// <summary>
+        /// Closes the game.
+        /// </summary>
         public void CloseGame()
         {
             if(this.CloseReason==null)
                 this.command = 'c';
         }
 
+        /// <summary>
+        /// Gets the list.
+        /// </summary>
         public void GetList()
         {
-            //this.command = 'l';
+            //this.command = 'l'
             return;
         }
     }

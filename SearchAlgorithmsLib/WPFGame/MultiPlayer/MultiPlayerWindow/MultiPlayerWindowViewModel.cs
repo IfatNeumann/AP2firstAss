@@ -9,15 +9,33 @@ namespace WPFGame
     using System.ComponentModel;
     using System.Windows;
 
+    /// <summary>
+    /// the view model of the multiplayer window
+    /// </summary>
+    /// <seealso cref="WPFGame.ViewModel" />
     class MultiPlayerWindowViewModel : ViewModel
     {
 
+        /// <summary>
+        /// The model
+        /// </summary>
         private IMultiPlayerModel model;
 
+        /// <summary>
+        /// type that represents references to the method
+        /// </summary>
+        /// <param name="reason">The reason.</param>
         public delegate void NotifyViewThatPropertyChanged(string reason);
-        
+
+        /// <summary>
+        /// Occurs when [closing happend].
+        /// </summary>
         public event NotifyViewThatPropertyChanged ClosingHappend;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MultiPlayerWindowViewModel"/> class.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public MultiPlayerWindowViewModel(IMultiPlayerModel model)
         {
             this.model = model;
@@ -34,6 +52,12 @@ namespace WPFGame
                 };
         }
 
+        /// <summary>
+        /// Gets or sets the name of the vm maze.
+        /// </summary>
+        /// <value>
+        /// The name of the vm maze.
+        /// </value>
         public string VmMazeName
         {
             get
@@ -46,8 +70,13 @@ namespace WPFGame
                 this.model.MazeName = value;
             }
         }
-
-        // public event PropertyChangedEventHandler PropertyChanged;
+       
+        /// <summary>
+        /// Gets or sets the vm maze rows.
+        /// </summary>
+        /// <value>
+        /// The vm maze rows.
+        /// </value>
         public string VmMazeRows
         {
             get
@@ -64,6 +93,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm maze cols.
+        /// </summary>
+        /// <value>
+        /// The vm maze cols.
+        /// </value>
         public string VmMazeCols
         {
             get
@@ -80,6 +115,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm string maze.
+        /// </summary>
+        /// <value>
+        /// The vm string maze.
+        /// </value>
         public string VmStringMaze
         {
             get
@@ -93,6 +134,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm curr point.
+        /// </summary>
+        /// <value>
+        /// The vm curr point.
+        /// </value>
         public string VmCurrPoint
         {
             get
@@ -106,6 +153,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm second curr point.
+        /// </summary>
+        /// <value>
+        /// The vm second curr point.
+        /// </value>
         public string VmSecondCurrPoint
         {
             get
@@ -119,6 +172,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets the vm end point.
+        /// </summary>
+        /// <value>
+        /// The vm end point.
+        /// </value>
         public string VmEndPoint
         {
             get
@@ -127,6 +186,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm solution.
+        /// </summary>
+        /// <value>
+        /// The vm solution.
+        /// </value>
         public string VmSolution
         {
             get
@@ -143,6 +208,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm close reason.
+        /// </summary>
+        /// <value>
+        /// The vm close reason.
+        /// </value>
         public string VmCloseReason
         {
             get
@@ -153,15 +224,22 @@ namespace WPFGame
             set
             {
                 this.model.CloseReason = value;
-                //this.ClosingHappend?.Invoke(value);
             }
         }
 
+        /// <summary>
+        /// Keys the pressed.
+        /// </summary>
+        /// <param name="direction">The direction.</param>
+        /// <returns></returns>
         public int KeyPressed(char direction)
         {
             return this.model.KeyPressed(direction);
         }
 
+        /// <summary>
+        /// Closes the game.
+        /// </summary>
         public void CloseGame()
         {
             this.model.CloseGame();
