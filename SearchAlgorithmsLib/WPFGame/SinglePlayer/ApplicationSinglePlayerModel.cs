@@ -1,49 +1,81 @@
-﻿namespace WPFGame
+﻿using System.ComponentModel;
+using System.IO;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading.Tasks;
+using System.Windows;
+using MazeLib;
+using Newtonsoft.Json.Linq;
+using WPFGame.Properties;
+
+namespace WPFGame
 {
-    using System;
-    using System.ComponentModel;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Net;
-    using System.Net.Sockets;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Windows;
-
-    using MazeLib;
-
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-
-    using WPFGame.Properties;
-
+    /// <summary>
+    /// the model of the application sibgle player
+    /// </summary>
+    /// <seealso cref="WPFGame.ISinglePlayerModel" />
     public class ApplicationSinglePlayerModel : ISinglePlayerModel
     {
+        /// <summary>
+        /// The name of th game
+        /// </summary>
         private string name;
 
+        /// <summary>
+        /// The rows
+        /// </summary>
         private int rows;
 
+        /// <summary>
+        /// The cols
+        /// </summary>
         private int cols;
 
+        /// <summary>
+        /// The string maze
+        /// </summary>
         private string stringMaze;
 
+        /// <summary>
+        /// The solution
+        /// </summary>
         private string solution;
 
+        /// <summary>
+        /// The maze
+        /// </summary>
         private Maze maze;
 
+        /// <summary>
+        /// The current point
+        /// </summary>
         private Point currPoint;
 
+        /// <summary>
+        /// The end point
+        /// </summary>
         private Point endPoint;
 
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApplicationSinglePlayerModel"/> class.
+        /// </summary>
         public ApplicationSinglePlayerModel()
         {
             this.rows = Settings.Default.MazeRows;
             this.cols = Settings.Default.MazeCols;
         }
 
+        /// <summary>
+        /// Gets or sets the name of the maze.
+        /// </summary>
+        /// <value>
+        /// The name of the maze.
+        /// </value>
         public string MazeName
         {
             get
@@ -60,6 +92,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the maze rows.
+        /// </summary>
+        /// <value>
+        /// The maze rows.
+        /// </value>
         public int MazeRows
         {
             get
@@ -76,6 +114,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the maze cols.
+        /// </summary>
+        /// <value>
+        /// The maze cols.
+        /// </value>
         public int MazeCols
         {
             get
@@ -92,6 +136,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the string maze.
+        /// </summary>
+        /// <value>
+        /// The string maze.
+        /// </value>
         public string StringMaze
         {
             get
@@ -105,6 +155,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the current point.
+        /// </summary>
+        /// <value>
+        /// The curr point.
+        /// </value>
         public Point CurrPoint
         {
             get
@@ -119,6 +175,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets the end point.
+        /// </summary>
+        /// <value>
+        /// The end point.
+        /// </value>
         public Point EndPoint
         {
             get
@@ -130,6 +192,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the solution.
+        /// </summary>
+        /// <value>
+        /// The solution.
+        /// </value>
         public string Solution
         {
             get
@@ -146,6 +214,11 @@
             }
         }
 
+        /// <summary>
+        /// handels Keys the pressed.
+        /// </summary>
+        /// <param name="direction">The direction.</param>
+        /// <returns></returns>
         public int KeyPressed(char direction)
         {
 
@@ -208,6 +281,9 @@
             }
         }
 
+        /// <summary>
+        /// Starts the game.
+        /// </summary>
         public void StartGame()
         {
             IPEndPoint ipep = new IPEndPoint(
@@ -245,6 +321,10 @@
             client.Close();
         }
 
+        /// <summary>
+        /// Notifies the property changed.
+        /// </summary>
+        /// <param name="name">The name.</param>
         protected void NotifyPropertyChanged(string name)
         {
             if (this.PropertyChanged != null)
@@ -253,6 +333,9 @@
             }
         }
 
+        /// <summary>
+        /// Solves the maze.
+        /// </summary>
         public void SolveMaze()
         {
             Task t = new Task(
@@ -296,6 +379,9 @@
             t.Start();
         }
 
+        /// <summary>
+        /// Initializes the start position.
+        /// </summary>
         public void InitStartPos()
         {
             this.maze = Maze.FromJSON(this.StringMaze);

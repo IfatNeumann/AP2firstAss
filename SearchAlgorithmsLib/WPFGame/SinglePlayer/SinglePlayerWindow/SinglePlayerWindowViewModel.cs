@@ -1,19 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Windows;
 
 namespace WPFGame
 {
-    using System.ComponentModel;
-    using System.Windows;
-
+    /// <summary>
+    /// the view model of the application
+    /// </summary>
+    /// <seealso cref="WPFGame.ViewModel" />
     public class SinglePlayerWindowViewModel : ViewModel
     {
+        /// <summary>
+        /// The model of the single player
+        /// </summary>
         private ISinglePlayerModel model;
-        //public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SinglePlayerWindowViewModel"/> class.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public SinglePlayerWindowViewModel(ISinglePlayerModel model)
         {
             this.model = model;
@@ -23,6 +28,12 @@ namespace WPFGame
                 };
         }
 
+        /// <summary>
+        /// Gets or sets the name of the vm maze.
+        /// </summary>
+        /// <value>
+        /// The name of the vm maze.
+        /// </value>
         public string VmMazeName
         {
             get
@@ -36,7 +47,12 @@ namespace WPFGame
             }
         }
 
-        // public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Gets or sets the vm maze rows.
+        /// </summary>
+        /// <value>
+        /// The vm maze rows.
+        /// </value>
         public string VmMazeRows
         {
             get
@@ -53,6 +69,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm maze cols.
+        /// </summary>
+        /// <value>
+        /// The vm maze cols.
+        /// </value>
         public string VmMazeCols
         {
             get
@@ -69,6 +91,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm string maze.
+        /// </summary>
+        /// <value>
+        /// The vm string maze.
+        /// </value>
         public string VmStringMaze
         {
             get
@@ -82,6 +110,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm curr point.
+        /// </summary>
+        /// <value>
+        /// The vm curr point.
+        /// </value>
         public string VmCurrPoint
         {
             get
@@ -95,6 +129,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets the vm end point.
+        /// </summary>
+        /// <value>
+        /// The vm end point.
+        /// </value>
         public string VmEndPoint
         {
             get
@@ -103,6 +143,12 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vm solution.
+        /// </summary>
+        /// <value>
+        /// The vm solution.
+        /// </value>
         public string VmSolution
         {
             get
@@ -119,11 +165,19 @@ namespace WPFGame
             }
         }
 
+        /// <summary>
+        /// Keys the pressed.
+        /// </summary>
+        /// <param name="direction">The direction.</param>
+        /// <returns></returns>
         public int KeyPressed(char direction)
         {
             return this.model.KeyPressed(direction);
         }
 
+        /// <summary>
+        /// Initializes the start position.
+        /// </summary>
         public void InitStartPos()
         {
             this.model.InitStartPos();
