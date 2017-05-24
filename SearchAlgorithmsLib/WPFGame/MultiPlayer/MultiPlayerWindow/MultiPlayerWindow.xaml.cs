@@ -40,23 +40,23 @@ namespace WPFGame
         {
             if (reason.Equals("lose"))
             {
-                this.Dispatcher.BeginInvoke((Action)(() => {
-                        LoseWindow win = new LoseWindow();
-                        win.Show();
-                        this.Close();
-                    }));
+                this.Dispatcher.BeginInvoke(
+                    (Action)(() =>
+                        {
+                            LoseWindow win = new LoseWindow();
+                            win.Show();
+                            this.Close();
+                        }));
             }
             else if (reason.Equals("technicalWin"))
             {
-                this.Dispatcher.BeginInvoke((Action)(() => {
-                    TechnicalWinWindow win = new TechnicalWinWindow();
-                win.Show();
-                this.Close();
-                }));
-            }
-            else
-            {
-                //hellooooo
+                this.Dispatcher.BeginInvoke(
+                    (Action)(() =>
+                        {
+                            TechnicalWinWindow win = new TechnicalWinWindow();
+                            win.Show();
+                            this.Close();
+                        }));
             }
         }
 

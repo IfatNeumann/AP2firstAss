@@ -13,7 +13,7 @@
         <StackPanel Margin="0,20,0,0">
             <StackPanel.Orientation>Horizontal</StackPanel.Orientation>
             <Label x:Name="GlLabel" FontWeight="Bold" Foreground="Black" Content="List Of Games: "/>
-            <ComboBox x:Name="MyComboBox" ItemsSource="{Binding Path=VmList}" Width="180" Height="23"></ComboBox>
+            <ComboBox x:Name="MyComboBox" ItemsSource="{Binding Path=VmAvailableGames}" Width="180" Height="23" DropDownOpened="comboBox_DropDownOpened"></ComboBox>
         </StackPanel>
         <Button x:Name="JbButton" Content="Join Game" Click="Join_Button_Click" Padding="5" Width="80" Margin="15"/>
         <local:MenuUserControl x:Name="MazeBoard"></local:MenuUserControl>
