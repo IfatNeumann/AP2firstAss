@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFGame
 {
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.IO;
     using System.Net;
@@ -47,6 +48,22 @@ namespace WPFGame
         private char command;
 
         private string closeReason;
+
+        private ObservableCollection<string> gamesList;
+
+        public ObservableCollection<string> GamesList
+        {
+            get
+            {
+                return this.gamesList;
+            }
+
+            set
+            {
+                this.gamesList = value;
+                this.NotifyPropertyChanged("GamesList");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -187,15 +204,7 @@ namespace WPFGame
                 this.NotifyPropertyChanged("CloseReason");
             }
         }
-
-        public List<string> List
-        {
-            get
-            {
-                return this.GetList();
-            }
-        }
-
+        
         public bool NotReady
         {
             get
@@ -229,7 +238,7 @@ namespace WPFGame
                                 // Get result from server
                                 string result = reader.ReadString();
                                 string commandKey = this.line.Split(' ').First();
-                                if (result != string.Empty)
+                                if (result != string.Empty && !commandKey.Equals("list"))
                                 {
                                     JObject dir = JObject.Parse(result);
 
@@ -319,6 +328,14 @@ namespace WPFGame
                     }
                 case "list":
                     {
+                        string[] list = JsonConvert.DeserializeObject<string[]>(result);
+                        int i,length = list.Count();
+                        ObservableCollection<string> someList= new ObservableCollection<string>();
+                        for (i = 0; i < length; i++)
+                        {
+                            someList.Add(list[i]);
+                        }
+                        this.GamesList = someList;
                         break;
                     }
                 case "join":
@@ -330,6 +347,7 @@ namespace WPFGame
                         Point curr = new Point(x, y);
 
                         this.CurrPoint = curr;
+                        this.SecondCurrPoint = curr;
                         this.notReady = false;
                         break;
                     }
@@ -553,10 +571,10 @@ namespace WPFGame
                 this.command = 'c';
         }
 
-        public List<string> GetList()
+        public void GetList()
         {
             //this.command = 'l';
-            return new List<string>();
+            return;
         }
     }
 }

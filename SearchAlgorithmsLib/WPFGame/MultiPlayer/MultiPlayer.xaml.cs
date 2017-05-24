@@ -61,5 +61,10 @@ namespace WPFGame
             Task task = new Task(() => { this.vm.StartConnection(); });
             task.Start();
         }
+
+        private void comboBox_DropDownOpened(object sender, EventArgs e)
+        {
+            this.vm.VmGetList();
+        }
     }
 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace WPFGame
 {
+    using System.Collections.ObjectModel;
+
     public class MultiPlayerViewModel : ViewModel
     {
         private IMultiPlayerModel model;
@@ -53,11 +55,17 @@ namespace WPFGame
             }
         }
 
-        public List<string> VmList
+        public ObservableCollection<string> VmGamesList
         {
             get
             {
-                return this.model.List;
+                return this.model.GamesList;
+            }
+
+            set
+            {
+                this.model.GamesList = value;
+                this.NotifyPropertyChanged("VmGamesList");
             }
         }
 
@@ -71,6 +79,11 @@ namespace WPFGame
             {
                 this.model.NotReady = value;
             }
+        }
+
+        public void VmGetList()
+        {
+            this.model.GetList();
         }
 
         public void StartConnection()

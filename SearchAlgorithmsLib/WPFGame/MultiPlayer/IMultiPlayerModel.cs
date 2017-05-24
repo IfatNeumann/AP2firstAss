@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFGame
 {
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Windows;
 
@@ -20,7 +21,7 @@ namespace WPFGame
 
         string StringMaze { get; set; }
 
-        List<string> List { get; }
+        ObservableCollection<string> GamesList { get; set; }
 
         Point CurrPoint { get; set; }
 
@@ -43,6 +44,6 @@ namespace WPFGame
 
         void CloseGame();
 
-        List<string> GetList();
+        void GetList();
     }
 }
