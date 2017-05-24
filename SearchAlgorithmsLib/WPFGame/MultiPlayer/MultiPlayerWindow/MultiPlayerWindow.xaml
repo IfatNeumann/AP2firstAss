@@ -10,6 +10,6 @@
         <local:MazeUserControl x:Name="MazeBoard" Rows="{Binding Path=VmMazeRows}" Cols="{Binding Path=VmMazeCols}"
                                StringMaze="{Binding Path=VmStringMaze}" CurrPoint="{Binding Path=VmCurrPoint,Mode=TwoWay}" Canvas.Left="621" Canvas.Top="31" Height="550" Width="550" Loaded="MazeBoard_Loaded"/>
         <local:MazeUserControl x:Name="AnotherMazeBoard" Rows="{Binding Path=VmMazeRows}" Cols="{Binding Path=VmMazeCols}"
-                               StringMaze="{Binding Path=VmStringMaze}" CurrPoint="{Binding Path=VmSecondCurrPoint,Mode=TwoWay}" Height="550" Canvas.Left="33" Canvas.Top="30" Width="550" />
+                               StringMaze="{Binding Path=VmStringMaze}" CurrPoint="{Binding Path=VmCurrPoint,Mode=TwoWay}" Height="550" Canvas.Left="33" Canvas.Top="30" Width="550" />
     </Canvas>
 </Window>
