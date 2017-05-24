@@ -368,7 +368,6 @@ namespace WPFGame
                                 if (result != string.Empty && !commandKey.Equals("list"))
                                 {
                                     JObject dir = JObject.Parse(result);
-
                                     if (result.Equals("{}"))
                                     {
                                         commandKey = "gotClosed";
@@ -377,7 +376,7 @@ namespace WPFGame
                                     {
                                         commandKey = "play";
                                         result = dir.GetValue("Direction").ToString();
-                                        //result = dir[1];
+                                        
                                     }
                                 }
                                 
@@ -688,7 +687,7 @@ namespace WPFGame
                 case 'j':
                     {
                         this.command = 'N';
-                        massage = "join ifat";
+                        massage = "join "+ this.MazeName;
                         break;
                     }
                 case ',':
@@ -722,7 +721,7 @@ namespace WPFGame
                 case 'c':
                     {
                         this.command = 'N';
-                        massage = "close ifat";
+                        massage = "close " + this.MazeName;
                         break;
                     }
                 default:
