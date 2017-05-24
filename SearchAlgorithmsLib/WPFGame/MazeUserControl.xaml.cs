@@ -72,6 +72,16 @@ namespace WPFGame
             }
         }
 
+        public string SecondCurrPoint
+        {
+            get { return (string)GetValue(SecondCurrPointProperty); }
+            set
+            {
+                SetValue(SecondCurrPointProperty, value);
+                //this.UpdateMaze();
+            }
+        }
+
         public static readonly DependencyProperty ColsProperty =
             DependencyProperty.Register("Cols", typeof(string), typeof(MazeUserControl), null);
 
@@ -84,7 +94,16 @@ namespace WPFGame
         public static readonly DependencyProperty CurrPointProperty =
             DependencyProperty.Register("CurrPoint", typeof(string), typeof(MazeUserControl), new UIPropertyMetadata(ChangePos));
 
+        public static readonly DependencyProperty SecondCurrPointProperty =
+            DependencyProperty.Register("SecondCurrPoint", typeof(string), typeof(MazeUserControl), new UIPropertyMetadata(ChangeSecPos));
+
         public static void ChangePos(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            MazeUserControl userControl = d as MazeUserControl;
+            userControl.UpdateMaze(e.NewValue.ToString());
+        }
+
+        public static void ChangeSecPos(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             MazeUserControl userControl = d as MazeUserControl;
             userControl.UpdateMaze(e.NewValue.ToString());

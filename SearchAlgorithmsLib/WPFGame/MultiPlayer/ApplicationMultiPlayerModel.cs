@@ -24,6 +24,7 @@ namespace WPFGame
     {
         private bool notReady;
 
+        private char direction;
         private string name;
 
         private int rows;
@@ -209,8 +210,18 @@ namespace WPFGame
                             {
                                 // Get result from server
                                 string result = reader.ReadString();
-                                //Console.WriteLine(result);
                                 string commandKey = this.line.Split(' ').First();
+                                if (result != string.Empty)
+                                {
+                                    JObject dir = JObject.Parse(result);
+                                    if (dir.Last.Path.Equals("Direction"))
+                                    {
+                                        commandKey = "play";
+                                        result = dir.GetValue("Direction").ToString();
+                                        //result = dir[1];
+                                    }
+                                }
+                                
                                 this.EvaluateAnswer(commandKey,result);
 
                                 // check the commands require  closing the connection 
@@ -278,6 +289,7 @@ namespace WPFGame
                             Point curr = new Point(x, y);
 
                             this.CurrPoint = curr;
+                            this.SecondCurrPoint = curr;
                             this.notReady = false;
                         }
                         break;
@@ -296,6 +308,12 @@ namespace WPFGame
 
                         this.CurrPoint = curr;
                         this.notReady = false;
+                        break;
+                    }
+                case "play":
+                    {
+                        if(result != string.Empty)
+                        this.SecPlayerKeyPressed(result[0]);
                         break;
                     }
                 default:
@@ -318,7 +336,100 @@ namespace WPFGame
 
         public int KeyPressed(char direction)
         {
-            return 1;
+            int iLocation = (int)this.CurrPoint.X, jLocation = (int)this.CurrPoint.Y;
+            if ((this.EndPoint.X == iLocation) && (this.EndPoint.Y == jLocation))
+            {
+                return 1;
+            }
+            else
+            {
+                switch (direction)
+                {
+                    case 'l':
+                        {
+                            if (jLocation - 1 >= 0 && this.maze[iLocation, jLocation - 1] == CellType.Free)
+                            {
+                                this.CurrPoint = new Point(iLocation, jLocation - 1);
+                                this.command = ',';
+                            }
+
+                            break;
+                        }
+
+                    case 'r':
+                        {
+                            if (jLocation + 1 < this.MazeCols && this.maze[iLocation, jLocation + 1] == CellType.Free)
+                            {
+                                this.CurrPoint = new Point(iLocation, jLocation + 1);
+                                this.command = '/';
+                            }
+
+                            break;
+                        }
+
+                    case 'u':
+                        {
+                            if (iLocation - 1 >= 0 && this.maze[iLocation - 1, jLocation] == CellType.Free)
+                            {
+                                this.CurrPoint = new Point(iLocation - 1, jLocation);
+                                this.command = ';';
+                            }
+
+                            break;
+                        }
+
+                    case 'd':
+                        {
+                            if (iLocation + 1 < this.MazeRows && this.maze[iLocation + 1, jLocation] == CellType.Free)
+                            {
+                                this.CurrPoint = new Point(iLocation + 1, jLocation);
+                                this.command = '.';
+                            }
+
+                            break;
+                        }
+                }
+                return 0;
+            }
+        }
+
+        public int SecPlayerKeyPressed(char direction)
+        {
+            int iLocation = (int)this.SecondCurrPoint.X, jLocation = (int)this.SecondCurrPoint.Y;
+            if ((this.EndPoint.X == iLocation) && (this.EndPoint.Y == jLocation))
+            {
+                return 1;
+            }
+            else
+            {
+                switch (direction)
+                {
+                    case 'l':
+                        {
+                            this.SecondCurrPoint = new Point(iLocation, jLocation - 1);
+                            break;
+                        }
+
+                    case 'r':
+                        {
+                            this.SecondCurrPoint = new Point(iLocation, jLocation + 1);
+                            break;
+                        }
+
+                    case 'u':
+                        {
+                            this.SecondCurrPoint = new Point(iLocation - 1, jLocation);
+                            break;
+                        }
+
+                    case 'd':
+                        {
+                            this.SecondCurrPoint = new Point(iLocation + 1, jLocation);
+                            break;
+                        }
+                }
+                return 0;
+            }
         }
 
         protected void NotifyPropertyChanged(string name)
@@ -354,6 +465,34 @@ namespace WPFGame
                     {
                         this.command = 'N';
                         massage = "join ifat";
+                        break;
+                    }
+                case ',':
+                    {
+                        this.command = 'N';
+                        massage = "play left";
+                       
+                        break;
+                    }
+                case '/':
+                    {
+                        this.command = 'N';
+                        massage = "play right";
+
+                        break;
+                    }
+                case ';':
+                    {
+                        this.command = 'N';
+                        massage = "play up";
+
+                        break;
+                    }
+                case '.':
+                    {
+                        this.command = 'N';
+                        massage = "play down";
+
                         break;
                     }
                 default:
