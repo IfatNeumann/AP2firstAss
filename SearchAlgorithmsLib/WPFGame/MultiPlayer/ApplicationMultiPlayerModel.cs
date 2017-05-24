@@ -488,6 +488,10 @@ namespace WPFGame
                             break;
                         }
                 }
+                if ((this.EndPoint.X == this.SecondCurrPoint.X) && (this.EndPoint.Y == this.SecondCurrPoint.Y))
+                {
+                    return 1;
+                }
                 return 0;
             }
         }

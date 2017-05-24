@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="WinWindow" Height="300" Width="300">
     <Window.Background>
-        <ImageBrush ImageSource="images/winPic.png"></ImageBrush>
+        <ImageBrush ImageSource="../images/winPic.png"></ImageBrush>
     </Window.Background>
     <Grid>
         <Button x:Name="BackToMain" Content="Main menu" HorizontalAlignment="Right" VerticalAlignment="Center" Width="95" Margin="0,230,100,0"

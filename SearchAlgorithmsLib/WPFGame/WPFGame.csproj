@@ -66,7 +66,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="LoseWindow.xaml.cs">
+    <Compile Include="OtherWindows\LoseWindow.xaml.cs">
       <DependentUpon>LoseWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MultiPlayer\ApplicationMultiPlayerModel.cs" />
@@ -100,17 +100,17 @@
     </Compile>
     <Compile Include="SinglePlayer\SinglePlayerWindow\SinglePlayerWindowViewModel.cs" />
     <Compile Include="SinglePlayer\SinglePlayerViewModel.cs" />
-    <Compile Include="TechnicalWinWindow.xaml.cs">
+    <Compile Include="OtherWindows\TechnicalWinWindow.xaml.cs">
       <DependentUpon>TechnicalWinWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel.cs" />
-    <Compile Include="WaitWindow.xaml.cs">
+    <Compile Include="OtherWindows\WaitWindow.xaml.cs">
       <DependentUpon>WaitWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WinWindow.xaml.cs">
+    <Compile Include="OtherWindows\WinWindow.xaml.cs">
       <DependentUpon>WinWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="LoseWindow.xaml">
+    <Page Include="OtherWindows\LoseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,15 +154,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TechnicalWinWindow.xaml">
+    <Page Include="OtherWindows\TechnicalWinWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WaitWindow.xaml">
+    <Page Include="OtherWindows\WaitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WinWindow.xaml">
+    <Page Include="OtherWindows\WinWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,6 +237,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\tecWin.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\clouds.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\roof.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
