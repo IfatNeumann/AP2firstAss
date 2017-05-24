@@ -44,7 +44,8 @@ namespace WPFGame
 
         private string line;
 
-        private char command ='N';
+        private char command;
+
         private string closeReason;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -54,6 +55,7 @@ namespace WPFGame
             this.rows = Settings.Default.MazeRows;
             this.cols = Settings.Default.MazeCols;
             this.notReady = true;
+            this.command = 'N';
         }
 
         public string MazeName

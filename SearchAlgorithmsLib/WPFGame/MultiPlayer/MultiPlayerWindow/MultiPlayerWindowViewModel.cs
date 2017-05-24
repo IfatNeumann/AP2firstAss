@@ -13,14 +13,24 @@ namespace WPFGame
     {
 
         private IMultiPlayerModel model;
-        //public event PropertyChangedEventHandler PropertyChanged;
+
+        public delegate void NotifyViewThatPropertyChanged(string reason);
+        
+        public event NotifyViewThatPropertyChanged ClosingHappend;
 
         public MultiPlayerWindowViewModel(IMultiPlayerModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e)
                 {
-                    this.NotifyPropertyChanged("Vm" + e.PropertyName);
+                    if (e.PropertyName.Equals("CloseReason"))
+                    {
+                        this.ClosingHappend?.Invoke(this.VmCloseReason);
+                    }
+                    else
+                    {
+                        this.NotifyPropertyChanged("Vm" + e.PropertyName);
+                    }
                 };
         }
 
@@ -143,6 +153,7 @@ namespace WPFGame
             set
             {
                 this.model.CloseReason = value;
+                //this.ClosingHappend?.Invoke(value);
             }
         }
 

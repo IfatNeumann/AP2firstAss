@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 
 namespace WPFGame
 {
+    using System.ComponentModel;
     using System.Runtime.CompilerServices;
 
     /// <summary>
@@ -32,36 +33,44 @@ namespace WPFGame
             this.InitializeComponent();
             this.vm = new MultiPlayerWindowViewModel(model);
             this.DataContext = this.vm;
+            this.vm.ClosingHappend += this.CloseGame;
         }
 
-        public string CloseReason
+        private void CloseGame(string reason)
         {
-            get { return (string)GetValue(CloseReasonProperty); }
-            set
+            if (reason.Equals("lose"))
             {
-                SetValue(CloseReasonProperty, value);
-                
+                this.Dispatcher.BeginInvoke((Action)(() => {
+                        WinWindow win = new WinWindow();
+                        win.Show();
+                        this.Close();
+                    }));
+            }
+            else if (reason.Equals("technicalWin"))
+            {
+
+            }
+            else
+            {
+                //hellooooo
             }
         }
 
-        public static readonly DependencyProperty CloseReasonProperty =
-            DependencyProperty.Register("CloseReason", typeof(string), typeof(MultiPlayerWindow), new UIPropertyMetadata(CloseGame));
+        //public string CloseReason
+        //{
+        //    get
+        //    {
+        //        return (string)GetValue(CloseReasonProperty);
+        //    }
 
-        public static void CLoseGame(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (this.CloseReason.Equals("lose"))
-                {
-                    this.winScreen();
-                }
-                else if (this.CloseReason.Equals("technicalWin"))
-                {
+        //    set
+        //    {
+        //        SetValue(CloseReasonProperty, value);
+        //    }
+        //}
 
-                }
-                else
-                {
-                    //hellooooo
-                }
-        }
+        //public static readonly DependencyProperty CloseReasonProperty =
+        //    DependencyProperty.Register("CloseReason", typeof(string), typeof(MultiPlayerWindow), null);
 
         private void Back_To_Main_Button_Click(object sender, RoutedEventArgs e)
         {
