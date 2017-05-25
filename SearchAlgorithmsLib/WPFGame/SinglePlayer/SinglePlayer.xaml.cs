@@ -1,8 +1,11 @@
 ﻿using System.Windows;
 
-
 namespace WPFGame
 {
+    using System;
+
+    using WPFGame.OtherWindows;
+
     /// <summary>
     /// Interaction logic for SinglePlayer.xaml
     /// </summary>
@@ -14,6 +17,7 @@ namespace WPFGame
         /// The vm of the single player
         /// </summary>
         private SinglePlayerViewModel vm;
+
         /// <summary>
         /// The model
         /// </summary>
@@ -29,7 +33,6 @@ namespace WPFGame
             this.InitializeComponent();
             this.vm = new SinglePlayerViewModel(this.model);
             this.DataContext = this.vm;
-
         }
 
         /// <summary>
@@ -39,8 +42,25 @@ namespace WPFGame
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.model.StartGame();
+            try
+            {
+                this.model.StartGame();
+            }
+            catch (Exception excp)
+            {
+                this.NoConnection();
+                this.Close();
+                return;
+            }
+
             SinglePlayerWindow win = new SinglePlayerWindow(this.model);
+            win.Show();
+            this.Close();
+        }
+
+        private void NoConnection()
+        {
+            NoConnectionWindow win = new NoConnectionWindow();
             win.Show();
             this.Close();
         }

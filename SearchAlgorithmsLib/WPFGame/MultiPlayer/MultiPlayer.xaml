@@ -15,7 +15,8 @@
             <Label x:Name="GlLabel" FontWeight="Bold" Foreground="Black" Content="List Of Games: "/>
             <ComboBox x:Name="MyComboBox" ItemsSource="{Binding VmGamesList}" SelectedValue="{Binding VmName}" Width="180" Height="23" DropDownOpened="comboBox_DropDownOpened"></ComboBox>
         </StackPanel>
-        <Button x:Name="JbButton" Content="Join Game" Click="Join_Button_Click" Padding="5" Width="80" Margin="15"/>
+        <Button x:Name="JbButton" Content="Join Game" Click="Join_Button_Click" Padding="5" Width="80" Margin="15">
+        </Button>
         <local:MenuUserControl x:Name="MazeBoard"></local:MenuUserControl>
 
         <Button x:Name="BtnStart" HorizontalAlignment="Center" Click="Start_Button_Click" Margin="15" Padding="5">Start Game</Button>

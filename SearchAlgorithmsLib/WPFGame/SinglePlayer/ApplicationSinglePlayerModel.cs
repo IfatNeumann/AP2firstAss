@@ -66,6 +66,7 @@ namespace WPFGame
         /// </summary>
         public ApplicationSinglePlayerModel()
         {
+            this.name = Settings.Default.MazeName;
             this.rows = Settings.Default.MazeRows;
             this.cols = Settings.Default.MazeCols;
         }
@@ -293,7 +294,7 @@ namespace WPFGame
 
             // create new TcpClient
             TcpClient client = new TcpClient();
-             client.Connect(ipep);
+            client.Connect(ipep);
             NetworkStream stream = client.GetStream();
 
             // Write to server
@@ -308,13 +309,7 @@ namespace WPFGame
             int x = this.maze.InitialPos.Row;
             int y = this.maze.InitialPos.Col;
             Point curr = new Point(x, y);
-
             this.CurrPoint = curr;
-
-            // solution
-            writer.Write("solve " + this.name + " 1");
-            JObject jSolution = JObject.Parse(reader.ReadString());
-            this.Solution = jSolution["Solution"].ToString();
 
             // close connection
             writer.Dispose();
@@ -339,6 +334,32 @@ namespace WPFGame
         /// </summary>
         public void SolveMaze()
         {
+            if (this.Solution == null)
+            {
+                IPEndPoint ipep = new IPEndPoint(
+                    IPAddress.Parse(Properties.Settings.Default.ServerIP),
+                    Properties.Settings.Default.ServerPort);
+
+                // create new TcpClient
+                TcpClient client = new TcpClient();
+                client.Connect(ipep);
+                NetworkStream stream = client.GetStream();
+
+                // Write to server
+                BinaryWriter writer = new BinaryWriter(stream);
+                writer.Write("solve " + this.name + " " + Settings.Default.SearchAlgorithm.ToString());
+
+                // Read from server
+                BinaryReader reader = new BinaryReader(stream);
+                JObject jSolution = JObject.Parse(reader.ReadString());
+                this.Solution = jSolution["Solution"].ToString();
+
+                // close connection
+                writer.Dispose();
+                reader.Dispose();
+                client.Close();
+            }
+            // Start solving
             Task t = new Task(
                 () =>
                     {
