@@ -255,6 +255,7 @@
     <Resource Include="images\noCon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\wall.png" />
     <Content Include="music\openMusic.wav" />
     <Content Include="music\song.wav" />
   </ItemGroup>

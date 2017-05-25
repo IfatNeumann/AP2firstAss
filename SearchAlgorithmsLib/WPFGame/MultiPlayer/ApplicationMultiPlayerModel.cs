@@ -12,6 +12,7 @@ namespace WPFGame
     using System.IO;
     using System.Net;
     using System.Net.Sockets;
+    using System.Threading;
     using System.Windows;
 
     using MazeLib;
@@ -93,6 +94,11 @@ namespace WPFGame
         /// </summary>
         private string closeReason;
 
+        TcpClient client;
+        NetworkStream stream;
+        BinaryWriter writer;
+        BinaryReader reader;
+
         /// <summary>
         /// The games list
         /// </summary>
@@ -131,6 +137,10 @@ namespace WPFGame
             this.name = Settings.Default.MazeName;
             this.rows = Settings.Default.MazeRows;
             this.cols = Settings.Default.MazeCols;
+            this.client = null;
+            this.stream = null;
+            this.writer = null;
+            this.reader = null;
             this.notReady = true;
             this.command = 'N';
         }
@@ -345,10 +355,7 @@ namespace WPFGame
             IPEndPoint ipep = new IPEndPoint(
                 IPAddress.Parse(Properties.Settings.Default.ServerIP),
                 Properties.Settings.Default.ServerPort);
-            TcpClient client = null;
-            NetworkStream stream = null;
-            BinaryWriter writer = null;
-            BinaryReader reader = null;
+            
             Task task;
 
             Action receiveThread = new Action(
@@ -391,6 +398,11 @@ namespace WPFGame
                                     client = null;
                                     break;
                                 }
+                            }
+                            catch (System.IO.IOException exp)
+                            {
+                                Thread.Sleep(500);
+                                break;
                             }
                             catch (SocketException)
                             {
@@ -524,7 +536,6 @@ namespace WPFGame
         /// </summary>
         public void JoinGame()
         {
-            //MazeName = find the maze we want to join
             this.command = 'j';
         }
 
@@ -745,14 +756,17 @@ namespace WPFGame
         public void GetList()
         {
             this.command = 'l';
-            return;
         }
 
         /// <summary>
         /// Closes the connection.
         /// </summary>
-        //public void CloseConnection()
-        //{
-        //}
+        public void CloseConnection()
+        {
+            this.writer.Dispose();
+            this.reader.Dispose();
+            this.client.Close();
+            this.client = null;
+        }
     }
 }
