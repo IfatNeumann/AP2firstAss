@@ -45,5 +45,7 @@ namespace WPFGame
         void CloseGame();
 
         void GetList();
+
+        void CloseConnection();
     }
 }

@@ -110,7 +110,7 @@ namespace WPFGame
 
         public void CloseConnection()
         {
-            //this.model.CloseConnection();
+            this.model.CloseConnection();
         }
     }
 }

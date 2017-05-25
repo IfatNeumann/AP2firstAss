@@ -39,11 +39,14 @@ namespace WPFGame
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.vm.JoinGame();
-            while (this.vm.NotReady) { }
-            MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
-            mulWin.Show();
-            this.Close();
+            if (this.vm.VmGamesList != null)
+            {
+                this.vm.JoinGame();
+                while (this.vm.NotReady) { }
+                MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
+                mulWin.Show();
+                this.Close();
+            }
         }
         
 
@@ -56,11 +59,6 @@ namespace WPFGame
         private void comboBox_DropDownOpened(object sender, EventArgs e)
         {
             this.vm.VmGetList();
-        }
-
-        private void UserSelectedItem(object sender, EventArgs e)
-        {
-            //hi
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
