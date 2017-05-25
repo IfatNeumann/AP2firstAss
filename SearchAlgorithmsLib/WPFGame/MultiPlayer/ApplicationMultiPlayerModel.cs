@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace WPFGame
 {
@@ -358,6 +359,7 @@ namespace WPFGame
                             try
                             {
                                 // Get result from server
+                                Thread.Sleep(500);
                                 string result = reader.ReadString();
                                 string commandKey = this.line.Split(' ').First();
                                 if (result != string.Empty && !commandKey.Equals("list"))
