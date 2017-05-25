@@ -32,6 +32,8 @@ namespace WPFGame
         /// </summary>
         private IMultiPlayerModel model;
 
+        public SoundPlayer player;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiPlayerWindow"/> class.
         /// </summary>
@@ -40,7 +42,7 @@ namespace WPFGame
         {
 
             this.model = model;
-            SoundPlayer player = new SoundPlayer(@"C:\Users\m1245\Source\Repos\AP2firstAss\SearchAlgorithmsLib\WPFGame\music\song.wav");
+            player = new SoundPlayer(@"C:\Users\m1245\Source\Repos\AP2firstAss\SearchAlgorithmsLib\WPFGame\music\song.wav");
             player.Load();
             player.Play();
             this.InitializeComponent();
@@ -55,13 +57,16 @@ namespace WPFGame
         /// <param name="reason">The reason.</param>
         private void CloseGame(string reason)
         {
+            
             if (reason.Equals("lose"))
             {
                 this.Dispatcher.BeginInvoke(
                     (Action)(() =>
                         {
                             LoseWindow win = new LoseWindow();
+                            
                             win.Show();
+                            player.Stop();
                             this.Close();
                         }));
             }
@@ -72,6 +77,7 @@ namespace WPFGame
                         {
                             TechnicalWinWindow win = new TechnicalWinWindow();
                             win.Show();
+                            player.Stop();
                             this.Close();
                         }));
             }
@@ -90,6 +96,7 @@ namespace WPFGame
         {
             MainWindow win = new MainWindow();
             win.Show();
+            player.Stop();
             this.Close();
         }
 
@@ -100,6 +107,7 @@ namespace WPFGame
         {
             WinWindow win = new WinWindow();
             win.Show();
+            player.Stop();
             this.Close();
         }
 
