@@ -41,7 +41,7 @@
         </ComboBox>
         <Button x:Name="OkButton" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Margin="0,25,15,5" Padding="5" Width="50" Click="btnOK_Click" Grid.ColumnSpan="2">OK
         </Button>
-        <Button x:Name="CancelButton" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" Margin="56,24,56,6" Padding="5" Click="btnCancel_Click">Cancel
+        <Button x:Name="CancelButton" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" Margin="56,24,37,6" Padding="5" Click="btnCancel_Click" Width="71">Cancel
         </Button>
     </Grid>
 </Window>
