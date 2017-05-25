@@ -66,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="OtherWindows\CheckArgsWindow.xaml.cs">
+      <DependentUpon>CheckArgsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OtherWindows\LoseWindow.xaml.cs">
       <DependentUpon>LoseWindow.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
     <Compile Include="OtherWindows\WinWindow.xaml.cs">
       <DependentUpon>WinWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="OtherWindows\CheckArgsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OtherWindows\LoseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
