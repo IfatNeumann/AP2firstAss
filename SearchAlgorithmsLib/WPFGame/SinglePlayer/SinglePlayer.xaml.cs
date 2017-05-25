@@ -28,6 +28,7 @@ namespace WPFGame
         /// </summary>
         public SinglePlayer()
         {
+
             this.model = new ApplicationSinglePlayerModel();
             this.InitializeComponent();
             this.vm = new SinglePlayerViewModel(this.model);
