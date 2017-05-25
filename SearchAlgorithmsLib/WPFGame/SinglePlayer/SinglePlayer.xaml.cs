@@ -42,20 +42,29 @@ namespace WPFGame
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (this.MenuUserControl.TxtMazeName.Text.Equals(string.Empty)
+                && this.MenuUserControl.TxtRows.Text.Equals(string.Empty)
+                && this.MenuUserControl.TxtCols.Text.Equals(string.Empty))
             {
-                this.model.StartGame();
+                //open other window
             }
-            catch (Exception excp)
+            else
             {
-                this.NoConnection();
-                this.Close();
-                return;
-            }
+                try
+                {
+                    this.model.StartGame();
+                }
+                catch (Exception excp)
+                {
+                    this.NoConnection();
+                    this.Close();
+                    return;
+                }
 
-            SinglePlayerWindow win = new SinglePlayerWindow(this.model);
-            win.Show();
-            this.Close();
+                SinglePlayerWindow win = new SinglePlayerWindow(this.model);
+                win.Show();
+                this.Close();
+            }
         }
 
         private void NoConnection()
