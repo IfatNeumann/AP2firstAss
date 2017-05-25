@@ -198,7 +198,7 @@ namespace WPFGame
             grass.ImageSource = new BitmapImage(new Uri(@"images/grass.jpg", UriKind.Relative));
 
             ImageBrush wall = new ImageBrush();
-            wall.ImageSource = new BitmapImage(new Uri(@"images/wall.jpg", UriKind.Relative));
+            wall.ImageSource = new BitmapImage(new Uri(@"images/wall.png", UriKind.Relative));
 
             ImageBrush mother = new ImageBrush();
             mother.ImageSource = new BitmapImage(new Uri(@"images/mother.jpg", UriKind.Relative));
