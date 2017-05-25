@@ -76,6 +76,9 @@
       <DependentUpon>MultiPlayerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MultiPlayer\MultiPlayerWindow\MultiPlayerWindowViewModel.cs" />
+    <Compile Include="OtherWindows\NoConnectionWindow.xaml.cs">
+      <DependentUpon>NoConnectionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings\ApplicationSettingsModel.cs" />
     <Compile Include="MainWindow\IMainWindowModel.cs" />
     <Compile Include="Settings\ISettingsModel.cs" />
@@ -139,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MultiPlayer\MultiPlayerWindow\MultiPlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OtherWindows\NoConnectionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,6 +250,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\roof.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\noCon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

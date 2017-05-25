@@ -31,11 +31,6 @@ namespace WPFGame
         /// not ready to show the screen
         /// </summary>
         private bool notReady;
-
-        /// <summary>
-        /// The direction
-        /// </summary>
-        private char direction;
         
         /// <summary>
         /// The name

@@ -36,11 +36,6 @@ namespace WPFGame
         private List<Rectangle> rectList;
         
         /// <summary>
-        /// The index
-        /// </summary>
-        private int index = 0;
-        
-        /// <summary>
         /// The player record
         /// </summary>
         private Rectangle playerRec;
@@ -49,16 +44,6 @@ namespace WPFGame
         /// My maze
         /// </summary>
         private Maze myMaze;
-        
-        /// <summary>
-        /// The mg
-        /// </summary>
-        private DFSMazeGenerator mg;
-
-        /// <summary>
-        /// The window
-        /// </summary>
-        private DependencyObject window;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MazeUserControl"/> class.
