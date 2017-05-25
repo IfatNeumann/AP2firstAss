@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Media;
+using System.Windows;
 
 namespace WPFGame
 {
@@ -24,6 +25,9 @@ namespace WPFGame
         /// </summary>
         public SettingsWindow()
         {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\m1245\Source\Repos\AP2firstAss\SearchAlgorithmsLib\WPFGame\music\openMusic.wav");
+            player.Load();
+            player.Play();
             this.model = new ApplicationSettingsModel();
             this.InitializeComponent();
             this.vm = new SettingsViewModel(this.model);

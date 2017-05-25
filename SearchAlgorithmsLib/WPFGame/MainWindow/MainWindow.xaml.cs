@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,9 +30,10 @@ namespace WPFGame
         /// </summary>
         public MainWindow()
         {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\m1245\Source\Repos\AP2firstAss\SearchAlgorithmsLib\WPFGame\music\openMusic.wav");
+            player.Load();
+            player.Play();
             this.InitializeComponent();
-           // this.vm = new MainWindowVM();
-            //this.DataContext = this.vm;
         }
 
         /// <summary>

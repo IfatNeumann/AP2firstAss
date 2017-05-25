@@ -8,14 +8,12 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
+using System.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace WPFGame
-{
-    using System.ComponentModel;
-    using System.Runtime.CompilerServices;
+{ 
 
     /// <summary>
     /// Interaction logic for MultiPlayerWindow.xaml
@@ -42,6 +40,9 @@ namespace WPFGame
         {
 
             this.model = model;
+            SoundPlayer player = new SoundPlayer(@"C:\Users\m1245\Source\Repos\AP2firstAss\SearchAlgorithmsLib\WPFGame\music\song.wav");
+            player.Load();
+            player.Play();
             this.InitializeComponent();
             this.vm = new MultiPlayerWindowViewModel(model);
             this.DataContext = this.vm;

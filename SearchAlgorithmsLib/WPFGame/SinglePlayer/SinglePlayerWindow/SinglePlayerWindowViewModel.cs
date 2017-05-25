@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Media;
 using System.Windows;
+
 
 namespace WPFGame
 {
@@ -22,6 +24,9 @@ namespace WPFGame
         public SinglePlayerWindowViewModel(ISinglePlayerModel model)
         {
             this.model = model;
+            SoundPlayer player = new SoundPlayer(@"C:\Users\m1245\Source\Repos\AP2firstAss\SearchAlgorithmsLib\WPFGame\music\song.wav");
+            player.Load();
+            player.Play();
             model.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e)
                 {
                     this.NotifyPropertyChanged("Vm" + e.PropertyName);

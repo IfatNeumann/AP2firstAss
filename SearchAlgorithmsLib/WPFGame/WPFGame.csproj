@@ -244,5 +244,8 @@
   <ItemGroup>
     <Resource Include="images\roof.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="music\song.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
