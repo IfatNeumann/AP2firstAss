@@ -745,5 +745,12 @@ namespace WPFGame
             this.command = 'l';
             return;
         }
+
+        /// <summary>
+        /// Closes the connection.
+        /// </summary>
+        //public void CloseConnection()
+        //{
+        //}
     }
 }

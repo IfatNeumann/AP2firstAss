@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFGame"
         mc:Ignorable="d"
-        Title="Multi Player" Height="300" Width="300" Loaded="On_Loaded">
+        Title="Multi Player" Height="300" Width="300" Loaded="On_Loaded" Closing="Window_Closing">
     <Window.Background>
         <ImageBrush ImageSource="/images/settingsPic.png"></ImageBrush>
     </Window.Background>
@@ -13,7 +13,8 @@
         <StackPanel Margin="0,20,0,0">
             <StackPanel.Orientation>Horizontal</StackPanel.Orientation>
             <Label x:Name="GlLabel" FontWeight="Bold" Foreground="Black" Content="List Of Games: "/>
-            <ComboBox x:Name="MyComboBox" ItemsSource="{Binding VmGamesList}" SelectedValue="{Binding VmName}" Width="180" Height="23" DropDownOpened="comboBox_DropDownOpened"></ComboBox>
+            <ComboBox x:Name="MyComboBox" ItemsSource="{Binding VmGamesList}" SelectedValue="{Binding VmName}" Width="180" Height="23" 
+                      DropDownOpened="comboBox_DropDownOpened" SelectedItem="UserSelectedItem"></ComboBox>
         </StackPanel>
         <Button x:Name="JbButton" Content="Join Game" Click="Join_Button_Click" Padding="5" Width="80" Margin="15">
         </Button>

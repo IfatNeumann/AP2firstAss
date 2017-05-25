@@ -66,5 +66,15 @@ namespace WPFGame
         {
             this.vm.VmGetList();
         }
+
+        private void UserSelectedItem(object sender, EventArgs e)
+        {
+            //hi
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.vm.CloseConnection();
+        }
     }
 }

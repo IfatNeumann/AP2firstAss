@@ -107,5 +107,10 @@ namespace WPFGame
         {
             this.model.JoinGame();
         }
+
+        public void CloseConnection()
+        {
+            //this.model.CloseConnection();
+        }
     }
 }
