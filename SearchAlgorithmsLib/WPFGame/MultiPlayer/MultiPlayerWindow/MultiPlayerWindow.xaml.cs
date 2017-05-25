@@ -32,7 +32,7 @@ namespace WPFGame
         /// </summary>
         private IMultiPlayerModel model;
 
-        public SoundPlayer player;
+       // public SoundPlayer player;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiPlayerWindow"/> class.
@@ -42,9 +42,6 @@ namespace WPFGame
         {
 
             this.model = model;
-            player = new SoundPlayer(@"C:\Users\m1245\Source\Repos\AP2firstAss\SearchAlgorithmsLib\WPFGame\music\song.wav");
-            player.Load();
-            player.Play();
             this.InitializeComponent();
             this.vm = new MultiPlayerWindowViewModel(model);
             this.DataContext = this.vm;
@@ -66,7 +63,6 @@ namespace WPFGame
                             LoseWindow win = new LoseWindow();
                             
                             win.Show();
-                            player.Stop();
                             this.Close();
                         }));
             }
@@ -77,7 +73,6 @@ namespace WPFGame
                         {
                             TechnicalWinWindow win = new TechnicalWinWindow();
                             win.Show();
-                            player.Stop();
                             this.Close();
                         }));
             }
@@ -96,7 +91,7 @@ namespace WPFGame
         {
             MainWindow win = new MainWindow();
             win.Show();
-            player.Stop();
+            //player.Stop();
             this.Close();
         }
 
@@ -107,7 +102,7 @@ namespace WPFGame
         {
             WinWindow win = new WinWindow();
             win.Show();
-            player.Stop();
+            //player.Stop();
             this.Close();
         }
 

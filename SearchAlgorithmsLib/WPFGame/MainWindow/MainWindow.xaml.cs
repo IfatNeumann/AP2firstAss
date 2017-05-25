@@ -30,9 +30,9 @@ namespace WPFGame
         /// </summary>
         public MainWindow()
         {
-            SoundPlayer player = new SoundPlayer(@"C:\Users\m1245\Source\Repos\AP2firstAss\SearchAlgorithmsLib\WPFGame\music\openMusic.wav");
-            player.Load();
-            player.Play();
+            //SoundPlayer player = new SoundPlayer(@"C:\Users\m1245\Source\Repos\AP2firstAss\SearchAlgorithmsLib\WPFGame\music\openMusic.wav");
+            //player.Load();
+            //player.Play();
             this.InitializeComponent();
         }
 
