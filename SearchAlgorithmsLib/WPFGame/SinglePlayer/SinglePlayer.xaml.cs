@@ -43,10 +43,11 @@ namespace WPFGame
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
             if (this.MenuUserControl.TxtMazeName.Text.Equals(string.Empty)
-                && this.MenuUserControl.TxtRows.Text.Equals(string.Empty)
-                && this.MenuUserControl.TxtCols.Text.Equals(string.Empty))
+                || this.MenuUserControl.TxtRows.Text.Equals(string.Empty)
+                || this.MenuUserControl.TxtCols.Text.Equals(string.Empty))
             {
-                //open other window
+                CheckArgsWindow win = new CheckArgsWindow();
+                win.Show();
             }
             else
             {

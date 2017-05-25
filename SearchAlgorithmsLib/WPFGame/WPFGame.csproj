@@ -263,6 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\wall.png" />
+    <Resource Include="images\CheckArgs.png" />
     <Content Include="music\openMusic.wav" />
     <Content Include="music\song.wav" />
   </ItemGroup>

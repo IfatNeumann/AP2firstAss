@@ -21,19 +21,7 @@ namespace WPFGame.OtherWindows
     {
         public CheckArgsWindow()
         {
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// Handles the Click event of the Back_To_Main_Button control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        private void Back_To_Main_Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow win = new MainWindow();
-            win.Show();
-            this.Close();
+            this.InitializeComponent();
         }
     }
 }

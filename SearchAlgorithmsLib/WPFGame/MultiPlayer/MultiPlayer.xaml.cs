@@ -5,6 +5,8 @@ using System.Windows;
 
 namespace WPFGame
 {
+    using WPFGame.OtherWindows;
+
     /// <summary>
     /// Interaction logic for MultiPlayer.xaml
     /// </summary>
@@ -30,15 +32,27 @@ namespace WPFGame
 
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
-            WaitWindow win = new WaitWindow();
-            win.Show();
-            this.surpriseClose = false;
-            this.Close();
-            this.vm.StartGame();
-            while (this.vm.NotReady) { }
-            MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
-            mulWin.Show();
-            win.Close();
+            if (this.MenuUserControl.TxtMazeName.Text.Equals(string.Empty)
+                || this.MenuUserControl.TxtRows.Text.Equals(string.Empty)
+                || this.MenuUserControl.TxtCols.Text.Equals(string.Empty))
+            {
+                CheckArgsWindow win = new CheckArgsWindow();
+                win.Show();
+            }
+            else
+            {
+                WaitWindow win = new WaitWindow();
+                win.Show();
+                this.surpriseClose = false;
+                this.Close();
+                this.vm.StartGame();
+                while (this.vm.NotReady)
+                {
+                }
+                MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
+                mulWin.Show();
+                win.Close();
+            }
         }
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)

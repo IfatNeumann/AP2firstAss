@@ -3,6 +3,8 @@ using System.Windows;
 
 namespace WPFGame
 {
+    using WPFGame.OtherWindows;
+
     /// <summary>
     /// Interaction logic for Settings.xaml
     /// </summary>
@@ -41,10 +43,21 @@ namespace WPFGame
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            this.vm.SaveSettings();
-            MainWindow win = (MainWindow)Application.Current.MainWindow;
-            win.Show();
-            this.Close();
+            if (this.TxtIp.Text.Equals(string.Empty)
+                || this.TxtPort.Text.Equals(string.Empty)
+                || this.TxtCols.Text.Equals(string.Empty)
+                || this.TxtRows.Text.Equals(string.Empty))
+            {
+                CheckArgsWindow win = new CheckArgsWindow();
+                win.Show();
+            }
+            else
+            {
+                this.vm.SaveSettings();
+                MainWindow win = (MainWindow)Application.Current.MainWindow;
+                win.Show();
+                this.Close();
+            }
         }
 
         /// <summary>
