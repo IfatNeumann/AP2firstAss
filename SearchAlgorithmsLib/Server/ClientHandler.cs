@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Server
 {
+    using System.Threading;
+
     /// <summary>
     /// class that handel the interaction between the server and the client 
     /// </summary>
@@ -52,10 +54,9 @@ namespace Server
                                 {
                                     break;
                                 }
-
-                                // in case there is no client connection
-                                catch (System.IO.EndOfStreamException)
+                                catch (System.IO.IOException)
                                 {
+                                    Thread.Sleep(500);
                                     break;
                                 }
                             }

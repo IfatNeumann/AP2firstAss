@@ -15,12 +15,15 @@ namespace WPFGame
 
         private IMultiPlayerModel model;
 
+        private bool surpriseClose;
+
         public MultiPlayer()
         {
             this.model = new ApplicationMultiPlayerModel();
             this.InitializeComponent();
             this.vm = new MultiPlayerViewModel(this.model);
             this.DataContext = this.vm;
+            this.surpriseClose = true;
         }
 
 
@@ -29,6 +32,7 @@ namespace WPFGame
         {
             WaitWindow win = new WaitWindow();
             win.Show();
+            this.surpriseClose = false;
             this.Close();
             this.vm.StartGame();
             while (this.vm.NotReady) { }
@@ -39,12 +43,13 @@ namespace WPFGame
 
         private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (this.vm.VmGamesList != null)
+            if (this.vm.VmGamesList !=null && this.vm.VmGamesList.Count != 0)
             {
                 this.vm.JoinGame();
                 while (this.vm.NotReady) { }
                 MultiPlayerWindow mulWin = new MultiPlayerWindow(this.model);
                 mulWin.Show();
+                this.surpriseClose = false;
                 this.Close();
             }
         }
@@ -63,7 +68,10 @@ namespace WPFGame
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            this.vm.CloseConnection();
+            if (this.surpriseClose)
+            {
+                this.vm.CloseConnection();
+            }
         }
     }
 }
